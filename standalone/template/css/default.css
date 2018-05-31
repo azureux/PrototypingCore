@@ -1,0 +1,29 @@
+﻿/* global styles for HTML & BODY */
+*
+{
+    box-sizing: border-box;
+	vertical-align:top;
+	line-height:normal;
+	margin:0px;
+	padding:0px;
+}
+
+body
+{
+    background-color: rgba(32, 32, 32, 1);
+    color: rgba(224, 224, 224, 1);
+    font-family: 'Segoe UI', 'Tahoma', Arial;
+}
+
+.react-root
+{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	display:block;
+	padding:10px;
+	margin:10px;
+	border: solid 10px rgba(255,255,255,1);
+}

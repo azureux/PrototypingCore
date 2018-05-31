@@ -7,11 +7,15 @@
 	console.log( "BEGIN Azure Prototype\t", new Date().toISOString() );
 	try
 	{
-		var _application_property_bag = {
+		// basic config sample to date
+		// will move out to a JSON formatted file.
+		let _application_property_bag = {
 			RootLinks: [
         		{ RootLink: { InnerText: "Sean Gephardt" } },
 				{ RootLink: { InnerText: "Robert Taft" } },
-        		{ RootLink: { InnerText: "Jaqueline Gaherity" } }
+				{ RootLink: { InnerText: "Jaqueline Gaherity" } },
+				{ RootLink: { InnerText: "Joe Hallock" } },
+				{ RootLink: { InnerText: "Kavitha Perla" } },
 			],
         	"SearchLink.InnerText": "Guitars",
         	"UserSwitchList": ["Sean", "Robert", "Jacqueline", "Jon", "Jonah"],

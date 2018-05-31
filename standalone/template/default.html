@@ -1,12 +1,11 @@
 <html>
 <head>
 	<title>Azure Project "Acuity" Prototype Template</title>
-	<link href="css/main.css" rel="stylesheet" />
+	<link href="css/default.css" rel="stylesheet" />
 	<!-- script requirements in order -->
 	<!-- 
-		1. react & react-dom & other libraries
-		2. custom controls 
-		3. our application
+		1. react, react-dom & other libraries
+		2. controls & application javascript class files
 		4. main.js
 	-->
 	<!-- from CDN paths -->
@@ -17,19 +16,18 @@
 	<script src="js/utilities.js" type="text/javascript"></script>
 	<script src="script/react/react-latest.js" type="text/javascript"></script>
 	<script src="script/react/react-dom-latest.js" type="text/javascript"></script>
-
-	<!-- our react style controls-->
-	<!--<script src="controls/application.js" type="text/javascript"></script>-->
-	<!-- our react application -->
-	<script src="components/standard-controls/root-link.js"></script>
-	<script src="components/standard-controls/search-link.js"></script>
-	<script src="components/standard-controls/user-switch.js"></script>
-	<script src="components/standard-controls/vetical-nav.js"></script>
+	<!-- our react application & controls-->
+	<script src="components/shell-controls/account.js" type="text/javascript"></script>
+	<script src="components/shell-controls/navigation.js" type="text/javascript"></script>
+	<script src="components/standard-controls/root-link.js" type="text/javascript"></script>
+	<script src="components/standard-controls/search-link.js" type="text/javascript"></script>
+	<script src="components/standard-controls/user-switch.js" type="text/javascript"></script>
+	<script src="components/standard-controls/vetical-nav.js" type="text/javascript"></script>
 	<script src="components/application.js" type="text/javascript"></script>
 	<!-- our "main" app -->
 	<script src="js/main.js" type="text/javascript" ></script>
 </head>
 <body>
-	<div id="AppBody"></div>
+	<div id="AppBody" class="react-root"></div>
 </body>
 </html>
