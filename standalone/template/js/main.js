@@ -1,18 +1,17 @@
 ﻿/// <reference path="../script/react/react-latest.js" />
 /// <reference path="../script/react/react-dom-latest.js" />
-
+// "Application" is our main ReactJs application class
+// "ApplicationConfig" lives in config.js
+// "DOMContentLoaded" - wait for DOM to complete before making dom changes
 "use strict";
 ( function ()
 {
 	console.log( "BEGIN Azure Prototype\t", new Date().toISOString() );
 	try
 	{
-		// "Application" is our main ReactJs application class
-		// "ApplicationConfig" lives in config.js
-    	// Wait for DOM to complete before making dom changes
-        window.document.addEventListener( "DOMContentLoaded", function ( e )
-        {	//	console.debug( "Our React.js Main");
-			ReactDOM.render( React.createElement( Application, ApplicationConfig, [] ), document.getElementById( "AppBody" ) );
+		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
+		{
+			ReactDOM.render( React.createElement( Application, OverrideConfig, [] ), document.getElementById( "AppBody" ) );
 			return;
         } );
 	}
@@ -25,7 +24,7 @@
 	}
 	finally
 	{
-        //	console.log( "in 'finally'" );
+		//	console.log( "in 'finally'" );
 	}
     console.log( "END Azure Prototype\t\t", new Date().toISOString() );
 	return; 

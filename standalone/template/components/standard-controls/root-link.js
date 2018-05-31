@@ -60,7 +60,7 @@ class RootLink extends React.Component
 			this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
 		}
 		//	for firing events at the top level of "Application" class
-		this.Application.OnClick_OpenCloseLeftNav( ev, false );
+		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
 		return;
 	};
 	render()

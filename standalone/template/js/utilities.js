@@ -1,5 +1,5 @@
-﻿let Utilities = {
-	NewId: function(strValue)
+﻿const Utilities = {
+	NewId: function( strValue )
 	{
 		var _rv = "";
 		var _id_name = "";
