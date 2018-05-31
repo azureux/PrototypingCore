@@ -20,6 +20,11 @@ class Application extends React.Component
 		this.Data = [];
 		this.Notifications = [];
 
+		// layout contruction
+		//			let _search = React.createElement( RootLink, { key: Utilities.NewId(), InnerText: this.props["SearchLink.InnerText"], Application: this } );
+		this.TopNav = React.createElement( TopNavigationBar, { Application: this } );
+		this.LeftNav = React.createElement( VerticalNavigationBar, { Application: this } );
+
 		// event handlers
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
 		return;
@@ -42,8 +47,8 @@ class Application extends React.Component
 			{
 				id: this.ID,
 				className: "cds-app",
-				onClick: this.handleClick
 			},
+
 		);
 	};
 };

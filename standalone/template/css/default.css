@@ -23,9 +23,9 @@ body
 	right:0px;
 	bottom:0px;
 	display:block;
-	padding:10px;
-	margin:10px;
-	border: solid 10px rgba(255,255,255,1);
+	padding:0px;
+	margin:0px;
+	border: solid 0px rgba(255,255,255,1);
 }
 
 .RootLinkCss
