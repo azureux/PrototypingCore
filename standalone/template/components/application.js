@@ -21,9 +21,14 @@ class Application extends React.Component
 		this.Notifications = [];
 
 		// layout contruction
-		//			let _search = React.createElement( RootLink, { key: Utilities.NewId(), InnerText: this.props["SearchLink.InnerText"], Application: this } );
-		this.TopNav = React.createElement( TopNavigationBar, { Application: this } );
-		this.LeftNav = React.createElement( VerticalNavigationBar, { Application: this } );
+		this.TopNav = React.createElement( TopNavigationBar, { key: Utilities.NewKey(), Application: this } );
+		this.LeftNav = React.createElement( VerticalNavigationBar, { key: Utilities.NewKey(), Application: this } );
+		this.Dashboard = React.createElement( Dashboard, { key: Utilities.NewKey(), Application: this } );
+		this.Layout = [
+			this.TopNav,
+			this.LeftNav,
+			this.Dashboard
+		];
 
 		// event handlers
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
@@ -48,7 +53,7 @@ class Application extends React.Component
 				id: this.ID,
 				className: "cds-app",
 			},
-
+			this.Layout
 		);
 	};
 };

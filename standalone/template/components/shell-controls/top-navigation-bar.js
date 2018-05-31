@@ -14,14 +14,27 @@ class TopNavigationBar extends React.Component
 		super( props );
 		this.ID = this.props.id;
 
-		this.state = {};
+		this.props = this.props.Dashboard;
+
+		this.CssClassNames = {
+			Normal: "topnav-main",
+			Dirty: "topnav-main-dirty",
+			Saved: "topnav-main-saved"
+		};
+
+		this.state = {
+			IsDirty: false,
+			CurrentCssClass: this.CssClassNames.Normal
+		};
+
 		return;
 	};
 	render()
 	{
-		console.debug( "Shell", this.props, typeof Shell );
+		console.debug( "TopNavigationBar", this.props);
 		return React.createElement( 'div', {
-			id: Utilities.NewId( "shell" )
-		},`Shell` );
+			id: Utilities.NewId( "tnb" ),
+			className: this.state.CurrentCssClass
+		},`Top Nav` );
 	};
 };

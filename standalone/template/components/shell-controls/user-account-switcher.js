@@ -15,6 +15,10 @@ class UserAccountSwitcher extends React.Component
 		this.ID = this.props.id;
 
 		this.state = {};
+		this.CssClassNames = {
+			Normal: "RootLinkCss",
+			Alerted: "RootLinkCssExtra"
+		};
 		return;
 	};
 	render()

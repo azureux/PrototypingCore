@@ -7,19 +7,18 @@
 //	1. constructor() & other React specific methods (if needed)
 //	2. event handlers & other functions
 //	3. render()
-class VerticalNavigationBar extends React.Component
+class Dashboard extends React.Component
 {
 	constructor( props )
 	{
 		super( props );
-		this.ID = this.props.id;
-
+		this.ID = Utilities.NewId( "dashboard" );
 		this.props = this.props.Dashboard;
 
 		this.CssClassNames = {
-			Normal: "vertnav-main",
-			Dirty: "vertnav-main-dirty",
-			Saved: "vertnav-main-saved"
+			Normal: "dashboard-main",
+			Dirty: "dashboard-main-dirty",
+			Saved: "dashboard-main-saved"
 		};
 
 		this.state = {
@@ -31,10 +30,10 @@ class VerticalNavigationBar extends React.Component
 	};
 	render()
 	{
-		console.debug( "VerticalNavigationBar", this.props);
+		console.debug( "Dashboard.render()", this.props );
 		return React.createElement( 'div', {
-			id: Utilities.NewId( "vnb" ),
+			id: this.ID,
 			className: this.state.CurrentCssClass
-		},`Left Nav` );
+		},`Dashboard` );
 	};
 };
