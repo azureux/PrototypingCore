@@ -10,7 +10,7 @@ class Navigation extends React.Component
 	{
 		super( props );
 		this.handleClick = this.handleClick.bind( this );
-		this.Id = this.props.id;
+		this.Id = Utilities.NewId(); //this.props.id;
 
 		this.CssClassNames = {
 			Normal: "RootLinkCss",
@@ -56,13 +56,17 @@ class Navigation extends React.Component
 	};
 	render()
 	{
+		console.debug("class Navigation extends React.Component");
 		//	console.debug( "RootLink", this.props, typeof RootLink );
 		//	alternation syntax for data-binding
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
-		return React.createElement( 'div', {
-			id: Utilities.NewId( "rl" ),
-			className: this.state.currentCssClass,
-			onClick: this.handleClick
-		},`this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}` );
+		return React.createElement(
+			'div',
+			{
+				id: Utilities.NewId( "left_nav" ),
+				className: "left-nav"
+			},
+			`${this.props.InnerText}`
+		);
 	};
 };

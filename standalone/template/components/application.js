@@ -35,10 +35,12 @@ class Application extends React.Component
 		let _search = React.createElement( SearchLink, { key: Utilities.NewId(), InnerText: this.props["SearchLink.InnerText"] } );
 		let _user_switch = React.createElement( UserSwitch, { key: Utilities.NewId(), InnerText: this.props["UserSwitchList"] } );
 		let _vert_nav = React.createElement( VerticalNavigation, { key: Utilities.NewId(), InnerText: this.props["VerticalNavigation"] } );
+		let _left_nav = React.createElement( Navigation, { key: Utilities.NewId(), InnerText: "Left Navigation" } );
 
 		_root_links_array.push( _search );
 		_root_links_array.push( _user_switch );
 		_root_links_array.push( _vert_nav );
+		_root_links_array.push( _left_nav );
 
 		//	return React.createElement( 'div', null, `Hello ${this.props.InnerText}` );
 		//  params
