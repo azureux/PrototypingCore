@@ -7,8 +7,7 @@
 	console.log( "BEGIN Azure Prototype\t", new Date().toISOString() );
 	try
 	{
-		// basic config sample to date
-		// will move out to a JSON formatted file.
+		// basic config sample to date - will move out to a JSON formatted file.
 		let _application_property_bag = {
 			RootLinks: [
         		{ RootLink: { InnerText: "Sean Gephardt" } },
@@ -18,7 +17,7 @@
 				{ RootLink: { InnerText: "Kavitha Perla" } },
 			],
         	"SearchLink.InnerText": "Guitars",
-        	"UserSwitchList": ["Sean", "Robert", "Jacqueline", "Jon", "Jonah"],
+        	"UserSwitchList": ["Sean", "Robert", "Jacqueline", "Kavitha", "Casey","Joe", "Jonah"],
 			"VerticalNavigation": ["Menu","New","All Resources","Your Resources","Virtual Machines","Databases"]
         };
 

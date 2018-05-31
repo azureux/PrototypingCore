@@ -6,9 +6,6 @@
 //	main application -  and managing state for walk-throughs & editing
 class Application extends React.Component
 {
-	//	simple default
-	//	JSX need to be compiled, may not use JSX for this
-	//	return <div>Hello {this.props.InnerText}</div>;
 	constructor( props )
 	{
 		super( props );
@@ -42,21 +39,22 @@ class Application extends React.Component
 		_root_links_array.push( _vert_nav );
 		_root_links_array.push( _left_nav );
 
-		//	return React.createElement( 'div', null, `Hello ${this.props.InnerText}` );
+		//	return React.createElement( 'div', [html-attributes], `Hello ${this.props.InnerText}` );
+		//	return <div>Hello {this.props.InnerText}</div>;
 		//  params
 		//	1. output html element type
 		//	2. output html element attributes
 		//	3. array of child controls
 		return React.createElement(
-			 "div",
-			 { className: "MainAppContainer" },
+			"div",
+			{ className: "cds-app" },
+			_root_links_array,
 			 //React.createElement( RootLink, { InnerText: this.props.RootLinks[1].RootLink.InnerText } ),
 			 //React.createElement( RootLink, { InnerText: this.props["SearchLink.InnerText"] } ),
 			 //React.createElement( RootLink, { InnerText: this.props["UserSwitchList"] } ),
-			_root_links_array,
 			 //React.createElement( SearchLink, { InnerText: this.props["SearchLink.InnerText"] } ),
 			 //React.createElement( UserSwitch, { InnerText: this.props["UserSwitchList"] } ),
 			 //React.createElement( VerticalNavigation, { InnerText: this.props["VerticalNavigation"] } )
-			 );
+		);
 	};
 };

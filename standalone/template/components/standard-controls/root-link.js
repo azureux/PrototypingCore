@@ -60,7 +60,7 @@ class RootLink extends React.Component
 		//	alternation syntax for data-binding
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
 		return React.createElement( 'div', {
-			id: Utilities.NewId( "rl" ),
+			id: Utilities.NewId( "root-link" ),
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
 		},`this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}` );
