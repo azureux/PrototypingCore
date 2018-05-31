@@ -27,3 +27,24 @@ body
 	margin:10px;
 	border: solid 10px rgba(255,255,255,1);
 }
+
+.RootLinkCss
+{
+	padding:20px;
+	border: solid 2px red;
+	cursor:pointer;
+	user-select:none;
+}
+.RootLinkCssExtra
+{
+	padding:20px;
+	border: solid 2px yellow;
+}
+.RootLinkCss:hover
+{
+	border: solid 2px blue;
+}
+.RootLinkCssExtra:hover
+{
+	border: solid 2px green;
+}

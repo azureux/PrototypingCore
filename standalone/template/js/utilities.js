@@ -1,4 +1,4 @@
-﻿var Utilities = {
+﻿let Utilities = {
 	NewId: function(strValue)
 	{
 		var _rv = "";
@@ -15,4 +15,23 @@
 		//	console.debug( "Utilities.NewId()._rv", _rv );
 		return _rv;
 	},
+	ReverseString: function ( strValue )
+	{
+		let _new;
+		let _temp = [];
+
+		if ( Array.isArray(strValue) == true )
+		{
+			strValue = strValue.join();
+		}
+
+		for ( let i = 0; i < strValue.length; i++ )
+		{	//	console.debug( i, strValue.length, strValue.charAt( i ) );
+			let _last = strValue.charAt( (strValue.length-1) - i );
+			//	console.debug( i, _last );
+			_temp.push( _last );
+		}	//	console.debug( "_temp", _temp );
+		_new = _temp.join('');
+		return _new;
+	}
 };

@@ -5,6 +5,7 @@
 	line-height:normal;
 	margin:0px;
 	padding:0px;
+
 }
 body
 {
@@ -26,6 +27,7 @@ body
 	padding:20px;
 	margin-bottom:20px;
 	cursor:pointer;
+	user-select:none;
 }
 .RootLinkCss:hover
 {
@@ -34,6 +36,7 @@ body
 .RootLinkCssExtra
 {
 	border: solid 1px yellow;
+	user-select:none;
 }
 .RootLinkCssExtra:hover
 {

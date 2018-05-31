@@ -1,6 +1,6 @@
-﻿/// <reference path="../js/utilities.js" />
-/// <reference path="../script/react/react-latest.js" />
-/// <reference path="../script/react/react-dom-latest.js" />
+﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
+/// <reference path="../../script/react/react-dom-latest.js" />
+/// <reference path="../../js/utilities.js" />
 "use strict";
 
 // control template - flesh out all functions, methods, events
@@ -9,14 +9,15 @@ class RootLink extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.handleClick = this.handleClick.bind( this );
-		this.Id = this.props.id;
 
+		//properties
+		this.Id = this.props.id;
+		this.Application = this.props.Application;
 		this.CssClassNames = {
 			Normal: "RootLinkCss",
 			Alerted: "RootLinkCssExtra"
 		};
-
+		// state
 		this.state = {
 			items: [],
 			inner_text: this.props.InnerText,
@@ -24,6 +25,9 @@ class RootLink extends React.Component
 			isClicked: false,
 			currentCssClass: this.CssClassNames.Normal
 		};
+
+		//event handlers
+		this.handleClick = this.OnClick_ChangeBorderColor.bind( this );
 		return;
 	};
 	componentDidMount()
@@ -34,11 +38,14 @@ class RootLink extends React.Component
 	{	//	not used yet
 		return;
 	};
-	handleClick( ev )
+	
+	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
 		//	console.debug( "RootLink::handleClick" );
 		ev.preventDefault();
-		var _changed = "Handling this event...";
+		ev.stopPropagation();
+
+		let _changed = Utilities.ReverseString( this.state.prev_text );
 
 		if ( this.state.isClicked == true )
 		{
@@ -52,6 +59,8 @@ class RootLink extends React.Component
 			this.setState( { inner_text: _changed } );
 			this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
 		}
+		//	for firing events at the top level of "Application" class
+		this.Application.OnClick_OpenCloseLeftNav( ev, false );
 		return;
 	};
 	render()
@@ -59,10 +68,11 @@ class RootLink extends React.Component
 		//	console.debug( "RootLink", this.props, typeof RootLink );
 		//	alternation syntax for data-binding
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
+		//	contents of the element: `this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}`
 		return React.createElement( 'div', {
 			id: Utilities.NewId( "root-link" ),
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
-		},`this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}` );
+		}, `${this.state.inner_text} : ${this.state.isClicked}` );
 	};
 };
