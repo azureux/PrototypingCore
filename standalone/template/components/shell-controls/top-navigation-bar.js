@@ -12,9 +12,8 @@ class TopNavigationBar extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.ID = this.props.id;
-
-		this.props = this.props.Dashboard;
+		this.ID = Utilities.NewId( "tnb" );
+		this.props = props.Application.props.TopNavigationBar;
 
 		this.CssClassNames = {
 			Normal: "topnav-main",
@@ -33,7 +32,7 @@ class TopNavigationBar extends React.Component
 	{
 		console.debug( "TopNavigationBar", this.props);
 		return React.createElement( 'div', {
-			id: Utilities.NewId( "tnb" ),
+			id: this.ID,	
 			className: this.state.CurrentCssClass
 		},`Top Nav` );
 	};

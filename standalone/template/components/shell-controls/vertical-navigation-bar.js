@@ -12,9 +12,8 @@ class VerticalNavigationBar extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.ID = this.props.id;
-
-		this.props = this.props.Dashboard;
+		this.ID = Utilities.NewId( "vnb" ),
+			this.props = props;	//.Application.props.VerticalNavigationBar;
 
 		this.CssClassNames = {
 			Normal: "vertnav-main",
@@ -33,7 +32,7 @@ class VerticalNavigationBar extends React.Component
 	{
 		console.debug( "VerticalNavigationBar", this.props);
 		return React.createElement( 'div', {
-			id: Utilities.NewId( "vnb" ),
+			id: this.ID,
 			className: this.state.CurrentCssClass
 		},`Left Nav` );
 	};

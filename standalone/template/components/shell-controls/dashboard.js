@@ -13,13 +13,12 @@ class Dashboard extends React.Component
 	{
 		super( props );
 		this.ID = Utilities.NewId( "dashboard" );
-		this.props = this.props.Dashboard;
-
 		this.CssClassNames = {
 			Normal: "dashboard-main",
 			Dirty: "dashboard-main-dirty",
 			Saved: "dashboard-main-saved"
 		};
+		this.Title = this.props.Application.props.Dashboard.Title;
 
 		this.state = {
 			IsDirty: false,
@@ -34,6 +33,6 @@ class Dashboard extends React.Component
 		return React.createElement( 'div', {
 			id: this.ID,
 			className: this.state.CurrentCssClass
-		},`Dashboard` );
+		},'${this.Title}'  );
 	};
 };

@@ -2,7 +2,9 @@
 // This file is meant as an "override" for a specific controls and/or feature sets.
 const OverrideConfig =
 	{
-		Dashboard: {},
+		Dashboard: {
+			Title: "My Dashboard"
+		},
 		RootLinks: [
 			{ RootLink: { InnerText: "Sean Gephardt" } },
 			{ RootLink: { InnerText: "Robert Taft" } },
