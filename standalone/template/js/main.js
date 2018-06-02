@@ -11,7 +11,7 @@
 	{
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
 		{
-			ReactDOM.render( React.createElement( Application, OverrideConfig, [] ), document.getElementById( "AppBody" ) );
+			ReactDOM.render( React.createElement( Application, OverrideConfig, [] ), document.getElementById( "ApplicationElement" ) );
 			return;
         } );
 	}

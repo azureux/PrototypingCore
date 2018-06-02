@@ -1,0 +1,26 @@
+﻿.topnav-main
+{
+	margin:4px;
+	padding:10px;
+	border-style: solid;
+	border-width:2px;
+	border-color:rgba(255, 0, 0,1);
+	background: rgba(255, 64, 128,1);
+	color: rgba(0,0,0,1);
+	font-weight:100;
+	font-size:larger;
+	display: block;
+}
+.dark.topnav-main
+{
+	margin:4px;
+	padding:10px;
+	border-style: solid;
+	border-width:2px;
+	border-color:rgba(255, 255, 255,1);
+	background: rgba(64, 64, 64,1);
+	color: rgba(255,255,255,1);
+	font-weight:100;
+	font-size:larger;
+	display: block;
+}

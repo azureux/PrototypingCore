@@ -39,5 +39,33 @@
 		}	//	console.debug( "_temp", _temp );
 		_new = _temp.join('');
 		return _new;
+	},
+	InjectControlCss: function ( id, filePath )
+	{	//	console.debug( "Utilities.InjectControlCss", id, filePath );
+		let _found = false;
+		let _css = document.createElement( "link" );
+		_css.id = id;
+		_css.rel = "stylesheet";
+		_css.href = filePath;
+
+		document.head.childNodes.forEach( function ( v, i, a )
+		{
+			if ( v.tagName !== undefined )
+			{
+				if ( v.tagName.toLowerCase() == "link" )
+				{
+					if ( v.id == id || v.href == filePath )
+					{	//	console.debug( i, v.tagName, v.id, v.href );
+						_found = true;
+					}
+				}
+			}
+			return;
+		} );
+
+		//	console.debug( "_found", _found );
+		// this insertation location is based on the order of the <head> element in the default.html file.
+		if ( _found !== true ) document.head.insertBefore( _css, document.head.childNodes[4] );
+		return;
 	}
 };

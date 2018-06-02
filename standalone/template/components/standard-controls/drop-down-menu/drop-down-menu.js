@@ -4,7 +4,7 @@
 "use strict";
 
 // control template - flesh out all functions, methods, events
-class StandardControlTemplate extends React.Component
+class RootLink extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
@@ -60,7 +60,7 @@ class StandardControlTemplate extends React.Component
 			this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
 		}
 		//	for firing events at the top level of "Application" class
-		this.Application.OnClick_OpenCloseLeftNav( ev, false );
+		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
 		return;
 	};
 	render()

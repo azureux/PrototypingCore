@@ -10,12 +10,19 @@
 
 body
 {
-    background-color: rgba(32, 32, 32, 1);
-    color: rgba(224, 224, 224, 1);
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	display:block;
+	padding:0px;
+	margin:0px;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
     font-family: 'Segoe UI', 'Tahoma', Arial;
 }
-
-.react-root
+.cds-react-app
 {
 	position:absolute;
 	top:0px;
@@ -27,7 +34,32 @@ body
 	margin:0px;
 	border: solid 0px rgba(255,255,255,1);
 }
+/* root level themes, usually limited to attributes that use colors */
+.dark
+{
+	background-color: rgba(32,32,32,1);
+	color: rgba(224,224,224,1);
+	font-size: medium;
+	/*border: solid 1px red;*/
+	border-color: red;
+    font-family: 'Segoe UI', 'Tahoma', Arial;
+}
+.light
+{
+	background-color: rgba(224,224,224,1);
+	color: rgba(32,32,32,1);
+	font-size: medium;
+	/*border: solid 1px blue;*/
+	border-color: blue;
+    font-family: 'Segoe UI', 'Tahoma', Arial;
+}
 
+.myBtn
+{
+	padding:20px;
+}
+
+/* for debugging */
 .RootLinkCss
 {
 	padding:20px;
