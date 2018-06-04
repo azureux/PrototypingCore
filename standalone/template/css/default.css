@@ -56,13 +56,13 @@ body
 
 .myBtn {
     padding: 10px;
-    bottom: 20px;
-    right: 20px;
+    bottom: 40px;
+    right: 40px;
     position: absolute;
     border: 1px solid black;
     border-radius: 2px;
     background-color: #fff;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 /* for debugging */
