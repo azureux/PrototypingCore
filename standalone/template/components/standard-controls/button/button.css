@@ -1,1 +1,18 @@
-﻿
+﻿.buttonControl {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+
+.dark.buttonControl {
+    border: 1px dashed #fff;
+    background-color: aqua;
+}
+
+
+
+
+

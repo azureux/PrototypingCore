@@ -14,8 +14,10 @@ class ButtonCtrl extends React.Component
 		this.Id = this.props.id;
         this.Application = this.props.Application;
         this.Theme = this.props.Application.Application.Theme;
+        this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
+        this.CssFile = "components/standard-controls/button/button.css";
 		this.CssClassNames = {
-			Normal: this.Theme + " RootLinkCss",
+			Normal: this.Theme + " buttonControl",
             Alerted: this.Theme + " RootLinkCssExtra"
 		};
 		// state
@@ -65,7 +67,8 @@ class ButtonCtrl extends React.Component
 		return;
 	};
 	render()
-	{
+    {
+        Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
 		//	alternation syntax for data-binding
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
@@ -74,6 +77,6 @@ class ButtonCtrl extends React.Component
 			id: Utilities.NewId( "root-link" ),
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
-		}, `${this.state.inner_text} : ${this.state.isClicked}` );
+		}, `${this.state.inner_text} : ${this.state.isClicked}`);
 	};
 };

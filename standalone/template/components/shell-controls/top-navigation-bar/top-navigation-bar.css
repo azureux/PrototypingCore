@@ -1,4 +1,5 @@
-﻿.topnav-main {
+﻿.topnav-main 
+{
     padding: 0 10px;
     height: 40px;
     line-height: 32px;
@@ -17,4 +18,9 @@
 	border-color:rgba(255, 255, 255,1);
 	background: rgba(64, 64, 64,1);
 	color: rgba(255,255,255,1);
+}
+
+.appTitle 
+{
+    display:inline-block;
 }
