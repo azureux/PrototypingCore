@@ -4,12 +4,13 @@
     background-color: transparent;
     display: inline-block;
     margin: 5px 10px;
+    color: #fff;
 }
 
 
 .dark.buttonControl {
-    border: 1px dashed #fff;
-    background-color: aqua;
+    border: 2px dashed #fff;
+    
 }
 
 
