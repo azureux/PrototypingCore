@@ -1,12 +1,11 @@
 ﻿.dsh-brd-main {
     border-style: dashed;
-    /* background: rgba(255, 106, 0, 0.15); */
     margin: 20px;
     padding: 20px;
     color: #ac1515;
-    /* font-weight: 500; */
-    /* font-size: xx-small; */
-    /* display: table-column-group; */
     width: calc(100% - 260px);
+    min-width: 400px;
+    height: calc(100% - 80px);
     left: 220px;
     position: relative;
+}

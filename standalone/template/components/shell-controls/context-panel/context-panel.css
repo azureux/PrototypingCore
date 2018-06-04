@@ -1,9 +1,12 @@
 ﻿.cntxt-pnl-main {
-    border-style: dashed;
-    margin: 20px;
+    position: absolute;
+    top: 39px;
+    bottom: 0;
+    right: 0;
+    width: 400px;
     padding: 20px;
+    background-color: #fff;
+    border: 1px solid black;
     color: #ac1515;
-    width: calc(100% - 260px);
-    left: 220px;
-    position: relative;
+    display:none;
 }
