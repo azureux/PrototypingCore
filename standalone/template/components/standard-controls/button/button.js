@@ -13,7 +13,7 @@ class ButtonCtrl extends React.Component
 		//properties
 		this.Id = this.props.id;
         this.Application = this.props.Application;
-        this.Theme = this.props.Application.Application.Theme;
+        this.Theme =this.props.Application.Application.CurrentTheme;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
         this.CssFile = "components/standard-controls/button/button.css";
 		this.CssClassNames = {
