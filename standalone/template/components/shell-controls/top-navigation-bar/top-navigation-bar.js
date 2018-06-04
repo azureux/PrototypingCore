@@ -47,18 +47,11 @@ class TopNavigationBar extends React.Component
         //    );
         //}
 
-        let _b = React.createElement(ButtonCtrl, {}, undefined);
+        let _b = React.createElement(ButtonCtrl, { Application: this.props }); //(ButtonCtrl, {}, undefined) 
+        let _d = React.createElement('div', { id: this.ID, className: 'appTitle' }, `${this.Title}`);
+        let _c = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _d, _b); 
 
-        return React.createElement(
-            'div', {
-                id: this.ID,
-                className: this.state.CurrentCssClass
-            }, React.createElement(
-                'div', {
-                    id: this.ID,
-                    className: 'appTitle'
-                }, `${this.Title}`)
-        );
+        return _c;
 
 	};
 };

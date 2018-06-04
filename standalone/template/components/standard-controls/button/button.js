@@ -12,10 +12,11 @@ class ButtonCtrl extends React.Component
 
 		//properties
 		this.Id = this.props.id;
-		this.Application = this.props.Application;
+        this.Application = this.props.Application;
+        this.Theme = this.props.Application.Application.Theme;
 		this.CssClassNames = {
-			Normal: "RootLinkCss",
-			Alerted: "RootLinkCssExtra"
+			Normal: this.Theme + " RootLinkCss",
+            Alerted: this.Theme + " RootLinkCssExtra"
 		};
 		// state
 		this.state = {
