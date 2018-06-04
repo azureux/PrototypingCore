@@ -1,11 +1,9 @@
-﻿.cntxt-pnl-main
-{
-	border-style: dashed;
-	background: rgba(255, 106, 0, 0.15);
-	margin:20px;
-	padding:20px;
-	color: #ac1515;
-	font-weight:500;
-	font-size:xx-small;
-	display: block;
+﻿.cntxt-pnl-main {
+    border-style: dashed;
+    margin: 20px;
+    padding: 20px;
+    color: #ac1515;
+    width: calc(100% - 260px);
+    left: 220px;
+    position: relative;
 }

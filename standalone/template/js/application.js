@@ -88,7 +88,7 @@ class Application extends React.Component
 		this.LeftNav = React.createElement( VerticalNavigationBar, { key: Utilities.NewKey(), Application: this } );
 		this.Dashboard = React.createElement( Dashboard, { key: Utilities.NewKey(), Application: this } );
 		this.ContextPanel = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
-		this.ThemeButton = React.createElement( "button", { key: Utilities.NewKey(), id: "tog-switch", onClick: this.handle_OnClick_ToggleThemes, className: "myBtn"}, this.state.CurrentThemeName );
+		this.ThemeButton = React.createElement( "button", { key: Utilities.NewKey(), id: "tog-switch", onClick: this.handle_OnClick_ToggleThemes, className: "myBtn theme"}, this.state.CurrentThemeName );
 		//	this.ContextPanel2 = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
 		// may not be needed, other than as an easy way to access the array of top level layout
 		this.Layout = [
