@@ -39,15 +39,26 @@ class TopNavigationBar extends React.Component
 	{	//	console.debug( "TopNavigationBar.render()", this.props );
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 
-        let _b = React.createElement('button', { className: 'themeBtn' });
+        //var _buttons_array = [];
+        //for (var i = 0; i < this.props.ButtonCtrl.length; i++) {
+        //    //	console.debug( "this.props.RootLinks", this.props.RootLinks[i] );
+        //    _buttons_array.push(
+        //        React.createElement(ButtonCtrl)
+        //    );
+        //}
+
+        let _b = React.createElement(ButtonCtrl, {}, undefined);
 
         return React.createElement(
             'div', {
                 id: this.ID,
                 className: this.state.CurrentCssClass
-            }, `${this.Title}`, _b
+            }, React.createElement(
+                'div', {
+                    id: this.ID,
+                    className: 'appTitle'
+                }, `${this.Title}`)
         );
-
 
 	};
 };

@@ -4,7 +4,7 @@
 "use strict";
 
 // control template - flesh out all functions, methods, events
-class RootLink extends React.Component
+class ButtonCtrl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
