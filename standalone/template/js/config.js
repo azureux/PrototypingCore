@@ -19,7 +19,6 @@ const OverrideConfig =
         },
         ButtonCtrl: {
             Title: "Jackie",
-            InnerText: "Jackie"
         }
 
 		//RootLinks: [
