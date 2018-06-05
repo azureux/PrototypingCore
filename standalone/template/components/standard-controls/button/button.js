@@ -69,7 +69,7 @@ class ButtonCtrl extends React.Component
 
 
         // set overrives - need the same pathway as themeing 
-        //WIP
+        //WIP JG 
         if (props.Application.Application.ButtonCtrl.Title !== undefined) {
             this.Title = props.Application.Application.ButtonCtrl.Title;
         }

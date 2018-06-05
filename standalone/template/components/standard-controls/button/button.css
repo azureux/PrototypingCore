@@ -3,15 +3,21 @@
     height: auto;
     background-color: transparent;
     display: inline-block;
-    margin: 3px 10px;
+    margin: 0px 10px;
     color: #fff;
     cursor: pointer;
+    border-radius:2px;
+    padding: 5px;
+}
+
+.buttonControl:hover {
+    background-color: rgba(255, 255, 255,.2);
+    /*background-color: pink;*/
 }
 
 
 .dark.buttonControl {
     border: 2px dashed #fff;
-    
 }
 
 
