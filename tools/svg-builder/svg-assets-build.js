@@ -5,8 +5,8 @@ const chalk = require('chalk');
 const svg_folder = "../../assets/svg";
 const final_svg_file = "../../standalone/template/js/svg-assets.js";
 
-const img_folder = "../src/css/img";
-const final_img_file = "../src/azux-images.js";
+//const img_folder = "../src/css/img";
+//const final_img_file = "../src/azux-images.js";
 
 const _getAllFilesFromFolder = function ( dir )
 {
