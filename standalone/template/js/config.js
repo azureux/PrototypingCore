@@ -16,7 +16,12 @@ const OverrideConfig =
 		},
 		ContextPanel: {
 			Title: "My Azure ContextPanel"
-		}
+        },
+        ButtonCtrl: {
+            Title: "Jackie",
+            InnerText: "Jackie"
+        }
+
 		//RootLinks: [
 		//	{ RootLink: { InnerText: "Sean Gephardt" } },
 		//	{ RootLink: { InnerText: "Robert Taft" } },

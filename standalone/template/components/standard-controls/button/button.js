@@ -13,8 +13,7 @@ class ButtonCtrl extends React.Component
 		//properties
 		this.Id = this.props.id;
         this.Application = this.props.Application;
-        //this.Theme = this.props.Application.Application.Theme;
-        //this.Theme =this.props.Application.Application.CurrentTheme;
+        this.Title = "My Button";
         this.Theme = props.Application.Application.state.CurrentTheme;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
         this.CssFile = "components/standard-controls/button/button.css";
@@ -66,7 +65,15 @@ class ButtonCtrl extends React.Component
 		}
 		//	for firing events at the top level of "Application" class
 		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
-		return;
+        return;
+
+
+        // set overrives - need the same pathway as themeing 
+        //WIP
+        if (props.Application.Application.ButtonCtrl.Title !== undefined) {
+            this.Title = props.Application.Application.ButtonCtrl.Title;
+        }
+        return;
 	};
 	render()
     {
@@ -79,6 +86,6 @@ class ButtonCtrl extends React.Component
 			id: Utilities.NewId( "root-link" ),
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
-		}, `${this.state.inner_text} : ${this.state.isClicked}`);
+        }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
 	};
 };
