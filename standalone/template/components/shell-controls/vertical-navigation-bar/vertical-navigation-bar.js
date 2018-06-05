@@ -39,9 +39,17 @@ class VerticalNavigationBar extends React.Component
 	{	//	console.debug( "VerticalNavigationBar.render()", this.props );
 		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
 
-		return React.createElement( 'div', {
-			id: this.ID,
-			className: this.state.CurrentCssClass
-		},`${this.Title}`  );
+		//return React.createElement( 'div', {
+		//	id: this.ID,
+		//	className: this.state.CurrentCssClass
+  //      }, `${this.Title}`);
+    
+
+        //let _a = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
+        //let _b = React.createElement('div', { id: this.ID, className: 'appTitle' }, `${this.Title}`);
+        //let _c = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _a, _b);
+        let _d = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, `${this.Title}`);
+
+        return _d;
 	};
 };

@@ -6,7 +6,8 @@ const OverrideConfig =
 			//Theme: "dark", // "dark", "light", "blue","hi-contract"
 		},
 		TopNavigationBar: {
-			Title: "My Azure TopNavigationBar"
+			//Title: "My Azure TopNavigationBar"
+            Title: "Microsoft Azure"
 		},
 		VerticalNavigationBar: {
 			Title: "My Azure VerticalNavigationBar"
