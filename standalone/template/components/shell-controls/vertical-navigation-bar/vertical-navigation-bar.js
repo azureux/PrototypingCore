@@ -42,7 +42,7 @@ class VerticalNavigationBar extends React.Component
 		//return React.createElement( 'div', {
 		//	id: this.ID,
 		//	className: this.state.CurrentCssClass
-  //      }, `${this.Title}`);
+        // }, `${this.Title}`);
     
 
         //let _a = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 

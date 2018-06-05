@@ -1,0 +1,10 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<rect x="12.3" y="13.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 36.8848 20.2071)" fill="none" width="4" height="7.9"/>
+<rect x="8" y="18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -12.6127 13.5208)" fill="none" width="4" height="7.9"/>
+<rect x="20.7" y="5.3" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 45.37 -0.2786)" fill="none" width="4" height="7.9"/>
+<rect x="16.5" y="9.6" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.1275 17.0352)" fill="none" width="4" height="7.9"/>
+<path d="M4.4,22l5.6,5.6l-1.7,1.7l1.4,1.4l21-21l-1.4-1.4l-0.9,0.9l-5.6-5.6l0.9-0.9l-1.4-1.4l-21,21l1.4,1.4L4.4,22
+	z M5.8,20.6l2.8-2.8l5.6,5.6l-2.8,2.8L5.8,20.6z M18.5,19.1l-2.8,2.8l-5.6-5.6l2.8-2.8L18.5,19.1z M14.3,12.1l2.8-2.8l5.6,5.6
+	l-2.8,2.8L14.3,12.1z M26.9,10.6l-2.8,2.8l-5.6-5.6l2.8-2.8L26.9,10.6z"/>
+</svg>

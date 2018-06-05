@@ -1,0 +1,8 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<path fill="none" d="M4,25h24V7H4V25z M6,9h20v2H6V9z M6,15h14v2H6V15z M24,21v2H6v-2H24z"/>
+<path d="M2,6v1v18v1v1h26h2v-2V7V6V5H2V6z M28,25H4V7h24V25z"/>
+<rect x="6" y="9" width="20" height="2"/>
+<rect x="6" y="21" width="18" height="2"/>
+<rect x="6" y="15" width="14" height="2"/>
+</svg>

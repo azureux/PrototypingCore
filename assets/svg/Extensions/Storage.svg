@@ -1,0 +1,24 @@
+<svg viewBox="0 0 50 50">
+    <path class="msportalfx-svg-c03" d="M0.001,44.763c0,1.021,0.836,1.853,1.848,1.853h46.295c1.02,0,1.853-0.832,1.853-1.853l0.004-33.139h-50
+        V44.763z"/>
+    <path class="msportalfx-svg-c04" d="M48.148,4.025H1.85c-1.013,0-1.848,0.831-1.848,1.854v5.745H50l0.002-5.745
+        C50.001,4.857,49.164,4.025,48.148,4.025"/>
+    <rect x="14.814" y="22.54" class="msportalfx-svg-c13" width="9.259" height="5.555"/>
+    <rect x="14.813" y="15.138" class="msportalfx-svg-c01" width="9.258" height="5.549"/>
+    <rect x="14.814" y="29.946" class="msportalfx-svg-c13" width="9.259" height="5.56"/>
+    <rect x="25.926" y="29.946" class="msportalfx-svg-c13" width="9.256" height="5.56"/>
+    <rect x="25.926" y="22.54" class="msportalfx-svg-c13" width="9.256" height="5.555"/>
+    <rect x="25.926" y="15.138" class="msportalfx-svg-c01" width="9.256" height="5.549"/>
+    <rect x="3.703" y="15.138" class="msportalfx-svg-c01" width="9.26" height="5.549"/>
+    <rect x="3.703" y="22.54" class="msportalfx-svg-c01" width="9.26" height="5.555"/>
+    <rect x="3.703" y="29.946" class="msportalfx-svg-c13" width="9.26" height="5.56"/>
+    <rect x="3.703" y="37.356" class="msportalfx-svg-c13" width="9.26" height="5.558"/>
+    <rect x="14.813" y="37.356" class="msportalfx-svg-c13" width="9.258" height="5.558"/>
+    <rect x="25.926" y="37.356" class="msportalfx-svg-c13" width="9.256" height="5.558"/>
+    <rect x="37.021" y="29.946" class="msportalfx-svg-c13" width="9.254" height="5.56"/>
+    <rect x="37.021" y="22.54" class="msportalfx-svg-c01" width="9.254" height="5.555"/>
+    <rect x="37.021" y="15.138" class="msportalfx-svg-c01" width="9.254" height="5.549"/>
+    <rect x="37.021" y="37.356" class="msportalfx-svg-c13" width="9.254" height="5.558"/>
+    <path opacity="0.2" class="msportalfx-svg-c01" d="M2.007,4C0.9,4,0,4.898,0,6.007v7.291v3.337v27.992c0,1.108,0.9,2.008,2.007,2.008h2.188
+        L43.613,4H2.007z"/>
+</svg>

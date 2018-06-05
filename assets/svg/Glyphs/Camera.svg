@@ -1,0 +1,7 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<path d="M2,28h28V6h-8l-2-2h-8l-2,2H2V28z M4,8h6h0.8l0.6-0.6L12.8,6h6.3l1.4,1.4L21.2,8H22h6v18H4V8z"/>
+<path d="M16,10c-3.9,0-7,3.1-7,7s3.1,7,7,7s7-3.1,7-7S19.9,10,16,10z M16,22c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5
+	S18.8,22,16,22z"/>
+<circle cx="7" cy="11" r="1"/>
+</svg>

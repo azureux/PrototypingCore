@@ -1,0 +1,12 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<path d="M10,4H4v6h6V4z M8,8H6V6h2V8z"/>
+<path d="M28,4h-6v6h6V4z M26,8h-2V6h2V8z"/>
+<path d="M19,4h-6v6h6V4z M17,8h-2V6h2V8z"/>
+<path d="M4,19h6v-6H4V19z M6,15h2v2H6V15z"/>
+<path d="M28,13h-6v6h6V13z M26,17h-2v-2h2V17z"/>
+<path d="M13,19h6v-6h-6V19z M15,15h2v2h-2V15z"/>
+<path d="M4,28h6v-6H4V28z M6,24h2v2H6V24z"/>
+<path d="M28,22h-6v6h6V22z M26,26h-2v-2h2V26z"/>
+<path d="M19,22h-6v6h6V22z M17,26h-2v-2h2V26z"/>
+</svg>

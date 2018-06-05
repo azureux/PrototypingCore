@@ -1,0 +1,9 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<polygon points="30,6 30,5 30,4 14,4 14,6 28,6 28,10 14,10 14,12 28,12 28,26 4,26 4,12 8,12 8,10 4,10 4,6 8,6 
+	8,4 2,4 2,5 2,6 2,26 2,27 2,28 28,28 29,28 30,28 "/>
+<circle cx="25" cy="8" r="1"/>
+<circle cx="22" cy="8" r="1"/>
+<circle cx="19" cy="8" r="1"/>
+<polygon points="10,2 10,19.6 7.7,17.3 6.3,18.7 11,23.4 15.7,18.7 14.3,17.3 12,19.6 12,2 "/>
+</svg>

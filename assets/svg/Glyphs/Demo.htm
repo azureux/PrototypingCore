@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG Icons</title>
+    <style>
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        div {
+            display: inline-block;
+            padding: 20px;
+            /*width: 80px;
+            height: 80px;*/
+            position: relative;
+        }
+
+        header {
+            font: 10px "Segoe UI";
+            opacity: .2;
+            position: absolute;
+            user-select: all;
+            -webkit-user-select: all;
+        }
+
+        div:hover > header {
+            opacity: 1;
+        }
+
+        img {
+            width: 35px;
+            height: 35px;
+        }
+
+        body.black {
+            background: black;
+        }
+        
+        body.blue {
+            background: #2ba3dc;
+        }
+        
+        body.blue,
+        body.black {
+            color: white;
+        }
+
+        body.blue img,
+        body.black img {
+            -webkit-filter: invert(100%);
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+
+        //dir *.svg /b > DemoFiles.txt
+        // Replace  ^(.+)\n with "\1", 
+        var files = ["AABatteries.svg", "AButton.svg", "Access.svg", "ActivityFeedMonitor81.svg", "ActivityFeedMonitor82.svg", "ActivityMonitor.svg", "Add.svg", "Airplane.svg", "AirplaneLandingPage.svg", "Alarm51.svg", "Alarm52.svg", "Album.svg", "Album2.svg", "AlbumDisc.svg", "AlienMartian65.svg", "AlienMartian66.svg", "Arcade.svg", "ArchiveFoldersWinDesktopExplorerVert.svg", "ArrowDown.svg", "ArrowLeft.svg", "ArrowRight.svg", "ArrowUp.svg", "Asterisk.svg", "Asterisk2.svg", "AVcables.svg", "BaseballBatSports.svg", "BaseballBatSportsalt.svg", "BaseballSports.svg", "Basket.svg", "BasketballSports.svg", "Battery.svg", "BatteryFull.svg", "BButton.svg", "Billing.svg", "Binoculars12.svg", "Binoculars13.svg", "Bluetooth.svg", "BowandArrowAdventure.svg", "Boy.svg", "Brightness.svg", "BringtoFront.svg", "Broadcast.svg", "BroadcastDishNetwork.svg", "BroadcastTVnetwork.svg", "BroomCleanSweep85.svg", "BroomCleanSweep86.svg", "Browser.svg", "BrowserLoadPageHomePageLandingPage17.svg", "BrowserLoadPageHomePageLandingPage18.svg", "BrowserWebPage.svg", "Bus.svg", "Calculate.svg", "Calculator.svg", "CalculatorAlt.svg", "Calendar.svg", "Calendar2.svg", "Calendar3.svg", "CalendarDate.svg", "Camera.svg", "CameraSettingsApertureFocus.svg", "Cancel.svg", "Car01.svg", "Car02.svg", "Car05.svg", "Car07.svg", "CarService03.svg", "CarService04.svg", "ChargingCable.svg", "Chat.svg", "ChatHeadset.svg", "ChatMessages84.svg", "ChatMessages85.svg", "Check.svg", "Checkbox.svg", "CheckerFlagFinishRace43.svg", "CheckerFlagFinishRace44.svg", "CheckerFlagFinishRace45.svg", "ChevronDown.svg", "ChevronLeft.svg", "ChevronRight.svg", "ChevronUp.svg", "Chicken.svg", "Clipboard.svg", "Clock.svg", "ClosedCaptioning.svg", "Cloud.svg", "CollapseView.svg", "Collection.svg", "Color11.svg", "Color80.svg", "Color81.svg", "Compare.svg", "Compass.svg", "Compose.svg", "Computer.svg", "ComputerDesktop.svg", "ComputerSimple.svg", "ConflictVersusCompare.svg", "Connection.svg", "ConnectionsAlt.svg", "Controller.svg", "ControllerArrows.svg", "CreditCardPayment.svg", "Crop.svg", "CrownChallenger.svg", "CutGameClipMovieDirecGameDVR.svg", "Database.svg", "Database2.svg", "Death.svg", "Desktop26.svg", "Desktop27.svg", "Desktop28.svg", "DesktopPC.svg", "DesktopPCTowerRight.svg", "DiamondChallenge.svg", "DirectionController.svg", "Directions.svg", "Directions33.svg", "Directions35.svg", "DirectorsChairMovieVideo.svg", "Disc.svg", "DockCheckProperties.svg", "Document.svg", "DocumentOutlineOptions.svg", "DocumentPictureContent.svg", "DocumentwithContent.svg", "DoubleArrow.svg", "Download.svg", "DPad.svg", "DPadDown.svg", "DPadLeft.svg", "DPadRight.svg", "DPadUp.svg", "Draft.svg", "DraftCompose.svg", "DraftSizeDimensions.svg", "Edit.svg", "Effects.svg", "End.svg", "Envelope.svg", "EqualsEqual.svg", "Ethernet.svg", "ExitFullscreenCollapseView.svg", "ExpandView.svg", "Eye.svg", "FieldSports.svg", "FilesArchive43.svg", "FilesArchive44.svg", "Film.svg", "FilmStripFilmWatch.svg", "Flag.svg", "Flags.svg", "Fold.svg", "Folder09.svg", "Folder10.svg", "FolderOpen.svg", "FoldersWinDesktopExplorer24.svg", "FoldersWinDesktopExplorer25.svg", "FoldersWinDesktopExplorer26.svg", "FoldersWinDesktopExplorerOpenVert28.svg", "FoldersWinDesktopExplorerOpenVert29.svg", "FoldersWinDesktopExplorerOpenVertComplex.svg", "FoldersWinDesktopExplorerVert.svg", "FootballSports.svg", "Friends.svg", "FullscreenExpandView.svg", "GameClips.svg", "Gamerscore.svg", "Gas.svg", "Girl.svg", "GlassesRead50.svg", "GlassesRead51.svg", "GolfballGolfTeeSportsalt.svg", "GolfSportsFlag.svg", "GolfTeeGolfBallSports.svg", "GotoEnd.svg", "GotoStart.svg", "Grid.svg", "Group.svg", "GroupTelescope.svg", "Guide.svg", "HD.svg", "HDMI.svg", "Headphones.svg", "HeadphonesAlt13.svg", "HeadphonesAlt14.svg", "Health.svg", "Helmet.svg", "Help.svg", "History.svg", "Home.svg", "Inbox.svg", "Incoming.svg", "InfoDocument.svg", "Information.svg", "Infrastructure.svg", "Install.svg", "Items.svg", "Journal.svg", "Key.svg", "Key2.svg", "Keyboard.svg", "KinectSensor.svg", "Knight.svg", "LadderLevelUp.svg", "LaunchappLoad.svg", "LB2.svg", "LBButton.svg", "LeftStick.svg", "LeftStickDownPush.svg", "LeftTrigger.svg", "LetterStamped.svg", "LevelsLayersItems11.svg", "LevelsLayersItems12.svg", "LevelsLayersItems3.svg", "LevelUp.svg", "Lightning.svg", "ListJustifyLeft.svg", "ListOutline.svg", "ListScrollWatchlist09.svg", "ListScrollWatchlist10.svg", "ListScrollWatchlist11.svg", "ListWatchlistRemind.svg", "LocateDown.svg", "LocateLeft.svg", "LocateRight.svg", "LocateUp.svg", "LocateUpLeft.svg", "LocateUpRight.svg", "Location.svg", "LocationCrosshares36.svg", "LocationCrosshares37.svg", "LocationCrosshares38.svg", "LocationCrosshares39.svg", "Lock.svg", "Lockalt22.svg", "Lockalt23.svg", "LogJournal.svg", "Mail.svg", "MailLetterReadOpen86.svg", "MailLetterReadOpen87.svg", "Manual.svg", "Map13.svg", "Map14.svg", "Map209.svg", "Map210.svg", "MapComplexPin.svg", "MapCrossSwiss.svg", "Marketplace.svg", "MediaControlsBack.svg", "MediaControlsEject.svg", "MediaControlsFastForward.svg", "MediaControlsFastForwardSearchForward.svg", "MediaControlsLaskEndNextChapter.svg", "MediaControlsNext.svg", "MediaControlsPause.svg", "MediaControlsPlay.svg", "MediaControlsPlayPause.svg", "MediaControlsPreviousFirstBeginning.svg", "MediaControlsRecord.svg", "MediaControlsRewind.svg", "MediaControlsRewindSearchBack.svg", "MediaControlsStop.svg", "MenuButton.svg", "MenuDropdown.svg", "MenuList.svg", "MenuPopOut.svg", "Message.svg", "Mic.svg", "Microphone.svg", "MicrosoftPoints.svg", "MiniguideEPG.svg", "MiniguideEPGSubtitles.svg", "Mobile.svg", "ModeSelectorElipsisOptionsMore66.svg", "ModeSelectorElipsisOptionsMore67.svg", "ModeSelectorElipsisOptionsMore68.svg", "ModeSelectorElipsisOptionsMore69.svg", "ModeSelectorElipsisOptionsMore70.svg", "MoviePopcornFilmWatch.svg", "MovieReelFilmWatch74.svg", "MovieReelFilmWatch75.svg", "MP3Device.svg", "MultipleDocs.svg", "Music.svg", "MusicTunesNowPlaying.svg", "Negative.svg", "Network.svg", "NetworkBroadcast.svg", "NetworkStreaming38.svg", "NetworkStreaming39.svg", "New.svg", "NewspaperNews.svg", "No.svg", "Note.svg", "Notification.svg", "NowPlaying.svg", "NowPlaying2.svg", "OffBellAlert.svg", "OptionsList15.svg", "OptionsList16.svg", "Outgoing.svg", "Paint2.svg", "Panorama.svg", "People.svg", "Person.svg", "Phone.svg", "Phone2.svg", "Phonealt04.svg", "Phonealt11.svg", "Phonealt12.svg", "Phonealt21.svg", "PhoneHangUp.svg", "Photo11.svg", "Photo12.svg", "Photoalt.svg", "PhotosDetailed18.svg", "PhotosDetailed19.svg", "PhotosDetailed20.svg", "PhotosPictures.svg", "PicturePhotoMountain.svg", "Pin15.svg", "Pin16.svg", "Pin2.svg", "Pin3.svg", "PlanetSpaceSaturn71.svg", "PlanetSpaceSaturn72.svg", "Plug.svg", "Positive.svg", "Post.svg", "Power.svg", "PowerChord.svg", "PowerChordCharger.svg", "ProfileInfoCard.svg", "QuestMapAdventureTreasure67.svg", "QuestMapAdventureTreasure68.svg", "Quickstart.svg", "Racecar39.svg", "Racecar41.svg", "Racecar42.svg", "RadarActivityMonitor.svg", "Radio.svg", "RB2.svg", "RBButton.svg", "Receptionservice.svg", "Rectangle1.svg", "RelatedLinked61.svg", "RelatedLinked62.svg", "Reload23.svg", "Reload24.svg", "Reload26.svg", "Reload27.svg", "ReminderBellAlert50.svg", "ReminderBellAlert52.svg", "Remove.svg", "Resize.svg", "RewardRibbonMedal.svg", "RightLeftArrows.svg", "RightStick.svg", "RightStickDownPush.svg", "RightTrigger.svg", "RocketshipLaunch.svg", "RotateCCW.svg", "RotateClockwise.svg", "SaveDisk.svg", "Search.svg", "SendMail57.svg", "SendMail58.svg", "SendMessage.svg", "Sendtoback.svg", "Settings2.svg", "Settings2Gears.svg", "Settings79.svg", "Settings80.svg", "Share.svg", "Share2.svg", "ShieldSecurity27.svg", "ShieldSecurity28.svg", "ShoppingCart.svg", "ShoppingCart2.svg", "Shuffle.svg", "SkeletonSkullKillDeath60.svg", "SkeletonSkullKillDeath61.svg", "SkeletonSkullKillDeath62.svg", "SkeletonSkullKillDeath63.svg", "SkeletonSkullKillDeath64.svg", "Sleep.svg", "SmartGlass.svg", "Snap.svg", "SoccerBallSportsalt.svg", "SoccerFootballSports.svg", "Speaker27.svg", "Speaker28.svg", "Sports.svg", "StackBatchLayersItemsExtras.svg", "Star15.svg", "Star16.svg", "Start.svg", "Steeringwheel.svg", "Stocks.svg", "Stopwatch.svg", "Store.svg", "SubscriptionInfoCard.svg", "Switch.svg", "SwitchButton.svg", "SyncReload.svg", "Table2.svg", "Table3.svg", "Tablet.svg", "Tag.svg", "TagAlt.svg", "Tape.svg", "TargetLocation74.svg", "TargetLocation75.svg", "Terrain.svg", "TextCursorwithBG.svg", "ThreeDPrinting.svg", "ThreeDView.svg", "ThreeDViewTerrain.svg", "ThreeDViewTerrainThreeDPrinting.svg", "ThreeDViewTerrainView.svg", "Timer.svg", "Tools.svg", "ToolsScrewdriver.svg", "ToolsWrench.svg", "TournamentBracketPlayoffs.svg", "Train.svg", "Trash20.svg", "Trash21.svg", "TrashRecyclebin19.svg", "TrashRecyclebin20.svg", "TrashRecyclebin21.svg", "Trending10.svg", "Trending22.svg", "Trending24.svg", "TrendingHashtag.svg", "TrendingUpwards.svg", "Trophy.svg", "TV.svg", "Uninstall.svg", "Unlock.svg", "UpDownArrows.svg", "Upload.svg", "USB.svg", "USBDrive.svg", "User.svg", "Versus59.svg", "Versus60.svg", "VerticalArrow.svg", "Vibrate.svg", "VideoCamera.svg", "ViewAspectRatio.svg", "Warning.svg", "Weather.svg", "Website.svg", "Wifi.svg", "Wifialt35.svg", "Wifialt36.svg", "Xbox.svg", "XboxOne.svg", "XboxVideo.svg", "XButton.svg", "YButton.svg", "ZombieUndead53.svg", "ZombieUndead54.svg", "ZombieUndead55.svg", "ZombieUndead56.svg", "ZombieUndead57.svg", "ZombieUndead58.svg", "ZombieUndead59.svg", "ZoomIn.svg", "ZoomOut.svg"];
+
+        var colorLoop = {
+            current: 0,
+            colors: ['white', 'black', 'blue']
+        };
+        colorLoop.currentColor = function () {
+            return this.colors[this.current];
+        };
+        colorLoop.next = function () {
+            this.current++;
+            if (this.current >= this.colors.length) {
+                this.current = 0;
+            }
+
+            return this.colors[this.current];
+        };
+
+        $(function () {
+            var body = $('body');
+
+            body.dblclick(function (e) {
+                if (e.target.tagName !== 'HEADER') {
+                    body.removeClass(colorLoop.currentColor());
+                    body.addClass(colorLoop.next());
+                }
+            });
+
+            var c = $('#container');
+
+            for (var i = 0; i < files.length; i++) {
+                var fileName = files[i];
+                c.append('<div><img src="' + fileName + '" /><header>' + fileName.replace('.svg', '') + '</header></div>');
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <div id="container"></div>
+</body>
+</html>

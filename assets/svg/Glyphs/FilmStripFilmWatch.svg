@@ -1,0 +1,12 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<path d="M8,1H6v30h2h16h2V1h-2H8z M10,3v2h2V3h8v2h2V3h2v12H8V3H10z M22,29v-2h-2v2h-8v-2h-2v2H8V17h16v12H22z"/>
+<rect x="20" y="23" width="2" height="2"/>
+<rect x="10" y="23" width="2" height="2"/>
+<rect x="20" y="19" width="2" height="2"/>
+<rect x="10" y="19" width="2" height="2"/>
+<rect x="20" y="11" width="2" height="2"/>
+<rect x="10" y="11" width="2" height="2"/>
+<rect x="20" y="7" width="2" height="2"/>
+<rect x="10" y="7" width="2" height="2"/>
+</svg>
