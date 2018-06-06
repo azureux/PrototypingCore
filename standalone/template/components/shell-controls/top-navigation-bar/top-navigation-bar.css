@@ -24,3 +24,13 @@
 {
     display:inline-block;
 }
+
+.controlContainer
+{
+    display: inline-block;
+}
+
+.controlContainer .icon
+{
+    display: inline-block;
+}
