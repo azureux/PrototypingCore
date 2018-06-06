@@ -10,7 +10,8 @@
 	try
 	{
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
-		{
+        {
+            //  window.AzureSVG = SVG;
 			ReactDOM.render( React.createElement( Application, OverrideConfig, [] ), document.getElementById( "ApplicationElement" ) );
 			return;
         } );

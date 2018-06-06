@@ -24,7 +24,8 @@ class Application extends React.Component
 			CurrentThemeName: this.Theme
 		};
 		this.Data = [];
-		this.Notifications = [];
+        this.Notifications = [];
+        //this.SVG = window.SVG;
 
 		// event handlers
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );

@@ -46,10 +46,17 @@ class TopNavigationBar extends React.Component
         //        React.createElement(ButtonCtrl)
         //    );
         //}
+        function createMarkup(svgIcon) {
+            return { __html: svgIcon };
+        };
 
         let _a = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
         let _b = React.createElement('div', { id: this.ID, className: 'appTitle' }, `${this.Title}`);
-        let _c = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _b, _a); 
+
+        let _svg = SVG.Add.SVG;
+        let _d = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_svg) } );
+
+        let _c = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _b, _a, _d);
 
         return _c;
 
