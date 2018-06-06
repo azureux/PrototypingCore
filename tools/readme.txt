@@ -1,18 +1,17 @@
-12:55 PM 5/30/2018
+12:55 PM 6/05/2018
 Project "Acuity"/"Defpotec"
+/tools/ - folder containing node.js executable scripts. Descriptitions detailed below
 
-This GIT repo is used by the Microsoft C+AI Cloud Design Studio ("CDS") Prototyping team ("Azure Prototyping").
 
-Open Issue: We are still investigating if we can deliver an "easy to code" React.JS prototype without taking dependencies like Node.js, etc.
+/tools/svg-folder/
+	>> Prior to running svg-assets-build.js script in node: navigate to /tools/svg-folder/ in the console and npm install fs, console, and chalk.
+	A. svg-assets-build.js 
+		i. Line 5 declares filepath where SVG files are being initially consumed (img_folder) 
+		ii. Line 6 declares filepath where resulting JSON file is being created (final_svg_file)
+		iii. Navigate to \PrototypingCore\tools\svg-builder in console and enter "node svg-assets-build.js"
+		iv. SVGs should successfuly parse into JSON file at the specified at line 6. 
+	B. /tools/svg-folder/node-modules/ --  your npm install created node dependencies for svg-assets-build.js : npm fs, npm console, npm chalk.
 
-The folder structure outlined here is described as follows:
 
-/node/ - for "Node.js" spcecific features and instances needed by this team.
-/node/template/ - "node.js" specific template of the CDS 
-/node/[uxr-build name-date]/ - for specific builds/deployments
 
-/standalone/ - root folder for the "standalone" prototype template & subsequent deployments/builds
-/standalone/template/ - baseline project, to be copied for deployments/buiilds
-/standalong/[uxr-build name-date]/ - for specific builds/deployments
 
-/tools/ - we'll use this folder for any specific tools we may need.
