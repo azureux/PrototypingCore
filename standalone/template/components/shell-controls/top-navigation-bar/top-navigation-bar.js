@@ -65,17 +65,22 @@ class TopNavigationBar extends React.Component
         //button
         let _b = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
 
-        //icons
+        //controls (also buttons)
         let _c1 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_notif) });
         let _c2 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_console) });
         let _c3 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_gear) });
         let _c4 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
         let _c5 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-        let _c6 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-
+        let _c6 = React.createElement(ButtonCtrl, { className: 'icon', Application: this.props, dangerouslySetInnerHTML: createMarkup(_plus) });
         var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
 
-        //icon container 
+        //write for loop for control array?
+        for (var i = 0; i < controlArray.length; i++) {
+            //console.log(controlArray);
+
+        }
+
+        //control container 
         let _d = React.createElement('div', { className: 'controlContainer' }, controlArray);
         
         //topnav container
