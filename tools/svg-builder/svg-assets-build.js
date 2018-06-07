@@ -174,7 +174,7 @@ const _writeToFile = function ( inputFolder, outputFile, ns, data )
 		{
 			stream.write( v );
 		} );
-		stream.write( "export default " + ns + ";" );
+		//stream.write( "export default " + ns + ";" );
 		//	stream.close();
 		stream.end();
 	} );
