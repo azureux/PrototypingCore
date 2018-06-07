@@ -52,6 +52,12 @@ class TopNavigationBar extends React.Component
         };
 
         let _plus = SVG.Add.SVG;
+        let _notif = SVG.Shell.Notification.SVG;
+        let _console = SVG.Shell.Console.SVG;
+        let _gear = SVG.Navigation.settings.SVG;
+
+        
+
 
         //App title (Azure)
         let _a = React.createElement('div', { id: this.ID, className: 'appTitle' }, `${this.Title}`);
@@ -60,9 +66,9 @@ class TopNavigationBar extends React.Component
         let _b = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
 
         //icons
-        let _c1 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-        let _c2 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-        let _c3 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
+        let _c1 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_notif) });
+        let _c2 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_console) });
+        let _c3 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_gear) });
         let _c4 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
         let _c5 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
         let _c6 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
