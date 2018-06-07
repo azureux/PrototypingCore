@@ -13,7 +13,8 @@ class ButtonCtrl extends React.Component
 		//properties
 		this.Id = this.props.id;
         this.Application = this.props.Application;
-        this.Title = "My Button";
+        this.Title = this.props.buttonText || "Button";
+        this.SvgIcon = this.props.svgIcon;//|| undefined;
         this.Theme = props.Application.Application.state.CurrentTheme;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
         this.CssFile = "components/standard-controls/button/button.css";
@@ -27,11 +28,13 @@ class ButtonCtrl extends React.Component
 			inner_text: this.props.InnerText,
 			prev_text: this.props.InnerText,
 			isClicked: false,
-			currentCssClass: this.CssClassNames.Normal
+            currentCssClass: this.CssClassNames.Normal,
+            AltTextTitle: this.props.attributeTitle
 		};
 
 		//event handlers
-		this.handleClick = this.OnClick_ChangeBorderColor.bind( this );
+        this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
+        //dangerouslySetInnerHTML: createMarkup(_plus) 
 		return;
 	};
 	componentDidMount()
@@ -42,7 +45,10 @@ class ButtonCtrl extends React.Component
 	{	//	not used yet
 		return;
 	};
-	
+    createMarkup(svgIcon)
+    {
+        return { __html: svgIcon }
+    };
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
 		//	console.debug( "RootLink::handleClick" );
@@ -74,18 +80,38 @@ class ButtonCtrl extends React.Component
             this.Title = props.Application.Application.ButtonCtrl.Title;
         }
         return;
-	};
+    };
+
+    //if icon = undefined >> text button
+    //text = title 
 	render()
     {
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
+        console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
 		//	alternation syntax for data-binding
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
 		//	contents of the element: `this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}`
-		return React.createElement( 'div', {
-			id: Utilities.NewId( "root-link" ),
-			className: this.state.currentCssClass,
-			onClick: this.handleClick
-        }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
+        let _rv;
+        if (this.SvgIcon !== undefined)
+        {
+            _rv = React.createElement('div', {
+                id: Utilities.NewId("root-link"),
+                className: this.state.currentCssClass + " svg-icon",
+                onClick: this.handleClick,
+                title: this.state.AltTextTitle,
+                dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG)
+            }); 
+        }
+        else
+        {
+            _rv = React.createElement('div', {
+                id: Utilities.NewId("root-link"),
+                className: this.state.currentCssClass,
+                onClick: this.handleClick,
+                title: this.state.AltTextTitle
+            }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
+        }
+        return _rv;
 	};
 };

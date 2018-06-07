@@ -15,6 +15,9 @@
     /*background-color: pink;*/
 }
 
+.svg-icon {
+    border: solid 1px red;
+}
 
 .dark.buttonControl {
     border: 2px dashed #fff;

@@ -7,7 +7,7 @@ const OverrideConfig =
 		},
 		TopNavigationBar: {
 			//Title: "My Azure TopNavigationBar"
-            Title: "Microsoft Azure"
+            //Title: "Microsoft Azure"
 		},
 		VerticalNavigationBar: {
 			Title: "My Azure VerticalNavigationBar"
