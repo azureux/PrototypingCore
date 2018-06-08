@@ -3,20 +3,13 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 
-
-//const CssClassNames = {
-//    Normal: this.Theme + " buttonControl",
-//    Alerted: this.Theme + " RootLinkCssExtra",
-//    TopNav: this.Theme = " TopNav"
-//};
 // control template - flesh out all functions, methods, events
 class ButtonCtrl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
 		super( props );
-
-		//properties
+        
 		//properties
 		this.Id = this.props.id;
         this.Application = this.props.Application;
@@ -103,7 +96,6 @@ class ButtonCtrl extends React.Component
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
         console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
-        //RIGHT NOW SET FOR EITHER ICON OR TEXT NOT BOTH!
         let _rv;
         if (this.SvgIcon !== undefined)
         {
