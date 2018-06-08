@@ -74,11 +74,11 @@ class TopNavigationBar extends React.Component
         //let _c5 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
         //let _c6 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Jackie\'s title attribute', buttonText: 'Jackie\'s Button', Application: this.props, dangerouslySetInnerHTML: createMarkup(_plus) });
         //let _c6 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-        let _c1 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
-        let _c2 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Cloud Shell', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Console });
-        let _c3 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Settings', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.gear });
-        let _c4 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Feedback', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Help });
-        let _c5 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Help', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
+        let _c1 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
+        let _c2 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Cloud Shell', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Console });
+        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Settings', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.gear });
+        let _c4 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Feedback', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Help });
+        let _c5 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Help', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
         let _c6 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Directory and Subscription folder', Application: this.props, svgIcon: SVG.Shell.Notification });
         //RIGHT NOW SET FOR EITHER ICON OR TEXT NOT BOTH!
         // buttonText: 'Jackie\'s Button'

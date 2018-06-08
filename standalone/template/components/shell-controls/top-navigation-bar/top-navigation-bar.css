@@ -32,21 +32,4 @@
     margin: -5px 200px 0px 0px;
 }
 
-.controlContainer .icon {
-    display: inline-block;
-    fill: #fff;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    border-right: 1px solid rgba(255, 255, 255, .5);
-    cursor: pointer;
-}
 
-.controlContainer .icon:hover{
-    background-color: rgba(255, 255, 255, .2);
-}
-
-svg {
-    width: 100%;
-    height: 100%;
-}

@@ -3,7 +3,7 @@
 const OverrideConfig =
 	{
 		Application: {
-			//Theme: "dark", // "dark", "light", "blue","hi-contract"
+			//Theme: "dark", // "darkTheme", "lightTheme", "blue","hi-contract"
 		},
 		TopNavigationBar: {
 			//Title: "My Azure TopNavigationBar"

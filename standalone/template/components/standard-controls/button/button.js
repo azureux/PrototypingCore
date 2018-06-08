@@ -17,6 +17,7 @@ class ButtonCtrl extends React.Component
 		super( props );
 
 		//properties
+		//properties
 		this.Id = this.props.id;
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
@@ -27,7 +28,7 @@ class ButtonCtrl extends React.Component
         this.CssFile = "components/standard-controls/button/button.css";
 		this.CssClassNames = {
             Normal: this.Theme + " buttonControl " + this.ButtonStyle,
-            Alerted: this.Theme + " RootLinkCssExtra" + this.ButtonStyle,
+            Alerted: this.Theme + " RootLinkCssExtra " + this.ButtonStyle,
         };
 
 		// state
