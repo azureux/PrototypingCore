@@ -63,7 +63,7 @@ class TopNavigationBar extends React.Component
 
         let _c1 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
         let _c2 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Cloud Shell', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Console });
-        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Settings', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.gear });
+        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Settings', buttonText: 'Populating', Application: this.props, svgIcon: SVG.Shell.Notification  });
         let _c4 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Feedback', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Help });
         let _c5 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Help', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
         let _c6 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Directory and Subscription folder', Application: this.props, svgIcon: SVG.Shell.Notification });

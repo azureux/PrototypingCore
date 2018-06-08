@@ -97,17 +97,59 @@ class ButtonCtrl extends React.Component
         console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
         let _rv;
-        if (this.SvgIcon !== undefined)
+
+
+        //if (this.SvgIcon !== undefined && this.props.buttonText !== undefined) {
+        //    _rv = React.createElement('div', {
+        //        id: Utilities.NewId("one"),
+        //        className: this.state.currentCssClass + " svg-icon",
+        //        onClick: this.handleClick,
+        //        title: this.state.AltTextTitle,
+        //        dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG)
+        //    }, `${this.Title}`);
+        //}
+        //else if (this.SvgIcon !== undefined) {
+        //    _rv = React.createElement('div', {
+        //        id: Utilities.NewId("two"),
+        //        className: this.state.currentCssClass,
+        //        onClick: this.handleClick,
+        //        title: this.state.AltTextTitle
+        //    }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
+        //}
+        //else {
+        //    _rv = React.createElement('div', {
+        //        id: Utilities.NewId("three"),
+        //        className: this.state.currentCssClass,
+        //        onClick: this.handleClick,
+        //        title: this.state.AltTextTitle,
+        //        dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG)
+        //    });  // `${this.state.inner_text} : ${this.state.isClicked}`
+        //}
+        
+
+        if (this.SvgIcon !== undefined && this.props.buttonText !== "Button")
         {
+            let _j = React.createElement('div', { className: 'divTitle', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
+
             _rv = React.createElement('div', {
                 id: Utilities.NewId("root-link"),
                 className: this.state.currentCssClass + " svg-icon",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
-                dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG)
-            }); 
+            }, `${this.Title}`, _j ); 
         }
-        else
+        else if (this.SvgIcon !== undefined && this.props.buttonText == "Button") {
+            let _j = React.createElement('div', { className: 'divTitle', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
+
+            _rv = React.createElement('div', {
+                id: Utilities.NewId("root-link"),
+                className: this.state.currentCssClass + " svg-icon",
+                onClick: this.handleClick,
+                title: this.state.AltTextTitle,
+            }, _j);
+        }
+
+        else if (this.SvgIcon == undefined && this.props.buttonText !== "Button")
         {
             _rv = React.createElement('div', {
                 id: Utilities.NewId("root-link"),
