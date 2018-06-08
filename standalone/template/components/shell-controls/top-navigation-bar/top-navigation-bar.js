@@ -57,7 +57,8 @@ class TopNavigationBar extends React.Component
         let _gear = SVG.Navigation.settings.SVG;
 
         
-
+        //references
+        // basic button without props >> React.createElement(ButtonCtrl, { Application: this.props });
 
         //App title (Azure)
         let _a = React.createElement('div', { id: this.ID, className: 'appTitle' }, `${this.Title}`);
@@ -66,21 +67,24 @@ class TopNavigationBar extends React.Component
         let _b = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
 
         //controls (also buttons)
-        let _c1 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_notif) });
-        let _c2 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_console) });
-        let _c3 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_gear) });
-        let _c4 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-        let _c5 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
+        //let _c1 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_notif) });
+        //let _c2 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_console) });
+        //let _c3 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_gear) });
+        //let _c4 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
+        //let _c5 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
         //let _c6 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Jackie\'s title attribute', buttonText: 'Jackie\'s Button', Application: this.props, dangerouslySetInnerHTML: createMarkup(_plus) });
         //let _c6 = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_plus) });
-        let _c6 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Jackie\'s title attribute', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Color.ActiveDirectoryAssessment_color });
-
-        let _c7 = React.createElement(ButtonCtrl, { Application: this.props });
-
-
-        var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6, _c7];
-
+        let _c1 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
+        let _c2 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Cloud Shell', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Console });
+        let _c3 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Settings', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.gear });
+        let _c4 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Feedback', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Help });
+        let _c5 = React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Help', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
+        let _c6 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Directory and Subscription folder', Application: this.props, svgIcon: SVG.Shell.Notification });
+        //RIGHT NOW SET FOR EITHER ICON OR TEXT NOT BOTH!
+        // buttonText: 'Jackie\'s Button'
+        
         //control container 
+        var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
         let _d = React.createElement('div', { className: 'controlContainer' }, controlArray);
         
         //topnav container

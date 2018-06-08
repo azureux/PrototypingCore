@@ -3,6 +3,12 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 
+
+//const CssClassNames = {
+//    Normal: this.Theme + " buttonControl",
+//    Alerted: this.Theme + " RootLinkCssExtra",
+//    TopNav: this.Theme = " TopNav"
+//};
 // control template - flesh out all functions, methods, events
 class ButtonCtrl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
@@ -16,12 +22,14 @@ class ButtonCtrl extends React.Component
         this.Title = this.props.buttonText || "Button";
         this.SvgIcon = this.props.svgIcon;//|| undefined;
         this.Theme = props.Application.Application.state.CurrentTheme;
+        this.ButtonStyle = this.props.className;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
         this.CssFile = "components/standard-controls/button/button.css";
 		this.CssClassNames = {
-			Normal: this.Theme + " buttonControl",
-            Alerted: this.Theme + " RootLinkCssExtra"
-		};
+            Normal: this.Theme + " buttonControl " + this.ButtonStyle,
+            Alerted: this.Theme + " RootLinkCssExtra" + this.ButtonStyle,
+        };
+
 		// state
 		this.state = {
 			items: [],
@@ -35,6 +43,11 @@ class ButtonCtrl extends React.Component
 		//event handlers
         this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
         //dangerouslySetInnerHTML: createMarkup(_plus) 
+
+
+        if (this.ButtonStyle !== undefined) {
+            this.setState({ currentCssClass: this.CssClassNames.TopNav });
+        }
 		return;
 	};
 	componentDidMount()
@@ -89,9 +102,7 @@ class ButtonCtrl extends React.Component
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
         console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
-		//	alternation syntax for data-binding
-		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
-		//	contents of the element: `this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}`
+        //RIGHT NOW SET FOR EITHER ICON OR TEXT NOT BOTH!
         let _rv;
         if (this.SvgIcon !== undefined)
         {
