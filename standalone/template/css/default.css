@@ -35,7 +35,7 @@ body
 	border: solid 0px rgba(255,255,255,1);
 }
 /* root level themes, usually limited to attributes that use colors */
-.dark
+.darkTheme
 {
 	background-color: rgba(32,32,32,1);
 	color: rgba(224,224,224,1);
@@ -44,7 +44,7 @@ body
 	border-color: red;
     font-family: 'Segoe UI', 'Tahoma', Arial;
 }
-.light
+.lightTheme
 {
 	background-color: rgba(224,224,224,1);
 	color: rgba(32,32,32,1);

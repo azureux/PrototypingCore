@@ -15,7 +15,7 @@ class Application extends React.Component
 		//	so we'll need to figure out a way to do that
 		//	if may be that we simply swap CSS files
 		//	this.props.Theme;
-		this.Theme = "light";
+		this.Theme = "lightTheme";
 		// state & data
 		this.state = {
 			CurrentUser: {},
@@ -54,15 +54,15 @@ class Application extends React.Component
 		ev.preventDefault();
 		ev.stopPropagation();
 		//	console.debug( "OnClick_ToggleThemes", this.state );
-		if ( this.state.CurrentTheme == "dark" )
+		if ( this.state.CurrentTheme == "darkTheme" )
 		{
-			this.setState( { CurrentTheme: "light" } );
-			this.setState( { CurrentThemeName: "light" } );
+			this.setState( { CurrentTheme: "lightTheme" } );
+            this.setState({ CurrentThemeName: "lightTheme" } );
 		}
-		else if ( this.state.CurrentTheme == "light" )
+        else if (this.state.CurrentTheme == "lightTheme" )
 		{
-			this.setState( { CurrentTheme: "dark" } );
-			this.setState( { CurrentThemeName: "dark" } );
+            this.setState({ CurrentTheme: "darkTheme" } );
+            this.setState({ CurrentThemeName: "darkTheme" } );
 		}
 		//	console.debug( "OnClick_ToggleThemes", this.state );
 		//	this.forceUpdate();
