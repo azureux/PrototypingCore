@@ -60,13 +60,13 @@ class TopNavigationBar extends React.Component
         let _b = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
 
         //btn ctrls
-
-        let _c1 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
-        let _c2 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Cloud Shell', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Console });
-        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Settings', buttonText: 'Populating', Application: this.props, svgIcon: SVG.Shell.Notification  });
-        let _c4 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Feedback', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Help });
-        let _c5 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Help', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
-        let _c6 = React.createElement(ButtonCtrl, { className: 'TopNav', attributeTitle: 'Directory and Subscription folder', Application: this.props, svgIcon: SVG.Shell.Notification });
+        //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
+        let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification });
+        let _c2 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Console });
+        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification  });
+        let _c4 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Help });
+        let _c5 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
+        let _c6 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification });
 
         //control container 
         var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
