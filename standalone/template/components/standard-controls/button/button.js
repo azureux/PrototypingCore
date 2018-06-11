@@ -105,7 +105,7 @@ class ButtonCtrl extends React.Component
 
             _rv = React.createElement('div', {
                 id: Utilities.NewId("root-link"),
-                className: this.state.currentCssClass + " IconText",
+                className: this.state.currentCssClass + " IconWithText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
             }, `${this.Title}`, _j ); 

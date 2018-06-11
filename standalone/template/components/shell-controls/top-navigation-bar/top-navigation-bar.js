@@ -71,10 +71,12 @@ class TopNavigationBar extends React.Component
         //control container 
         var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
         let _d = React.createElement('div', { className: 'controlContainer' }, controlArray);
+
+        let _x = React.createElement(UserAccountSwitcher, {className: 'MeControl'});
         
         //topnav container
-        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _a, _b, _d);
+        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _a, _b, _d, _x);
 
-        return _e;
+       return _e;
 	};
 };
