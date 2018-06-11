@@ -14,7 +14,7 @@ class ButtonCtrl extends React.Component
 		this.Id = this.props.id;
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
-        this.SvgIcon = this.props.svgIcon;//|| undefined;
+        this.SvgIcon = this.props.svgIcon || undefined;
         this.Theme = props.Application.Application.state.CurrentTheme;
         this.ButtonStyle = this.props.className;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
@@ -38,11 +38,11 @@ class ButtonCtrl extends React.Component
         this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
         //dangerouslySetInnerHTML: createMarkup(_plus) 
 
-
-        if (this.ButtonStyle !== undefined) {
-            this.setState({ currentCssClass: this.CssClassNames.TopNav });
-        }
-		return;
+        //not doing anything currently. 
+        //  if (this.ButtonStyle !== undefined) {
+        //      this.setState({ currentCssClass: this.CssClassNames.TopNavBtn });
+        //  }
+		    //return;
 	};
 	componentDidMount()
 	{	//	not used yet
@@ -97,59 +97,32 @@ class ButtonCtrl extends React.Component
         console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
         let _rv;
-
-
-        //if (this.SvgIcon !== undefined && this.props.buttonText !== undefined) {
-        //    _rv = React.createElement('div', {
-        //        id: Utilities.NewId("one"),
-        //        className: this.state.currentCssClass + " svg-icon",
-        //        onClick: this.handleClick,
-        //        title: this.state.AltTextTitle,
-        //        dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG)
-        //    }, `${this.Title}`);
-        //}
-        //else if (this.SvgIcon !== undefined) {
-        //    _rv = React.createElement('div', {
-        //        id: Utilities.NewId("two"),
-        //        className: this.state.currentCssClass,
-        //        onClick: this.handleClick,
-        //        title: this.state.AltTextTitle
-        //    }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
-        //}
-        //else {
-        //    _rv = React.createElement('div', {
-        //        id: Utilities.NewId("three"),
-        //        className: this.state.currentCssClass,
-        //        onClick: this.handleClick,
-        //        title: this.state.AltTextTitle,
-        //        dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG)
-        //    });  // `${this.state.inner_text} : ${this.state.isClicked}`
-        //}
         
-
-        if (this.SvgIcon !== undefined && this.props.buttonText !== "Button")
+        //SVG + Unique Text
+        if (this.SvgIcon !== undefined && this.props.buttonText !== " ")
         {
-            let _j = React.createElement('div', { className: 'divTitle', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
+            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
 
             _rv = React.createElement('div', {
                 id: Utilities.NewId("root-link"),
-                className: this.state.currentCssClass + " svg-icon",
+                className: this.state.currentCssClass + " IconText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
             }, `${this.Title}`, _j ); 
         }
-        else if (this.SvgIcon !== undefined && this.props.buttonText == "Button") {
-            let _j = React.createElement('div', { className: 'divTitle', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
+        //SVG + no unique text
+        else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
+            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
 
             _rv = React.createElement('div', {
                 id: Utilities.NewId("root-link"),
-                className: this.state.currentCssClass + " svg-icon",
+                className: this.state.currentCssClass + " IconNoText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
             }, _j);
         }
-
-        else if (this.SvgIcon == undefined && this.props.buttonText !== "Button")
+        //neither
+        else // (this.SvgIcon == undefined && this.props.buttonText !== "Button")
         {
             _rv = React.createElement('div', {
                 id: Utilities.NewId("root-link"),
