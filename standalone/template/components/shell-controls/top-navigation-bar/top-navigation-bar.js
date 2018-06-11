@@ -13,11 +13,6 @@ class TopNavigationBar extends React.Component
 		this.Theme = props.Application.state.CurrentTheme;
 		this.CssFileID = Utilities.NewId( "tnb-css" );
 		this.CssFile = "components/shell-controls/top-navigation-bar/top-navigation-bar.css";
-		//this.CssClassNames = {
-		//	Normal: this.Theme + " topnav-main",
-		//	Dirty: this.Theme + " topnav-main-dirty",
-		//	Saved: this.Theme + "topnav-main-saved",
-		//};
 		this.CssClassNames = {
 			Normal: "topnav-main " + this.Theme,
 			Dirty: "topnav-main-dirty " + this.Theme,
@@ -72,7 +67,7 @@ class TopNavigationBar extends React.Component
         var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
         let _d = React.createElement('div', { className: 'controlContainer' }, controlArray);
 
-        let _x = React.createElement(UserAccountSwitcher, {className: 'MeControl'});
+        let _x = React.createElement(UserAccountSwitcher, { className: 'MeControl', Application: this.props.Application });
         
         //topnav container
         let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _a, _b, _d, _x);
