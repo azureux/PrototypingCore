@@ -65,7 +65,7 @@ class UserAccountSwitcher extends React.Component
 
 
         let _x = React.createElement("div", { className: 'me-control-container', key: Utilities.NewId() }, _d, _e, _i);
-        let _y = React.createElement("div", { className: 'user-acct-container', key: Utilities.NewId() }, _x, _1);
+        //let _y = React.createElement("div", { className: 'user-acct-container', key: Utilities.NewId() }, );
 
 
         console.debug( "useraccount", this.props, typeof Shell );
@@ -73,6 +73,6 @@ class UserAccountSwitcher extends React.Component
             id: Utilities.NewId("useraccount"),
             className: this.state.currentCssClass,
             key: Utilities.NewId()
-		}, _y );
+        }, _1, _x );
 	};
 };
