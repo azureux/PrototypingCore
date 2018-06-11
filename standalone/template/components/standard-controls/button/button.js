@@ -108,6 +108,7 @@ class ButtonCtrl extends React.Component
                 className: this.state.currentCssClass + " IconWithText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
+                key: Utilities.NewId(),
             }, `${this.Title}`, _j ); 
         }
         //SVG + no unique text
@@ -119,6 +120,7 @@ class ButtonCtrl extends React.Component
                 className: this.state.currentCssClass + " IconNoText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
+                key: Utilities.NewId(),
             }, _j);
         }
         //neither
@@ -128,7 +130,8 @@ class ButtonCtrl extends React.Component
                 id: Utilities.NewId("root-link"),
                 className: this.state.currentCssClass,
                 onClick: this.handleClick,
-                title: this.state.AltTextTitle
+                title: this.state.AltTextTitle,
+                key: Utilities.NewId(), 
             }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
         }
         return _rv;

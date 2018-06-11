@@ -105,7 +105,8 @@ class Application extends React.Component
 			{
 				id: this.ID,
 				className: this.state.CurrentTheme + " cds-react-app",
-				onClick: this.handleClick
+                onClick: this.handleClick,
+                key: Utilities.NewId()
 			},
 			this.Layout
 		);

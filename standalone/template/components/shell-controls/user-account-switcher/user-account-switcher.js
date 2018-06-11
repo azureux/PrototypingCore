@@ -4,10 +4,6 @@
 /// <reference path="../js/utilities.js" />
 "use strict";
 
-// "Shell" control
-//	1. constructor() & other React specific methods (if needed)
-//	2. event handlers & other functions
-//	3. render()
 class UserAccountSwitcher extends React.Component
 {
 	constructor( props )
@@ -23,11 +19,10 @@ class UserAccountSwitcher extends React.Component
         this.CssFileID = "useraccount-css"; //Utilities.NewId("useraccount-css");
         this.CssFile = "components/shell-controls/user-account-switcher/user-account-switcher.css";
         this.CssClassNames = {
-            //Normal: this.Theme + " UserAccount " + this.UserAccountStyle,
-            //Alerted: this.Theme + " RootLinkCssExtra " + this.UserAccountStyle,
+            Normal: this.Theme + " UserAccount " + this.UserAccountStyle,
+            Alerted: this.Theme + " RootLinkCssExtra " + this.UserAccountStyle,
         };
-
-
+        
 		this.state = {};
 		this.CssClassNames = {
 			Normal: "UserAccount",
@@ -49,10 +44,35 @@ class UserAccountSwitcher extends React.Component
         //	console.debug( "TopNavigationBar.render()", this.props );
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 
+        //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
+
+        let _1 = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId() });
+
+        let _a = React.createElement(ButtonCtrl, { className: 'sign-in', Application: this.props });
+        let _b = React.createElement(ButtonCtrl, { className: 'microsoft', Application: this.props });
+        let _c = React.createElement(ButtonCtrl, { className: 'sign-out', Application: this.props });
+        var cntrlArray = [_a, _b, _c];
+
+        let _d = React.createElement("div", { className: 'top-controls-container', key: Utilities.NewId()}, cntrlArray );
+        let _e = React.createElement("div", { className: 'current-user', key: Utilities.NewId()});
+
+        let _f = React.createElement(ButtonCtrl, { className: 'user1' });
+        let _g = React.createElement(ButtonCtrl, { className: 'user2' });
+        let _h = React.createElement(ButtonCtrl, { className: 'user3' }); 
+
+        var userArray = [_f, _g, _h];
+        let _i = React.createElement("div", { className: 'potential-logins', key: Utilities.NewId() });
+
+
+        let _x = React.createElement("div", { className: 'me-control-container', key: Utilities.NewId() }, _d, _e, _i);
+        let _y = React.createElement("div", { className: 'user-acct-container', key: Utilities.NewId() }, _x, _1);
+
+
         console.debug( "useraccount", this.props, typeof Shell );
 		return React.createElement( 'div', {
             id: Utilities.NewId("useraccount"),
             className: this.state.currentCssClass,
-		},`DropDown` );
+            key: Utilities.NewId()
+		}, _y );
 	};
 };

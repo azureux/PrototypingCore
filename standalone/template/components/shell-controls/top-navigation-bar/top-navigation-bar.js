@@ -49,28 +49,28 @@ class TopNavigationBar extends React.Component
         //React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Jackie\'s title attribute', buttonText: 'Jackie\'s Button', Application: this.props, dangerouslySetInnerHTML: createMarkup(_plus) });
 
         //App title (Azure)
-        let _a = React.createElement('div', { id: this.ID, className: 'appTitle' }, `${this.Title}`);
+        let _a = React.createElement('div', { id: this.ID, className: 'appTitle', key: Utilities.NewId() }, `${this.Title}`);
 
         //button
         let _b = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
 
         //btn ctrls
         //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
-        let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification });
-        let _c2 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Console });
-        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification  });
-        let _c4 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Help });
-        let _c5 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories});
-        let _c6 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification });
+        let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
+        let _c2 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Console, key: Utilities.NewId() });
+        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId()  });
+        let _c4 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Help, key: Utilities.NewId() });
+        let _c5 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories, key: Utilities.NewId()});
+        let _c6 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification,  key: Utilities.NewId() });
 
         //control container 
         var controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
-        let _d = React.createElement('div', { className: 'controlContainer' }, controlArray);
+        let _d = React.createElement('div', { className: 'controlContainer', key: Utilities.NewId()}, controlArray);
 
-        let _x = React.createElement(UserAccountSwitcher, { className: 'MeControl', Application: this.props.Application });
+        let _x = React.createElement(UserAccountSwitcher, { className: 'MeControl', Application: this.props.Application, key: Utilities.NewId() });
         
         //topnav container
-        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _a, _b, _d, _x);
+        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass, key: Utilities.NewId() }, _a, _b, _d, _x);
 
        return _e;
 	};

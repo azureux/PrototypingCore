@@ -6,6 +6,6 @@
     width: calc(100% - 260px);
     min-width: 400px;
     height: calc(100% - 80px);
-    left: 220px;
-    position: relative;
+    left: 225px;
+    position: absolute;
 }
