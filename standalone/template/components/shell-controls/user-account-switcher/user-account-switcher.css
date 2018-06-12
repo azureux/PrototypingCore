@@ -1,6 +1,5 @@
-﻿.className
-{
-	color:red;
+﻿.className {
+    color: red;
 }
 
 .UserAccount {
@@ -26,20 +25,20 @@
     position: absolute;
 }
 
-.me-control-container .buttonControl {
-    color: #000;
-    width: 100px;
-    display: inline-flex;
-    margin: 0 0 0 10px;
-    font-size: 14px;
-    line-height: 15px;
-}
+    .me-control-container .buttonControl {
+        color: #000;
+        width: 100px;
+        display: inline-flex;
+        margin: 0 0 0 10px;
+        font-size: 14px;
+        line-height: 15px;
+    }
 
-.me-control-container .buttonControl .icon {
-    width: 20px;
-    height: 19px;
-    margin-right: 4px;
-}
+        .me-control-container .buttonControl .icon {
+            width: 20px;
+            height: 19px;
+            margin-right: 4px;
+        }
 
 .top-controls-container {
     height: 35px;
@@ -52,11 +51,11 @@
     height: 160px;
 }
 
-.current-user .left {
-    width: 50%;
-    height: 100%;
-    padding: 50px;
-}
+    .current-user .left {
+        width: 50%;
+        height: 100%;
+        padding: 50px;
+    }
 
 .potential-logins {
     height: 160px;
@@ -88,6 +87,7 @@
     margin-top: 4px;
     fill: #fff;
 }
+
 svg {
     width: 100%;
     height: 100%;

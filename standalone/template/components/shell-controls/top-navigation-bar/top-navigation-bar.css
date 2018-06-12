@@ -1,5 +1,4 @@
-﻿.topnav-main 
-{
+﻿.topnav-main {
     padding: 3px 10px;
     height: 40px;
     line-height: 32px;
@@ -13,16 +12,14 @@
     display: block;
 }
 
-.dark.topnav-main
-{
-	border-color:rgba(255, 255, 255,1);
-	background: rgba(64, 64, 64,1);
-	color: rgba(255,255,255,1);
+.dark.topnav-main {
+    border-color: rgba(255, 255, 255,1);
+    background: rgba(64, 64, 64,1);
+    color: rgba(255,255,255,1);
 }
 
-.appTitle 
-{
-    display:inline-block;
+.appTitle {
+    display: inline-block;
 }
 
 .controlContainer {
@@ -32,5 +29,3 @@
     height: 40px;
     margin: -5px 5px 0px 0px;
 }
-
-
