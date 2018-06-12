@@ -90,13 +90,12 @@ body
 	border-color: red;
     font-family: 'Segoe UI', 'Tahoma', Arial;
 }
-.lightTheme
-{
-	background-color: rgba(224,224,224,1);
-	color: rgba(32,32,32,1);
-	font-size: medium;
-	/*border: solid 1px blue;*/
-	border-color: blue;
+.blueTheme {
+    background-color: #215b7d;
+    color: rgba(32,32,32,1);
+    font-size: medium;
+    /*border: solid 1px blue;*/
+    border-color: blue;
     font-family: 'Segoe UI', 'Tahoma', Arial;
 }
 

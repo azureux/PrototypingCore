@@ -110,13 +110,22 @@
 
 
 .potential-logins {
-height: 160px;
-background-color: rgba(255, 255, 255, .5);
+    height: 160px;
+    background-color: #f4f4f4;
 }
 
-.me-control-btn {
-    display: flex;
-}
+    .potential-logins .user {
+        display: block;
+        height: 54px;
+        border: 1px solid black;
+        margin: 0;
+        width: 100%;
+        /* padding: 17px; */
+    }
+
+    .me-control-btn {
+        display: flex;
+    }
 
 .credentials-container {
     color: #fff;
