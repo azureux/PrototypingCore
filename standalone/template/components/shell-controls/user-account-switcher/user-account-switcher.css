@@ -49,17 +49,69 @@
 .current-user {
     background-color: white;
     height: 160px;
+    display:flex;
 }
 
     .current-user .left {
-        width: 50%;
+        width: 129px;
         height: 100%;
-        padding: 50px;
+        padding: 30px;
     }
 
+    .current-user .middle {
+        width: 160px;
+        height: 100%;
+        font: 14px SegoeUI;
+        padding: 35px 0 0 0;
+    }
+
+        .current-user .middle .current-user-title {
+            color: #000;
+            font: 15px SegoeUI-SemiBold;
+            margin: 0 0px 3px 0px;
+        }
+        .current-user .middle .current-user-email {
+            color: #000;
+            /* font-size: 14px; */
+            margin: 0 0px 3px 0px;
+        }
+        .current-user .middle .view-ms-acct {
+            margin: 0 0px 3px 0px;
+            color: #0078d7;
+            cursor: pointer;
+        }
+        .current-user .middle .change-info {
+            color: #0078d7;
+            cursor: pointer;
+        }
+
+    .current-user .right {
+        height: 160px;
+    }
+
+        .current-user .right .buttonControl {
+            height: inherit;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+        }
+            .current-user .right .buttonControl .icon {
+                bottom: 10px;
+                position: absolute;
+                border-radius: 1px;
+                width: 30px;
+                height: 20px;
+            }
+
+                .current-user .right .buttonControl .icon:hover {
+                    background-color: #9b9999;
+                    fill: #ffffff;
+                }
+
+
 .potential-logins {
-    height: 160px;
-    background-color: gray;
+height: 160px;
+background-color: rgba(255, 255, 255, .5);
 }
 
 .me-control-btn {

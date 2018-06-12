@@ -69,20 +69,18 @@ class UserAccountSwitcher extends React.Component {
 
         let _6 = React.createElement("div", { className: 'left', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) });
 
-        let _7a = React.createElement("div", { className: 'current-user-title', key: Utilities.NewId() });
-        let _7b = React.createElement("div", { className: 'current-user-email', key: Utilities.NewId() });
-        let _7c = React.createElement("div", { className: 'view-ms-acct', key: Utilities.NewId() });
-        let _7d = React.createElement("div", { className: 'change-info', key: Utilities.NewId() });
+        let _7a = React.createElement("div", { className: 'current-user-title', key: Utilities.NewId(), }, "John Vanerbloom");
+        let _7b = React.createElement("div", { className: 'current-user-email', key: Utilities.NewId(), attributeTitle: 'Current User' }, "john123@outlook.com");
+        let _7c = React.createElement("div", { className: 'view-ms-acct', key: Utilities.NewId() }, "View Microsoft Account");
+        let _7d = React.createElement("div", { className: 'change-info', key: Utilities.NewId() }, "Change contact info");
         var currentUserArray = [_7a, _7b, _7c, _7d];
         let _7 = React.createElement("div", { className: 'middle', key: Utilities.NewId() }, currentUserArray);
 
 
-        let _8a = React.createElement(ButtonCtrl, { className: 'right', Application: this.props, }, );
-        let _8 = React.createElement("div", { className: 'right', key: Utilities.NewId() }, );
+        let _8a = React.createElement(ButtonCtrl, { className: '', Application: this.props, buttonText: ' ', svgIcon: SVG.Ellipsis, }, );
+        let _8 = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _8a);
 
-        //let _8 = React.createElement("div", { className: '', key: Utilities.NewId() }, _6, _7);
-
-        let _e = React.createElement("div", { className: 'current-user', key: Utilities.NewId() }, _6, _7);
+        let _e = React.createElement("div", { className: 'current-user', key: Utilities.NewId() }, _6, _7, _8);
 
         let _f = React.createElement(ButtonCtrl, { className: 'user1' });
         let _g = React.createElement(ButtonCtrl, { className: 'user2' });
