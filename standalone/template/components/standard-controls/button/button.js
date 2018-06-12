@@ -109,7 +109,7 @@ class ButtonCtrl extends React.Component
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
-            }, `${this.Title}`, _j ); 
+            }, _j, `${this.Title}` ); 
         }
         //SVG + no unique text
         else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
