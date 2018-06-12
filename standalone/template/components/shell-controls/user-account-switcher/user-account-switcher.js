@@ -59,7 +59,7 @@ class UserAccountSwitcher extends React.Component
         let _1 = React.createElement("div", { className: 'user-name', key: Utilities.NewId()}, "Jackie Gaherity");
         let _2 = React.createElement("div", { className: 'user-company', key: Utilities.NewId }, "Microsoft");
         let _3 = React.createElement("div", { className: 'credentials-container', key: Utilities.NewId()}, _1, _2 );
-        let _4 = React.createElement("div", { className: 'user-img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Shell.Notification.SVG) }  ); // , svgIcon: SVG.Shell.Notification, this.SvgIcon.SVG
+        let _4 = React.createElement("div", { className: 'user-img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) }  ); // , svgIcon: SVG.Shell.Notification, this.SvgIcon.SVG
 
         let _5 = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId()}, _3, _4); //4
 
