@@ -15,6 +15,7 @@ class UserAccountSwitcher extends React.Component
         this.Application = this.props.Application;
         this.Title = "Me Control";
         this.Theme = this.props.Application.state.CurrentTheme;
+        this.SvgIcon = this.props.svgIcon || undefined;
         this.UserAccountStyle = this.props.className;
         this.CssFileID = "useraccount-css"; //Utilities.NewId("useraccount-css");
         this.CssFile = "components/shell-controls/user-account-switcher/user-account-switcher.css";
@@ -38,16 +39,31 @@ class UserAccountSwitcher extends React.Component
             AltTextTitle: this.props.attributeTitle
         };
 		return;
-	};
+    };
+
+    createMarkup(svgIcon) {
+        return { __html: svgIcon }
+    };
+
 	render()
     {
         //	console.debug( "TopNavigationBar.render()", this.props );
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 
+        //function createMarkup(svgIcon) {
+        //    return { __html: svgIcon };
+        //};
         //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
 
-        let _1 = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId() });
 
+        let _1 = React.createElement("div", { className: 'user-name', key: Utilities.NewId()}, "Jackie Gaherity");
+        let _2 = React.createElement("div", { className: 'user-company', key: Utilities.NewId }, "Microsoft");
+        let _3 = React.createElement("div", { className: 'credentials-container', key: Utilities.NewId()}, _1, _2 );
+        let _4 = React.createElement("div", { className: 'user-img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Shell.Notification.SVG) }  ); // , svgIcon: SVG.Shell.Notification, this.SvgIcon.SVG
+
+        let _5 = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId()}, _3, _4); //4
+
+        
         let _a = React.createElement(ButtonCtrl, { className: 'sign-in', Application: this.props });
         let _b = React.createElement(ButtonCtrl, { className: 'microsoft', Application: this.props });
         let _c = React.createElement(ButtonCtrl, { className: 'sign-out', Application: this.props });
@@ -73,6 +89,6 @@ class UserAccountSwitcher extends React.Component
             id: Utilities.NewId("useraccount"),
             className: this.state.currentCssClass,
             key: Utilities.NewId()
-        }, _1, _x );
+        }, _5, _x );
 	};
 };

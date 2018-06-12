@@ -37,11 +37,6 @@ class TopNavigationBar extends React.Component
         function createMarkup(svgIcon) {
             return { __html: svgIcon };
         };
-
-        let _plus = SVG.Add.SVG;
-        let _notif = SVG.Shell.Notification.SVG;
-        let _console = SVG.Shell.Console.SVG;
-        let _gear = SVG.Navigation.settings.SVG;
         
         //references
         //buttonText: 'Jackie\'s Button'

@@ -10,6 +10,7 @@
     position: absolute;
     z-index: 5;
     display: inline-block;
+    right: 0;
 }
 
 .me-control-btn {
