@@ -39,12 +39,7 @@ class UserAccountSwitcher extends React.Component {
             isHidden: true
         };
 
-        //function createMarkup(svgIcon) {
-        //    return { __html: svgIcon };
-        //};
-        //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
-
-        // top button
+        //top button
         let _1 = React.createElement("div", { className: 'user-name', key: Utilities.NewId() }, "Jackie Gaherity");
         let _2 = React.createElement("div", { className: 'user-company', key: Utilities.NewId }, "Microsoft");
         let _3 = React.createElement("div", { className: 'credentials-container', key: Utilities.NewId() }, _1, _2);
@@ -90,10 +85,6 @@ class UserAccountSwitcher extends React.Component {
         let _9j = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _9d, _9g);
         let _9k = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _9e, _9h);
         let _9l = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _9f, _9i);
-        //let _9g = React.createElement("div", { className: 'left', key: Utilities.NewId() });
-        //let _9h = React.createElement("div", { className: 'left', key: Utilities.NewId() });
-
-        //let _div = React.createElement("div", { key: Utilities.NewId() }, "Jackie");
         let _f = React.createElement("div", { className: 'user', key: Utilities.NewId() }, _9a, _9j);
         let _g = React.createElement("div", { className: 'user', key: Utilities.NewId() }, _9b, _9k);
         let _h = React.createElement("div", { className: 'user', key: Utilities.NewId() }, _9c, _9l);
@@ -102,6 +93,10 @@ class UserAccountSwitcher extends React.Component {
 
         //  console.debug(this.state.currentContainerCssClass);
         this.UserContainer = React.createElement("div", { className: 'me-control-container ' + this.state.currentContainerCssClass, key: Utilities.NewId() }, this._d, this._e, this._i);
+
+        this.finalArray = [this.UserButton, this.UserContainer]
+        //this.UserButton, this.UserContainer
+
         return;
     };
 
@@ -131,11 +126,11 @@ class UserAccountSwitcher extends React.Component {
         //	console.debug( "TopNavigationBar.render()", this.props );
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 
-        console.debug("useraccount", this.props, typeof Shell);
+        //console.debug("useraccount", this.props, typeof Shell);
         return React.createElement('div', {
             id: Utilities.NewId("useraccount"),
             className: this.state.currentCssClass,
             key: Utilities.NewId()
-        }, this.UserButton, this.UserContainer);
+        }, this.finalArray);
     };
 };

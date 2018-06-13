@@ -90,7 +90,7 @@ class ButtonCtrl extends React.Component
 	render()
     {
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
-        console.debug("this.SvgIcon", this.SvgIcon);
+        //console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
         let _rv;
         
