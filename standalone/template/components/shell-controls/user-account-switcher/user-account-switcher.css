@@ -49,7 +49,7 @@
 .current-user {
     background-color: white;
     height: 160px;
-    display:flex;
+    display: flex;
 }
 
     .current-user .left {
@@ -70,16 +70,19 @@
             font: 15px SegoeUI-SemiBold;
             margin: 0 0px 3px 0px;
         }
+
         .current-user .middle .current-user-email {
             color: #000;
             /* font-size: 14px; */
             margin: 0 0px 3px 0px;
         }
+
         .current-user .middle .view-ms-acct {
             margin: 0 0px 3px 0px;
             color: #0078d7;
             cursor: pointer;
         }
+
         .current-user .middle .change-info {
             color: #0078d7;
             cursor: pointer;
@@ -95,6 +98,7 @@
             padding: 0;
             margin: 0;
         }
+
             .current-user .right .buttonControl .icon {
                 bottom: 10px;
                 position: absolute;
@@ -117,15 +121,34 @@
     .potential-logins .user {
         display: block;
         height: 54px;
-        border: 1px solid black;
         margin: 0;
         width: 100%;
-        /* padding: 17px; */
     }
 
-    .me-control-btn {
-        display: flex;
-    }
+        .potential-logins .user .left {
+            display: inline-block
+        }
+
+            .potential-logins .user .left .img {
+                width: 30px;
+                height: 30px;
+                margin: 10px 0px 0 10px;
+            }
+
+        .potential-logins .user .right {
+            color: #000;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 0 15px;
+        }
+
+            .potential-logins .user .right span {
+            display:block;
+            }
+
+.me-control-btn {
+display: flex;
+}
 
 .credentials-container {
     color: #fff;

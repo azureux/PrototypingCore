@@ -67,7 +67,7 @@ class UserAccountSwitcher extends React.Component {
         let _left = React.createElement("div", { className: 'left', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) });
 
         let _7a = React.createElement("div", { className: 'current-user-title', key: Utilities.NewId(), }, "John Vanerbloom");
-        let _7b = React.createElement("div", { className: 'current-user-email', key: Utilities.NewId(), attributeTitle: 'Current User' }, "john123@outlook.com");
+        let _7b = React.createElement("div", { className: 'current-user-email', key: Utilities.NewId()}, "john123@outlook.com");
         let _7c = React.createElement("div", { className: 'view-ms-acct', key: Utilities.NewId() }, "View Microsoft Account");
         let _7d = React.createElement("div", { className: 'change-info', key: Utilities.NewId() }, "Change contact info");
         var currentUserArray = [_7a, _7b, _7c, _7d];
@@ -77,16 +77,37 @@ class UserAccountSwitcher extends React.Component {
         let _right = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _8a);
         let _e = React.createElement("div", { className: 'current-user', key: Utilities.NewId() }, _left, _middle, _right);
 
-        let _f = React.createElement(ButtonCtrl, { className: 'user', Application: this.props, });
-        let _g = React.createElement(ButtonCtrl, { className: 'user', Application: this.props, });
-        let _h = React.createElement(ButtonCtrl, { className: 'user', Application: this.props, });
+
+        let _image1 = React.createElement("div", { className: 'img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) });
+        let _image2 = React.createElement("div", { className: 'img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) });
+        let _image3 = React.createElement("div", { className: 'img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) });
+
+
+        let _9a = React.createElement("div", { className: 'left', key: Utilities.NewId() }, _image1);
+        let _9b = React.createElement("div", { className: 'left', key: Utilities.NewId() }, _image2);
+        let _9c = React.createElement("div", { className: 'left', key: Utilities.NewId() }, _image3);
+
+        let _9d = React.createElement("span", { className: 'company', key: Utilities.NewId() }, "Contoso" );
+        let _9e = React.createElement("span", { className: 'company', key: Utilities.NewId() }, "Fabrikam");
+        let _9f = React.createElement("span", { className: 'company', key: Utilities.NewId() }, "Jonathon Vanderbloom" );
+        let _9g = React.createElement("span", { className: 'acct-email', key: Utilities.NewId() }, "johnvan@contoso.com");
+        let _9h = React.createElement("span", { className: 'acct-email', key: Utilities.NewId() }, "johnvan@Fabrikam.com");
+        let _9i = React.createElement("span", { className: 'acct-email', key: Utilities.NewId() }, "johnvan12@live.com");
+        let _9j = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _9d, _9g);
+        let _9k = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _9e, _9h);
+        let _9l = React.createElement("div", { className: 'right', key: Utilities.NewId() }, _9f, _9i );
+        //let _9g = React.createElement("div", { className: 'left', key: Utilities.NewId() });
+        //let _9h = React.createElement("div", { className: 'left', key: Utilities.NewId() });
+        
+        //let _div = React.createElement("div", { key: Utilities.NewId() }, "Jackie");
+        let _f = React.createElement("div", { className: 'user', key: Utilities.NewId() }, _9a, _9j);
+        let _g = React.createElement("div", { className: 'user', key: Utilities.NewId() }, _9b, _9k);
+        let _h = React.createElement("div", { className: 'user', key: Utilities.NewId() }, _9c, _9l);
         var userArray = [_f, _g, _h];
         let _i = React.createElement("div", { className: 'potential-logins', key: Utilities.NewId() }, userArray);
 
 
         let _x = React.createElement("div", { className: 'me-control-container', key: Utilities.NewId() }, _d, _e, _i);
-        //let _y = React.createElement("div", { className: 'user-acct-container', key: Utilities.NewId() }, );
-
 
         console.debug("useraccount", this.props, typeof Shell);
         return React.createElement('div', {
