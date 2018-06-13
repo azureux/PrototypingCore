@@ -21,12 +21,13 @@ class UserAccountSwitcher extends React.Component {
             Normal: this.Theme + " UserAccount " + this.UserAccountStyle,
             Alerted: this.Theme + " RootLinkCssExtra " + this.UserAccountStyle,
         };
-
-        this.state = {};
         this.CssClassNames = {
             Normal: "UserAccount",
             Alerted: "UserAccountExtra"
         };
+
+        // event handlers
+        //this.handle_OnClick_ToggleMeControl = this.OnClick_ToggleThemes.bind(this);
 
         this.state = {
             items: [],
@@ -34,7 +35,8 @@ class UserAccountSwitcher extends React.Component {
             prev_text: this.props.InnerText,
             isClicked: false,
             currentCssClass: this.CssClassNames.Normal,
-            AltTextTitle: this.props.attributeTitle
+            AltTextTitle: this.props.attributeTitle,
+            isHidden: true
         };
         return;
     };
@@ -57,7 +59,7 @@ class UserAccountSwitcher extends React.Component {
         let _2 = React.createElement("div", { className: 'user-company', key: Utilities.NewId }, "Microsoft");
         let _3 = React.createElement("div", { className: 'credentials-container', key: Utilities.NewId() }, _1, _2);
         let _4 = React.createElement("div", { className: 'user-img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) }); // , svgIcon: SVG.Shell.Notification, this.SvgIcon.SVG
-        let _5 = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId() }, _3, _4);
+        let _5 = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId(), onClick: this.handle_OnClick_ToggleThemes, }, _3, _4);
         
         let _a = React.createElement(ButtonCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Sign In', Application: this.props, svgIcon: SVG.PersonAdd, key: Utilities.NewId(), buttonText: 'Sign In', });
         let _b = React.createElement(ButtonCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Microsoft ', Application: this.props, svgIcon: SVG.Shell.MicrosoftLogo, key: Utilities.NewId(), buttonText: 'Microsoft', });

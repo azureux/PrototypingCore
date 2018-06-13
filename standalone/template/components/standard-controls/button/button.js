@@ -4,12 +4,14 @@
 "use strict";
 
 // control template - flesh out all functions, methods, events
-class ButtonCtrl extends React.Component {	// methods in order, constructor first, render last, events & function in the middle
-    constructor(props) {
-        super(props);
-
-        //properties
-        this.Id = this.props.id;
+class ButtonCtrl extends React.Component
+{	// methods in order, constructor first, render last, events & function in the middle
+	constructor( props )
+	{
+		super( props );
+        
+		//properties
+		this.Id = this.props.id;
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
         this.SvgIcon = this.props.svgIcon || undefined;
@@ -17,22 +19,22 @@ class ButtonCtrl extends React.Component {	// methods in order, constructor firs
         this.ButtonStyle = this.props.className;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
         this.CssFile = "components/standard-controls/button/button.css";
-        this.CssClassNames = {
+		this.CssClassNames = {
             Normal: this.Theme + " buttonControl " + this.ButtonStyle,
             Alerted: this.Theme + " RootLinkCssExtra " + this.ButtonStyle,
         };
 
-        // state
-        this.state = {
-            items: [],
-            inner_text: this.props.InnerText,
-            prev_text: this.props.InnerText,
-            isClicked: false,
+		// state
+		this.state = {
+			items: [],
+			inner_text: this.props.InnerText,
+			prev_text: this.props.InnerText,
+			isClicked: false,
             currentCssClass: this.CssClassNames.Normal,
             AltTextTitle: this.props.attributeTitle
-        };
+		};
 
-        //event handlers
+		//event handlers
         this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
         //dangerouslySetInnerHTML: createMarkup(_plus) 
 
@@ -40,36 +42,42 @@ class ButtonCtrl extends React.Component {	// methods in order, constructor firs
         //  if (this.ButtonStyle !== undefined) {
         //      this.setState({ currentCssClass: this.CssClassNames.TopNavBtn });
         //  }
-        //return;
-    };
-    componentDidMount() {	//	not used yet
-        return;
-    };
-    componentDidUnMount() {	//	not used yet
-        return;
-    };
-    createMarkup(svgIcon) {
+		    //return;
+	};
+	componentDidMount()
+	{	//	not used yet
+		return;
+	};
+	componentDidUnMount()
+	{	//	not used yet
+		return;
+	};
+    createMarkup(svgIcon)
+    {
         return { __html: svgIcon }
     };
-    OnClick_ChangeBorderColor(ev) {	//	testing changing the border color
-        //	console.debug( "RootLink::handleClick" );
-        ev.preventDefault();
-        ev.stopPropagation();
+	OnClick_ChangeBorderColor( ev )
+	{	//	testing changing the border color
+		//	console.debug( "RootLink::handleClick" );
+		ev.preventDefault();
+		ev.stopPropagation();
 
-        let _changed = Utilities.ReverseString(this.state.prev_text);
+		let _changed = Utilities.ReverseString( this.state.prev_text );
 
-        if (this.state.isClicked == true) {
-            this.setState({ isClicked: false });
-            this.setState({ inner_text: this.state.prev_text });
-            this.setState({ currentCssClass: this.CssClassNames.Normal });
-        }
-        else if (this.state.isClicked == false) {
-            this.setState({ isClicked: true });
-            this.setState({ inner_text: _changed });
-            this.setState({ currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted });
-        }
-        //	for firing events at the top level of "Application" class
-        //	this.Application.OnClick_HandleBodyElementClick( ev, false );
+		if ( this.state.isClicked == true )
+		{
+			this.setState( { isClicked: false } );
+			this.setState( { inner_text: this.state.prev_text } );
+			this.setState( { currentCssClass: this.CssClassNames.Normal } );
+		}
+		else if ( this.state.isClicked == false )
+		{
+			this.setState( { isClicked: true } );
+			this.setState( { inner_text: _changed } );
+			this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
+		}
+		//	for firing events at the top level of "Application" class
+		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
         return;
 
 
@@ -83,14 +91,16 @@ class ButtonCtrl extends React.Component {	// methods in order, constructor firs
 
     //if icon = undefined >> text button
     //text = title 
-    render() {
+	render()
+    {
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
         console.debug("this.SvgIcon", this.SvgIcon);
-        //	console.debug( "RootLink", this.props, typeof RootLink );
+		//	console.debug( "RootLink", this.props, typeof RootLink );
         let _rv;
-
+        
         //SVG + Unique Text
-        if (this.SvgIcon !== undefined && this.props.buttonText !== " ") {
+        if (this.SvgIcon !== undefined && this.props.buttonText !== " ")
+        {
             let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
 
             _rv = React.createElement('div', {
@@ -99,7 +109,7 @@ class ButtonCtrl extends React.Component {	// methods in order, constructor firs
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
-            }, _j, `${this.Title}`);
+            }, _j, `${this.Title}` ); 
         }
         //SVG + no unique text
         else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
@@ -121,9 +131,9 @@ class ButtonCtrl extends React.Component {	// methods in order, constructor firs
                 className: this.state.currentCssClass,
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
-                key: Utilities.NewId(),
+                key: Utilities.NewId(), 
             }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
         }
         return _rv;
-    };
+	};
 };
