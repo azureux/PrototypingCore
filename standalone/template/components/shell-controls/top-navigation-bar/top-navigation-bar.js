@@ -3,13 +3,15 @@
 /// <reference path="../script/react/react-dom-latest.js" />
 // "TopNavigationBar" control
 "use strict";
-class TopNavigationBar extends React.Component {
-    constructor(props) {
+class TopNavigationBar extends React.Component
+{
+    constructor(props)
+    {
         super(props);
         this.ID = Utilities.NewId("tnb");
         this.Title = "Top Navigation Bar";
         this.Theme = props.Application.state.CurrentTheme;
-        this.CssFileID = Utilities.NewId("tnb-css");
+        this.CssFileID = this.ID;
         this.CssFile = "components/shell-controls/top-navigation-bar/top-navigation-bar.css";
         this.CssClassNames = {
             Normal: "topnav-main " + this.Theme,
@@ -29,9 +31,6 @@ class TopNavigationBar extends React.Component {
 
         //App title (Azure)
         this.BrandTitle = React.createElement('div', { id: this.ID, className: 'appTitle', key: Utilities.NewId() }, `${this.Title}`);
-
-        //button
-        this.JackieButton = React.createElement(ButtonCtrl, { className: 'Jackie', Application: this.props }); //(ButtonCtrl, {}, undefined) 
 
         //btn ctrls
         //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });

@@ -11,12 +11,7 @@ class Application extends React.Component
 		super( props );
 		// properties
 		this.ID = Utilities.NewId( "cds-app" );
-		//	config is supposed to be an overrride,
-		//	so we'll need to figure out a way to do that
-		//	if may be that we simply swap CSS files
-		//	this.props.Theme;
         this.Theme = "blueTheme";
-		// state & data
 		this.state = {
 			CurrentUser: {},
 			CurrentExtension: {},
@@ -25,7 +20,6 @@ class Application extends React.Component
 		};
 		this.Data = [];
         this.Notifications = [];
-        //this.SVG = window.SVG;
 
 		// event handlers
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
