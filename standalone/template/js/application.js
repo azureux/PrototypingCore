@@ -37,6 +37,7 @@ class Application extends React.Component
 			this.Theme = this.props.Application.Theme;
 		}
 
+        this.ContextPanel = React.createElement(ContextPanel, { key: Utilities.NewKey(), Application: this });
 
 		return;
 	};
@@ -71,7 +72,8 @@ class Application extends React.Component
 
 	OnClick_HandleBodyElementClick( ev )
 	{	//	
-		console.debug( "Application::OnClick_HandleBodyElementClick", ev, this.props, this.state );
+		//  console.debug( "Application::OnClick_HandleBodyElementClick", ev, this.props, this.state );
+        console.debug("Application::OnClick_HandleBodyElementClick", this.TopNav);
 		ev.preventDefault();
 		ev.stopPropagation();
 		return;
@@ -88,7 +90,7 @@ class Application extends React.Component
 		this.TopNav = React.createElement( TopNavigationBar, { key: Utilities.NewKey(), Application: this } );
 		this.LeftNav = React.createElement( VerticalNavigationBar, { key: Utilities.NewKey(), Application: this } );
 		this.Dashboard = React.createElement( Dashboard, { key: Utilities.NewKey(), Application: this } );
-		this.ContextPanel = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
+		//  this.ContextPanel = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
 		this.ThemeButton = React.createElement( "button", { key: Utilities.NewKey(), id: "tog-switch", onClick: this.handle_OnClick_ToggleThemes, className: "myBtn theme"}, this.state.CurrentThemeName );
 		//	this.ContextPanel2 = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
 		// may not be needed, other than as an easy way to access the array of top level layout

@@ -42,7 +42,7 @@ class ButtonCtrl extends React.Component
         //  if (this.ButtonStyle !== undefined) {
         //      this.setState({ currentCssClass: this.CssClassNames.TopNavBtn });
         //  }
-		    //return;
+		//  return;
 	};
 	componentDidMount()
 	{	//	not used yet
@@ -80,17 +80,13 @@ class ButtonCtrl extends React.Component
 		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
         return;
 
-
         // set overrives - need the same pathway as themeing 
-        //WIP JG 
         if (props.Application.Application.ButtonCtrl.Title !== undefined) {
             this.Title = props.Application.Application.ButtonCtrl.Title;
         }
         return;
     };
 
-    //if icon = undefined >> text button
-    //text = title 
 	render()
     {
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
