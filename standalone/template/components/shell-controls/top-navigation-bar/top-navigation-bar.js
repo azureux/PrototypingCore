@@ -43,7 +43,7 @@ class TopNavigationBar extends React.Component
 
         //control container 
         let controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
-        this.ShellControls = React.createElement('div', { className: 'controlContainer', key: Utilities.NewId() }, controlArray);
+        this.ShellControls = React.createElement('div', { className: 'control-container', key: Utilities.NewId() }, controlArray);
         //this.MeCtrlDropDown = React.createElement(ContainerControl, { className: 'ContainerControl', key: Utilities.NewId(), Application: this.props.Application });
 
         this.UserAccountSwitcherCtrl = React.createElement(UserAccountSwitcher, { className: 'MeControl', Application: this.props.Application, key: Utilities.NewId() });

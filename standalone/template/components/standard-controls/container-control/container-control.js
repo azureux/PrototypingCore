@@ -3,7 +3,7 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 
-//contains me control HTML, isDisplayed functionality 
+
 class ContainerControl extends React.Component {	// methods in order, constructor first, render last, events & function in the middle
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class ContainerControl extends React.Component {	// methods in order, constructo
         this.CssFileID = "useraccount-css"; //Utilities.NewId("useraccount-css");
         this.CssFile = "components/shell-controls/user-account-switcher/user-account-switcher.css";
         this.CssClassNames = {
-            Normal: this.Theme + " UserAccount " + this.UserAccountStyle,
+            Normal: this.Theme + " RootLinkCss " + this.UserAccountStyle,
             Alerted: this.Theme + " RootLinkCssExtra " + this.UserAccountStyle,
         };
         this.ContainerCssClass = {
@@ -28,14 +28,9 @@ class ContainerControl extends React.Component {	// methods in order, constructo
         };
 
         this.state = {
-            //items: [],
-            //inner_text: this.props.InnerText,
-            //prev_text: this.props.InnerText,
-            //isClicked: false,
-            //currentCssClass: this.CssClassNames.Normal,
+
             currentContainerCssClass: this.ContainerCssClass.Hidden,
-            //AltTextTitle: this.props.attributeTitle,
-            //isHidden: true
+
         };
 
 
