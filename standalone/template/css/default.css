@@ -110,24 +110,3 @@ body
     cursor: pointer;
 }
 
-/* for debugging */
-.RootLinkCss
-{
-	padding:20px;
-	border: solid 2px red;
-	cursor:pointer;
-	user-select:none;
-}
-.RootLinkCssExtra
-{
-	padding:20px;
-	border: solid 2px yellow;
-}
-.RootLinkCss:hover
-{
-	border: solid 2px blue;
-}
-.RootLinkCssExtra:hover
-{
-	border: solid 2px green;
-}

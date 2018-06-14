@@ -24,6 +24,7 @@ class VerticalNavigationBar extends React.Component
 			CurrentCssClass: this.CssClassNames.Normal
         };
 
+
         //individual extensions 
         //let _a = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, );
         let _1 = React.createElement(ButtonCtrl, { className: 'extension minimize', attributeTitle: 'New', buttonText: ' ', Application: this.props, svgIcon: SVG.DoubleChevronLeft, key: Utilities.NewId() });

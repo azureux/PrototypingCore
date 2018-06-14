@@ -67,7 +67,7 @@ class ButtonCtrl extends React.Component
 		if ( this.state.isClicked == true )
 		{
 			this.setState( { isClicked: false } );
-			this.setState( { inner_text: this.state.prev_text } );
+			//this.setState( { inner_text: this.state.prev_text } );
 			this.setState( { currentCssClass: this.CssClassNames.Normal } );
 		}
 		else if ( this.state.isClicked == false )
