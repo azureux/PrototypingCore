@@ -62,7 +62,7 @@ class ButtonCtrl extends React.Component
 		ev.preventDefault();
 		ev.stopPropagation();
 
-		let _changed = Utilities.ReverseString( this.state.prev_text );
+		//let _changed = Utilities.ReverseString( this.state.prev_text );
 
 		if ( this.state.isClicked == true )
 		{
@@ -73,7 +73,7 @@ class ButtonCtrl extends React.Component
 		else if ( this.state.isClicked == false )
 		{
 			this.setState( { isClicked: true } );
-			this.setState( { inner_text: _changed } );
+			//this.setState( { inner_text: _changed } );
 			this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
 		}
 		//	for firing events at the top level of "Application" class

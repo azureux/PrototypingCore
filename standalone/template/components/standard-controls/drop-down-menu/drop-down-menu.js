@@ -45,7 +45,7 @@ class RootLink extends React.Component
 		ev.preventDefault();
 		ev.stopPropagation();
 
-		let _changed = Utilities.ReverseString( this.state.prev_text );
+		//let _changed = Utilities.ReverseString( this.state.prev_text );
 
 		if ( this.state.isClicked == true )
 		{
