@@ -16,7 +16,7 @@ class Application extends React.Component
 			CurrentUser: {},
 			CurrentExtension: {},
 			CurrentTheme: this.Theme,
-			CurrentThemeName: this.Theme
+            CurrentThemeName: this.Theme
 		};
 		this.Data = [];
         this.Notifications = [];
@@ -68,8 +68,9 @@ class Application extends React.Component
 	{	//	
 		//  console.debug( "Application::OnClick_HandleBodyElementClick", ev, this.props, this.state );
         console.debug("Application::OnClick_HandleBodyElementClick", this.TopNav);
-		ev.preventDefault();
-		ev.stopPropagation();
+		//ev.preventDefault();
+  //      ev.stopPropagation();
+        this.setState({ CurrentUser: [] });
 		return;
 	};
 
