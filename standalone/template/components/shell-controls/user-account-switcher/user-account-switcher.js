@@ -4,6 +4,7 @@
 /// <reference path="../js/utilities.js" />
 "use strict";
 
+//top right button, does not include drop down. Just provides event to open it. 
 class UserAccountSwitcher extends React.Component {
     constructor(props) {
         super(props);
@@ -39,9 +40,16 @@ class UserAccountSwitcher extends React.Component {
             isHidden: true
         };
 
+        let _1 = React.createElement("div", { className: 'user-name', key: Utilities.NewId() }, "Jackie Gaherity");
+        let _2 = React.createElement("div", { className: 'user-company', key: Utilities.NewId }, "Microsoft");
+        let _3 = React.createElement("div", { className: 'credentials-container', key: Utilities.NewId() }, _1, _2);
+        let _4 = React.createElement("div", { className: 'user-img', key: Utilities.NewId(), dangerouslySetInnerHTML: this.createMarkup(SVG.Person.SVG) }); // , svgIcon: SVG.Shell.Notification, this.SvgIcon.SVG
+
+        this.UserButton = React.createElement("div", { className: 'me-control-btn', key: Utilities.NewId(), onClick: this.handleToggleClick }, _3, _4);
+
         //wrapping in to minimize
         var original = {
-                            ////top button
+                ////top button
                 //let _1 = React.createElement("div", { className: 'user-name', key: Utilities.NewId() }, "Jackie Gaherity");
                 //let _2 = React.createElement("div", { className: 'user-company', key: Utilities.NewId }, "Microsoft");
                 //let _3 = React.createElement("div", { className: 'credentials-container', key: Utilities.NewId() }, _1, _2);
@@ -135,6 +143,6 @@ class UserAccountSwitcher extends React.Component {
             id: Utilities.NewId("useraccount"),
             className: this.state.currentCssClass,
             key: Utilities.NewId()
-        }, ); //this.finalArray
+        }, this.UserButton); //this.finalArray
     };
 };

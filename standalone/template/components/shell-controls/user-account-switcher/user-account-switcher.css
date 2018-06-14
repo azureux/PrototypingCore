@@ -3,9 +3,8 @@
 }
 
 .UserAccount {
-    /* border: 3px dashed red; */
+    background-color: inherit;
     width: 230px;
-    /* height: 275px; */
     position: absolute;
     z-index: 5;
     display: inline-block;
@@ -29,6 +28,7 @@
 .me-control-container {
     width: 330px;
     right: 0;
+    top: 40px;
     position: absolute;
 }
 
@@ -161,6 +161,8 @@ display: flex;
     color: #fff;
     font-size: 14px;
     flex: 7;
+    padding-left: 7px;
+    padding-top: 2px;
 }
 
 .user-name {
