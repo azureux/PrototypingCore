@@ -47,7 +47,7 @@
 }
 
 .IconWithText {
-
+    display:flex;
 }
 
 svg {
