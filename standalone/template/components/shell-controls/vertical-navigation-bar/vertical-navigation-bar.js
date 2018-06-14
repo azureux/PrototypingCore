@@ -26,6 +26,7 @@ class VerticalNavigationBar extends React.Component
 
         //individual extensions 
         //let _a = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, );
+        let _1 = React.createElement(ButtonCtrl, { className: 'extension minimize', attributeTitle: 'New', buttonText: ' ', Application: this.props, svgIcon: SVG.DoubleChevronLeft, key: Utilities.NewId() });
         let _a = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'New', buttonText: 'New', Application: this.props, svgIcon: SVG.Color.NewPlusSign, key: Utilities.NewId() });
         let _b = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Dashboard', buttonText: 'Dashboard', Application: this.props, svgIcon: SVG.Color.Dashboard, key: Utilities.NewId() });
         let _c = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Resource groups', buttonText: 'Resource groups', Application: this.props, svgIcon: SVG.Color.ResourceGroup, key: Utilities.NewId() });
@@ -41,7 +42,7 @@ class VerticalNavigationBar extends React.Component
         let _m = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Advisor', buttonText: 'Advisor', Application: this.props, svgIcon: SVG.Color.Advisor, key: Utilities.NewId() });
         let _n = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Security Center', buttonText: 'Security Center', Application: this.props, svgIcon: SVG.Color.SecurityCenter, key: Utilities.NewId() });
 
-        let extensionsArray = [_a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n];
+        let extensionsArray = [_1, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n];
         //left nav container for all extensions 
         this.vertnavbar = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, extensionsArray ); // `${this.Title}`
 

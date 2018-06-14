@@ -1,6 +1,6 @@
 ﻿.vertnav-main {
     border-style: none;
-    background-color: #1c1c1c;
+    background-color: #252525;
     color: #fff;
     left: 0;
     top: 40px;
@@ -11,12 +11,26 @@
 
     .vertnav-main .extension {
         width: 100%;
+        margin: 0;
+        padding-left: 20px;
         height: 48px;
         line-height: 36px;
     }
 
+    .vertnav-main .minimize {
+        height: 22px;
+    }
+
+        .vertnav-main .minimize .icon {
+            width: 12px;
+            height: 12px;
+            fill: #fff;
+            right: 4px;
+            position: absolute;
+        }
+
 .icon {
-   margin-right:5px
+    margin-right: 5px
 }
 
 
