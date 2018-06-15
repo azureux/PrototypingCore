@@ -15,7 +15,7 @@ class ButtonCtrl extends React.Component
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
         this.SvgIcon = this.props.svgIcon || undefined;
-        this.Theme = props.Application.Application.state.CurrentTheme;
+        //this.Theme = props.Application.Application.state.CurrentTheme; //this is breaking project when being used in container-ctrl & user-acct-switcher etc. 
         this.ButtonStyle = this.props.className;
         this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
         this.CssFile = "components/standard-controls/button/button.css";

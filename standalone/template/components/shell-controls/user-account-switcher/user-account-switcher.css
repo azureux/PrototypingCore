@@ -192,5 +192,5 @@ svg {
     display: inline-block;
 }
 .ContainerHidden {
-    display:none;
+    /*display:none;*/
 }
