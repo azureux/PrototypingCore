@@ -1,51 +1,55 @@
-﻿.className {
-    color: red;
+﻿.container-ctrl
+{
+	/*border: solid 1px red;*/
+	display:block;
+	width:100%;
 }
 
-.MeControl {
-    background-color: inherit;
-    width: 230px;
-    position: absolute;
-    z-index: 5;
-    display: inline-block;
-    right: 0;
-    top: 0;
-}
-
-
-
-.me-control-btn {
+.me-control-btn
+{
     background-color: rgba(28,28,28,1);
     width: 100%;
-    height: 40px;
+    height: 100%;
+	cursor: pointer;
+}
+.me-control-btn:hover
+{
+    background-color: rgba(48, 48, 48,1);
 }
 
-    .me-control-btn:hover {
-        cursor: pointer;
-        background-color: rgba(255, 255, 255,.2);
-    }
-
-.me-control-container {
-    width: 330px;
-    right: 0;
-    top: 40px;
+.me-control-container
+{
     position: absolute;
+	right:0px;
+    width: 330px;
+	z-index:250;
+	box-shadow: rgba(0,0,0,1) 0px 0px 20px 0px;
+}
+.ContainerDisplayed
+{
+    display: inline-block;
+}
+.ContainerHidden
+{
+    display:none;
 }
 
-    .me-control-container .buttonControl {
-        color: #000;
-        width: 100px;
-        display: inline-flex;
-        margin: 0 0 0 10px;
-        font-size: 14px;
-        line-height: 15px;
-    }
 
-        .me-control-container .buttonControl .icon {
-            width: 20px;
-            height: 19px;
-            margin-right: 4px;
-        }
+.me-control-container .buttonControl
+{
+	color: #000;
+	width: 100px;
+	display: inline-flex;
+	margin: 0 0 0 10px;
+	font-size: 14px;
+	line-height: 15px;
+}
+.me-control-container .buttonControl .icon 
+{
+	width: 20px;
+	height: 19px;
+	margin-right: 4px;
+}
 
 .top-controls-container {
     height: 35px;
@@ -187,9 +191,3 @@ svg {
 }
 
 
-.ContainerDisplayed {
-    display: inline-block;
-}
-.ContainerHidden {
-    /*display:none;*/
-}

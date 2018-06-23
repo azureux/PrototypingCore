@@ -8,7 +8,7 @@ class ContextPanel extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.ID = Utilities.NewId( "cntxt-pnl" );
+		this.ID = "cntxt-pnl";
 		this.Title = "Context Panel";
 		this.Theme = props.Application.state.CurrentTheme;
 		this.CssFileID = "cntxt-pnl-css";
@@ -28,12 +28,12 @@ class ContextPanel extends React.Component
 		{
 			this.Title = this.props.Application.props.ContextPanel.Title;
 		}
+
+		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	render()
 	{	//	console.debug( "ContextPanel.render()", this.props );
-		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
-
 		return React.createElement( 'div', {
 			id: this.ID,
 			className: this.state.CurrentCssClass

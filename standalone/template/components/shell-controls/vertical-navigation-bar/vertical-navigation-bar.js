@@ -8,10 +8,10 @@ class VerticalNavigationBar extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.ID = Utilities.NewId( "vnb" ),
+		this.ID = "vert-nav-panel";
 		this.Title = "Dashboard";
 		this.Theme = props.Application.state.CurrentTheme;
-        this.CssFileID = this.ID;
+		this.CssFileID = "vert-nav-panel-css";
         this.SvgIcon = this.props.svgIcon || undefined;
 		this.CssFile = "components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.css";
 		this.CssClassNames = {
@@ -23,7 +23,6 @@ class VerticalNavigationBar extends React.Component
 			IsDirty: false,
 			CurrentCssClass: this.CssClassNames.Normal
         };
-
 
         //individual extensions 
         //let _a = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, );
@@ -47,27 +46,16 @@ class VerticalNavigationBar extends React.Component
         //left nav container for all extensions 
         this.vertnavbar = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, extensionsArray ); // `${this.Title}`
 
-
-
-
-
 		if ( this.props.Application.props.VerticalNavigationBar.Title !== undefined )
 		{
 			this.Title = this.props.Application.props.VerticalNavigationBar.Title;
         }
 
+		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
-    };
-
-    createMarkup(svgIcon) {
-        return { __html: svgIcon }
     };
 	render()
 	{	//	console.debug( "VerticalNavigationBar.render()", this.props );
-		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
-
-        //let _d = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, ); // `${this.Title}`
-
         return this.vertnavbar;
 	};
 };

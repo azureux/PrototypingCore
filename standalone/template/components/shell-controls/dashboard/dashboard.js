@@ -8,10 +8,10 @@ class Dashboard extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.ID = Utilities.NewId( "dshbrd" );
+		this.ID = "dshbrd";
 		this.Title = "Dashboard";
 		this.Theme = props.Application.state.CurrentTheme;
-		this.CssFileID = this.ID;
+		this.CssFileID = "dshbrd-css";
 		this.CssFile = "components/shell-controls/dashboard/dashboard.css";
 		this.CssClassNames = {
 			Normal: this.Theme + " dsh-brd-main",
@@ -27,12 +27,12 @@ class Dashboard extends React.Component
 		{
 			this.Title = this.props.Application.props.Dashboard.Title;
 		}
+
+		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	render()
 	{	//	console.debug( "Dashboard.render()", this.props );
-		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
-
 		return React.createElement( 'div', {
 			id: this.ID,
 			className: this.state.CurrentCssClass

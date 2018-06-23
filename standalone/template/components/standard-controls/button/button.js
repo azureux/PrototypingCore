@@ -2,8 +2,6 @@
 /// <reference path="../../script/react/react-dom-latest.js" />
 /// <reference path="../../js/utilities.js" />
 "use strict";
-
-// control template - flesh out all functions, methods, events
 class ButtonCtrl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
@@ -14,10 +12,10 @@ class ButtonCtrl extends React.Component
 		this.Id = this.props.id;
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
-        this.SvgIcon = this.props.svgIcon || undefined;
-        //this.Theme = props.Application.Application.state.CurrentTheme; //this is breaking project when being used in container-ctrl & user-acct-switcher etc. 
+		this.SvgIcon = this.props.svgIcon || undefined;
+		this.Theme = this.props.Application.Application.CurrentTheme || undefined;
         this.ButtonStyle = this.props.className;
-        this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
+        this.CssFileID = "btn-css";
         this.CssFile = "components/standard-controls/button/button.css";
 		this.CssClassNames = {
             Normal: this.Theme + " buttonControl " + this.ButtonStyle,
@@ -36,26 +34,20 @@ class ButtonCtrl extends React.Component
 
 		//event handlers
         this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
-        //dangerouslySetInnerHTML: createMarkup(_plus) 
 
-        //not doing anything currently. 
-        //  if (this.ButtonStyle !== undefined) {
-        //      this.setState({ currentCssClass: this.CssClassNames.TopNavBtn });
-        //  }
-		//  return;
-	};
-	componentDidMount()
-	{	//	not used yet
+		// inject CSS
+        Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
-	componentDidUnMount()
-	{	//	not used yet
-		return;
-	};
-    createMarkup(svgIcon)
-    {
-        return { __html: svgIcon }
-    };
+	//componentDidMount()
+	//{	//	not used yet
+	//	return;
+	//};
+	//componentDidUnMount()
+	//{	//	not used yet
+	//	return;
+	//};
+
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
 		//	console.debug( "RootLink::handleClick" );
@@ -83,24 +75,22 @@ class ButtonCtrl extends React.Component
         // set overrives - need the same pathway as themeing 
         if (props.Application.Application.ButtonCtrl.Title !== undefined) {
             this.Title = props.Application.Application.ButtonCtrl.Title;
-        }
+		}
         return;
     };
-
 	render()
     {
-        Utilities.InjectControlCss(this.CssFileID, this.CssFile);
         //console.debug("this.SvgIcon", this.SvgIcon);
 		//	console.debug( "RootLink", this.props, typeof RootLink );
         let _rv;
         
         //SVG + Unique Text
         if (this.SvgIcon !== undefined && this.props.buttonText !== " ")
-        {
-            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
+		{
+			let _j = React.createElement( 'div', { className: 'icon', dangerouslySetInnerHTML: Utilities.CreateSvgMarkup( this.SvgIcon.SVG ) } );
 
             _rv = React.createElement('div', {
-                id: Utilities.NewId("root-link"),
+                id: "btn-svg-text",
                 className: this.state.currentCssClass + " IconWithText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
@@ -109,11 +99,11 @@ class ButtonCtrl extends React.Component
         }
         //SVG + no unique text
         else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
-            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: this.createMarkup(this.SvgIcon.SVG) });
+            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: Utilities.CreateSvgMarkup(this.SvgIcon.SVG) });
 
             _rv = React.createElement('div', {
-                id: Utilities.NewId("root-link"),
-                className: this.state.currentCssClass + " IconNoText",
+				id: "btn-svg",
+				className: this.state.currentCssClass + " IconNoText",
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
@@ -123,7 +113,7 @@ class ButtonCtrl extends React.Component
         else // (this.SvgIcon == undefined && this.props.buttonText !== "Button")
         {
             _rv = React.createElement('div', {
-                id: Utilities.NewId("root-link"),
+                id: "btn-text",
                 className: this.state.currentCssClass,
                 onClick: this.handleClick,
                 title: this.state.AltTextTitle,

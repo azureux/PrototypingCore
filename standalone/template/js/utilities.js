@@ -67,5 +67,9 @@
 		// this insertation location is based on the order of the <head> element in the default.html file.
 		if ( _found !== true ) document.head.insertBefore( _css, document.head.childNodes[4] );
 		return;
+	},
+	CreateSvgMarkup: function( svgIcon )
+	{
+		return { __html: svgIcon };
 	}
 };

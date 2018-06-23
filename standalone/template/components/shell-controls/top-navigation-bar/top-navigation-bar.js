@@ -8,16 +8,16 @@ class TopNavigationBar extends React.Component
     constructor(props)
     {
         super(props);
-        this.ID = Utilities.NewId("tnb");
-        this.Title = "Top Navigation Bar";
+		this.ID = "top-nav-panel";
+		this.Title = "Project Acuity";	//Top Navigation Bar";
         this.Theme = props.Application.state.CurrentTheme;
-        this.CssFileID = this.ID;
+		this.CssFileID = "top-nav-panel-css";
         this.CssFile = "components/shell-controls/top-navigation-bar/top-navigation-bar.css";
         this.CssClassNames = {
             Normal: "topnav-main " + this.Theme,
             Dirty: "topnav-main-dirty " + this.Theme,
             Saved: "topnav-main-saved " + this.Theme,
-        };
+		};
         this.state = {
             IsDirty: false,
             CurrentCssClass: this.CssClassNames.Normal
@@ -28,51 +28,51 @@ class TopNavigationBar extends React.Component
             this.Title = props.Application.props.TopNavigationBar.Title;
         }
 
+		// preview banner
+		this.Banner = React.createElement("div", { id: this.ID, className: this.Theme + " banner-panel",  key: Utilities.NewId() }, "preview");
 
         //App title (Azure)
-        this.BrandTitle = React.createElement('div', { id: this.ID, className: 'appTitle', key: Utilities.NewId() }, `${this.Title}`);
+        this.BrandTitle = React.createElement("a", { id: this.ID, className: this.Theme + " brand-title-panel", href: "https://portal.azure.com/", key: Utilities.NewId() }, `${this.Title}`);
 
-        //btn ctrls
-        //let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: 'Jackie\'s Button', Application: this.props, svgIcon: SVG.Shell.Notification });
-        let _c1 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
-        let _c2 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Console, key: Utilities.NewId() });
-        let _c3 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
-        let _c4 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Help, key: Utilities.NewId() });
-        let _c5 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories, key: Utilities.NewId() });
-        let _c6 = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
+		// search
+		this.Search = React.createElement( "div", { id: "global-search", className: this.Theme + " global-search-panel", key: Utilities.NewId() }, "global search" );
 
-        //control container 
-        let controlArray = [_c1, _c2, _c3, _c4, _c5, _c6];
-        this.ShellControls = React.createElement('div', { className: 'control-container', key: Utilities.NewId() }, controlArray);
-        //this.MeCtrlDropDown = React.createElement(ContainerControl, { className: 'ContainerControl', key: Utilities.NewId(), Application: this.props.Application });
+		// portal buttons and button bar
+        let _notiifications_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
+        let _powershell_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Console, key: Utilities.NewId() });
+        let _portal_settings_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
+        let _portal_feedback_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Help, key: Utilities.NewId() });
+        let _portal_help_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.SubscriptionsAndDirectories, key: Utilities.NewId() });
+        let _portal_switcher_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
 
-        this.UserAccountSwitcherCtrl = React.createElement(UserAccountSwitcher, { className: 'MeControl', Application: this.props.Application, key: Utilities.NewId() });
+		this.ShellControls = React.createElement( 'div', { className:  this.Theme + " shell-ctrls-panel", key: Utilities.NewId() },
+			[
+				_notiifications_btn,
+				_powershell_btn,
+				_portal_settings_btn,
+				_portal_feedback_btn,
+				_portal_help_btn,
+				_portal_switcher_btn]
+		);
 
+		// user switcher
+        this.UserCtrl = React.createElement(UserAccountSwitcher, { Application: this.props, key: Utilities.NewId()  });
+		this.UserCtrlPanel = React.createElement("div", { id: "user-switcher-panel-id", className:  this.Theme + " user-switcher-panel",  key: Utilities.NewId() }, this.UserCtrl);
+
+		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
         return;
-    };
-
-
-    render() {	//	console.debug( "TopNavigationBar.render()", this.props );
-        Utilities.InjectControlCss(this.CssFileID, this.CssFile);
-
-        function createMarkup(svgIcon) {
-            return { __html: svgIcon };
-        };
-
-        //references
-        //buttonText: 'Jackie\'s Button'
-        //React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: createMarkup(_notif) });
-        //React.createElement(ButtonCtrl, { className: 'icon', attributeTitle: 'Jackie\'s title attribute', buttonText: 'Jackie\'s Button', Application: this.props, dangerouslySetInnerHTML: createMarkup(_plus) });
-
-        let _ctrls = [
-            this.BrandTitle,
+	};
+	render() 
+	{	//	console.debug( "TopNavigationBar.render()", this.props );
+		let _ctrls = [
+			this.Banner,
+			this.BrandTitle,
+			this.Search,
             this.ShellControls,
-            this.UserAccountSwitcherCtrl,
-            //this.MeCtrlDropDown
+            this.UserCtrlPanel,
         ];
         
-        //topnav container
-        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass, key: Utilities.NewId() }, _ctrls);
+        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _ctrls);
         return _e;
     };
 };

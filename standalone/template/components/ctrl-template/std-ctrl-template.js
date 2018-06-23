@@ -14,11 +14,12 @@ class StandardControlTemplate extends React.Component
 		this.Id = this.props.id;
 		this.props = props.Application.props.TopNavigationBar;
 		this.Theme = props.Application.props.Theme;
+        this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
+        this.CssFile = "components/standard-controls/button/button.css";
 		this.CssClassNames = {
-			Normal: "RootLinkCss",
-			Alerted: "RootLinkCssExtra"
-		};
-		// state
+            Normal: this.Theme + " buttonControl " + this.ButtonStyle,
+            Alerted: this.Theme + " RootLinkCssExtra " + this.ButtonStyle,
+        };
 		this.state = {
 			items: [],
 			inner_text: this.props.InnerText,
@@ -29,6 +30,9 @@ class StandardControlTemplate extends React.Component
 
 		//event handlers
 		this.handleClick = this.OnClick_ChangeBorderColor.bind( this );
+
+		// inject CSS
+		Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
 	componentDidMount()
@@ -38,8 +42,7 @@ class StandardControlTemplate extends React.Component
 	componentDidUnMount()
 	{	//	not used yet
 		return;
-	};
-	
+	};	
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
 		//	console.debug( "RootLink::handleClick" );

@@ -11,7 +11,7 @@ class Application extends React.Component
 		super( props );
 		// properties
 		this.ID = Utilities.NewId( "cds-app" );
-        this.Theme = "blueTheme";
+        this.Theme = "default-theme";
 		this.state = {
 			CurrentUser: {},
 			CurrentExtension: {},
@@ -49,18 +49,17 @@ class Application extends React.Component
 		ev.preventDefault();
 		ev.stopPropagation();
 		//	console.debug( "OnClick_ToggleThemes", this.state );
-		if ( this.state.CurrentTheme == "darkTheme" )
+		if ( this.state.CurrentTheme == "dark-theme" )
 		{
-            this.setState({ CurrentTheme: "blueTheme" } );
-            this.setState({ CurrentThemeName: "blueTheme" } );
+            this.setState({ CurrentTheme: "default-theme" } );
+            this.setState({ CurrentThemeName: "default-theme" } );
 		}
-        else if (this.state.CurrentTheme == "blueTheme" )
+        else if (this.state.CurrentTheme == "default-theme" )
 		{
-            this.setState({ CurrentTheme: "darkTheme" } );
-            this.setState({ CurrentThemeName: "darkTheme" } );
+            this.setState({ CurrentTheme: "dark-theme" } );
+            this.setState({ CurrentThemeName: "dark-theme" } );
 		}
 		//	console.debug( "OnClick_ToggleThemes", this.state );
-		//	this.forceUpdate();
 		return;
 	};
 
@@ -68,9 +67,9 @@ class Application extends React.Component
 	{	//	
 		//  console.debug( "Application::OnClick_HandleBodyElementClick", ev, this.props, this.state );
         console.debug("Application::OnClick_HandleBodyElementClick", this.TopNav);
-		//ev.preventDefault();
-  //      ev.stopPropagation();
         this.setState({ CurrentUser: [] });
+		ev.preventDefault();
+		ev.stopPropagation();
 		return;
 	};
 
@@ -102,7 +101,7 @@ class Application extends React.Component
 			{
 				id: this.ID,
 				className: this.state.CurrentTheme + " cds-react-app",
-                onClick: this.handleClick,
+                //	onClick: this.handleClick,
                 key: Utilities.NewId()
 			},
 			this.Layout

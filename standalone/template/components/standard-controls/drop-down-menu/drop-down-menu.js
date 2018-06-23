@@ -4,7 +4,7 @@
 "use strict";
 
 // control template - flesh out all functions, methods, events
-class RootLink extends React.Component
+class DropDownCtrl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
@@ -14,8 +14,8 @@ class RootLink extends React.Component
 		this.Id = this.props.id;
 		this.Application = this.props.Application;
 		this.CssClassNames = {
-			Normal: "RootLinkCss",
-			Alerted: "RootLinkCssExtra"
+			Normal: "drop-down-ctrl",
+			Alerted: "drop-down-ctrl-alerted"
 		};
 		// state
 		this.state = {
@@ -70,7 +70,7 @@ class RootLink extends React.Component
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
 		//	contents of the element: `this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}`
 		return React.createElement( 'div', {
-			id: Utilities.NewId( "root-link" ),
+			id: "dropdown-panel",
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
 		}, `${this.state.inner_text} : ${this.state.isClicked}` );

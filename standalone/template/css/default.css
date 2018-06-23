@@ -67,6 +67,7 @@ body
     background-color: rgba(0, 0, 0, 1);
     color: rgba(255, 255, 255, 1);
     font-family: 'Segoe UI', 'Tahoma', Arial;
+	overflow:hidden;
 }
 .cds-react-app
 {
@@ -81,23 +82,23 @@ body
 	border: solid 0px rgba(255,255,255,1);
 }
 /* root level themes, usually limited to attributes that use colors */
-.darkTheme
+.default-theme
+{
+    background-color: #215b7d;
+    color: rgba(32,32,32,1);
+    font-size: medium;
+    border-color: blue;
+    font-family: 'Segoe UI', 'Tahoma', Arial;
+}
+.dark-theme
 {
 	background-color: rgba(32,32,32,1);
 	color: rgba(224,224,224,1);
 	font-size: medium;
-	/*border: solid 1px red;*/
 	border-color: red;
     font-family: 'Segoe UI', 'Tahoma', Arial;
 }
-.blueTheme {
-    background-color: #215b7d;
-    color: rgba(32,32,32,1);
-    font-size: medium;
-    /*border: solid 1px blue;*/
-    border-color: blue;
-    font-family: 'Segoe UI', 'Tahoma', Arial;
-}
+
 
 .myBtn {
     padding: 10px;
