@@ -1,0 +1,193 @@
+﻿.container-ctrl
+{
+	/*border: solid 1px red;*/
+	display:block;
+	width:100%;
+}
+
+.me-control-btn
+{
+    background-color: rgba(28,28,28,1);
+    width: 100%;
+    height: 100%;
+	cursor: pointer;
+}
+.me-control-btn:hover
+{
+    background-color: rgba(48, 48, 48,1);
+}
+
+.me-control-container
+{
+    position: absolute;
+	right:0px;
+    width: 330px;
+	z-index:250;
+	box-shadow: rgba(0,0,0,1) 0px 0px 20px 0px;
+}
+.ContainerDisplayed
+{
+    display: inline-block;
+}
+.ContainerHidden
+{
+    display:none;
+}
+
+
+.me-control-container .buttonControl
+{
+	color: #000;
+	width: 100px;
+	display: inline-flex;
+	margin: 0 0 0 10px;
+	font-size: 14px;
+	line-height: 15px;
+}
+.me-control-container .buttonControl .icon 
+{
+	width: 20px;
+	height: 19px;
+	margin-right: 4px;
+}
+
+.top-controls-container {
+    height: 35px;
+    padding-top: 10px;
+    background-color: #fff;
+}
+
+.current-user {
+    background-color: white;
+    height: 160px;
+    display: flex;
+}
+
+    .current-user .left {
+        width: 129px;
+        height: 100%;
+        padding: 30px;
+    }
+
+    .current-user .middle {
+        width: 160px;
+        height: 100%;
+        font: 14px SegoeUI;
+        padding: 35px 0 0 0;
+    }
+
+        .current-user .middle .current-user-title {
+            color: #000;
+            font: 15px SegoeUI-SemiBold;
+            margin: 0 0px 3px 0px;
+        }
+
+        .current-user .middle .current-user-email {
+            color: #000;
+            /* font-size: 14px; */
+            margin: 0 0px 3px 0px;
+        }
+
+        .current-user .middle .view-ms-acct {
+            margin: 0 0px 3px 0px;
+            color: #0078d7;
+            cursor: pointer;
+        }
+
+        .current-user .middle .change-info {
+            color: #0078d7;
+            cursor: pointer;
+        }
+
+    .current-user .right {
+        height: 160px;
+    }
+
+        .current-user .right .buttonControl {
+            height: inherit;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+        }
+
+            .current-user .right .buttonControl .icon {
+                bottom: 10px;
+                position: absolute;
+                border-radius: 1px;
+                width: 30px;
+                height: 20px;
+            }
+
+                .current-user .right .buttonControl .icon:hover {
+                    background-color: #9b9999;
+                    fill: #ffffff;
+                }
+
+
+.potential-logins {
+    height: 160px;
+    background-color: #f4f4f4;
+}
+
+    .potential-logins .user {
+        display: block;
+        height: 54px;
+        margin: 0;
+        width: 100%;
+    }
+
+        .potential-logins .user .left {
+            display: inline-block
+        }
+
+            .potential-logins .user .left .img {
+                width: 30px;
+                height: 30px;
+                margin: 10px 0px 0 10px;
+            }
+
+        .potential-logins .user .right {
+            color: #000;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 0 15px;
+        }
+
+            .potential-logins .user .right span {
+            display:block;
+            }
+
+.me-control-btn {
+display: flex;
+}
+
+.user-page-title {
+    color: #fff;
+    font-size: 14px;
+    flex: 7;
+    padding-left: 7px;
+    padding-top: 2px;
+}
+
+.user-name {
+    font: 14px SegoeUI-SemiBold;
+}
+
+.user-company {
+    font-size: 11px;
+}
+
+.user-img {
+    width: 30px;
+    height: 30px;
+    flex: 3;
+    margin-top: 4px;
+    fill: #fff;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+

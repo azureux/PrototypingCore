@@ -1,0 +1,106 @@
+﻿.topnav-main
+{
+    height: 40px;
+    background: #1c1c1c;
+    color: #FFFFFF;
+    padding: 0px;
+    display: flex;
+	min-width:1024px;
+}
+.topnav-main > *
+{
+	flex-grow:1;
+	flex-shrink:1;
+	flex-basis:1;
+    display: inline-flex;
+}
+/* additional themes */
+.dark-theme.topnav-main
+{
+    background: #000000;
+    color: #ff006e;
+}
+
+
+/* children */
+.banner-panel
+{
+	background-color: #ff6a00;
+	color: #000000;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:10px;
+	padding-bottom:5px;
+	font-size: 14px;
+	max-width:100px;
+}
+.dark-theme.banner-panel
+{
+	background-color: #00ff0d;
+}
+
+.brand-title-panel
+{
+	background-color: transparent;
+    /*border: solid 1px #ff006e;*/
+    color: #55b3ff;
+	font-size: 24px;
+	padding-left:10px;
+	padding-right:20px;
+	padding-top:2px;
+	padding-bottom:5px;
+	text-decoration:none;
+	cursor:pointer;
+	max-width:400px;
+}
+.dark-theme.brand-title-panel
+{
+    color: #ff006e;
+}
+
+.global-search-panel
+{
+	background-color: transparent;
+	color: #FFFFFF;
+    /*border: solid 1px #ff6a00;*/
+	padding:5px;
+	margin:3px;
+	text-align:center;
+}
+.dark-theme.global-search-panel
+{
+	color: #ff006e;
+}
+
+
+.shell-ctrls-panel
+{
+    /*border-width: 1px;
+	border-color:#ffd800;
+	border-style: solid;*/
+	background-color: transparent;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+	max-width:250px;
+	text-align:right;
+}
+.dark-theme.shell-ctrls-panel
+{
+	/*border-color: #ff006e;*/
+}
+
+.user-switcher-panel
+{
+    /*border: solid 1px #00ff0d;*/
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+	max-width:250px;
+}
+.dark-theme.user-switcher-panel
+{
+    /*border: solid 10px #00ff0d;*/
+}
