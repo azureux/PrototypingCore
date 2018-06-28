@@ -1,9 +1,7 @@
 12:55 PM 5/30/2018
-Project "Acuity"/"Defpotec"
+Project "Acuity"/
 
 This GIT repo is used by the Microsoft C+AI Cloud Design Studio ("CDS") Prototyping team ("Azure Prototyping").
-
-Open Issue: We are still investigating if we can deliver an "easy to code" React.JS prototype without taking dependencies like Node.js, etc.
 
 The folder structure outlined here is described as follows:
 
@@ -13,4 +11,8 @@ The folder structure outlined here is described as follows:
 
 /standalone/ - root folder for the "standalone" prototype template & subsequent deployments/builds
 /standalone/template/ - baseline project, to be copied for deployments/buiilds
+/standalone/es6-template/ - exploration into strict ES 6 style coding
+/standalone/jsx-template/ - exploration into JSX Babel style coding
 /standalong/[uxr-build name-date]/ - for specific builds/deployments
+
+
