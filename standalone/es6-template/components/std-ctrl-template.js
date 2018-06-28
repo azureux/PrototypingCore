@@ -2,32 +2,36 @@
 /// <reference path="../../script/react/react-dom-latest.js" />
 /// <reference path="../../js/utilities.js" />
 "use strict";
-
 // control template - flesh out all functions, methods, events
-class DropDownCtrl extends React.Component
+class StandardControlTemplate extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
 		super( props );
 
 		//properties
-		this.Id = this.props.id;
-		this.Application = this.props.Application;
-		this.CssClassNames = {
-			Normal: "drop-down-ctrl",
-			Alerted: "drop-down-ctrl-alerted"
-		};
-		// state
-		this.state = {
-			items: [],
-			inner_text: this.props.InnerText,
-			prev_text: this.props.InnerText,
-			isClicked: false,
-			currentCssClass: this.CssClassNames.Normal
-		};
+		//this.Id = this.props.id;
+		//this.props = props.Application.props.TopNavigationBar;
+		//this.Theme = props.Application.props.Theme;
+  //      this.CssFileID = "btn-css"; //Utilities.NewId("btn-css");
+  //      this.CssFile = "components/standard-controls/button/button.css";
+		//this.CssClassNames = {
+  //          Normal: this.Theme + " buttonControl " + this.ButtonStyle,
+  //          Alerted: this.Theme + " RootLinkCssExtra " + this.ButtonStyle,
+  //      };
+		//this.state = {
+		//	items: [],
+		//	inner_text: this.props.InnerText,
+		//	prev_text: this.props.InnerText,
+		//	isClicked: false,
+		//	currentCssClass: this.CssClassNames.Normal
+		//};
 
 		//event handlers
 		this.handleClick = this.OnClick_ChangeBorderColor.bind( this );
+
+		//	inject CSS
+		//	Utilities.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
 	componentDidMount()
@@ -37,8 +41,7 @@ class DropDownCtrl extends React.Component
 	componentDidUnMount()
 	{	//	not used yet
 		return;
-	};
-	
+	};	
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
 		//	console.debug( "RootLink::handleClick" );
@@ -60,7 +63,7 @@ class DropDownCtrl extends React.Component
 			this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
 		}
 		//	for firing events at the top level of "Application" class
-		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
+		this.Application.OnClick_OpenCloseLeftNav( ev, false );
 		return;
 	};
 	render()
@@ -70,7 +73,7 @@ class DropDownCtrl extends React.Component
 		//	return React.createElement( 'div', { className: 'SearchPanel' }, `Clicked: ${this.props.InnerText}` );
 		//	contents of the element: `this.state.inner_text: ${this.state.inner_text} | this.state.isClicked: ${this.state.isClicked}`
 		return React.createElement( 'div', {
-			id: "dropdown-panel",
+			id: Utilities.NewId( "root-link" ),
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
 		}, `${this.state.inner_text} : ${this.state.isClicked}` );
