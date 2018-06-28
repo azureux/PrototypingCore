@@ -38,7 +38,7 @@ class TopNavigationBar extends React.Component
 		this.Search = React.createElement( "div", { id: "global-search", className: this.Theme + " global-search-panel", key: Utilities.NewId() }, "global search" );
 
 		// portal buttons and button bar
-        let _notiifications_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
+		let _notiifications_btn = React.createElement( ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() } );
         let _powershell_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Console, key: Utilities.NewId() });
         let _portal_settings_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Notification, key: Utilities.NewId() });
         let _portal_feedback_btn = React.createElement(ButtonCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: SVG.Shell.Help, key: Utilities.NewId() });

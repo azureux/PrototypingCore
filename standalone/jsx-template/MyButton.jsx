@@ -54,7 +54,7 @@ export class MyButton extends React.Component
 	};  
   render()
   {
-      // return ( <button onClick={ this.handleClick } style={{borderWidth:"5px", borderColor: this.state.borderColor, backgroundColor: this.state.bg_color, color: this.state.color, padding: "10px", width: "200px", cursor: "pointer", fontWeight:"700", fontSize:"24px"}}>{this.state.innerText}</button> );
+      return ( <button onClick={ this.handleClick } style={{borderWidth:"5px", borderColor: this.state.borderColor, backgroundColor: this.state.bg_color, color: this.state.color, padding: "10px", width: "200px", cursor: "pointer", fontWeight:"700", fontSize:"24px"}}>{this.state.innerText}</button> );
       
     let _rv = React.createElement('button', {
         id: "btn-text",
