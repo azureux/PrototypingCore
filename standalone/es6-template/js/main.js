@@ -1,17 +1,12 @@
-﻿/// <reference path="../script/react/react-latest.js" />
-/// <reference path="../script/react/react-dom-latest.js" />
-// "Application" is our main ReactJs application class
-// "ApplicationConfig" lives in config.js
-// "DOMContentLoaded" - wait for DOM to complete before making dom changes
-"use strict";
+﻿"use strict";
 ( function ()
 {
 	console.log( "BEGIN Azure Prototype\t", new Date().toISOString() );
 	try
 	{
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
-        {	//  window.AzureSVG = SVG;
-			ReactDOM.render( React.createElement( Application, OverrideConfig, [] ), document.getElementById( "ApplicationElement" ) );
+		{
+			const app = new Application( { AppName: "Jackie's App", IsCssLoaded: true });
 			return;
         } );
 	}
