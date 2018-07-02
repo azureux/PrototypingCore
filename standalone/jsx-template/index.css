@@ -1,0 +1,16 @@
+﻿body
+{
+	
+}
+button
+{
+	border-style: solid;
+	border-width:10px;
+	border-radius:10px;
+	padding: 20px;
+	width: calc(350px);
+	cursor: pointer;
+	font-weight:700;
+	font-size:36px;
+	margin-right:5px;
+	}
