@@ -12,6 +12,13 @@ Project "Acuity"/"Defpotec"
 		iv. SVGs should successfuly parse into JSON file at the specified at line 6. 
 	B. /tools/svg-folder/node-modules/ --  your npm install created node dependencies for svg-assets-build.js : npm fs, npm console, npm chalk.
 
+	>>To run svg-assets-build.js (PC)
+	A. "cd.." + enter to navigate backwards 
+	B. "..PrototypingCore\tools\svg-builder" + enter
+	C. "node svg-assets-build.js" + enter
+	D. File should run and complete assets-build.js in ../../standalone/template/js/svg-assets.js
+
+	Run this script everytime you add an svg to the original img_folder
 
 
 
