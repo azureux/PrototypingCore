@@ -21,12 +21,15 @@ class VerticalNavigationBar extends React.Component
 		};
 		this.state = {
 			IsDirty: false,
-			CurrentCssClass: this.CssClassNames.Normal
+            CurrentCssClass: this.CssClassNames.Normal,
+            isOpen: true,
         };
+
+        //this.handleClick = this.onclick_ToggleNav.bind(this);
 
         //individual extensions 
         //let _a = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, );
-        let _1 = React.createElement(ButtonCtrl, { className: 'extension minimize', attributeTitle: 'New', buttonText: ' ', Application: this.props, svgIcon: SVG.DoubleChevronLeft, key: Utilities.NewId() });
+        let _1 = React.createElement(ButtonCtrl, { onClick: this.onclick_ToggleNav,  className: 'extension minimize', attributeTitle: 'New', buttonText: ' ', Application: this.props, svgIcon: SVG.DoubleChevronLeft, key: Utilities.NewId() });
         let _a = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'New', buttonText: 'New', Application: this.props, svgIcon: SVG.Color.NewPlusSign, key: Utilities.NewId() });
         let _b = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Dashboard', buttonText: 'Dashboard', Application: this.props, svgIcon: SVG.Color.Dashboard, key: Utilities.NewId() });
         let _c = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Resource groups', buttonText: 'Resource groups', Application: this.props, svgIcon: SVG.Color.ResourceGroup, key: Utilities.NewId() });
@@ -43,17 +46,49 @@ class VerticalNavigationBar extends React.Component
         let _n = React.createElement(ButtonCtrl, { className: 'extension', attributeTitle: 'Security Center', buttonText: 'Security Center', Application: this.props, svgIcon: SVG.Color.SecurityCenter, key: Utilities.NewId() });
 
         let extensionsArray = [_1, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n];
+
+
+
         //left nav container for all extensions 
-        this.vertnavbar = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, extensionsArray ); // `${this.Title}`
+        this.vertnavbar = React.createElement('div', {id: this.ID, className: this.state.CurrentCssClass }, extensionsArray ); // `${this.Title}`
 
 		if ( this.props.Application.props.VerticalNavigationBar.Title !== undefined )
 		{
 			this.Title = this.props.Application.props.VerticalNavigationBar.Title;
         }
 
-		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
-		return;
+        Utilities.InjectControlCss( this.CssFileID, this.CssFile );
+
+        return;
+        
     };
+
+    onclick_ToggleNav(ev){
+        //do something
+        ev.preventDefault();
+        ev.stopPropagation();
+        console.debug("Before: " + this.state.isOpen);
+        if ( this.state.isOpen == true )
+        {
+            this.setState( { isOpen: false } );
+            //this.setState( { inner_text: this.state.prev_text } );
+            //this.setState( { currentCssClass: this.CssClassNames.Normal } );
+        }
+        else if ( this.state.isOpen == false )
+        {
+            this.setState( { isOpen: true } );
+            
+            //this.setState( { inner_text: _changed } );
+            //this.setState( { currentCssClass: this.CssClassNames.Normal + " " + this.CssClassNames.Alerted } );
+        }
+
+        console.debug("After: " + this.state.isOpen);
+        //	for firing events at the top level of "Application" class
+        //	this.Application.OnClick_HandleBodyElementClick( ev, false );
+        return;
+    };
+
+
 	render()
 	{	//	console.debug( "VerticalNavigationBar.render()", this.props );
         return this.vertnavbar;

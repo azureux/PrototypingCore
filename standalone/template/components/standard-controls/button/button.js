@@ -33,7 +33,13 @@ class ButtonCtrl extends React.Component
 		};
 
 		//event handlers
-        this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
+		//assigns handleCl
+		if (this.props.onClick !== undefined){
+			this.ButtonHandleClick = this.onClick; //.bind(this)
+		}
+		else {
+			this.ButtonHandleClick = this.OnClick_ChangeBorderColor.bind(this);
+		}    
 
 		// inject CSS
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
@@ -50,7 +56,7 @@ class ButtonCtrl extends React.Component
 
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
-		//	console.debug( "RootLink::handleClick" );
+		//	console.debug( "RootLink::ButtonHandleClick" );
 		ev.preventDefault();
 		ev.stopPropagation();
 
@@ -92,7 +98,7 @@ class ButtonCtrl extends React.Component
             _rv = React.createElement('div', {
                 id: "btn-svg-text",
                 className: this.state.currentCssClass + " IconWithText",
-                onClick: this.handleClick,
+                onClick: this.ButtonHandleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
             }, _j, `${this.Title}` ); 
@@ -104,7 +110,7 @@ class ButtonCtrl extends React.Component
             _rv = React.createElement('div', {
 				id: "btn-svg",
 				className: this.state.currentCssClass + " IconNoText",
-                onClick: this.handleClick,
+                onClick: this.ButtonHandleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
             }, _j);
@@ -115,7 +121,7 @@ class ButtonCtrl extends React.Component
             _rv = React.createElement('div', {
                 id: "btn-text",
                 className: this.state.currentCssClass,
-                onClick: this.handleClick,
+                onClick: this.ButtonHandleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(), 
             }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
