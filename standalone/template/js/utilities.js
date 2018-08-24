@@ -11,13 +11,13 @@
 		{
 			_id_name = "id-";
 		}
-		_rv = _id_name + Math.random().toPrecision( 4 ).replace( ".", "" );
+		_rv = _id_name + Math.random().toPrecision( 7 ).replace( ".", "" );
 		//	console.debug( "Utilities.NewId()._rv", _rv );
 		return _rv;
 	},
 	NewKey: function()
 	{	// react.js specific for putting new react elements into arrays prior to referencing in react.render()
-		const _rv = "key-" + Math.random().toPrecision( 4 ).replace( ".", "" );
+		const _rv = "key-" + Math.random().toPrecision( 7 ).replace( ".", "" );
 		//	console.debug( "Utilities.NewKey()._rv", _rv );
 		return _rv;
 	},
@@ -69,7 +69,7 @@
 		return;
 	},
 	CreateSvgMarkup: function( svgIcon )
-	{
+	{	//	console.debug( "CreateSvgMarkup", svgIcon );
 		return { __html: svgIcon };
 	}
 };

@@ -20,8 +20,9 @@ class Dashboard extends React.Component
 		};
 		this.state = {
 			IsDirty: false,
-			CurrentCssClass: this.CssClassNames.Normal
+			CurrentCssClass: this.CssClassNames.Normal 
 		};
+		this.DebugMessage = this.props.Application.state.VerticalNavigationIsOpen;	//	DebugMessage || "default dashboard debug message";
 
 		if ( this.props.Application.props.Dashboard.Title !== undefined )
 		{
@@ -36,6 +37,6 @@ class Dashboard extends React.Component
 		return React.createElement( 'div', {
 			id: this.ID,
 			className: this.state.CurrentCssClass
-		},`${this.Title}` );
+		},[`${this.Title}`,` this.DebugMessage :: ${this.DebugMessage}`] );
 	};
 };

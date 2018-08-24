@@ -13,7 +13,7 @@ class ButtonCtrl extends React.Component
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
 		this.SvgIcon = this.props.svgIcon || undefined;
-		this.Theme = this.props.Application.Application.CurrentTheme || undefined;
+		//	this.Theme = this.props.Application.Application.CurrentTheme || undefined;
         this.ButtonStyle = this.props.className;
         this.CssFileID = "btn-css";
         this.CssFile = "components/standard-controls/button/button.css";
@@ -29,11 +29,13 @@ class ButtonCtrl extends React.Component
 			prev_text: this.props.InnerText,
 			isClicked: false,
             currentCssClass: this.CssClassNames.Normal,
-            AltTextTitle: this.props.attributeTitle
+			AltTextTitle: this.props.attributeTitle,
+			IsLeftNavCollapsed: (this.props.IsCollapsed || false)
 		};
 
 		//event handlers
-        this.handleClick = this.OnClick_ChangeBorderColor.bind(this);
+		this.HandleClick = this.OnClick_ChangeBorderColor.bind( this );
+		this.NavigationClick = this.props.onClickHandler;
 
 		// inject CSS
         Utilities.InjectControlCss(this.CssFileID, this.CssFile);
@@ -80,22 +82,40 @@ class ButtonCtrl extends React.Component
     };
 	render()
     {
-        //console.debug("this.SvgIcon", this.SvgIcon);
-		//	console.debug( "RootLink", this.props, typeof RootLink );
         let _rv;
         
-        //SVG + Unique Text
+        //	SVG + Unique Text
         if (this.SvgIcon !== undefined && this.props.buttonText !== " ")
 		{
-			let _j = React.createElement( 'div', { className: 'icon', dangerouslySetInnerHTML: Utilities.CreateSvgMarkup( this.SvgIcon.SVG ) } );
+			//	console.debug( "BtnCtrl:render():this.Title", this.Title, this.state.IsLeftNavCollapsed );
+
+			let _btn_class = "btn-icon-text-default";
+			let _icon_class = "btn-icon-default";
+			let _text_class = "btn-text-default";
+
+			if ( this.state.IsLeftNavCollapsed == true )
+			{
+				_text_class = "btn-text-hidden";
+			}
+
+			if ( this.state.isClicked == true )
+			{
+				_btn_class = _btn_class + " btn-icon-text-default-selected";
+			}
+
+			let _icon = React.createElement( 'div', { className: _icon_class, dangerouslySetInnerHTML: Utilities.CreateSvgMarkup( this.SvgIcon.SVG ), key: Utilities.NewId() } );
+			let _text = React.createElement( 'div', { className: _text_class, key: Utilities.NewId() },`${this.Title}`);
 
             _rv = React.createElement('div', {
-                id: "btn-svg-text",
-                className: this.state.currentCssClass + " IconWithText",
-                onClick: this.handleClick,
+                className: _btn_class,
+				onClick: (ev) =>
+				{
+					this.HandleClick(ev);
+					this.NavigationClick(ev);
+				},
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
-            }, _j, `${this.Title}` ); 
+            }, [_icon, _text] ); 
         }
         //SVG + no unique text
         else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
@@ -104,7 +124,7 @@ class ButtonCtrl extends React.Component
             _rv = React.createElement('div', {
 				id: "btn-svg",
 				className: this.state.currentCssClass + " IconNoText",
-                onClick: this.handleClick,
+                onClick: this.HandleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(),
             }, _j);
@@ -115,7 +135,7 @@ class ButtonCtrl extends React.Component
             _rv = React.createElement('div', {
                 id: "btn-text",
                 className: this.state.currentCssClass,
-                onClick: this.handleClick,
+                onClick: this.HandleClick,
                 title: this.state.AltTextTitle,
                 key: Utilities.NewId(), 
             }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`

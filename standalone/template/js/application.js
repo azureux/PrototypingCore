@@ -16,33 +16,34 @@ class Application extends React.Component
 			CurrentUser: {},
 			CurrentExtension: {},
 			CurrentTheme: this.Theme,
-            CurrentThemeName: this.Theme
+			CurrentThemeName: this.Theme,
+			VerticalNavigationIsOpen: ( this.props.VerticalNavigationBar.IsCollapsed || false)
 		};
 		this.Data = [];
-        this.Notifications = [];
+		this.Notifications = [];
+		this.Configuration = props;
+		this.DebugMessage = this.props.VerticalNavigationBar.Title + " : " +  this.props.VerticalNavigationBar.IsCollapsed;
 
 		// event handlers
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
 		this.handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
-
+		this.Handle_CurrentExtension = this.OnClick_VerticalNavigation_SelectNavigationItem.bind( this );
 		// set overrides
 		if ( this.props.Application.Theme !== undefined )
 		{
 			this.Theme = this.props.Application.Theme;
 		}
 
-        this.ContextPanel = React.createElement(ContextPanel, { key: Utilities.NewKey(), Application: this });
-
 		return;
 	};
 
 	// app level menthods
 	// event handlers
-	OnClick_OpenClose_LeftNav( ev )
-	{
-		console.debug( "App::OnClick_OpenClose_LeftNav", ev );
-		return;
-	};
+	//OnClick_OpenClose_LeftNav( ev )
+	//{
+	//	console.debug( "App::OnClick_OpenClose_LeftNav", ev );
+	//	return;
+	//};
 	// toggle themes, just for an example of how to
 	OnClick_ToggleThemes( ev )
 	{
@@ -73,28 +74,35 @@ class Application extends React.Component
 		return;
 	};
 
+	OnClick_VerticalNavigation_SelectNavigationItem(extension)
+	{
+		console.debug( "HACK: Application.OnClick_VerticalNavigation_SelectNavigationItem: RESET TO ONLY THE CURRENTLY SELECTED NAV ITEM/EXTENSION. ALSO CALL THE CHAINED EVENT FROM THE APPPLICATION LEVEL", extension);
+		return;
+	};
+
 	//  React.createElement() params
 	//	1. output html element type
 	//	2. output html element attributes
 	//	3. array of child controls
 	render()
 	{	//	console.debug( "Application::render", this.state, this.props );
-
+		console.debug( "Application::NavExpanded: this.state.VerticalNavigationIsOpen", this.state.VerticalNavigationIsOpen );
 		// layout contruction
 		this.TopNav = React.createElement( TopNavigationBar, { key: Utilities.NewKey(), Application: this } );
-		this.LeftNav = React.createElement( VerticalNavigationBar, { key: Utilities.NewKey(), Application: this } );
-		this.Dashboard = React.createElement( Dashboard, { key: Utilities.NewKey(), Application: this } );
-		//  this.ContextPanel = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
+
+		this.LeftNav = React.createElement( VerticalNavigationBar, { key: Utilities.NewKey(), Application: this, NavExpanded: this.state.VerticalNavigationIsOpen, ExtensionHandler: this.Handle_CurrentExtension } );
+
+		this.Dashboard = React.createElement( Dashboard, { key: Utilities.NewKey(), Application: this, NavExpanded: this.state.VerticalNavigationIsOpen } );
+
+		this.ContextPanel = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
 		this.ThemeButton = React.createElement( "button", { key: Utilities.NewKey(), id: "tog-switch", onClick: this.handle_OnClick_ToggleThemes, className: "myBtn theme"}, this.state.CurrentThemeName );
-		//	this.ContextPanel2 = React.createElement( ContextPanel, { key: Utilities.NewKey(), Application: this } );
-		// may not be needed, other than as an easy way to access the array of top level layout
+
 		this.Layout = [
 			this.TopNav,
 			this.LeftNav,
 			this.Dashboard,
 			this.ContextPanel,
 			this.ThemeButton
-			//	this.ContextPanel2
 		];
 
 		let _app = React.createElement( "div",

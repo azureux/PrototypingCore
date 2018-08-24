@@ -1,4 +1,6 @@
-﻿.vertnav-main {
+﻿.vertnav-main
+{
+    position: absolute;
     border-style: none;
     background-color: #252525;
     color: #fff;
@@ -6,34 +8,76 @@
     top: 40px;
     bottom: 0;
     width: 230px;
+}
+.vertnav-main-collapsed
+{
     position: absolute;
+    border-style: none;
+    background-color: #252525;
+    color: #fff;
+    left: 0;
+    top: 40px;
+    bottom: 0;
+    width: 50px;
+	overflow:hidden
 }
 
-    .vertnav-main .extension {
-        width: 100%;
-        margin: 0;
-        padding-left: 20px;
-        height: 48px;
-        line-height: 36px;
-    }
-
-    .vertnav-main .minimize {
-        height: 22px;
-    }
-
-        .vertnav-main .minimize .icon {
-            width: 12px;
-            height: 12px;
-            fill: #fff;
-            right: 4px;
-            position: absolute;
-        }
-
-.icon {
-    margin-right: 5px
+/* expland collapse button */
+.exp-coll-button-default
+{
+	/*border: solid 1px red;*/
+	height:24px;
+	text-align:right;
+	cursor:pointer;
+}
+.exp-coll-button-default > svg
+{
+	fill: white;
+	/*border: solid 1px red;*/
+	height:24px;
+	width:24px;
+	padding:6px;
+}
+.exp-coll-button-collapsed
+{
+	/*border: solid 1px blue;*/
+	height:24px;
+	text-align:right;
+	cursor:pointer;
+}
+.exp-coll-button-collapsed > svg
+{
+	fill: white;
+	/*border: solid 1px blue;*/
+	height:24px;
+	width:24px;
+	padding:6px;
 }
 
-
-#Layer_1 {
-    /*fill: #7FBA00; /*Jackie SVG Hack*/*/
+.ext-list-panel-default
+{
+	/*border: solid 1px red;*/
+	overflow: auto;
+	height:calc(100% - 24px);
 }
+.ext-list-panel-collapsed
+{
+	overflow: hidden;
+	height:calc(100% - 24px);
+}
+
+/* 
+	from dashboard
+*/
+/*.dsh-brd-main
+{
+    border-style: dashed;
+    margin: 20px;
+    padding: 20px;
+    color: rgba(255,255,255,1);
+    width: calc(100% - 260px);
+    min-width: 400px;
+    height: calc(100% - 80px);
+    left: 60px;
+    position: absolute;
+}*/

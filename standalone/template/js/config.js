@@ -10,7 +10,8 @@ const OverrideConfig =
             //Title: "Microsoft Azure"
 		},
 		VerticalNavigationBar: {
-			Title: "My Azure VerticalNavigationBar"
+			Title: "My Azure VerticalNavigationBar",
+			IsCollapsed: true
 		},
 		Dashboard: {
 			Title: "My Azure Dashboard"
