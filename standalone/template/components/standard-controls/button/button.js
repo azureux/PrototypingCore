@@ -1,6 +1,7 @@
 ﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
 /// <reference path="../../script/react/react-dom-latest.js" />
 /// <reference path="../../js/utilities.js" />
+
 "use strict";
 class ButtonCtrl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
@@ -132,13 +133,16 @@ class ButtonCtrl extends React.Component
         //neither
         else // (this.SvgIcon == undefined && this.props.buttonText !== "Button")
         {
-            _rv = React.createElement('div', {
-                id: "btn-text",
-                className: this.state.currentCssClass,
-                onClick: this.HandleClick,
-                title: this.state.AltTextTitle,
-                key: Utilities.NewId(), 
-            }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
+      //	return ( <button onClick={ this.handleClick } style={{borderWidth:"5px", borderColor: this.state.borderColor, backgroundColor: this.state.bg_color, color: this.state.color, padding: "10px", width: "200px", cursor: "pointer", fontWeight:"700", fontSize:"24px"}}>{this.state.innerText}</button> );
+			
+            // _rv = React.createElement('div', {
+            //     id: "btn-text",
+            //     className: this.state.currentCssClass,
+            //     onClick: this.HandleClick,
+            //     title: this.state.AltTextTitle,
+            //     key: Utilities.NewId(), 
+			// }, `${this.Title}`);  // `${this.state.inner_text} : ${this.state.isClicked}`
+			_rv = ( '<div id="btn-text" onClick={this.HandleClick} title={this.state.AltTextTitle} >{this.Title}</div>' );
         }
         return _rv;
 	};
