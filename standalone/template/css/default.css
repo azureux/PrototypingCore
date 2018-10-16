@@ -81,6 +81,7 @@ body
 	margin:0px;
 	border: solid 0px rgba(255,255,255,1);
 }
+
 /* root level themes, usually limited to attributes that use colors */
 .default-theme
 {
@@ -99,8 +100,8 @@ body
     font-family: 'Segoe UI', 'Tahoma', Arial;
 }
 
-
-.myBtn {
+/*.myBtn
+{
     padding: 10px;
     bottom: 40px;
     right: 40px;
@@ -109,5 +110,5 @@ body
     border-radius: 2px;
     background-color: #fff;
     cursor: pointer;
-}
+}*/
 

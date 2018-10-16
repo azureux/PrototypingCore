@@ -3,7 +3,11 @@
 /// <reference path="../../js/utilities.js" />
 
 "use strict";
-class ButtonCtrl extends React.Component
+
+import { Utilities as Utils } from "../../../js/utilities.js";
+import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
+
+export class ButtonControl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
@@ -39,7 +43,7 @@ class ButtonCtrl extends React.Component
 		this.NavigationClick = this.props.onClickHandler;
 
 		// inject CSS
-        Utilities.InjectControlCss(this.CssFileID, this.CssFile);
+        Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
 	//componentDidMount()
@@ -104,8 +108,8 @@ class ButtonCtrl extends React.Component
 				_btn_class = _btn_class + " btn-icon-text-default-selected";
 			}
 
-			let _icon = React.createElement( 'div', { className: _icon_class, dangerouslySetInnerHTML: Utilities.CreateSvgMarkup( this.SvgIcon.SVG ), key: Utilities.NewId() } );
-			let _text = React.createElement( 'div', { className: _text_class, key: Utilities.NewId() },`${this.Title}`);
+			let _icon = React.createElement( 'div', { className: _icon_class, dangerouslySetInnerHTML: Utils.CreateSvgMarkup( this.SvgIcon.SVG ), key: Utils.NewId() } );
+			let _text = React.createElement( 'div', { className: _text_class, key: Utils.NewId() },`${this.Title}`);
 
             _rv = React.createElement('div', {
                 className: _btn_class,
@@ -115,19 +119,19 @@ class ButtonCtrl extends React.Component
 					this.NavigationClick(ev);
 				},
                 title: this.state.AltTextTitle,
-                key: Utilities.NewId(),
+                key: Utils.NewId(),
             }, [_icon, _text] ); 
         }
         //SVG + no unique text
         else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
-            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: Utilities.CreateSvgMarkup(this.SvgIcon.SVG) });
+            let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: Utils.CreateSvgMarkup(this.SvgIcon.SVG) });
 
             _rv = React.createElement('div', {
 				id: "btn-svg",
 				className: this.state.currentCssClass + " IconNoText",
                 onClick: this.HandleClick,
                 title: this.state.AltTextTitle,
-                key: Utilities.NewId(),
+                key: Utils.NewId(),
             }, _j);
         }
         //neither

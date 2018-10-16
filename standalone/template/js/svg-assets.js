@@ -1,4 +1,4 @@
-const SVG = {};
+export const SVG = {};
 SVG.Color = {};
 SVG.Extensions = {};
 SVG.Extensions.Billing = {};

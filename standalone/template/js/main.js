@@ -1,32 +1,36 @@
 ﻿/// <reference path="../script/react/react-latest.js" />
 /// <reference path="../script/react/react-dom-latest.js" />
-// "Application" is our main ReactJs application class
-// "ApplicationConfig" lives in config.js
-// "DOMContentLoaded" - wait for DOM to complete before making dom changes
+
 "use strict";
+
+//	import * from "../js/application";
+import { OverrideConfig as Config } from "../js/config.js";
+import { Application as App } from "../js/application.js";
+
+
 ( function ()
 {
-	console.log( "BEGIN Azure Prototype\t", new Date().toISOString() );
+	console.log( "BEGIN", new Date().toISOString() );
 	try
 	{
+		console.log( "TRY", new Date().toISOString() );
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
-        {
-            //  window.AzureSVG = SVG;
-			ReactDOM.render( React.createElement( Application, OverrideConfig, [] ), document.getElementById( "ApplicationElement" ) );
+		{
+			ReactDOM.render( React.createElement( App, Config, [] ), document.getElementById( "ApplicationElement" ) );
 			return;
         } );
 	}
     catch ( ex )
     {
-        console.log( "in 'catch'" );
+        console.log( "CATCH", new Date().toISOString()  );
 		console.error(ex.number, ":", ex.name, ":", ex.message);
 		console.error("exception stack::", ex.stack);
 		return;
 	}
 	finally
-	{
-		//	console.log( "in 'finally'" );
+	{	
+		console.log( "FINALLY", new Date().toISOString()  );
 	}
-    console.log( "END Azure Prototype\t\t", new Date().toISOString() );
+    console.log( "END", new Date().toISOString() );
 	return; 
 } )();

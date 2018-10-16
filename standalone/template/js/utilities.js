@@ -1,5 +1,14 @@
-﻿const Utilities = {
-	NewId: function( strValue )
+﻿//	basic static "Utilities" object
+//	contains methods for:
+//	injecting CSS
+//	react method for injecting SVG
+"use strict";
+
+class _Utilities 
+{
+	constructor() { }
+
+	static NewId( strValue )
 	{
 		let _rv = "";
 		let _id_name = "";
@@ -14,14 +23,14 @@
 		_rv = _id_name + Math.random().toPrecision( 7 ).replace( ".", "" );
 		//	console.debug( "Utilities.NewId()._rv", _rv );
 		return _rv;
-	},
-	NewKey: function()
+	}
+	static NewKey()
 	{	// react.js specific for putting new react elements into arrays prior to referencing in react.render()
 		const _rv = "key-" + Math.random().toPrecision( 7 ).replace( ".", "" );
 		//	console.debug( "Utilities.NewKey()._rv", _rv );
 		return _rv;
-	},
-	ReverseString: function ( strValue )
+	}
+	static ReverseString ( strValue )
 	{
 		let _new;
 		let _temp = [];
@@ -39,8 +48,8 @@
 		}	//	console.debug( "_temp", _temp );
 		_new = _temp.join('');
 		return _new;
-	},
-	InjectControlCss: function ( id, filePath )
+	}
+	static InjectControlCss( id, filePath )
 	{	//	console.debug( "Utilities.InjectControlCss", id, filePath );
 		let _found = false;
 		let _css = document.createElement( "link" );
@@ -67,9 +76,15 @@
 		// this insertation location is based on the order of the <head> element in the default.html file.
 		if ( _found !== true ) document.head.insertBefore( _css, document.head.childNodes[4] );
 		return;
-	},
-	CreateSvgMarkup: function( svgIcon )
+	}
+	static CreateSvgMarkup( svgIcon )
 	{	//	console.debug( "CreateSvgMarkup", svgIcon );
 		return { __html: svgIcon };
 	}
+}
+
+//	export _Utilities
+export
+{
+	_Utilities as Utilities
 };
