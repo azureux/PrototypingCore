@@ -8,6 +8,8 @@ class StandardControlTemplate extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
 	constructor( props )
 	{
+		console.debug( "StandardControlTemplate.props", props );
+
 		super( props );
 
 		//properties

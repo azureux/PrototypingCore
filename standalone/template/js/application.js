@@ -14,22 +14,31 @@ export class Application extends React.Component
 		super( props );
 
 		// default properties
-		this.ID = Utils.NewId( "cds-app" );
+		Application.defaultProps = {
+			ID: Utils.NewId( "cds-app" ),
+			AppName: "Microsoft Azure",
+		};
+		//	this.ID = Utils.NewId( "cds-app" );
 		this.Configuration = props;
 		this.CssID = "app-shell-css",
 		this.CssFile = "css/default.css";
 		this.ThemeName = "default-theme";
 		this.Theme = {};
+
 		this.Users = [];
+
 		this.Data = [];
+
 		this.Notifications = [];
 
+		// for computing layout dimensions to be passed down to child components
 		this.BoundingClientRect = {};
 		this.ClientRect = {};
 		this.ClientTop = 0;
 		this.ClientLeft = 0;
 		this.ClientHeight = 0;
 		this.ClientWidth = 0;
+
 
 		// state
 		this.state = {
@@ -40,9 +49,12 @@ export class Application extends React.Component
 			VerticalNavigation_IsOpen: false,
 			ContextBlade_IsOpen: false,
 			UserPanel_IsOpen: false,
+			NotificationPanel_IsOpen: false,
+			FeatureFlagPanel_IsOpen: false
 		};
 
 		// event handlers
+		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
 		this.handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
 		this.Handle_CurrentExtension = this.OnClick_VerticalNavigation_SelectNavigationItem.bind( this );
@@ -53,14 +65,39 @@ export class Application extends React.Component
 	};
 
 	OnClick_HandleBodyElementClick( ev )
-	{	//	
-		console.debug( "Application::OnClick_HandleBodyElementClick" );
+	{	//	changing the state object cause a re-render, and by default all flyouts are closed
+		//	probably decide on what items should close and which should maintain thier own state
+		//	"leftnav" should not default close
+		//	"contextblade" may not default close ??
+		// "feature flag" may not default close ??
+
+		//	console.debug( "Application::OnClick_HandleBodyElementClick" );
+		//	console.debug( "this.state", this.state );
+
 		ev.preventDefault();
 		ev.stopPropagation();
 
-		// follow this pattern of static methods to close all flyouts
-		TopBar.CloseAllFlyouts();
+		// testing passing application state as component props
+		//	console.debug( "application.OnClick_HandleBodyElementClick->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
+		//if ( this.state.UserPanel_IsOpen == false )
+		//{
+		//	this.setState( { UserPanel_IsOpen: true } );
+		//}
+		//else if ( this.state.UserPanel_IsOpen == true )
+		//{
+		//	this.setState( { UserPanel_IsOpen: false } );
+		//}
+		//	console.debug( "application.OnClick_HandleBodyElementClick->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
 
+		// default close all that need to be closed
+		this.setState( {
+			//	VerticalNavigation_IsOpen: false,
+			//	ContextBlade_IsOpen: false,
+			UserPanel_IsOpen: false,
+			//	NotificationPanel_IsOpen: false,
+			//	FeatureFlagPanel_IsOpen: false
+		} );
+		
 		return;
 	};
 	OnClick_ToggleThemes( ev )
@@ -133,10 +170,11 @@ export class Application extends React.Component
 		//this.AssignDefaultState( this.state );
 
 		//	this.TopNav = React.createElement( "div" , { key: Utils.NewKey() }, "TopNav" );
-		this.TopNav = React.createElement( TopBar, { key: Utils.NewKey(), Application: this } );
+		//	console.debug( "application.render->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
+		this.TopNav = React.createElement( TopBar, { key: Utils.NewKey(), Application: this, userPanelState: this.state.UserPanel_IsOpen } );
 		this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
-		this.Dashboard = React.createElement( "div" , { key: Utils.NewKey() }, "Dashboard" );
 		this.ContextPanel = React.createElement( "div", { key: Utils.NewKey() }, "ContextPanel" );
+		this.Dashboard = React.createElement( "div" , { key: Utils.NewKey() }, "Dashboard" );
 		this.NotificationsPanel = React.createElement( "div", { key: Utils.NewKey() }, "NotificationsPanel" );
 		this.FeatureFlightsPanel = React.createElement( "div" , { key: Utils.NewKey() }, "FeaturePanel " );
 

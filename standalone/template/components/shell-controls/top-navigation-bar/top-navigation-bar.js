@@ -1,7 +1,7 @@
 ﻿/// <reference path="../js/utilities.js" />
 /// <reference path="../script/react/react-latest.js" />
 /// <reference path="../script/react/react-dom-latest.js" />
-// "TopNavigationBar" control
+/// "TopNavigationBar" control
 "use strict";
 
 import { Utilities as Utils } from "../../../js/utilities.js";
@@ -12,9 +12,12 @@ import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.
 
 export class TopNavigationBar extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
+	constructor( props )
+	{
+		//	console.debug( "TopNavigationBar.props", props );
+
+		super( props );
+
 		this.ID = "top-nav-panel";
 		this.Title = "Project Acuity";	//Top Navigation Bar";
         this.Theme = props.Application.state.CurrentTheme;
@@ -27,7 +30,8 @@ export class TopNavigationBar extends React.Component
 		};
         this.state = {
             IsDirty: false,
-            CurrentCssClass: this.CssClassNames.Normal
+			CurrentCssClass: this.CssClassNames.Normal,
+			//	UserPanelState: props.userPanelState
         };
 
         // set overrives
@@ -63,34 +67,22 @@ export class TopNavigationBar extends React.Component
 		);
 
 		// user switcher
-        this.UserCtrl = React.createElement( UAS, { Application: this.props, key: Utils.NewId()  });
+        this.UserCtrl = React.createElement( UAS, { Application: this.props, key: Utils.NewId(), IsOpen: this.props.userPanelState, attributeTitle: 'Testing User Account Control'  });
 		this.UserCtrlPanel = React.createElement("div", { id: "user-switcher-panel-id", className:  this.Theme + " user-switcher-panel",  key: Utils.NewId() }, this.UserCtrl);
 
-		Utils.InjectControlCss( this.CssFileID, this.CssFile );
-        return;
-	};
-	//	needs work to close all flyouts,
-	//	i guess by setting properties and re-rendering
-	//	which is gross and way too much code
-	//	and seems really messy
-	static CloseAllFlyouts()
-	{
-		console.debug( "TopNavigationBar::OnClick_PopAlert -- close all dropdowns" );
-		this.UserCtrlPanel.render();
-		return;
-	};
-
-	render() 
-	{	//	console.debug( "TopNavigationBar.render()", this.props );
-		let _ctrls = [
+		this.ShellControls = [
 			this.Banner,
 			this.BrandTitle,
 			this.Search,
             this.ShellControls,
             this.UserCtrlPanel,
         ];
-        
-        let _e = React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, _ctrls);
-        return _e;
+
+		Utils.InjectControlCss( this.CssFileID, this.CssFile );
+        return;
+	};
+	render() 
+	{	//	console.debug( "TopNavigationBar.render()", this.props );       
+        return React.createElement('div', { id: this.ID, className: this.state.CurrentCssClass }, this.ShellControls);
     };
 };
