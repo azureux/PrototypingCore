@@ -69,6 +69,17 @@ export class TopNavigationBar extends React.Component
 		Utils.InjectControlCss( this.CssFileID, this.CssFile );
         return;
 	};
+	//	needs work to close all flyouts,
+	//	i guess by setting properties and re-rendering
+	//	which is gross and way too much code
+	//	and seems really messy
+	static CloseAllFlyouts()
+	{
+		console.debug( "TopNavigationBar::OnClick_PopAlert -- close all dropdowns" );
+		this.UserCtrlPanel.render();
+		return;
+	};
+
 	render() 
 	{	//	console.debug( "TopNavigationBar.render()", this.props );
 		let _ctrls = [

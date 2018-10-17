@@ -23,6 +23,11 @@ export class Application extends React.Component
 		this.Users = [];
 		this.Data = [];
 		this.Notifications = [];
+
+		this.BoundingClientRect = {};
+		this.ClientRect = {};
+		this.ClientTop = 0;
+		this.ClientLeft = 0;
 		this.ClientHeight = 0;
 		this.ClientWidth = 0;
 
@@ -46,11 +51,16 @@ export class Application extends React.Component
 		Utils.InjectControlCss(this.CssID, this.CssFile);
 		return;
 	};
+
 	OnClick_HandleBodyElementClick( ev )
 	{	//	
-        console.debug("Application::OnClick_HandleBodyElementClick", this.TopNav);
+		console.debug( "Application::OnClick_HandleBodyElementClick" );
 		ev.preventDefault();
 		ev.stopPropagation();
+
+		// follow this pattern of static methods to close all flyouts
+		TopBar.CloseAllFlyouts();
+
 		return;
 	};
 	OnClick_ToggleThemes( ev )
@@ -76,21 +86,32 @@ export class Application extends React.Component
 		console.debug( "HACK: Application.OnClick_VerticalNavigation_SelectNavigationItem: RESET TO ONLY THE CURRENTLY SELECTED NAV ITEM/EXTENSION. ALSO CALL THE CHAINED EVENT FROM THE APPPLICATION LEVEL", extension);
 		return;
 	};
-	OnClick_UserPanel_HideShow(extension)
+
+	InitRunTimeProperties()
 	{
-		console.debug( "OnClick_UserPanel_HideShow" );
-		return;
-	};
-	OnClick_UserPanel_SampleNavigation(objSomething)
-	{
-		console.debug( "OnClick_UserPanel_SampleNavigation" );
-		return;
-	};
+		//	console.debug( "Application::InitRunTimeProperties()" );
+
+		this.ClientTop = document.body.clientTop;
+		this.ClientLeft = document.body.clientLeft
+		this.ClientHeight = document.body.clientHeight;
+		this.ClientWidth = document.body.clientWidth;
+		this.ClientRect = document.body.getClientRects()[0];
+		this.BoundingClientRect = document.body.getBoundingClientRect();
+		//console.debug( "this.ClientTop", this.ClientTop, document.body.clientTop );
+		//console.debug( "this.ClientLeft", this.ClientLeft, document.body.clientLeft );
+		//console.debug( "this.ClientHeight ", this.ClientHeight, document.body.clientHeight);
+		//console.debug( "this.ClientWidth ", this.ClientWidth, document.body.clientWidth );
+		//console.debug( "this.ClientRect ", this.ClientRect, document.body.getClientRects() );
+		//console.debug( "this.BoundingClientRect", this.BoundingClientRect, document.body.getBoundingClientRect() );
 
 
+
+
+		return;
+	};
 	AssignConfiguration( oConfig )
 	{
-		console.debug("Application::AssignConfiguration()");
+		console.debug("Application::AssignConfiguration()", document.body.cl);
 		return;
 	};
 	AssignDefaultState( oState )
@@ -104,11 +125,12 @@ export class Application extends React.Component
 		//	2. output html element attributes
 		//	3. array of child controls
 		console.debug( "Application::render()" );
-		console.debug( "this.state", this.state );
-		console.debug( "this.props", this.props );
+		//console.debug( "this.state", this.state );
+		//console.debug( "this.props", this.props );
 
-		this.AssignConfiguration( this.Configuration );
-		this.AssignDefaultState( this.state );
+		this.InitRunTimeProperties();
+		//this.AssignConfiguration( this.Configuration );
+		//this.AssignDefaultState( this.state );
 
 		//	this.TopNav = React.createElement( "div" , { key: Utils.NewKey() }, "TopNav" );
 		this.TopNav = React.createElement( TopBar, { key: Utils.NewKey(), Application: this } );

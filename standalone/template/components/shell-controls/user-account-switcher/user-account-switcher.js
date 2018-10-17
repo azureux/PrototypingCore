@@ -16,13 +16,15 @@ export class UserAccountSwitcher extends React.Component
 
         //properties
         this.ID = this.props.id;
-        this.Application = this.props.Application;
+        this.CssFileID = "useraccount-css"; //Utilities.NewId("useraccount-css");
+		this.CssFile = "components/shell-controls/user-account-switcher/user-account-switcher.css";
+
+		this.Application = this.props.Application;
+		this.Theme = "";// this.Application.Application.Theme;
 		this.Title = "Me Control";
-		this.Theme = this.Application.Application.Theme;
         this.SvgIcon = this.props.svgIcon || undefined;
         this.UserAccountStyle = this.props.className;
-        this.CssFileID = "useraccount-css"; //Utilities.NewId("useraccount-css");
-        this.CssFile = "components/shell-controls/user-account-switcher/user-account-switcher.css";
+
         this.CssClassNames = {
             Normal: this.Theme + " user-switcher " + this.UserAccountStyle,
             Alerted: this.Theme + " user-switcher-alerted " + this.UserAccountStyle,
@@ -30,14 +32,16 @@ export class UserAccountSwitcher extends React.Component
         this.ContainerCssClass = {
             Displayed: this.Theme + " me-control-container ContainerDisplayed",
             Hidden: this.Theme + " me-control-container ContainerHidden",
-        };      
+		};
+		this.CurrentPanelCss = this.ContainerCssClass.Hidden;
+
         this.state = {
             currentCssClass: this.CssClassNames.Normal,
             currentContainerCssClass: this.ContainerCssClass.Hidden,
             AltTextTitle: this.props.attributeTitle,
             isHidden: false
 		};
-
+		
 		this.handleClick = this.OnClick_HideShowPanel.bind( this );
 
 		// top button
@@ -56,23 +60,36 @@ export class UserAccountSwitcher extends React.Component
         return;
 	};
 	OnClick_HideShowPanel( ev )
-	{	//	console.debug( "UserAccountSwitcher::OnClick_HideShowPanel" );
+	{	//	
+		console.debug( "UserAccountSwitcher::OnClick_HideShowPanel" );
 		//	console.debug( "OnClick_HideShowPanel::this.state.isHidden::", this.state.isHidden );
 		//	console.debug( "OnClick_HideShowPanel::this.state.currentContainerCssClass::", this.state.currentContainerCssClass );
 		if ( this.state.isHidden == true )
         {
 			this.setState( { isHidden: false } );
-			this.setState( { currentContainerCssClass: this.ContainerCssClass.Hidden } );
+			//	this.setState( { currentContainerCssClass: this.ContainerCssClass.Hidden } );
+			this.CurrentPanelCss = this.Theme + " " + this.ContainerCssClass.Hidden;
         }
 		else if ( this.state.isHidden == false )
 		{
 			this.setState( { isHidden: true } );
-			this.setState( { currentContainerCssClass: this.ContainerCssClass.Displayed } );
+			//	this.setState( { currentContainerCssClass: this.ContainerCssClass.Displayed } );
+			this.CurrentPanelCss = this.Theme + " " + this.ContainerCssClass.Displayed;
 		}
+
 		ev.preventDefault();
 		ev.stopPropagation();
+		//	HideShowPanel( ev );
         return;    
-    };	
+	};
+	static HideUserPanel()
+	{
+		console.debug( "HideUserPanel" );
+		//	this.setState( { isHidden: false } );
+		//	this.setState( { currentContainerCssClass: this.ContainerCssClass.Hidden } );
+		//	this.CurrentPanelCss = this.Theme + " " + this.ContainerCssClass.Hidden;
+		return;
+	};
 	render()
 	{
         // drop down container
@@ -121,7 +138,8 @@ export class UserAccountSwitcher extends React.Component
 
 		//	console.debug( "this.state.isHidden::", this.state.isHidden );
 		//	console.debug( "this.state.currentContainerCssClass::", this.state.currentContainerCssClass );
-		this.UserContainer = React.createElement( "div", { className: this.state.currentContainerCssClass, key: Utils.NewId() }, _d, _e, _i );
+		console.debug( "this.CurrentPanelCss::", this.CurrentPanelCss );
+		this.UserContainer = React.createElement( "div", { className: this.CurrentPanelCss, key: Utils.NewId() }, _d, _e, _i );
 
 		return React.createElement( 'div', { id: "container-ctrl", className: "container-ctrl" }, [this.UserButton, this.UserContainer] );
 	};
