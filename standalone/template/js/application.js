@@ -77,8 +77,8 @@ export class Application extends React.Component
 		//	console.debug( "this.state", this.state );
 		console.debug( "ev", ev );
 
-		ev.preventDefault();
-		ev.stopPropagation();
+		//ev.preventDefault();
+		//ev.stopPropagation();
 
 		// testing passing application state as component props
 		//	console.debug( "application.OnClick_HandleBodyElementClick->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
@@ -93,22 +93,22 @@ export class Application extends React.Component
 		//	console.debug( "application.OnClick_HandleBodyElementClick->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
 
 		// default close all that need to be closed
-		this.setState( {
-			//	VerticalNavigation_IsOpen: false,
-			//	ContextBlade_IsOpen: false,
-			UserPanel_IsOpen: false,
-			//	NotificationPanel_IsOpen: false,
-			//	FeatureFlagPanel_IsOpen: false
-		} );
+		//this.setState( {
+		//	//	VerticalNavigation_IsOpen: false,
+		//	//	ContextBlade_IsOpen: false,
+		//	UserPanel_IsOpen: false,
+		//	//	NotificationPanel_IsOpen: false,
+		//	//	FeatureFlagPanel_IsOpen: false
+		//} );
 
 
-		// testing child state objects
-		this.setState( {
-			ChildControls: {
-				LeftNavOpen: true,
-				UserPanelOpen: true
-			}
-		} );
+		//// testing child state objects
+		//this.setState( {
+		//	ChildControls: {
+		//		LeftNavOpen: true,
+		//		UserPanelOpen: true
+		//	}
+		//} );
 		
 		return;
 	};
@@ -209,7 +209,7 @@ export class Application extends React.Component
 			{
 				id: this.ID,
 				className: this.state.CurrentThemeName + " cds-react-app",
-				onClick: this.handleClick,
+				//onClick: this.handleClick,
 				key: Utils.NewId()
 			},
 			this.Layout

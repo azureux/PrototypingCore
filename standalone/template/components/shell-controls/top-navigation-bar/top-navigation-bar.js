@@ -5,7 +5,7 @@
 "use strict";
 
 import { Utilities as Utils } from "../../../js/utilities.js";
-import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
+import { SVG as AzSvgs } from "../../../js/svg-assets.js";
 import { UserAccountSwitcher as UAS } from "../user-account-switcher/user-account-switcher.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
 import { SearchBox as SearchCtrl } from "../../standard-controls/search-box/search-box.js";
@@ -40,15 +40,35 @@ export class TopNavigationBar extends React.Component
         this.BrandTitle = React.createElement("a", { id: this.ID, className: this.Theme + " brand-title-panel", href: "https://portal.azure.com/", key: Utils.NewId() }, `${this.Title}`);
 
 		// search
-		this.Search = React.createElement( SearchCtrl, { key: Utils.NewId() } );
+		// refactor data set to universal JSON style
+		// expland for more functionality
+		const _data_set = [
+			{ name: "Freezing Fog 1", type: "Virtual Machine", subscription: "Contoso-Production", resourceGroup: "Contoso Public Portal", location: "US West 1", status: "running", icon: AzSvgs.Color.AppService_color },
+			{ name: "Freezing Fog 2", type: "Virtual Machine", subscription: "Contoso-Production", resourceGroup: "Contoso Public Portal", location: "US West 2", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Freezing Fog 3", type: "Virtual Machine", subscription: "Contoso-Production", resourceGroup: "Contoso Public Portal", location: "US West 3", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Jumping Julips 1", type: "App service", subscription: "Fabrikam-Production", resourceGroup: "Fabrikam Mobile app", location: "US East 2", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Jumping Julips 2", type: "App service", subscription: "Fabrikam-Production", resourceGroup: "Fabrikam Mobile app", location: "US East 2", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Jumping Julips 3", type: "App service", subscription: "Fabrikam-Production", resourceGroup: "Fabrikam Mobile app", location: "US East 2", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "River's Edge 1", type: "SQL Server Database", subscription: "Fabrikam-Internal", resourceGroup: "Human Resources - Recruiting", location: "US Central 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "River's Edge 2", type: "SQL Server Database", subscription: "Fabrikam-Internal", resourceGroup: "Human Resources - Recruiting", location: "US Central 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "River's Edge 3", type: "SQL Server Database", subscription: "Fabrikam-Internal", resourceGroup: "Human Resources - Recruiting", location: "US Central 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Santa Clara Supermarket 1", type: "App Service", subscription: "SC-PUB-PORTAL", resourceGroup: "Marketing INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Santa Clara Supermarket 2", type: "App Service", subscription: "SC-PUB-PORTAL", resourceGroup: "Marketing INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Santa Clara Supermarket APIs", type: "App Service", subscription: "SC-PUB-PORTAL", resourceGroup: "Marketing INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Planes, Trains & Automobiles 1", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA US", location: "US West 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Planes, Trains & Automobiles 2", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA US", location: "US West 2", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Planes, Trains & Automobiles 3", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA US", location: "US West 3", status: "running", icon: AzSvgs.Color.AppService_color  },
+			{ name: "Planes, Trains & Automobiles 4", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
+		];
+		this.Search = React.createElement( SearchCtrl, { key: Utils.NewId(), HasResultsPanel: true, DataSet: _data_set } );
 
 		// portal buttons and button bar
-		let _notiifications_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.Notification, key: Utils.NewId() } );
-        let _powershell_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.Console, key: Utils.NewId() });
-        let _portal_settings_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.Notification, key: Utils.NewId() });
-        let _portal_feedback_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.Help, key: Utils.NewId() });
-        let _portal_help_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.SubscriptionsAndDirectories, key: Utils.NewId() });
-        let _portal_switcher_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.Notification, key: Utils.NewId() });
+		let _notiifications_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() } );
+        let _powershell_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Console, key: Utils.NewId() });
+        let _portal_settings_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() });
+        let _portal_feedback_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Help, key: Utils.NewId() });
+        let _portal_help_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.SubscriptionsAndDirectories, key: Utils.NewId() });
+        let _portal_switcher_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() });
 
 		this.ShellControls = React.createElement( 'div', { className:  this.Theme + " shell-ctrls-panel", key: Utils.NewId() },
 			[

@@ -112,3 +112,10 @@ body
     cursor: pointer;
 }*/
 
+/* standard styles for non-custom elements */
+::placeholder
+{
+	color: rgba(128,128,128,1);
+	font-style:italic;
+	font-family: 'SegoePro';
+}
