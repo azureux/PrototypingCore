@@ -3,10 +3,8 @@
 
 "use strict";
 
-//	import * from "../js/application";
 import { OverrideConfig as Config } from "../js/config.js";
 import { Application as App } from "../js/application.js";
-
 
 ( function ()
 {
@@ -18,7 +16,7 @@ import { Application as App } from "../js/application.js";
 		{
 			ReactDOM.render( React.createElement( App, Config, [] ), document.getElementById( "ApplicationElement" ) );
 			return;
-        } );
+		} );
 	}
     catch ( ex )
     {

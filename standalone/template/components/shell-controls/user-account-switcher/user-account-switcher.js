@@ -6,7 +6,7 @@
 
 import { Utilities as Utils } from "../../../js/utilities.js";
 import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
-import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
+import { ButtonControl as BtnCtrl, ButtonControl } from "../../standard-controls/button/button.js";
 
 export class UserAccountSwitcher extends React.Component
 {
@@ -21,7 +21,7 @@ export class UserAccountSwitcher extends React.Component
 		this.CssFile = "components/shell-controls/user-account-switcher/user-account-switcher.css";
 
 		this.Application = this.props.Application;
-		this.Theme = "";// this.Application.Application.Theme;
+		this.Theme = props.currentTheme;
 		this.Title = "Me Control";
         this.SvgIcon = this.props.svgIcon || undefined;
         this.UserAccountStyle = this.props.className;
@@ -79,13 +79,14 @@ export class UserAccountSwitcher extends React.Component
 
 		ev.preventDefault();
 		ev.stopPropagation();
-		//	HideShowPanel( ev );
         return;    
 	};
 	render()
 	{
-        // drop down container
-        let _a = React.createElement(BtnCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Sign In', Application: this.props, svgIcon: AzureSvgs.PersonAdd, key: Utils.NewId(), buttonText: 'Sign In', });
+		// drop down container
+		// resolve css class names as static functions within a control or outside in a Css Confg Object??
+		let _a = React.createElement( BtnCtrl, { className: ButtonControl.ClassNames().TopNav, attributeTitle: 'Sign In', Application: this.props, svgIcon: AzureSvgs.PersonAdd, key: Utils.NewId(), buttonText: 'Sign In', } );
+
         let _b = React.createElement(BtnCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Microsoft ', Application: this.props, svgIcon: AzureSvgs.Shell.MicrosoftLogo, key: Utils.NewId(), buttonText: 'Microsoft', });
         let _c = React.createElement(BtnCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Sign Out', Application: this.props, svgIcon: AzureSvgs.Release, key: Utils.NewId(), buttonText: 'Sign Out' });
         let cntrlArray = [_a, _b, _c];
@@ -139,7 +140,8 @@ export class UserAccountSwitcher extends React.Component
 		}
 		//	console.debug( "this.CurrentPanelCss", this.CurrentPanelCss);
 
-		this.UserContainer = React.createElement( "div", { className: this.CurrentPanelCss, key: Utils.NewId() }, _d, _e, _i );	
+		this.UserContainer = React.createElement( "div", { className: this.CurrentPanelCss, key: Utils.NewId() }, _d, _e, _i );
+
 		return React.createElement( 'div', { id: "container-ctrl", className: "container-ctrl" }, [this.UserButton, this.UserContainer] );
 	};
 };

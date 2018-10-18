@@ -18,11 +18,11 @@ export class Application extends React.Component
 			ID: Utils.NewId( "cds-app" ),
 			AppName: "Microsoft Azure",
 		};
-		//	this.ID = Utils.NewId( "cds-app" );
-		this.Configuration = props;
+
+		//	this.Configuration = props;
 		this.CssID = "app-shell-css",
 		this.CssFile = "css/default.css";
-		this.ThemeName = "default-theme";
+		this.ThemeName = props.Application.Theme; // "dark-theme" || "default-theme" 
 		this.Theme = {};
 
 		this.Users = [];
@@ -39,7 +39,6 @@ export class Application extends React.Component
 		this.ClientHeight = 0;
 		this.ClientWidth = 0;
 
-
 		// state
 		this.state = {
 			CurrentUser: {},
@@ -50,11 +49,14 @@ export class Application extends React.Component
 			ContextBlade_IsOpen: false,
 			UserPanel_IsOpen: false,
 			NotificationPanel_IsOpen: false,
-			FeatureFlagPanel_IsOpen: false
+			FeatureFlagPanel_IsOpen: false,
+			ChildControls: {
+				LeftNavOpen: false,
+				UserPanelOpen: false
+			}
 		};
 
 		// event handlers
-		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
 		this.handleClick = this.OnClick_HandleBodyElementClick.bind( this );
 		this.handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
 		this.Handle_CurrentExtension = this.OnClick_VerticalNavigation_SelectNavigationItem.bind( this );
@@ -73,6 +75,7 @@ export class Application extends React.Component
 
 		//	console.debug( "Application::OnClick_HandleBodyElementClick" );
 		//	console.debug( "this.state", this.state );
+		console.debug( "ev", ev );
 
 		ev.preventDefault();
 		ev.stopPropagation();
@@ -96,6 +99,15 @@ export class Application extends React.Component
 			UserPanel_IsOpen: false,
 			//	NotificationPanel_IsOpen: false,
 			//	FeatureFlagPanel_IsOpen: false
+		} );
+
+
+		// testing child state objects
+		this.setState( {
+			ChildControls: {
+				LeftNavOpen: true,
+				UserPanelOpen: true
+			}
 		} );
 		
 		return;
@@ -169,9 +181,15 @@ export class Application extends React.Component
 		//this.AssignConfiguration( this.Configuration );
 		//this.AssignDefaultState( this.state );
 
-		//	this.TopNav = React.createElement( "div" , { key: Utils.NewKey() }, "TopNav" );
 		//	console.debug( "application.render->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
-		this.TopNav = React.createElement( TopBar, { key: Utils.NewKey(), Application: this, userPanelState: this.state.UserPanel_IsOpen } );
+		this.TopNav = React.createElement( TopBar,
+			{
+				key: Utils.NewKey(),
+				Application: this,
+				userPanelState: this.state.UserPanel_IsOpen,
+				appTitle: this.props.TopNavigationBar.Title,
+				stateTest: this.state
+			} );
 		this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
 		this.ContextPanel = React.createElement( "div", { key: Utils.NewKey() }, "ContextPanel" );
 		this.Dashboard = React.createElement( "div" , { key: Utils.NewKey() }, "Dashboard" );

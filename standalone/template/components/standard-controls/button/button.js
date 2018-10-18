@@ -1,7 +1,6 @@
 ﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
 /// <reference path="../../script/react/react-dom-latest.js" />
 /// <reference path="../../js/utilities.js" />
-
 "use strict";
 
 import { Utilities as Utils } from "../../../js/utilities.js";
@@ -54,6 +53,15 @@ export class ButtonControl extends React.Component
 	//{	//	not used yet
 	//	return;
 	//};
+
+	static ClassNames()
+	{
+		return {
+			ButtonControl: "buttonControl",
+			RootLink: "RootLinkCss",
+			TopNav: "TopNavBtn"
+		};
+	};
 
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color

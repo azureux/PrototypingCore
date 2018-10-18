@@ -8,19 +8,18 @@ import { Utilities as Utils } from "../../../js/utilities.js";
 import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
 import { UserAccountSwitcher as UAS } from "../user-account-switcher/user-account-switcher.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
+import { SearchBox as SearchCtrl } from "../../standard-controls/search-box/search-box.js";
 
 
 export class TopNavigationBar extends React.Component
 {
 	constructor( props )
-	{
-		//	console.debug( "TopNavigationBar.props", props );
-
+	{	//	console.debug( "TopNavigationBar.props", props );
 		super( props );
 
 		this.ID = "top-nav-panel";
-		this.Title = "Project Acuity";	//Top Navigation Bar";
-        this.Theme = props.Application.state.CurrentTheme;
+		this.Title = props.appTitle || "MICROSOFT 2020";
+		this.Theme = "";	//props.Application.state.CurrentThemeName;
 		this.CssFileID = "top-nav-panel-css";
         this.CssFile = "components/shell-controls/top-navigation-bar/top-navigation-bar.css";
         this.CssClassNames = {
@@ -28,16 +27,11 @@ export class TopNavigationBar extends React.Component
             Dirty: "topnav-main-dirty " + this.Theme,
             Saved: "topnav-main-saved " + this.Theme,
 		};
+
         this.state = {
             IsDirty: false,
 			CurrentCssClass: this.CssClassNames.Normal,
-			//	UserPanelState: props.userPanelState
         };
-
-        // set overrives
-        if (props.Application.props.TopNavigationBar.Title !== undefined) {
-            this.Title = props.Application.props.TopNavigationBar.Title;
-        }
 
 		// preview banner
 		this.Banner = React.createElement("div", { id: this.ID, className: this.Theme + " banner-panel",  key: Utils.NewId() }, "preview");
@@ -46,7 +40,7 @@ export class TopNavigationBar extends React.Component
         this.BrandTitle = React.createElement("a", { id: this.ID, className: this.Theme + " brand-title-panel", href: "https://portal.azure.com/", key: Utils.NewId() }, `${this.Title}`);
 
 		// search
-		this.Search = React.createElement( "div", { id: "global-search", className: this.Theme + " global-search-panel", key: Utils.NewId() }, "global search" );
+		this.Search = React.createElement( SearchCtrl, { key: Utils.NewId() } );
 
 		// portal buttons and button bar
 		let _notiifications_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: AzureSvgs.Shell.Notification, key: Utils.NewId() } );
@@ -67,7 +61,7 @@ export class TopNavigationBar extends React.Component
 		);
 
 		// user switcher
-        this.UserCtrl = React.createElement( UAS, { Application: this.props, key: Utils.NewId(), IsOpen: this.props.userPanelState, attributeTitle: 'Testing User Account Control'  });
+        this.UserCtrl = React.createElement( UAS, { state: props.stateTest, currentTheme: props.Application.state.CurrentThemeName, key: Utils.NewId(), IsOpen: this.props.userPanelState, attributeTitle: 'Testing User Account Control'  });
 		this.UserCtrlPanel = React.createElement("div", { id: "user-switcher-panel-id", className:  this.Theme + " user-switcher-panel",  key: Utils.NewId() }, this.UserCtrl);
 
 		this.ShellControls = [
