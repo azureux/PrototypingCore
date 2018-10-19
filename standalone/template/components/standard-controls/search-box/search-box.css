@@ -35,6 +35,7 @@
 	margin:0px;
 	display:none;
 }
+
 .search-result
 {
 	border: solid 1px rgba(128,128,128,1);
@@ -51,6 +52,7 @@
 {
 	background-color:rgba(200, 248, 240, 0.8)
 }
+
 .zero-result
 {
 	font-size: 13px;

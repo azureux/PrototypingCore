@@ -4,7 +4,8 @@
 /// "TopNavigationBar" control
 "use strict";
 
-import { Utilities as Utils } from "../../../js/utilities.js";
+import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js";
+
 import { SVG as AzSvgs } from "../../../js/svg-assets.js";
 import { UserAccountSwitcher as UAS } from "../user-account-switcher/user-account-switcher.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
@@ -40,26 +41,8 @@ export class TopNavigationBar extends React.Component
         this.BrandTitle = React.createElement("a", { id: this.ID, className: this.Theme + " brand-title-panel", href: "https://portal.azure.com/", key: Utils.NewId() }, `${this.Title}`);
 
 		// search
-		// refactor data set to universal JSON style
-		// expland for more functionality
-		const _data_set = [
-			{ name: "Freezing Fog 1", type: "Virtual Machine", subscription: "Contoso-Production", resourceGroup: "Contoso Public Portal", location: "US West 1", status: "running", icon: AzSvgs.Color.AppService_color },
-			{ name: "Freezing Fog 2", type: "Virtual Machine", subscription: "Contoso-Production", resourceGroup: "Contoso Public Portal", location: "US West 2", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Freezing Fog 3", type: "Virtual Machine", subscription: "Contoso-Production", resourceGroup: "Contoso Public Portal", location: "US West 3", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Jumping Julips 1", type: "App service", subscription: "Fabrikam-Production", resourceGroup: "Fabrikam Mobile app", location: "US East 2", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Jumping Julips 2", type: "App service", subscription: "Fabrikam-Production", resourceGroup: "Fabrikam Mobile app", location: "US East 2", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Jumping Julips 3", type: "App service", subscription: "Fabrikam-Production", resourceGroup: "Fabrikam Mobile app", location: "US East 2", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "River's Edge 1", type: "SQL Server Database", subscription: "Fabrikam-Internal", resourceGroup: "Human Resources - Recruiting", location: "US Central 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "River's Edge 2", type: "SQL Server Database", subscription: "Fabrikam-Internal", resourceGroup: "Human Resources - Recruiting", location: "US Central 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "River's Edge 3", type: "SQL Server Database", subscription: "Fabrikam-Internal", resourceGroup: "Human Resources - Recruiting", location: "US Central 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Santa Clara Supermarket 1", type: "App Service", subscription: "SC-PUB-PORTAL", resourceGroup: "Marketing INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Santa Clara Supermarket 2", type: "App Service", subscription: "SC-PUB-PORTAL", resourceGroup: "Marketing INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Santa Clara Supermarket APIs", type: "App Service", subscription: "SC-PUB-PORTAL", resourceGroup: "Marketing INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Planes, Trains & Automobiles 1", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA US", location: "US West 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Planes, Trains & Automobiles 2", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA US", location: "US West 2", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Planes, Trains & Automobiles 3", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA US", location: "US West 3", status: "running", icon: AzSvgs.Color.AppService_color  },
-			{ name: "Planes, Trains & Automobiles 4", type: "App Service", subscription: "PBA-Transportation-portal", resourceGroup: "PBA INTL", location: "Europe 1", status: "running", icon: AzSvgs.Color.AppService_color  },
-		];
+		const _test = Data.ResourceNames.data;
+		const _data_set = Utils.GetData_SearchSamples();
 		this.Search = React.createElement( SearchCtrl, { key: Utils.NewId(), HasResultsPanel: true, DataSet: _data_set } );
 
 		// portal buttons and button bar
