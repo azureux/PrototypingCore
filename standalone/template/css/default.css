@@ -119,3 +119,9 @@ body
 	font-style:italic;
 	font-family: 'SegoePro';
 }
+
+/*template css class, will remove later*/
+.top-level {
+    left: 280px;
+   position:relative;
+}

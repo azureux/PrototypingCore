@@ -6,6 +6,7 @@
 import { Utilities as Utils } from "../js/utilities.js";
 import { SVG as AzureSvgs } from "../js/svg-assets.js";
 import { TopNavigationBar as TopBar } from "../components/shell-controls/top-navigation-bar/top-navigation-bar.js"; 
+import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.js";
 
 export class Application extends React.Component
 {
@@ -182,28 +183,39 @@ export class Application extends React.Component
 		//this.AssignDefaultState( this.state );
 
 		//	console.debug( "application.render->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
-		this.TopNav = React.createElement( TopBar,
+        this.TopNav = React.createElement(TopBar,
 			{
 				key: Utils.NewKey(),
 				Application: this,
 				userPanelState: this.state.UserPanel_IsOpen,
 				appTitle: this.props.TopNavigationBar.Title,
 				stateTest: this.state
-			} );
-		this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
-		this.ContextPanel = React.createElement( "div", { key: Utils.NewKey() }, "ContextPanel" );
-		this.Dashboard = React.createElement( "div" , { key: Utils.NewKey() }, "Dashboard" );
-		this.NotificationsPanel = React.createElement( "div", { key: Utils.NewKey() }, "NotificationsPanel" );
-		this.FeatureFlightsPanel = React.createElement( "div" , { key: Utils.NewKey() }, "FeaturePanel " );
+            });
+
+        this.VertNav = React.createElement(LeftNav,
+            {
+                //key: Utils.NewKey(),
+                //Application: this,
+                //userPanelState: this.state.UserPanel_IsOpen,
+                //appTitle: this.props.TopNavigationBar.Title,
+                //stateTest: this.state
+            });
+ 
+		//this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
+		this.ContextPanel = React.createElement( "div",  { key: Utils.NewKey(), className: "top-level"}, "ContextPanel" );
+        this.Dashboard = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "Dashboard" );
+        this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
+        this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
 
 		this.Layout = [
 			this.TopNav,
-			this.LeftNav,
+			this.VertNav,
 			this.Dashboard,
 			this.ContextPanel,
 			this.NotificationsPanel,
 			this.FeatureFlightsPanel
-		];
+        ];
+        
 
 		let _app = React.createElement( "div",
 			{
