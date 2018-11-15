@@ -42,6 +42,7 @@
 #input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     opacity: 1; /* Firefox */
     font-family: 'Segoe UI', 'Tahoma', Arial;
+
 }
 
 .search-result

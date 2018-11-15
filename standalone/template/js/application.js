@@ -7,6 +7,7 @@ import { Utilities as Utils } from "../js/utilities.js";
 import { SVG as AzureSvgs } from "../js/svg-assets.js";
 import { TopNavigationBar as TopBar } from "../components/shell-controls/top-navigation-bar/top-navigation-bar.js"; 
 import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.js";
+import { Dashboard as HomeDashboard } from "../components/shell-controls/dashboard/dashboard.js";
 
 export class Application extends React.Component
 {
@@ -188,7 +189,16 @@ export class Application extends React.Component
 				stateTest: this.state
             });
 
-        this.VertNav = React.createElement(LeftNav, //JG is this state bag correct? just copied the topnav one...
+        this.VertNav = React.createElement(LeftNav, //JG is this (state bag?) correct? just copied the topnav one...
+            {
+                key: Utils.NewKey(),
+                Application: this,
+                userPanelState: this.state.UserPanel_IsOpen,
+                appTitle: this.props.VerticalNavigationBar.Title,
+                stateTest: this.state
+            });
+
+        this.DashboardHome = React.createElement(HomeDashboard, //JG is this (state bag?) correct? just copied the topnav one...
             {
                 key: Utils.NewKey(),
                 Application: this,
@@ -199,14 +209,14 @@ export class Application extends React.Component
  
 		//this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
 		this.ContextPanel = React.createElement( "div",  { key: Utils.NewKey(), className: "top-level"}, "ContextPanel" );
-        this.Dashboard = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "Dashboard" );
+        //this.Dashboard = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "Dashboard" );
         this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
         this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
 
 		this.Layout = [
 			this.TopNav,
 			this.VertNav,
-			this.Dashboard,
+            this.DashboardHome,
 			this.ContextPanel,
 			this.NotificationsPanel,
 			this.FeatureFlightsPanel

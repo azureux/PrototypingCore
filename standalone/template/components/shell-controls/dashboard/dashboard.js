@@ -3,7 +3,15 @@
 /// <reference path="../script/react/react-dom-latest.js" />
 /// "Dashboard" control
 "use strict";
-class Dashboard extends React.Component
+
+
+import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js";
+
+import { SVG as AzSvgs } from "../../../js/svg-assets.js";
+import { UserAccountSwitcher as UAS } from "../user-account-switcher/user-account-switcher.js";
+import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
+
+export class Dashboard extends React.Component
 {
 	constructor( props )
 	{
@@ -29,7 +37,7 @@ class Dashboard extends React.Component
 			this.Title = this.props.Application.props.Dashboard.Title;
 		}
 
-		Utilities.InjectControlCss( this.CssFileID, this.CssFile );
+        Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	render()

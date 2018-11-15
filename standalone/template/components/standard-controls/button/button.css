@@ -62,7 +62,6 @@
     width: 40px;
     height: 40px;
     padding: 10px;
-    border-right: 1px solid rgba(255, 255, 255, .5);
     cursor: pointer;
     margin: 0;
 }
@@ -71,10 +70,11 @@
     background-color: rgba(255, 255, 255, .2);
 }
 
-.TopNavBtn .icon {
-    width: 20px;
-    height: 20px;
-}
+    .TopNavBtn .icon {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+    }
 
 .IconNoText {
 
