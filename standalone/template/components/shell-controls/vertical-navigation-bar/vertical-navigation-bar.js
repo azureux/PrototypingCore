@@ -136,9 +136,6 @@ export class VerticalNavigationBar extends React.Component
 		//	individual extensions 
 		//	testing batch for panel overflow, at 1440 height 		
         let _extensions = [
-            //React.createElement('div', {}, '<Empty left nav div>')
-            //React.createElement(BtnCtrl, { attributeTitle: 'New', buttonText: 'New', key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } )
-
             React.createElement(BtnCtrl, { attributeTitle: 'New', buttonText: 'New', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
 			React.createElement(BtnCtrl, { attributeTitle: 'Dashboard', buttonText: 'Dashboard', svgIcon: AzSvgs.Color.Dashboard, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
             React.createElement(BtnCtrl, { attributeTitle: 'Resource groups', buttonText: 'Resource groups', svgIcon: AzSvgs.Color.ResourceGroup, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton  } ),
@@ -158,15 +155,15 @@ export class VerticalNavigationBar extends React.Component
             React.createElement(BtnCtrl, { attributeTitle: 'Resource groups', buttonText: 'Resource groups', svgIcon: AzSvgs.Color.ResourceGroup, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
             React.createElement(BtnCtrl, { attributeTitle: 'App Services', buttonText: 'App Services', svgIcon: AzSvgs.Color.Websites, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
             React.createElement(BtnCtrl, { attributeTitle: 'Function Apps', buttonText: 'Function Apps', svgIcon: AzSvgs.Color.Functions, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Databases', buttonText: 'Databases', svgIcon: AzSvgs.Color.SQLDatabases, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Azure Cosmos DB', buttonText: 'Azure Cosmos DB', svgIcon: AzSvgs.Color.CosmosDB, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Virtual Machines', buttonText: 'Virtual Machines', svgIcon: AzSvgs.Color.VirtualMachines, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Load Balancer', buttonText: 'Load Balancer', svgIcon: AzSvgs.Color.LoadBalancer, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Storage Account', buttonText: 'Storage Account', svgIcon: AzSvgs.Color.Storage, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Virtual Network', buttonText: 'Virtual Network', svgIcon: AzSvgs.Color.VirtualNetworks, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Azure Active Directory', buttonText: 'Azure Active Directory', svgIcon: AzSvgs.Color.ActiveDirectory, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Advisor', buttonText: 'Advisor', svgIcon: AzSvgs.Color.Advisor, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Security Center', buttonText: 'Security Center', svgIcon: AzSvgs.Color.SecurityCenter, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } )
+            //React.createElement(BtnCtrl, { attributeTitle: 'Databases', buttonText: 'Databases', svgIcon: AzSvgs.Color.SQLDatabases, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Azure Cosmos DB', buttonText: 'Azure Cosmos DB', svgIcon: AzSvgs.Color.CosmosDB, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Virtual Machines', buttonText: 'Virtual Machines', svgIcon: AzSvgs.Color.VirtualMachines, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Load Balancer', buttonText: 'Load Balancer', svgIcon: AzSvgs.Color.LoadBalancer, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Storage Account', buttonText: 'Storage Account', svgIcon: AzSvgs.Color.Storage, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Virtual Network', buttonText: 'Virtual Network', svgIcon: AzSvgs.Color.VirtualNetworks, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Azure Active Directory', buttonText: 'Azure Active Directory', svgIcon: AzSvgs.Color.ActiveDirectory, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Advisor', buttonText: 'Advisor', svgIcon: AzSvgs.Color.Advisor, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
+            //React.createElement(BtnCtrl, { attributeTitle: 'Security Center', buttonText: 'Security Center', svgIcon: AzSvgs.Color.SecurityCenter, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } )
 		];
 
 		//	console.debug( "render:state", this.state.IsCollapsed );

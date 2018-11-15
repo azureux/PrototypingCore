@@ -8,7 +8,7 @@ export const OverrideConfig =
 	},
 	TopNavigationBar:
 	{
-		Title: "Microsoft Azure 3.0"
+		Title: "Microsoft Azure"
 	},
 	VerticalNavigationBar:
 	{

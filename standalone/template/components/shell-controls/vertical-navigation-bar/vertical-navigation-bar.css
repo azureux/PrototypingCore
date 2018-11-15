@@ -1,13 +1,13 @@
-﻿.vertnav-main
-{
+﻿.vertnav-main {
     position: absolute;
     border-style: none;
-    background-color: #252525;
+    background-color: #323130;
     color: #fff;
     left: 0;
     top: 40px;
     bottom: 0;
-    width: 230px;
+    width: 225px;
+    box-shadow: inset -12px 0 9px -7px rgba(0,0,0,0.4);
 }
 .vertnav-main-collapsed
 {

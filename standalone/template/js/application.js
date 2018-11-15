@@ -153,10 +153,6 @@ export class Application extends React.Component
 		//console.debug( "this.ClientWidth ", this.ClientWidth, document.body.clientWidth );
 		//console.debug( "this.ClientRect ", this.ClientRect, document.body.getClientRects() );
 		//console.debug( "this.BoundingClientRect", this.BoundingClientRect, document.body.getBoundingClientRect() );
-
-
-
-
 		return;
 	};
 	AssignConfiguration( oConfig )
@@ -192,13 +188,13 @@ export class Application extends React.Component
 				stateTest: this.state
             });
 
-        this.VertNav = React.createElement(LeftNav,
+        this.VertNav = React.createElement(LeftNav, //JG is this state bag correct? just copied the topnav one...
             {
-                //key: Utils.NewKey(),
-                //Application: this,
-                //userPanelState: this.state.UserPanel_IsOpen,
-                //appTitle: this.props.TopNavigationBar.Title,
-                //stateTest: this.state
+                key: Utils.NewKey(),
+                Application: this,
+                userPanelState: this.state.UserPanel_IsOpen,
+                appTitle: this.props.VerticalNavigationBar.Title,
+                stateTest: this.state
             });
  
 		//this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );

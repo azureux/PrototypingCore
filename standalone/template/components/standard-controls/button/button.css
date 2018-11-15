@@ -90,13 +90,14 @@ svg {
 }
 
 /* net new for left nav icons with expanded & collapsible states */
-.btn-icon-text-default
-{
-	/*border: solid 1px red;*/
-	width:calc(100%);
-	vertical-align:top;
-	cursor:pointer;
-	border: solid 1px transparent;
+.btn-icon-text-default {
+    /*border: solid 1px red;*/
+    width: calc(100%);
+    vertical-align: top;
+    cursor: pointer;
+    border: solid 1px transparent;
+    height: 32px;
+
 }
 .btn-icon-text-default:hover
 {
@@ -114,21 +115,20 @@ svg {
 	color:rgba(32,32,32,1);
 }
 
-.btn-icon-default
-{
-	/*border: solid 1px red;*/
-	width:48px;
-	height:48px;
-	padding:12px;
-	display:inline-block;
+.btn-icon-default {
+    /* border: solid 1px red; */
+    width: 18px;
+    height: 18px;
+    margin: 6px 7px 0px 15px;
+    display: inline-block;
 }
 .btn-text-default
 {
 	/*border: solid 1px red;*/
 	width:calc(100% - 48px);
 	display:inline-block;
-	margin-top:14px;
-	font-size:14px;
+	font-size:13px;
+    line-height: 32px;
 }
 .btn-text-hidden
 {

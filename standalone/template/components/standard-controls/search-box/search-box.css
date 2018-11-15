@@ -8,15 +8,18 @@
 	display:inline-block;
 }
 
-.input-box-class
-{
-	/*border: solid 1px red;*/
-	padding:10px;
-	margin:0px;
-	font-style:normal;
-	width:calc(100% - 5%);
-	font-family: 'SegoePro';
-	color:rgba(0,0,0,1);
+.input-box-class {
+    /*border: solid 1px red;*/
+    padding: 10px;
+    margin: 5px 0 0 0;
+    background-color: #e1dfdd;
+    font-style: normal;
+    height: 30px;
+    width: 460px;
+    color: rgba(0,0,0,1);
+    outline: 0;
+    border: none;
+    border-radius: 2px;
 }
 
 .results-panel
@@ -34,6 +37,11 @@
 	padding:5px;
 	margin:0px;
 	display:none;
+}
+
+#input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    font-family: 'Segoe UI', 'Tahoma', Arial;
 }
 
 .search-result

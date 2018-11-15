@@ -1,19 +1,21 @@
-﻿.topnav-main
-{
+﻿.topnav-main {
     height: 40px;
     background: #1c1c1c;
     color: #FFFFFF;
     padding: 0px;
     display: flex;
-	min-width:1024px;
+    min-width: 1024px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.16);
 }
-.topnav-main > *
-{
-	flex-grow:1;
-	flex-shrink:1;
-	flex-basis:1;
-    display: inline-flex;
-}
+    .topnav-main > * {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 1;
+        display: inline-flex;
+        /*min-width: 250px;
+        border-radius: 5px;
+        max-width: 460px;*/
+    }
 /* additional themes */
 .dark-theme.topnav-main
 {
@@ -39,19 +41,20 @@
 	background-color: #00ff0d;
 }
 
-.brand-title-panel
-{
-	background-color: transparent;
+.brand-title-panel {
+    background-color: transparent;
     /*border: solid 1px #ff006e;*/
-    color: #55b3ff;
-	font-size: 24px;
-	padding-left:10px;
-	padding-right:20px;
-	padding-top:2px;
-	padding-bottom:5px;
-	text-decoration:none;
-	cursor:pointer;
-	max-width:400px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    max-width: 400px;
+    line-height: 33px;
 }
 .dark-theme.brand-title-panel
 {
