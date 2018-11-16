@@ -28,6 +28,7 @@ export class Dashboard extends React.Component
 		};
 		this.state = {
 			IsDirty: false,
+			NavExpanded: (props.LeftNavState || false),
 			CurrentCssClass: this.CssClassNames.Normal 
 		};
 		this.DebugMessage = this.props.Application.state.VerticalNavigationIsOpen;	//	DebugMessage || "default dashboard debug message";

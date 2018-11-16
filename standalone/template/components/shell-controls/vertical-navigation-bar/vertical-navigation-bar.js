@@ -5,7 +5,6 @@
 "use strict";
 
 import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js";
-
 import { SVG as AzSvgs } from "../../../js/svg-assets.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
 
@@ -17,7 +16,7 @@ export class VerticalNavigationBar extends React.Component
 		this.ID = "vert-nav-panel";
 		this.Title = "Vertical Navigation Bar";
 		this.Application = props.Application;
-		//this.Theme = props.Application.state.CurrentTheme; //causes break JG
+		this.Theme = props.Application.state.CurrentTheme; //causes break JG
 		this.CssFileID = "vert-nav-panel-css";
 		this.CssFile = "components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.css";
 		this.CssClasses = {
@@ -34,7 +33,7 @@ export class VerticalNavigationBar extends React.Component
 			IsCollapsed: (this.props.NavExpanded || false),
 		};
 		this.MainClass = this.CssClasses.Normal;
-        this.Chevron = AzSvgs.DoubleChevronLeft.AzSvgs;
+        this.Chevron = AzSvgs.DoubleChevronLeft.SVG;
 		this.ChevronClass = this.CssClasses.ChevronExpanded;
 		this.ListPanelClass = this.CssClasses.ListPanelExpanded;
 
@@ -44,7 +43,9 @@ export class VerticalNavigationBar extends React.Component
 		this.Custom_AssignState();
 		// events
 		// expand/collapse the vertical navigation bar
-		this.Handle_ExpandCollapse = this.OnClick_CollapseVerticalNavBar.bind( this );
+		// this.Handle_ExpandCollapse = this.OnClick_CollapseVerticalNavBar.bind( this );
+		this.Handle_ExpandCollapse = this.Application.OnClick_OpenClose_VertNav.bind( this );
+
 		// handle setting the state of a selected item in the vertical nav
 		this.Handle_NavButton = this.OnClick_SelectNavigationItem.bind( this );
 		// handle setting the extension at the application level
@@ -77,10 +78,9 @@ export class VerticalNavigationBar extends React.Component
 		return;
 	};
 	OnClick_CollapseVerticalNavBar( ev )
-	{
-		console.debug( "VerticalNavigationBar::OnClick_CollapseVerticalNavBar" );
-		ev.preventDefault();
-		ev.stopPropagation();
+	{	//	console.debug( "VerticalNavigationBar::OnClick_CollapseVerticalNavBar" );
+		//ev.preventDefault();
+		//ev.stopPropagation();
 
 		//console.debug( "this.state.IsCollapsed", this.state.IsCollapsed );
 		//console.debug( "this.MainClass", this.MainClass );
@@ -88,30 +88,30 @@ export class VerticalNavigationBar extends React.Component
 		//console.debug( "this.ChevronClass", this.ChevronClass );
 		//console.debug( "this.ListPanelClass", this.ListPanelClass );
 
-		if ( this.state.IsCollapsed == true )
-		{
-			this.setState( { IsCollapsed: false } );
-			//this.MainClass = this.CssClasses.Collapsed;
-			//this.Chevron = SVG.DoubleChevronRight.SVG;
-			//this.ChevronClass =  this.CssClasses.ChevronCollapsed;
-			//this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
-			this.MainClass = this.CssClasses.Normal;
-            this.Chevron = AzSvgs.DoubleChevronLeft.AzSvgs;
-			this.ChevronClass = this.CssClasses.ChevronExpanded;
-			this.ListPanelClass = this.CssClasses.ListPanelExpanded;
-		}
-		else if ( this.state.IsCollapsed == false )
-		{
-			this.setState( { IsCollapsed: true } );		
-			//this.MainClass = this.CssClasses.Normal;
-			//this.Chevron = SVG.DoubleChevronLeft.SVG;
-			//this.ChevronClass = this.CssClasses.ChevronExpanded;
-			//this.ListPanelClass = this.CssClasses.ListPanelExpanded;
-			this.MainClass = this.CssClasses.Collapsed;
-            this.Chevron = AzSvgs.DoubleChevronRight.AzSvgs;
-			this.ChevronClass =  this.CssClasses.ChevronCollapsed;
-			this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
-		}
+		//if ( this.state.IsCollapsed == true )
+		//{
+		//	this.setState( { IsCollapsed: false } );
+		//	//this.MainClass = this.CssClasses.Collapsed;
+		//	//this.Chevron = SVG.DoubleChevronRight.SVG;
+		//	//this.ChevronClass =  this.CssClasses.ChevronCollapsed;
+		//	//this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
+		//	this.MainClass = this.CssClasses.Normal;
+  //          this.Chevron = AzSvgs.DoubleChevronLeft.SVG;
+		//	this.ChevronClass = this.CssClasses.ChevronExpanded;
+		//	this.ListPanelClass = this.CssClasses.ListPanelExpanded;
+		//}
+		//else if ( this.state.IsCollapsed == false )
+		//{
+		//	this.setState( { IsCollapsed: true } );		
+		//	//this.MainClass = this.CssClasses.Normal;
+		//	//this.Chevron = SVG.DoubleChevronLeft.SVG;
+		//	//this.ChevronClass = this.CssClasses.ChevronExpanded;
+		//	//this.ListPanelClass = this.CssClasses.ListPanelExpanded;
+		//	this.MainClass = this.CssClasses.Collapsed;
+  //          this.Chevron = AzSvgs.DoubleChevronRight.SVG;
+		//	this.ChevronClass =  this.CssClasses.ChevronCollapsed;
+		//	this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
+		//}
 
 		//console.debug( "this.state.IsCollapsed", this.state.IsCollapsed );
 		//console.debug( "this.MainClass", this.MainClass );
@@ -130,11 +130,28 @@ export class VerticalNavigationBar extends React.Component
 	render()
 	{	//	
 		console.debug( "VERTICALNAVIGATIONBAR.RENDER()::this.state.IsCollapsed", this.state.IsCollapsed );
+
 		////	console.debug( "this.Chevron", this.Chevron );
 		//console.debug( "this.ChevronClass", this.ChevronClass );
 		//console.debug( "this.ListPanelClass", this.ListPanelClass );
 		//	individual extensions 
 		//	testing batch for panel overflow, at 1440 height 		
+
+		if ( this.state.IsCollapsed == true )
+		{
+			this.MainClass = this.CssClasses.Collapsed;
+            this.Chevron = AzSvgs.DoubleChevronRight.SVG;
+			this.ChevronClass =  this.CssClasses.ChevronCollapsed;
+			this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
+		}
+		else if ( this.state.IsCollapsed == false )
+		{
+			this.MainClass = this.CssClasses.Normal;
+            this.Chevron = AzSvgs.DoubleChevronLeft.SVG;
+			this.ChevronClass = this.CssClasses.ChevronExpanded;
+			this.ListPanelClass = this.CssClasses.ListPanelExpanded;
+		}
+
         let _extensions = [
             React.createElement(BtnCtrl, { attributeTitle: 'New', buttonText: 'New', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
 			React.createElement(BtnCtrl, { attributeTitle: 'Dashboard', buttonText: 'Dashboard', svgIcon: AzSvgs.Color.Dashboard, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
@@ -184,6 +201,7 @@ export class VerticalNavigationBar extends React.Component
 					title: 'Azure extension applications',
                 key: Utils.NewId(),
 				}, _extensions );
+
 
         //	left nav container for all extensions 
 		//	console.debug( "this.state.CurrentCssClass", this.state.CurrentCssClass );

@@ -52,6 +52,7 @@ export class Application extends React.Component
 			UserPanel_IsOpen: false,
 			NotificationPanel_IsOpen: false,
 			FeatureFlagPanel_IsOpen: false,
+			ContentPanel_IsCollapsed: false,
 			ChildControls: {
 				LeftNavOpen: false,
 				UserPanelOpen: false
@@ -67,7 +68,33 @@ export class Application extends React.Component
 		Utils.InjectControlCss(this.CssID, this.CssFile);
 		return;
 	};
+	OnClick_OpenClose_VertNav( ev )
+	{
+		console.debug( "Application:OnClick_OpenClose_VertNav" );
 
+		if ( this.state.IsCollapsed == true )
+		{
+			this.setState( { IsCollapsed: false } );
+		}
+		else if ( this.state.IsCollapsed == false )
+		{
+			this.setState( { IsCollapsed: true } );
+		}
+
+		//if ( this.Application.state.ContentPanel_IsCollapsed == true )
+		//{
+		//	this.Application.setState( { ContentPanel_IsCollapsed: false } );
+		//}
+		//else if ( this.Application.state.ContentPanel_IsCollapsed == false )
+		//{
+		//	this.Application.setState( { ContentPanel_IsCollapsed: true } );
+		//}
+
+		console.debug( "Application:OnClick_OpenClose_VertNav", this.Application.state.ContentPanel_IsCollapsed );
+
+		//	console.debug( "Application:OnClick_OpenClose_VertNav", this.state.IsCollapsed );
+		return;
+	};
 	OnClick_HandleBodyElementClick( ev )
 	{	//	changing the state object cause a re-render, and by default all flyouts are closed
 		//	probably decide on what items should close and which should maintain thier own state
@@ -193,18 +220,14 @@ export class Application extends React.Component
             {
                 key: Utils.NewKey(),
                 Application: this,
-                userPanelState: this.state.UserPanel_IsOpen,
-                appTitle: this.props.VerticalNavigationBar.Title,
-                stateTest: this.state
+                NavExpanded: this.state.UserPanel_IsOpen,
             });
 
         this.DashboardHome = React.createElement(HomeDashboard, //JG is this (state bag?) correct? just copied the topnav one...
             {
                 key: Utils.NewKey(),
                 Application: this,
-                userPanelState: this.state.UserPanel_IsOpen,
-                appTitle: this.props.VerticalNavigationBar.Title,
-                stateTest: this.state
+                NavExpanded: this.state.ContentPanel_IsCollapsed
             });
  
 		//this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
