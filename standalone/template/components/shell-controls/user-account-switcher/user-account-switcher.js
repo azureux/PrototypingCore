@@ -8,6 +8,7 @@ import { Utilities as Utils } from "../../../js/utilities.js";
 import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
 import { ButtonControl as BtnCtrl, ButtonControl } from "../../standard-controls/button/button.js";
 
+
 export class UserAccountSwitcher extends React.Component
 {
 	constructor( props )
@@ -85,27 +86,30 @@ export class UserAccountSwitcher extends React.Component
 	{
 		// drop down container
 		// resolve css class names as static functions within a control or outside in a Css Confg Object??
-		let _a = React.createElement( BtnCtrl, { className: ButtonControl.ClassNames().TopNav, attributeTitle: 'Sign In', Application: this.props, svgIcon: AzureSvgs.PersonAdd, key: Utils.NewId(), buttonText: 'Sign In', } );
 
+		// top buttons
+		let _a = React.createElement( BtnCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Sign In', Application: this.props, svgIcon: AzureSvgs.PersonAdd, key: Utils.NewId(), buttonText: 'Sign In', } );
         let _b = React.createElement(BtnCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Microsoft ', Application: this.props, svgIcon: AzureSvgs.Shell.MicrosoftLogo, key: Utils.NewId(), buttonText: 'Microsoft', });
         let _c = React.createElement(BtnCtrl, { className: 'mecontrol-topnav', attributeTitle: 'Sign Out', Application: this.props, svgIcon: AzureSvgs.Release, key: Utils.NewId(), buttonText: 'Sign Out' });
         let cntrlArray = [_a, _b, _c];
-
 		let _d = React.createElement( "div", { className: 'top-controls-container', key: Utils.NewId() }, cntrlArray );
+
+		// middle "current user"
 		let _left = React.createElement( "div", { className: 'left', key: Utils.NewId(), dangerouslySetInnerHTML: Utils.CreateSvgMarkup( AzureSvgs.Person.SVG ) } );
 
 		let _7a = React.createElement( "div", { className: 'current-user-title', key: Utils.NewId(), }, "John Vanerbloom" );
 		let _7b = React.createElement( "div", { className: 'current-user-email', key: Utils.NewId() }, "john123@outlook.com" );
-		let _7c = React.createElement( "div", { className: 'view-ms-acct', key: Utils.NewId() }, "View Microsoft Account" );
-		let _7d = React.createElement( "div", { className: 'change-info', key: Utils.NewId() }, "Change contact info" );
+		let _7c = React.createElement( "div", { className: 'view-ms-acct', key: Utils.NewId() }, "My Microsoft Account" );
+		let _7d = React.createElement( "div", { className: 'change-info', key: Utils.NewId() }, "Switch directory" );
 		let currentUserArray = [_7a, _7b, _7c, _7d];
-
 		let _middle = React.createElement( "div", { className: 'middle', key: Utils.NewId() }, currentUserArray );
-		let _8a = React.createElement( BtnCtrl, { className: '', Application: this.props, buttonText: ' ', svgIcon: AzureSvgs.Ellipsis, } );
 
+		let _8a = React.createElement( BtnCtrl, { className: '', Application: this.props, buttonText: ' ', svgIcon: AzureSvgs.Ellipsis, } );
 		let _right = React.createElement( "div", { className: 'right', key: Utils.NewId() }, _8a );
+
 		let _e = React.createElement( "div", { className: 'current-user', key: Utils.NewId() }, _left, _middle, _right );
 
+		// other user accounts
 		let _image1 = React.createElement( "div", { className: 'img', key: Utils.NewId(), dangerouslySetInnerHTML: Utils.CreateSvgMarkup( AzureSvgs.Person.SVG ) } );
 		let _image2 = React.createElement( "div", { className: 'img', key: Utils.NewId(), dangerouslySetInnerHTML: Utils.CreateSvgMarkup( AzureSvgs.Person.SVG ) } );
 		let _image3 = React.createElement( "div", { className: 'img', key: Utils.NewId(), dangerouslySetInnerHTML: Utils.CreateSvgMarkup( AzureSvgs.Person.SVG ) } );
@@ -113,12 +117,12 @@ export class UserAccountSwitcher extends React.Component
 		let _9a = React.createElement( "div", { className: 'left', key: Utils.NewId() }, _image1 );
 		let _9b = React.createElement( "div", { className: 'left', key: Utils.NewId() }, _image2 );
 		let _9c = React.createElement( "div", { className: 'left', key: Utils.NewId() }, _image3 );
-		let _9d = React.createElement( "span", { className: 'company', key: Utils.NewId() }, "Contoso" );
-		let _9e = React.createElement( "span", { className: 'company', key: Utils.NewId() }, "Fabrikam" );
-		let _9f = React.createElement( "span", { className: 'company', key: Utils.NewId() }, "Jonathon Vanderbloom" );
-		let _9g = React.createElement( "span", { className: 'acct-email', key: Utils.NewId() }, "johnvan@contoso.com" );
-		let _9h = React.createElement( "span", { className: 'acct-email', key: Utils.NewId() }, "johnvan@Fabrikam.com" );
-		let _9i = React.createElement( "span", { className: 'acct-email', key: Utils.NewId() }, "johnvan12@live.com" );
+		let _9d = React.createElement( "span", { key: Utils.NewId() }, "Contoso" );
+		let _9e = React.createElement( "span", { key: Utils.NewId() }, "Fabrikam" );
+		let _9f = React.createElement( "span", { key: Utils.NewId() }, "Jonathon Vanderbloom" );
+		let _9g = React.createElement( "span", { key: Utils.NewId() }, "johnvan@contoso.com" );
+		let _9h = React.createElement( "span", { key: Utils.NewId() }, "johnvan@Fabrikam.com" );
+		let _9i = React.createElement( "span", { key: Utils.NewId() }, "johnvan12@live.com" );
 		let _9j = React.createElement( "div", { className: 'right', key: Utils.NewId() }, _9d, _9g );
 		let _9k = React.createElement( "div", { className: 'right', key: Utils.NewId() }, _9e, _9h );
 		let _9l = React.createElement( "div", { className: 'right', key: Utils.NewId() }, _9f, _9i );	

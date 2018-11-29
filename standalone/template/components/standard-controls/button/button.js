@@ -24,7 +24,7 @@ export class ButtonControl extends React.Component
 		this.CssClassNames = {
             Normal: this.Theme + " buttonControl " + this.ButtonStyle,
             Alerted: this.Theme + " RootLinkCssExtra " + this.ButtonStyle,
-        };
+		};
 
 		// state
 		this.state = {
@@ -103,6 +103,16 @@ export class ButtonControl extends React.Component
 			//	console.debug( "BtnCtrl:render():this.Title", this.Title, this.state.IsLeftNavCollapsed );
 
 			let _btn_class = "btn-icon-text-default";
+
+			if ( this.ButtonStyle !== undefined )
+			{
+				_btn_class = this.ButtonStyle;
+			}
+			else
+			{
+				_btn_class = "btn-icon-text-default";
+			}
+
 			let _icon_class = "btn-icon-default";
 			let _text_class = "btn-text-default";
 
