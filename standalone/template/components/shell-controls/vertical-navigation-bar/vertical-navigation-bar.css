@@ -1,26 +1,32 @@
 ﻿.vertnav-main
 {
     position: absolute;
-    border-style: none;
-    background-color: rgba(249, 249, 249,1);
-    color: rgba(0,0,0,1);
-    left: 0;
     top: 40px;
-    bottom: 0;
+    left: 0px;
+    bottom: 0px;
     width: 225px;
-    box-shadow: inset -12px 0 9px -7px rgba(0,0,0,0.4);
+    background-color: rgba(240, 240, 240, 1);
+	background:
+		linear-gradient( -180deg, rgba(160, 160, 160, 1) 0px, rgba(240, 240, 240, 0) 15px),
+		linear-gradient( 90deg, rgba(240, 240, 240, 0) 215px, rgba(208, 208, 208, 1) 225px);
+
+    color: rgba(0,0,0,1);
 }
 .vertnav-main-collapsed
 {
     position: absolute;
-    border-style: none;
-    background-color: rgba(249, 249, 249,1);
-    color: rgba(0,0,0,1);
-    left: 0;
+    left: 0px;
     top: 40px;
-    bottom: 0;
+    bottom: 0px;
     width: 50px;
-	overflow:hidden
+    background-color: rgba(249, 249, 249,1);
+	background:
+		linear-gradient( -180deg, rgba(160, 160, 160, 1) 0px, rgba(240, 240, 240, 0) 15px),
+		linear-gradient( 90deg, rgba(240, 240, 240, 0) 40px, rgba(208, 208, 208, 1) 50px);
+
+    color: rgba(0,0,0,1);
+
+	overflow:hidden;
 }
 
 /* expland collapse button */

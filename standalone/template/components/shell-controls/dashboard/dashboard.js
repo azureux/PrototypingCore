@@ -4,9 +4,7 @@
 /// "Dashboard" control
 "use strict";
 
-
 import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js";
-
 import { SVG as AzSvgs } from "../../../js/svg-assets.js";
 import { UserAccountSwitcher as UAS } from "../user-account-switcher/user-account-switcher.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
@@ -16,36 +14,45 @@ export class Dashboard extends React.Component
 	constructor( props )
 	{
 		super( props );
+		this.DebugMessage = "";
 		this.ID = "dshbrd";
 		this.Title = "Dashboard";
-		this.Theme = props.Application.state.CurrentTheme;
+		this.Theme = undefined;	//	props.Application.state.CurrentTheme;
 		this.CssFileID = "dshbrd-css";
 		this.CssFile = "components/shell-controls/dashboard/dashboard.css";
 		this.CssClassNames = {
 			Normal: this.Theme + " dsh-brd-main",
-			Dirty: this.Theme + " dsh-brd-main-dirty",
-			Saved: this.Theme + " dsh-brd-main-saved"
+			Expanded: this.Theme + " dsh-brd-main-expanded"
 		};
+		this.CurrentCssClassName = this.CssClassNames.Normal;
 		this.state = {
 			IsDirty: false,
-			NavExpanded: (props.LeftNavState || false),
-			CurrentCssClass: this.CssClassNames.Normal 
+			NavExpanded: (props.Application.state.VerticalNavigation_IsOpen || false),
 		};
-		this.DebugMessage = this.props.Application.state.VerticalNavigationIsOpen;	//	DebugMessage || "default dashboard debug message";
 
-		if ( this.props.Application.props.Dashboard.Title !== undefined )
-		{
-			this.Title = this.props.Application.props.Dashboard.Title;
-		}
-
-        Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		// each time
+		Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	render()
 	{	//	console.debug( "Dashboard.render()", this.props );
+		//	console.debug( "Dashboard.Render", this.props.Application.state.VerticalNavigation_IsOpen);
+		//	console.debug( "Dashboard.Render", this.CurrentCssClassName );
+
+		if ( this.props.Application.state.VerticalNavigation_IsOpen == false )
+		{
+			this.CurrentCssClassName = this.CssClassNames.Normal;
+		}
+		else 	if ( this.props.Application.state.VerticalNavigation_IsOpen == true )
+		{
+			this.CurrentCssClassName = this.CssClassNames.Expanded;
+		}
+		//	console.debug( "Dashboard.Render", this.props.Application.state.VerticalNavigation_IsOpen);
+		//	console.debug( "Dashboard.Render", this.CurrentCssClassName );
+
 		return React.createElement( 'div', {
 			id: this.ID,
-			className: this.state.CurrentCssClass
+			className: this.CurrentCssClassName
 		},[`${this.Title}`,` this.DebugMessage :: ${this.DebugMessage}`] );
 	};
 };

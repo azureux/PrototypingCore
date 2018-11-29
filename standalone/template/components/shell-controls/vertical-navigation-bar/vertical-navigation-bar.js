@@ -44,7 +44,7 @@ export class VerticalNavigationBar extends React.Component
 		// events
 		// expand/collapse the vertical navigation bar
 		// this.Handle_ExpandCollapse = this.OnClick_CollapseVerticalNavBar.bind( this );
-		this.Handle_ExpandCollapse = this.Application.OnClick_OpenClose_VertNav.bind( this );
+		this.Handle_ExpandCollapse = this.Application.OnClick_OpenClose_VertNav.bind( props.Application );
 
 		// handle setting the state of a selected item in the vertical nav
 		this.Handle_NavButton = this.OnClick_SelectNavigationItem.bind( this );
@@ -53,7 +53,8 @@ export class VerticalNavigationBar extends React.Component
 		return;
 	};
 	Custom_AssignState()
-	{	//	console.debug( "Custom_AssignState()" );
+	{	//	
+		//	console.debug( "Custom_AssignState()" );
 		//console.debug( "this.state.IsCollapsed", this.state.IsCollapsed );
 		//console.debug( "this.MainClass", this.MainClass );
 		//console.debug( "this.Chevron", this.Chevron );
@@ -128,8 +129,7 @@ export class VerticalNavigationBar extends React.Component
 		return;
 	};
 	render()
-	{	//	
-		console.debug( "VERTICALNAVIGATIONBAR.RENDER()::this.state.IsCollapsed", this.state.IsCollapsed );
+	{	//	console.debug( "VERTICALNAVIGATIONBAR.RENDER()::this.state.IsCollapsed", this.state.IsCollapsed );
 
 		////	console.debug( "this.Chevron", this.Chevron );
 		//console.debug( "this.ChevronClass", this.ChevronClass );

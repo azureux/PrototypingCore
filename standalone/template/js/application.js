@@ -48,15 +48,11 @@ export class Application extends React.Component
 			CurrentTheme: {},
 			CurrentThemeName: this.ThemeName,
 			VerticalNavigation_IsOpen: false,
-			ContextBlade_IsOpen: false,
-			UserPanel_IsOpen: false,
-			NotificationPanel_IsOpen: false,
-			FeatureFlagPanel_IsOpen: false,
-			ContentPanel_IsCollapsed: false,
-			ChildControls: {
-				LeftNavOpen: false,
-				UserPanelOpen: false
-			}
+			//ContextBlade_IsOpen: false,
+			//UserPanel_IsOpen: false,
+			//NotificationPanel_IsOpen: false,
+			//FeatureFlagPanel_IsOpen: false,
+			//ContentPanel_IsCollapsed: false,
 		};
 
 		// event handlers
@@ -68,31 +64,20 @@ export class Application extends React.Component
 		Utils.InjectControlCss(this.CssID, this.CssFile);
 		return;
 	};
-	OnClick_OpenClose_VertNav( ev )
-	{
-		console.debug( "Application:OnClick_OpenClose_VertNav" );
+	OnClick_OpenClose_VertNav( proxyEvent )
+	{	// this param is the application.state object passed back from the child control
+		//	console.debug( "1. Application:VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
 
-		if ( this.state.IsCollapsed == true )
+		if ( this.state.VerticalNavigation_IsOpen == true )
 		{
-			this.setState( { IsCollapsed: false } );
+			this.setState( { VerticalNavigation_IsOpen: false } );
 		}
-		else if ( this.state.IsCollapsed == false )
+		else if ( this.state.VerticalNavigation_IsOpen == false )
 		{
-			this.setState( { IsCollapsed: true } );
+			this.setState( { VerticalNavigation_IsOpen: true } );
 		}
 
-		//if ( this.Application.state.ContentPanel_IsCollapsed == true )
-		//{
-		//	this.Application.setState( { ContentPanel_IsCollapsed: false } );
-		//}
-		//else if ( this.Application.state.ContentPanel_IsCollapsed == false )
-		//{
-		//	this.Application.setState( { ContentPanel_IsCollapsed: true } );
-		//}
-
-		console.debug( "Application:OnClick_OpenClose_VertNav", this.Application.state.ContentPanel_IsCollapsed );
-
-		//	console.debug( "Application:OnClick_OpenClose_VertNav", this.state.IsCollapsed );
+		//	console.debug( "2. Application:VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
 		return;
 	};
 	OnClick_HandleBodyElementClick( ev )
@@ -102,9 +87,9 @@ export class Application extends React.Component
 		//	"contextblade" may not default close ??
 		// "feature flag" may not default close ??
 
-		//	console.debug( "Application::OnClick_HandleBodyElementClick" );
+		console.debug( "Application::OnClick_HandleBodyElementClick" );
 		//	console.debug( "this.state", this.state );
-		console.debug( "ev", ev );
+		//	console.debug( "ev", ev );
 
 		//ev.preventDefault();
 		//ev.stopPropagation();
@@ -164,11 +149,8 @@ export class Application extends React.Component
 		console.debug( "HACK: Application.OnClick_VerticalNavigation_SelectNavigationItem: RESET TO ONLY THE CURRENTLY SELECTED NAV ITEM/EXTENSION. ALSO CALL THE CHAINED EVENT FROM THE APPPLICATION LEVEL", extension);
 		return;
 	};
-
 	InitRunTimeProperties()
-	{
-		//	console.debug( "Application::InitRunTimeProperties()" );
-
+	{	//	console.debug( "Application::InitRunTimeProperties()" );
 		this.ClientTop = document.body.clientTop;
 		this.ClientLeft = document.body.clientLeft
 		this.ClientHeight = document.body.clientHeight;
@@ -198,7 +180,7 @@ export class Application extends React.Component
 		//	1. output html element type
 		//	2. output html element attributes
 		//	3. array of child controls
-		console.debug( "Application::render()" );
+		//	console.debug( "Application::render()" );
 		//console.debug( "this.state", this.state );
 		//console.debug( "this.props", this.props );
 
@@ -206,7 +188,6 @@ export class Application extends React.Component
 		//this.AssignConfiguration( this.Configuration );
 		//this.AssignDefaultState( this.state );
 
-		//	console.debug( "application.render->this.state.UserPanel_IsOpen", this.state.UserPanel_IsOpen );
         this.TopNav = React.createElement(TopBar,
 			{
 				key: Utils.NewKey(),
@@ -216,23 +197,24 @@ export class Application extends React.Component
 				stateTest: this.state
             });
 
-        this.VertNav = React.createElement(LeftNav, //JG is this (state bag?) correct? just copied the topnav one...
+		//	console.debug( "1. Application:Render", this.state.VerticalNavigation_IsOpen );
+		//console.debug( "2. Application:Render", this.props.VerticalNavigationBar.IsCollapsed );
+        this.VertNav = React.createElement(LeftNav, 
             {
                 key: Utils.NewKey(),
                 Application: this,
-                NavExpanded: this.state.UserPanel_IsOpen,
+                NavExpanded: this.state.VerticalNavigation_IsOpen,
             });
 
-        this.DashboardHome = React.createElement(HomeDashboard, //JG is this (state bag?) correct? just copied the topnav one...
+        this.DashboardHome = React.createElement(HomeDashboard, 
             {
                 key: Utils.NewKey(),
                 Application: this,
-                NavExpanded: this.state.ContentPanel_IsCollapsed
+                NavExpanded: this.state.VerticalNavigation_IsOpen
             });
  
-		//this.LeftNav = React.createElement( "div", { key: Utils.NewKey() }, "LeftNav" );
-		this.ContextPanel = React.createElement( "div",  { key: Utils.NewKey(), className: "top-level"}, "ContextPanel" );
-        //this.Dashboard = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "Dashboard" );
+		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
+		this.ContextPanel = React.createElement( "div", { key: Utils.NewKey(), className: "top-level" }, "ContextPanel" );
         this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
         this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
 
