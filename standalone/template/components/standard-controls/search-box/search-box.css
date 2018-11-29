@@ -12,7 +12,7 @@
     /*border: solid 1px red;*/
     padding: 10px;
     margin: 5px 0 0 0;
-    background-color: #e1dfdd;
+    background-color: rgba(179, 214, 242, 1);
     font-style: normal;
     height: 30px;
     width: 460px;
@@ -37,6 +37,7 @@
 	padding:5px;
 	margin:0px;
 	display:none;
+	z-index:1;
 }
 
 #input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

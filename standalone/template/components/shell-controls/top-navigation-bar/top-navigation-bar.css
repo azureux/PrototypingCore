@@ -1,6 +1,7 @@
-﻿.topnav-main {
+﻿.topnav-main
+{
     height: 40px;
-    background: #1c1c1c;
+    background-color: rgba(0, 120, 212,1);
     color: #FFFFFF;
     padding: 0px;
     display: flex;

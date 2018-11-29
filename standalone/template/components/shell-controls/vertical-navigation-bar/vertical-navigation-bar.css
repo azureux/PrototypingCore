@@ -1,8 +1,9 @@
-﻿.vertnav-main {
+﻿.vertnav-main
+{
     position: absolute;
     border-style: none;
-    background-color: #323130;
-    color: #fff;
+    background-color: rgba(249, 249, 249,1);
+    color: rgba(0,0,0,1);
     left: 0;
     top: 40px;
     bottom: 0;
@@ -13,8 +14,8 @@
 {
     position: absolute;
     border-style: none;
-    background-color: #252525;
-    color: #fff;
+    background-color: rgba(249, 249, 249,1);
+    color: rgba(0,0,0,1);
     left: 0;
     top: 40px;
     bottom: 0;
@@ -32,7 +33,7 @@
 }
 .exp-coll-button-default > svg
 {
-	fill: white;
+	fill: rgba(0,0,0,1);
 	/*border: solid 1px red;*/
 	height:24px;
 	width:24px;
@@ -47,7 +48,7 @@
 }
 .exp-coll-button-collapsed > svg
 {
-	fill: white;
+	fill: rgba(0,0,0,1);
 	/*border: solid 1px blue;*/
 	height:24px;
 	width:24px;
