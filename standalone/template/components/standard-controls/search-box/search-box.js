@@ -50,7 +50,17 @@ export class SearchBox extends React.Component
         Utils.InjectControlCss(SearchBox.defaultProps.CssFileID, SearchBox.defaultProps.CssFile);
 		return;
 	};
-	RefreshData( resultsArray )
+	OnClick_SelectResult( ev )
+	{	//	console.debug( "OnClick_SelectResult", this.DataObject );
+		let _self = this.ParentObject;
+		window.setTimeout( function ()
+		{
+			let _rp = document.getElementById( _self.ResultsPanel_ID );
+			_rp.className = "results-panel";
+		},1000);
+		return;
+	};
+	RefreshData( thisCtrl, resultsArray )
 	{	//	console.debug( "RefreshData", resultsArray.length );
 		let _rv = [];
 
@@ -58,10 +68,17 @@ export class SearchBox extends React.Component
 		{
 			resultsArray.forEach( function ( v, i, a )
 			{	//	console.debug( i, v );
+				v.srid = Utils.NewId( "search-result-id" );
+
 				let _result = document.createElement( "div" );
 				_result.className = "search-result";
-				_result.onclick = function () { console.debug( "search result" ); return; };
+				_result.setAttribute( "tabindex", "0" );
+				//	_result.setAttribute( "data-srid", v.srid );
+
 				_result.innerText = v.name;
+				_result.DataObject = v;
+				_result.ParentObject = thisCtrl;
+				_result.addEventListener( "click", thisCtrl.OnClick_SelectResult );
 
 				_rv.push(_result);
 				return;
@@ -80,12 +97,11 @@ export class SearchBox extends React.Component
 		return _rv;
 	};
 	OnFocus_ShowResultsPanel( ev )
-	{
-		//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
+	{	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
 		let _rp = document.getElementById( this.ResultsPanel_ID );
-		_rp.style.display = "inline-block";
+		_rp.className = "results-panel-open";
 
-		let _results = this.RefreshData( this.DataSet_Temp );
+		let _results = this.RefreshData(this, this.DataSet_Temp );
 
 		_results.forEach( function ( v, i, a )
 		{	//	console.debug( i, v );
@@ -98,13 +114,16 @@ export class SearchBox extends React.Component
 		return;
 	};
 	OnBlur_CloseResultsPanel( ev )
-	{	//	console.debug( "SearchBox::OnBlur_CloseResultsPanel", ev );
-		let _rp = document.getElementById( this.ResultsPanel_ID );
-		//	console.debug( "_rp", _rp );
-		_rp.style.display = "none";
-
+	{	//	console.debug("OnBlur_CloseResultsPanel");
 		ev.preventDefault();
 		ev.stopPropagation();
+		//	console.debug( "SearchBox::OnBlur_CloseResultsPanel", ev.relatedTarget );
+
+		if ( ev.relatedTarget == null || ev.relatedTarget == undefined )
+		{
+			let _rp = document.getElementById( this.ResultsPanel_ID );
+			_rp.className = "results-panel-open";
+		}
 		return;
 	};
 	OnChange_FilterDataSet( ev )
@@ -125,14 +144,15 @@ export class SearchBox extends React.Component
 		}, _query );
 		//	console.debug( "_results", _results.length );
 
-		let _elements = this.RefreshData( _results );
+		let _elements = this.RefreshData( this, _results );
 
 		let _rp = document.getElementById( this.ResultsPanel_ID );
 		//	console.debug( "_rp", _rp );
 		if ( _rp !== undefined || _rp !== null )
 		{
 			_rp.innerHTML = "";
-			_rp.style.display = "inline-block";
+			//	_rp.style.display = "inline-block";
+			_rp.className = "results-panel-open";
 
 			_elements.forEach( function ( v, i, a )
 			{	//	console.debug( i, v );
@@ -179,6 +199,5 @@ export class SearchBox extends React.Component
 				id: this.ID,
 				className: this.Theme + " search-panel",
 			}, _children );
-
 	};
 };
