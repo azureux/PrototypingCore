@@ -78,7 +78,9 @@ body
 }
 
 /*template css class, will remove later*/
-.top-level {
-    left: 280px;
-   position:relative;
+.top-level
+{
+	border: solid 1px red;
+	width:calc(200px);
+	height:calc(200px);
 }

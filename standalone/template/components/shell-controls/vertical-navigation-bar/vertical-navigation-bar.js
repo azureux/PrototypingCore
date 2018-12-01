@@ -44,7 +44,7 @@ export class VerticalNavigationBar extends React.Component
 		// events
 		// expand/collapse the vertical navigation bar
 		// this.Handle_ExpandCollapse = this.OnClick_CollapseVerticalNavBar.bind( this );
-		this.Handle_ExpandCollapse = this.Application.OnClick_OpenClose_VertNav.bind( props.Application );
+		this.Handle_ExpandCollapse = this.Application.OnClick_VertNav_OpenClose.bind( props.Application );
 
 		// handle setting the state of a selected item in the vertical nav
 		this.Handle_NavButton = this.OnClick_SelectNavigationItem.bind( this );

@@ -17,7 +17,6 @@ export class ButtonControl extends React.Component
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
 		this.SvgIcon = this.props.svgIcon || undefined;
-		//	this.Theme = this.props.Application.Application.CurrentTheme || undefined;
         this.ButtonStyle = this.props.className;
         this.CssFileID = "btn-css";
         this.CssFile = "components/standard-controls/button/button.css";

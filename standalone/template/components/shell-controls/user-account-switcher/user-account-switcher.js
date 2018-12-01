@@ -8,7 +8,6 @@ import { Utilities as Utils } from "../../../js/utilities.js";
 import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
 import { ButtonControl as BtnCtrl, ButtonControl } from "../../standard-controls/button/button.js";
 
-
 export class UserAccountSwitcher extends React.Component
 {
 	constructor( props )
