@@ -5,6 +5,7 @@
 
 "use strict";
 import { SVG as AzSvgs } from "../../../js/svg-assets.js";
+import { CacheItem as cache_item } from "../components/app-state-cache/cache-item.js";
 
 const _SampleDataResources = {
 	ResourceNames:
@@ -443,6 +444,14 @@ const _SampleDataResources = {
 	},
 };
 
+	// sort enum
+const _SortTypes = {
+	DEFAULT: { text: "default", arrow: "&varr;" },
+	ASC: { text: "asc", arrow: "&uarr;" },
+	DESC: { text: "desc", arrow: "&darr;" }
+};
+
+
 class _Utilities 
 {
 	constructor()
@@ -465,6 +474,20 @@ class _Utilities
 		_rv = _id_name + Math.random().toPrecision( 7 ).replace( ".", "" );
 		//	console.debug( "Utilities.NewId()._rv", _rv );
 		return _rv;
+	};
+	static NewBlockID()
+	{
+		let _block = [];
+
+		for ( let i = 0; i < 5; i++ )
+		{
+			_block[i] = Math.random().toFixed( 7 ).toString().split( "." )[1];
+		}
+
+		const _returnValue = Object.freeze( _block.join( "-" ).toString() );
+
+		//	console.debug( "_returnValue", _returnValue );
+		return _returnValue;
 	};
 	static NewKey()
 	{	// react.js specific for putting new react elements into arrays prior to referencing in react.render()
@@ -611,11 +634,86 @@ class _Utilities
 
 		return _return; 
 	};
+
+	// app state cache testing
+	static AppCacheDebug()
+	{
+		//	console.debug( "AppCacheDebug()" );
+		let _return_array = [];
+		for ( let i = 0; i < 10; i++ )
+		{
+			let _new_item = new cache_item();
+
+			_new_item.Name = "Foo test chace item # " + i;
+			_new_item.Sender = { name: "foo", data: []  };
+			_new_item.Target = { name: "foo2"};
+			_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", i ); return; } ) );
+
+			_return_array.push( _new_item );
+		}
+
+		//	console.debug( "ApplicationStateCache::Debug()", _return_array );
+
+		return _return_array;
+	};
+	static TestCache()
+	{	//	console.debug( "TestCache()" );
+		// temp cache fill
+		window.AcuityCache.Items = this.AppCacheDebug();
+
+		// singleton, typed
+		let _new_item = new cache_item();
+		_new_item.Name = "Foo test chace item # 1000";
+		_new_item.Sender = { name: "foo", data: []  };
+		_new_item.Target = { name: "foo2"};
+		_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", this.Name ); return; } ) );
+
+		window.AcuityCache.Add( _new_item );
+
+		// array, typed
+		let _temp = [];
+		for ( let i = 0; i < 5; i++ )
+		{
+			let _new_item = new cache_item();
+
+			_new_item.Name = "Foo test chace item # " + i;
+			_new_item.Sender = { name: "foo", data: []  };
+			_new_item.Target = { name: "foo2"};
+			_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", i ); return; } ) );
+
+			_temp.push( _new_item );
+		}
+		window.AcuityCache.Add( _temp );
+
+		// uncomment to debug
+		// singleton, non-typed
+		//let _random_object = {};
+		//_random_object.Name = "Foo test chace item # 1000";
+		//_random_object.Sender = { name: "foo", data: []  };
+
+		//window.AcuityCache.Add( _random_object );
+
+		//// array, non-typed
+		//let _temp_2 = [];
+		//for ( let i = 0; i < 7; i++ )
+		//{
+		//	let _random_object = {};
+		//	_random_object.Name = "Foo test chace item # 1000";
+		//	_random_object.Sender = { name: "foo", data: []  };
+
+		//	_temp_2.push( _random_object );
+		//}
+		//window.AcuityCache.Add( _temp_2 );
+
+		//	window.AcuityCache.ClearAllItems();
+		return;
+	};
 }
 
 //	export _Utilities
 export
 {
 	_SampleDataResources as DataEnums,
+	_SortTypes as SortTypes,
 	_Utilities as Utilities
 };

@@ -59,6 +59,9 @@ export class UserAccountSwitcher extends React.Component
 			}, [_user_info, _user_avatar] );
 
 		Utils.InjectControlCss( this.CssFileID, this.CssFile );
+
+		//	console.debug( "testing caching" );
+		Utils.TestCache();
         return;
 	};
 	OnClick_HideShowPanel( ev )

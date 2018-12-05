@@ -1,10 +1,9 @@
-﻿/// <reference path="../script/react/react-latest.js" />
-/// <reference path="../script/react/react-dom-latest.js" />
+﻿"use strict";
 
-"use strict";
-
+import { Utilities as Utils } from "../js/utilities.js";
 import { OverrideConfig as Config } from "../js/config.js";
 import { Application as App } from "../js/application.js";
+import { ApplicationStateCache as Cache } from "../components/app-state-cache/app-state-cache.js";
 
 ( function ()
 {
@@ -14,7 +13,9 @@ import { Application as App } from "../js/application.js";
 		console.log( "TRY", new Date().toISOString() );
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
 		{
-			ReactDOM.render( React.createElement( App, Config, [] ), document.getElementById( "ApplicationElement" ) );
+			ReactDOM.render( React.createElement( App, Config ), document.getElementById( "ApplicationElement" ) );
+
+			//	const _new_random_id = Utils.NewBlockID();			
 			return;
 		} );
 	}

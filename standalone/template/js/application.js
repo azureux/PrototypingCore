@@ -4,6 +4,8 @@
 "use strict";
 
 import { Utilities as Utils } from "../js/utilities.js";
+import { ApplicationStateCache as Cache } from "../components/app-state-cache/app-state-cache.js";
+import { CacheItem as cacheItem } from "../components/app-state-cache/cache-item.js";
 import { SVG as AzureSvgs } from "../js/svg-assets.js";
 import { TopNavigationBar as TopBar } from "../components/shell-controls/top-navigation-bar/top-navigation-bar.js"; 
 import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.js";
@@ -19,12 +21,23 @@ export class Application extends React.Component
 		Application.defaultProps = {
 			ID: Utils.NewId( "cds-app" ),
 			AppName: "Microsoft Azure",
-			Theme: "default-theme"
+			Theme: "default-theme",
 		};
+
+		// global cache testing
+		window.AcuityCache = new Cache();
+	
+		let _new_item = new cacheItem();
+		_new_item.Name = "Foo test chace item # 1000";
+		_new_item.Sender = { name: "foo", data: []  };
+		_new_item.Target = { name: "foo2"};
+		_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", this.Name ); return; } ) );
+
+		window.AcuityCache.Add( _new_item );
 
 		//	this.Configuration = props;
 		this.CssID = "app-shell-css",
-		this.CssFile = "css/default.css";
+			this.CssFile = "css/default.css";
 		this.ThemeName = props.Application.Theme; // "dark-theme" || "default-theme" 
 		this.Theme = {};
 		this.Users = [];
@@ -56,7 +69,9 @@ export class Application extends React.Component
 		this.Handle_CurrentExtension = this.OnClick_VerticalNavigation_SelectNavigationItem.bind( this );
 
 		// inject CSS
-		Utils.InjectControlCss(this.CssID, this.CssFile);
+		Utils.InjectControlCss( this.CssID, this.CssFile );
+
+		//	Utils.TestCache();
 		return;
 	};
 
