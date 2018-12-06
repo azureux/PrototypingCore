@@ -1,12 +1,50 @@
-﻿.cntxt-pnl-main {
+﻿.context-panel-main
+{
     position: absolute;
-    top: 39px;
+    /*top: 40px;*/
     bottom: 0;
     right: 0;
     width: 400px;
-    padding: 20px;
+	height:calc(100% - 40px);
+    padding: 0px;
     background-color: #fff;
-    border: 1px solid black;
-    color: #ac1515;
+    border-left: 1px solid rgba(0,0,0,0.2);
+    color: #000000;
+	box-shadow: 0px 10px 10px 4px rgba(0,0,0,0.2);
+	text-align:left;
     display:none;
+}
+.context-panel-main-open
+{
+    /*position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+	height:calc(100% - 40px);
+    padding: 0px;
+    background-color: #fff;
+    border-left: 1px solid rgba(0,0,0,0.2);
+    color: #000000;
+	box-shadow: 0px 10px 10px 4px rgba(0,0,0,0.2);
+	text-align:left;*/
+    display:inline-block;
+}
+
+
+.context-close-button
+{
+	position:absolute;
+	right:0px;
+	margin-top:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	height:24px;
+	width:24px;
+	cursor:pointer;
+}
+.context-close-button:hover
+{
+	background-color:rgba(255,0,0,1);
+	fill:rgba(255,255,255,1);
 }

@@ -30,6 +30,11 @@ export class Dashboard extends React.Component
 			NavExpanded: (props.Application.state.VerticalNavigation_IsOpen || false),
 		};
 
+		// event handlers	//	this.props.Application.OnClick_Test_OpenContextPanel.bind(this),
+		// TO BE REMOVED, ONLY FOR DEV & DEBUG
+		this.Test_ContextPanel_OpenClose = this.props.Application.OnClick_Test_OpenContextPanel.bind( this.props.Application );
+
+
 		// each time
 		Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
@@ -52,6 +57,7 @@ export class Dashboard extends React.Component
 
 		return React.createElement( 'div', {
 			id: this.ID,
+			onClick: this.Test_ContextPanel_OpenClose,
 			className: this.CurrentCssClassName
 		},[`${this.Title}`,` this.DebugMessage :: ${this.DebugMessage}`] );
 	};

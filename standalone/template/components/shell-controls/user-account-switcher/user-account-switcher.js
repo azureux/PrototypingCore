@@ -61,7 +61,7 @@ export class UserAccountSwitcher extends React.Component
 		Utils.InjectControlCss( this.CssFileID, this.CssFile );
 
 		//	console.debug( "testing caching" );
-		Utils.TestCache();
+		//	Utils.TestCache();
         return;
 	};
 	OnClick_HideShowPanel( ev )

@@ -44,15 +44,6 @@ export class ButtonControl extends React.Component
         Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
-	//componentDidMount()
-	//{	//	not used yet
-	//	return;
-	//};
-	//componentDidUnMount()
-	//{	//	not used yet
-	//	return;
-	//};
-
 	static ClassNames()
 	{
 		return {
@@ -61,7 +52,6 @@ export class ButtonControl extends React.Component
 			TopNav: "TopNavBtn"
 		};
 	};
-
 	OnClick_ChangeBorderColor( ev )
 	{	//	testing changing the border color
 		//	console.debug( "RootLink::handleClick" );
@@ -100,7 +90,6 @@ export class ButtonControl extends React.Component
         if (this.SvgIcon !== undefined && this.props.buttonText !== " ")
 		{
 			//	console.debug( "BtnCtrl:render():this.Title", this.Title, this.state.IsLeftNavCollapsed );
-
 			let _btn_class = "btn-icon-text-default";
 
 			if ( this.ButtonStyle !== undefined )
@@ -140,13 +129,14 @@ export class ButtonControl extends React.Component
             }, [_icon, _text] ); 
         }
         //SVG + no unique text
-        else if (this.SvgIcon !== undefined && this.props.buttonText == " ") {
+		else if ( this.SvgIcon !== undefined && this.props.buttonText == " " )
+		{
             let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: Utils.CreateSvgMarkup(this.SvgIcon.SVG) });
 
             _rv = React.createElement('div', {
 				id: "btn-svg",
-				className: this.state.currentCssClass + " IconNoText",
-                onClick: this.HandleClick,
+				className: "IconNoText " +  this.props.className,
+                onClick: this.NavigationClick,
                 title: this.state.AltTextTitle,
                 key: Utils.NewId(),
             }, _j);

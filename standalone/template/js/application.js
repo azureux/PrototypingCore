@@ -10,6 +10,7 @@ import { SVG as AzureSvgs } from "../js/svg-assets.js";
 import { TopNavigationBar as TopBar } from "../components/shell-controls/top-navigation-bar/top-navigation-bar.js"; 
 import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.js";
 import { Dashboard as HomeDashboard } from "../components/shell-controls/dashboard/dashboard.js";
+import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
 export class Application extends React.Component
 {
@@ -24,20 +25,9 @@ export class Application extends React.Component
 			Theme: "default-theme",
 		};
 
-		// global cache testing
-		window.AcuityCache = new Cache();
-	
-		let _new_item = new cacheItem();
-		_new_item.Name = "Foo test chace item # 1000";
-		_new_item.Sender = { name: "foo", data: []  };
-		_new_item.Target = { name: "foo2"};
-		_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", this.Name ); return; } ) );
-
-		window.AcuityCache.Add( _new_item );
-
 		//	this.Configuration = props;
 		this.CssID = "app-shell-css",
-			this.CssFile = "css/default.css";
+		this.CssFile = "css/default.css";
 		this.ThemeName = props.Application.Theme; // "dark-theme" || "default-theme" 
 		this.Theme = {};
 		this.Users = [];
@@ -59,19 +49,27 @@ export class Application extends React.Component
 			CurrentTheme: {},
 			CurrentThemeName: this.ThemeName,
 			VerticalNavigation_IsOpen: false,
-			UserPanel_IsOpen: false
+			UserPanel_IsOpen: false,
+			ContextPanel_IsOpen: false
 		};
+
+		// cache
+		// global cache testing
+		if ( window.AcuityCache == undefined )
+		{
+			window.AcuityCache = new Cache();
+		}
+		//	console.debug( "window.AcuityCache", window.AcuityCache );
+		//	Utils.TestCache();
 
 		//	EVENT HANDLERS
 		//	this.Handle_BodyClick = this.OnClick_HandleBodyElementClick.bind( this );
-
 		this.Handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
 		this.Handle_CurrentExtension = this.OnClick_VerticalNavigation_SelectNavigationItem.bind( this );
 
 		// inject CSS
 		Utils.InjectControlCss( this.CssID, this.CssFile );
 
-		//	Utils.TestCache();
 		return;
 	};
 
@@ -134,8 +132,24 @@ export class Application extends React.Component
 		//	console.debug( "2. Application:VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
 		return;
 	};
+	OnClick_Test_OpenContextPanel( proxyEvent )
+	{
+		console.debug( "OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
 
+		if ( this.state.ContextPanel_IsOpen == false )
+		{
+			this.setState( { ContextPanel_IsOpen: true } );
+		}
+		else if ( this.state.ContextPanel_IsOpen == true )
+		{
+			this.setState( { ContextPanel_IsOpen: false } );
+		}
 
+		console.debug( "OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
+		return;
+	};
+
+	//	TBD
 	AssignConfiguration( oConfig )
 	{
 		console.debug("Application::AssignConfiguration()", document.body.cl);
@@ -197,21 +211,28 @@ export class Application extends React.Component
             {
                 key: Utils.NewKey(),
                 Application: this,
-                NavExpanded: this.state.VerticalNavigation_IsOpen
+				NavExpanded: this.state.VerticalNavigation_IsOpen,
+				OpenContextPanel: this.OnClick_Test_OpenContextPanel
             });
  
 		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
-		this.ContextPanel = React.createElement( "div", { key: Utils.NewKey(), className: "top-level" }, "ContextPanel" );
-        this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
-        this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
+		console.debug( "REDNER::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
+		this.ContextPanel = React.createElement( ContextBlade, {
+			key: Utils.NewKey(),
+			//	currentTheme: this.ThemeName,
+			IsVisible: this.state.ContextPanel_IsOpen
+		} );
+
+        //	this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
+        //	this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
 
 		this.Layout = [
 			this.TopNav,
 			this.VertNav,
             this.DashboardHome,
-			//this.ContextPanel,
-			//this.NotificationsPanel,
-			//this.FeatureFlightsPanel
+			this.ContextPanel
+			//	this.NotificationsPanel,
+			//	this.FeatureFlightsPanel
         ];
 
 		// adding the global body onclick handler to reset certain states just doesn't work as expected.

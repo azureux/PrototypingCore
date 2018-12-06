@@ -22,6 +22,11 @@ export class ApplicationStateCache
 
 		// set 
 		this.ClearAllItems = this.Handle_ClearAll.bind( this );
+		this.Add = this.Add_CacheItem.bind( this );
+		this.Remove = this.Remove_CacheItem.bind( this );
+		this.Sort = this.Sort_All_Items.bind( this );
+		this.Save = this.Save_To_File.bind( this );
+
 		return;
 	};
 	Handle_ClearAll()
@@ -30,7 +35,7 @@ export class ApplicationStateCache
 		this.Items = [];
 		return;
 	};
-	Sort(direction)
+	Sort_All_Items(direction)
 	{	//	console.debug( "Sort(direction)", direction );
 		if ( direction == undefined || direction == SortTypes.DEFAULT )
 		{
@@ -68,7 +73,7 @@ export class ApplicationStateCache
 
 		return;
 	};
-	Add( item )
+	Add_CacheItem( item )
 	{
 		//	console.debug( "ApplicationStateCache::Add()", typeof item );
 		//	console.debug( "ApplicationStateCache::Add()", item.constructor.name );
@@ -112,12 +117,12 @@ export class ApplicationStateCache
 		//}
 		return;
 	};
-	Remove()
+	Remove_CacheItem()
 	{
 		console.debug( "ApplicationStateCache::Remove()" );
 		return;
 	};
-	Save()
+	Save_To_File()
 	{
 		console.debug( "ApplicationStateCache::Save()");
 		return ;

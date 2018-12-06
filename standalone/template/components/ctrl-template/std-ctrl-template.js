@@ -2,6 +2,7 @@
 /// <reference path="../../script/react/react-dom-latest.js" />
 /// <reference path="../../js/utilities.js" />
 "use strict";
+import { Utilities as Utils } from "../../../js/utilities.js";
 
 // control template - flesh out all functions, methods, events
 class StandardControlTemplate extends React.Component
@@ -34,7 +35,7 @@ class StandardControlTemplate extends React.Component
 		this.handleClick = this.OnClick_ChangeBorderColor.bind( this );
 
 		// inject CSS
-		Utilities.InjectControlCss(this.CssFileID, this.CssFile);
+		Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
 	componentDidMount()
