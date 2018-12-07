@@ -1,0 +1,75 @@
+/* colors
+	#61dafb;
+	 #282c34;
+*/
+.test-link
+{
+	color: #61dafb;
+	cursor:pointer;
+}
+.test-button
+{
+	border: solid 1px red;
+	cursor:pointer;
+	padding:20px;
+}
+
+.App
+{
+	border: solid 1px #61dafb;
+	margin:10px;
+	overflow:hidden;
+}
+
+header
+{
+	border: solid 1px #61dafb;
+	margin:10px;
+	display:flex;
+}
+header > *
+{
+	border: solid 1px #61dafb;	
+}
+main
+{
+	border: solid 1px red;
+	margin:10px;
+	overflow:auto;
+	height:calc(100% - 50px);
+
+	display:flex;
+	flex-wrap:nowrap;
+	/*flex-direction:row;*/
+	/*justify-content:center;
+	align-items:stretch;*/
+}
+main > *
+{
+	border: solid 1px #61dafb;	
+	overflow:auto;
+	margin:0px;
+	/*flex:none;*/
+	flex-shrink:1;
+	flex-grow: 1;
+	flex-basis:0;
+}
+.nav-panel-default
+{
+	width:  250px ;
+	min-width:250px;
+	max-width:250px;
+
+}
+.extension-panel-default
+{
+	/*min-width:100%;*/
+	/*width:100%;*/
+	max-width:100%;
+}
+.context-panel-default
+{
+	width:  400px;
+	min-width:400px;
+	max-width:  400px ;
+}
