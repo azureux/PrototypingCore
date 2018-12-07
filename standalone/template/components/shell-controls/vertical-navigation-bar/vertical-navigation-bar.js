@@ -24,34 +24,39 @@ export class VerticalNavigationBar extends React.Component
 			Collapsed: "vertnav-main-collapsed " + this.Theme,
 			Dirty: "vertnav-main-dirty " + this.Theme,
 			Saved: "vertnav-main-saved " + this.Theme,
-			ChevronExpanded: "exp-coll-button-default" ,	//	+ this.Theme,
+			ChevronExpanded: "exp-coll-button-default",	//	+ this.Theme,
 			ChevronCollapsed: "exp-coll-button-collapsed",	// + this.Theme,
 			ListPanelExpanded: "ext-list-panel-default",	// + this.Theme,
 			ListPanelCollapsed: "ext-list-panel-collapsed",	// + this.Theme,
 		};
 		this.state = {
-			IsCollapsed: (this.props.NavExpanded || false),
+			IsCollapsed: ( this.props.NavExpanded || false ),
 		};
 		this.MainClass = this.CssClasses.Normal;
-        this.Chevron = AzSvgs.DoubleChevronLeft.SVG;
+		this.Chevron = AzSvgs.DoubleChevronLeft.SVG;
 		this.ChevronClass = this.CssClasses.ChevronExpanded;
 		this.ListPanelClass = this.CssClasses.ListPanelExpanded;
 
+		this.StandardCollection = this.props.Standards;
+		this.FavoritesCollection = this.props.Favorites;
+		this.SelectedItem = this.props.SelectedItem;
+
 		// inject control specific CSS	
-        Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		// set properties
 		this.Custom_AssignState();
-		// events
-		// expand/collapse the vertical navigation bar
-		// this.Handle_ExpandCollapse = this.OnClick_CollapseVerticalNavBar.bind( this );
-		this.Handle_ExpandCollapse = this.Application.OnClick_VertNav_OpenClose.bind( props.Application );
 
-		// handle setting the state of a selected item in the vertical nav
-		this.Handle_NavButton = this.OnClick_SelectNavigationItem.bind( this );
-		// handle setting the extension at the application level
-		this.Handle_ExtensionSelection = this.props.ExtensionHandler;
+		// EVENTS
+		// expand/collapse the vertical navigation bar
+		this.Handle_ExpandCollapse = this.props.Application.OnClick_VertNav_OpenClose.bind( this.props.Application );
+
+		//	HANDLE SETTING THE STATE OF A SELECTED ITEM IN THE VERTICAL NAV
+		//	this.SelectedExtension = this.props.SelectedExtension;
+		//	this.props.Application.OnClick_SelectNavigationItem.bind( this.props.Application );
+		this.Handle_NavButton = this.props.Application.OnClick_SelectNavigationItem.bind( [this.props.Application, this] );
+
 		return;
-	};
+	}
 	Custom_AssignState()
 	{	//	
 		//	console.debug( "Custom_AssignState()" );
@@ -78,65 +83,13 @@ export class VerticalNavigationBar extends React.Component
 
 		return;
 	};
-	OnClick_CollapseVerticalNavBar( ev )
-	{	//	console.debug( "VerticalNavigationBar::OnClick_CollapseVerticalNavBar" );
-		//ev.preventDefault();
-		//ev.stopPropagation();
-
-		//console.debug( "this.state.IsCollapsed", this.state.IsCollapsed );
-		//console.debug( "this.MainClass", this.MainClass );
-		////	console.debug( "this.Chevron", this.Chevron );
-		//console.debug( "this.ChevronClass", this.ChevronClass );
-		//console.debug( "this.ListPanelClass", this.ListPanelClass );
-
-		//if ( this.state.IsCollapsed == true )
-		//{
-		//	this.setState( { IsCollapsed: false } );
-		//	//this.MainClass = this.CssClasses.Collapsed;
-		//	//this.Chevron = SVG.DoubleChevronRight.SVG;
-		//	//this.ChevronClass =  this.CssClasses.ChevronCollapsed;
-		//	//this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
-		//	this.MainClass = this.CssClasses.Normal;
-  //          this.Chevron = AzSvgs.DoubleChevronLeft.SVG;
-		//	this.ChevronClass = this.CssClasses.ChevronExpanded;
-		//	this.ListPanelClass = this.CssClasses.ListPanelExpanded;
-		//}
-		//else if ( this.state.IsCollapsed == false )
-		//{
-		//	this.setState( { IsCollapsed: true } );		
-		//	//this.MainClass = this.CssClasses.Normal;
-		//	//this.Chevron = SVG.DoubleChevronLeft.SVG;
-		//	//this.ChevronClass = this.CssClasses.ChevronExpanded;
-		//	//this.ListPanelClass = this.CssClasses.ListPanelExpanded;
-		//	this.MainClass = this.CssClasses.Collapsed;
-  //          this.Chevron = AzSvgs.DoubleChevronRight.SVG;
-		//	this.ChevronClass =  this.CssClasses.ChevronCollapsed;
-		//	this.ListPanelClass = this.CssClasses.ListPanelCollapsed;
-		//}
-
-		//console.debug( "this.state.IsCollapsed", this.state.IsCollapsed );
-		//console.debug( "this.MainClass", this.MainClass );
-		////	console.debug( "this.Chevron", this.Chevron );
-		//console.debug( "this.ChevronClass", this.ChevronClass );
-		//console.debug( "this.ListPanelClass", this.ListPanelClass );
-        return;
-	};
-	OnClick_SelectNavigationItem()
-	{
-		console.debug( "HACK: VerticalNavigationBar.OnClick_SelectNavigationItem: RESET TO ONLY THE CURRENTLY SELECTED NAV ITEM/EXTENSION. ALSO CALL THE CHAINED EVENT FROM THE APPPLICATION LEVEL" );
-
-		//this.Handle_ExtensionSelection( {extension:"foo"}); //this causes break JG
-		return;
-	};
 	render()
 	{	//	console.debug( "VERTICALNAVIGATIONBAR.RENDER()::this.state.IsCollapsed", this.state.IsCollapsed );
+		//	console.debug( "this.Chevron", this.Chevron );
+		//	console.debug( "this.ChevronClass", this.ChevronClass );
+		//	console.debug( "this.ListPanelClass", this.ListPanelClass );
 
-		////	console.debug( "this.Chevron", this.Chevron );
-		//console.debug( "this.ChevronClass", this.ChevronClass );
-		//console.debug( "this.ListPanelClass", this.ListPanelClass );
-		//	individual extensions 
-		//	testing batch for panel overflow, at 1440 height 		
-
+		// PRE-RENDER LOGIC
 		if ( this.state.IsCollapsed == true )
 		{
 			this.MainClass = this.CssClasses.Collapsed;
@@ -152,8 +105,16 @@ export class VerticalNavigationBar extends React.Component
 			this.ListPanelClass = this.CssClasses.ListPanelExpanded;
 		}
 
-        let _extensions = [
-            React.createElement(BtnCtrl, { attributeTitle: 'New', buttonText: 'New', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
+		// DATA
+		this.StandardCollection = [
+			React.createElement( BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
+            React.createElement(BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
+			React.createElement( BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
+            React.createElement(BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
+		];
+
+		this.FavoritesCollection = [
+            React.createElement(BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
 			React.createElement(BtnCtrl, { attributeTitle: 'Dashboard', buttonText: 'Dashboard', svgIcon: AzSvgs.Color.Dashboard, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
             React.createElement(BtnCtrl, { attributeTitle: 'Resource groups', buttonText: 'Resource groups', svgIcon: AzSvgs.Color.ResourceGroup, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton  } ),
             React.createElement(BtnCtrl, { attributeTitle: 'App Services', buttonText: 'App Services', svgIcon: AzSvgs.Color.Websites, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
@@ -171,20 +132,14 @@ export class VerticalNavigationBar extends React.Component
             React.createElement(BtnCtrl, { attributeTitle: 'Dashboard', buttonText: 'Dashboard', svgIcon: AzSvgs.Color.Dashboard, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
             React.createElement(BtnCtrl, { attributeTitle: 'Resource groups', buttonText: 'Resource groups', svgIcon: AzSvgs.Color.ResourceGroup, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
             React.createElement(BtnCtrl, { attributeTitle: 'App Services', buttonText: 'App Services', svgIcon: AzSvgs.Color.Websites, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Function Apps', buttonText: 'Function Apps', svgIcon: AzSvgs.Color.Functions, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Databases', buttonText: 'Databases', svgIcon: AzSvgs.Color.SQLDatabases, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Azure Cosmos DB', buttonText: 'Azure Cosmos DB', svgIcon: AzSvgs.Color.CosmosDB, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Virtual Machines', buttonText: 'Virtual Machines', svgIcon: AzSvgs.Color.VirtualMachines, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Load Balancer', buttonText: 'Load Balancer', svgIcon: AzSvgs.Color.LoadBalancer, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Storage Account', buttonText: 'Storage Account', svgIcon: AzSvgs.Color.Storage, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Virtual Network', buttonText: 'Virtual Network', svgIcon: AzSvgs.Color.VirtualNetworks, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Azure Active Directory', buttonText: 'Azure Active Directory', svgIcon: AzSvgs.Color.ActiveDirectory, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Advisor', buttonText: 'Advisor', svgIcon: AzSvgs.Color.Advisor, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } ),
-            //React.createElement(BtnCtrl, { attributeTitle: 'Security Center', buttonText: 'Security Center', svgIcon: AzSvgs.Color.SecurityCenter, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton   } )
+            React.createElement(BtnCtrl, { attributeTitle: 'Function Apps', buttonText: 'Function Apps', svgIcon: AzSvgs.Color.Functions, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } )
 		];
 
-		//	console.debug( "render:state", this.state.IsCollapsed );
-		//	expland/collapse button
+		let _standard_link_panel = React.createElement( 'div', { id: Utils.NewId( "std-nav" ), className: "" }, this.StandardCollection ); 
+		let _favorites_break = React.createElement( 'div', { id: Utils.NewId( "fav-break" ), className: "favorites-breaker" } );
+		let _favorites_link_panel = React.createElement( 'div', { id: Utils.NewId( "fav-nav" ), className: "" }, this.FavoritesCollection ); 
+
+		// vertical nav bar button - open/close
 		let _expand_collapse_button = React.createElement( 'div',
 				{
 					className: this.ChevronClass,
@@ -194,18 +149,16 @@ export class VerticalNavigationBar extends React.Component
                     dangerouslySetInnerHTML: Utils.CreateSvgMarkup( this.Chevron ) 
 				} );
 
-		//	extensions list panel
+		//	extensions master list panel
 		let _extensions_list_panel = React.createElement( 'div',
-			{
-				className: this.ListPanelClass,
-					title: 'Azure extension applications',
-                key: Utils.NewId(),
-				}, _extensions );
+			{	className: this.ListPanelClass, key: Utils.NewId(),
+			}, [_standard_link_panel, _favorites_break, _favorites_link_panel] );
 
 
         //	left nav container for all extensions 
 		//	console.debug( "this.state.CurrentCssClass", this.state.CurrentCssClass );
-        this.vertnavbar = React.createElement('div', { id: this.ID, className: this.MainClass }, [_expand_collapse_button, _extensions_list_panel] ); 
-		return this.vertnavbar;
+		this.VertNavBar = React.createElement( 'div', { id: this.ID, className: this.MainClass }, [_expand_collapse_button, _extensions_list_panel] ); 
+
+		return this.VertNavBar;
 	};
 };

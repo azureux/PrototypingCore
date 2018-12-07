@@ -12,6 +12,8 @@ import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/v
 import { Dashboard as HomeDashboard } from "../components/shell-controls/dashboard/dashboard.js";
 import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
+import { CreateNewExtension as Create } from "../extensions/create/create-new-ext.js";
+
 export class Application extends React.Component
 {
 	constructor( props )
@@ -33,6 +35,9 @@ export class Application extends React.Component
 		this.Users = [];
 		this.Data = [];
 		this.Notifications = [];
+
+		this.CurrentExtension = undefined;
+		this.StandardsList = [];
 
 		// for computing layout dimensions to be passed down to child components
 		this.BoundingClientRect = {};
@@ -62,13 +67,11 @@ export class Application extends React.Component
 		//	console.debug( "window.AcuityCache", window.AcuityCache );
 		//	Utils.TestCache();
 
-		//	EVENT HANDLERS
-		//	this.Handle_BodyClick = this.OnClick_HandleBodyElementClick.bind( this );
-		this.Handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
-		this.Handle_CurrentExtension = this.OnClick_VerticalNavigation_SelectNavigationItem.bind( this );
-
-		// inject CSS
+		// INJECT CSS
 		Utils.InjectControlCss( this.CssID, this.CssFile );
+
+		//	EVENT HANDLERS
+		this.Handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
 
 		return;
 	};
@@ -110,11 +113,6 @@ export class Application extends React.Component
 	};
 
 	// child control scope event handlers
-	OnClick_VerticalNavigation_SelectNavigationItem(extension)
-	{
-		console.debug( "HACK: Application.OnClick_VerticalNavigation_SelectNavigationItem: RESET TO ONLY THE CURRENTLY SELECTED NAV ITEM/EXTENSION. ALSO CALL THE CHAINED EVENT FROM THE APPPLICATION LEVEL", extension);
-		return;
-	};
 	OnClick_VertNav_OpenClose( proxyEvent )
 	{	// this param is the application.state object passed back from the child control
 		//	console.debug( "1. Application:VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
@@ -134,6 +132,7 @@ export class Application extends React.Component
 	};
 	OnClick_Test_OpenContextPanel( proxyEvent )
 	{
+		console.debug( "FIGURE OUT WHERE TO HOLD STATE< AND MAKE CONTEXT CLOSE BUTTON & APPLICATION USE THE SAMECODE" );
 		console.debug( "OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
 
 		if ( this.state.ContextPanel_IsOpen == false )
@@ -148,6 +147,14 @@ export class Application extends React.Component
 		console.debug( "OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
 		return;
 	};
+
+	//	HANDLE CYCLING LEFT NAV ITEMS
+	OnClick_SelectNavigationItem( args )
+	{
+		console.debug( "OnClick_SelectNavigationItem" , args );
+		return;
+	};
+
 
 	//	TBD
 	AssignConfiguration( oConfig )
@@ -178,12 +185,14 @@ export class Application extends React.Component
 	};
 	render()
 	{	//  React.createElement() params
-		//	1. output html element type
-		//	2. output html element attributes
-		//	3. array of child controls
-		//	console.debug( "Application::render()" );
+		//console.debug( "Application::render()" );
 		//console.debug( "this.state", this.state );
 		//console.debug( "this.props", this.props );
+
+		this.CurrentExtension = React.createElement( Create, { Application: this } );
+
+		this.StandardsList.push( this.CurrentExtension );
+
 
 		this.InitRunTimeProperties();
 		//this.AssignConfiguration( this.Configuration );
@@ -204,7 +213,10 @@ export class Application extends React.Component
             {
                 key: Utils.NewKey(),
                 Application: this,
-                NavExpanded: this.state.VerticalNavigation_IsOpen,
+				NavExpanded: this.state.VerticalNavigation_IsOpen,
+				Standards: this.StandardsList,
+				Favorites: [],
+				SelectedItem: {}
             });
 
         this.DashboardHome = React.createElement(HomeDashboard, 
@@ -212,11 +224,12 @@ export class Application extends React.Component
                 key: Utils.NewKey(),
                 Application: this,
 				NavExpanded: this.state.VerticalNavigation_IsOpen,
-				OpenContextPanel: this.OnClick_Test_OpenContextPanel
+				CurrentExtension: this.CurrentExtension
+				//	OpenContextPanel: this.OnClick_Test_OpenContextPanel
             });
  
 		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
-		console.debug( "REDNER::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
+		console.debug( "RENDER BUG::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
 		this.ContextPanel = React.createElement( ContextBlade, {
 			key: Utils.NewKey(),
 			//	currentTheme: this.ThemeName,

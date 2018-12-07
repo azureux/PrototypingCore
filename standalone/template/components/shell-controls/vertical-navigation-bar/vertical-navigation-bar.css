@@ -73,18 +73,14 @@
 	height:calc(100% - 24px);
 }
 
-/* 
-	from dashboard
-*/
-/*.dsh-brd-main
+/* favorites breaker */
+.favorites-breaker
 {
-    border-style: dashed;
-    margin: 20px;
-    padding: 20px;
-    color: rgba(255,255,255,1);
-    width: calc(100% - 260px);
-    min-width: 400px;
-    height: calc(100% - 80px);
-    left: 60px;
-    position: absolute;
-}*/
+	border: solid 1px red;
+	min-height:24px;
+}
+.favorites-breaker-collpased
+{
+	border: solid 1px red;
+	min-height:24px;
+}

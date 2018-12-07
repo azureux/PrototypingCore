@@ -8,12 +8,25 @@ export const OverrideConfig =
 	},
 	TopNavigationBar:
 	{
-		Title: "Microsoft Azure"
+		Title: "Microsoft Azure",
+		Controls: [
+			"Banner",
+			"ICMWorkspaceDropDown"
+		]
 	},
 	VerticalNavigationBar:
 	{
 		Title: "Microsoft Azure 3.0",
-		IsCollapsed: true
+		IsCollapsed: true,
+		StaticItems: [
+			"Create",
+			"home",
+			"Dashboard",
+			"All resource"
+		],
+		Items: [
+			"resource Groups"
+		]
 	},
 	Dashboard:
 	{

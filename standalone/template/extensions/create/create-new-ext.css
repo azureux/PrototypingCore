@@ -1,0 +1,11 @@
+﻿.create-new-ext
+{
+	border: solid 1px red;
+	background-color:white;
+	color:black;
+	display:block;
+	height:calc(100%);
+	width:calc(100%);
+	padding:20px;
+	overflow:auto;
+}

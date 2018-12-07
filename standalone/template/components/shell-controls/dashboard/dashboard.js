@@ -25,6 +25,10 @@ export class Dashboard extends React.Component
 			Expanded: this.Theme + " dsh-brd-main-expanded"
 		};
 		this.CurrentCssClassName = this.CssClassNames.Normal;
+
+		this.CurrentExtension = this.props.CurrentExtension;
+
+
 		this.state = {
 			IsDirty: false,
 			NavExpanded: (props.Application.state.VerticalNavigation_IsOpen || false),
@@ -55,10 +59,16 @@ export class Dashboard extends React.Component
 		//	console.debug( "Dashboard.Render", this.props.Application.state.VerticalNavigation_IsOpen);
 		//	console.debug( "Dashboard.Render", this.CurrentCssClassName );
 
+
+		//return React.createElement( 'div', {
+		//	id: this.ID,
+		//	onClick: this.Test_ContextPanel_OpenClose,
+		//	className: this.CurrentCssClassName
+		//},[`${this.Title}`,` this.DebugMessage :: ${this.DebugMessage}`] );
 		return React.createElement( 'div', {
 			id: this.ID,
-			onClick: this.Test_ContextPanel_OpenClose,
+			//	onClick: this.Test_ContextPanel_OpenClose,
 			className: this.CurrentCssClassName
-		},[`${this.Title}`,` this.DebugMessage :: ${this.DebugMessage}`] );
+		}, 	this.CurrentExtension );
 	};
 };
