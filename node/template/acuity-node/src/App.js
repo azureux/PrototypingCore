@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 class App extends Component
@@ -24,15 +24,19 @@ class App extends Component
 		return (
 			<div className="App">
 				<header>
-					<div>Preview</div>
-					<div>Microsoft Azure</div>
-					<div>Search</div>
-					<div>Console</div>
-					<div>directory switcher</div>
-					<div>Notifications</div>
-					<div>help</div>
-					<div>feedback</div>
-					<div>Acounts</div>
+					<div className="brand-panel">
+						<div>Preview</div>
+						<div>Microsoft Azure</div>
+					</div>	
+					<div className="search-panel">Search</div>
+					<div className="tools-panel">
+						<div>Console</div>
+						<div>directory switcher</div>
+						<div>Notifications</div>
+						<div>help</div>
+						<div>feedback</div>
+					</div>
+					<div className="users-panel">Acounts</div>
 				</header>
 				<main>
 					<div className="nav-panel-default">
