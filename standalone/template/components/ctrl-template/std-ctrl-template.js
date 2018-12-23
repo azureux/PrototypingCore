@@ -81,5 +81,6 @@ class StandardControlTemplate extends React.Component
 			className: this.state.currentCssClass,
 			onClick: this.handleClick
 		}, `${this.state.inner_text} : ${this.state.isClicked}` );
+	
 	};
 };
