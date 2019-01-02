@@ -9,7 +9,7 @@ import { CacheItem as cacheItem } from "../components/app-state-cache/cache-item
 import { SVG as AzureSvgs } from "../js/svg-assets.js";
 import { TopNavigationBar as TopBar } from "../components/shell-controls/top-navigation-bar/top-navigation-bar.js"; 
 import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.js";
-import { Dashboard as HomeDashboard } from "../components/shell-controls/dashboard/dashboard.js";
+import { ContentContainer as ContentContainer } from "../components/shell-controls/content-container/content-container.js";
 import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
 import { CreateNewExtension as Create } from "../extensions/create/create-new-ext.js";
@@ -219,7 +219,7 @@ export class Application extends React.Component
 				SelectedItem: {}
             });
 
-        this.DashboardHome = React.createElement(HomeDashboard, 
+        this.ContentContainer = React.createElement(ContentContainer, 
             {
                 key: Utils.NewKey(),
                 Application: this,
@@ -241,8 +241,8 @@ export class Application extends React.Component
 
 		this.Layout = [
 			this.TopNav,
-			this.VertNav,
-            this.DashboardHome,
+            this.VertNav,
+            this.ContentContainer,
 			this.ContextPanel
 			//	this.NotificationsPanel,
 			//	this.FeatureFlightsPanel
