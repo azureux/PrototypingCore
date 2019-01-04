@@ -38,7 +38,7 @@ export class TopNavigationBar extends React.Component
 		this.Banner = React.createElement("div", { id: this.ID, className: this.Theme + " banner-panel",  key: Utils.NewId() }, "Preview");
 
         //App title (Azure)
-        this.BrandTitle = React.createElement("a", { id: this.ID, className: this.Theme + " brand-title-panel", href: "https://portal.azure.com/", key: Utils.NewId() }, `${this.Title}`);
+        this.BrandTitle = React.createElement("a", { id: this.ID, className: this.Theme + " brand-title-panel", /*href: "https://portal.azure.com/",*/ key: Utils.NewId() }, `${this.Title}`);
 
 		// search
 		const _test = Data.ResourceNames.data;

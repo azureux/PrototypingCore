@@ -49,7 +49,9 @@ export class SearchBox extends React.Component
 		// inject CSS
         Utils.InjectControlCss(SearchBox.defaultProps.CssFileID, SearchBox.defaultProps.CssFile);
 		return;
-	};
+    };
+
+    //closes search results
 	OnClick_SelectResult( ev )
 	{	//	console.debug( "OnClick_SelectResult", this.DataObject );
 		let _self = this.ParentObject;
@@ -59,7 +61,8 @@ export class SearchBox extends React.Component
 			_rp.className = "results-panel";
 		},1000);
 		return;
-	};
+    };
+
 	RefreshData( thisCtrl, resultsArray )
 	{	//	console.debug( "RefreshData", resultsArray.length );
 		let _rv = [];
@@ -95,13 +98,15 @@ export class SearchBox extends React.Component
 	
 		//	console.debug( "RefreshData::_rv", _rv.length );
 		return _rv;
-	};
+    };
+
 	OnFocus_ShowResultsPanel( ev )
 	{	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
 		let _rp = document.getElementById( this.ResultsPanel_ID );
 		_rp.className = "results-panel-open";
-
-		let _results = this.RefreshData(this, this.DataSet_Temp );
+        let _results = [];
+        //id 4 quadrants here & populate with _results
+		//let _results = this.RefreshData(this, this.DataSet_Temp );
 
 		_results.forEach( function ( v, i, a )
 		{	//	console.debug( i, v );
@@ -112,7 +117,8 @@ export class SearchBox extends React.Component
 		ev.preventDefault();
 		ev.stopPropagation();
 		return;
-	};
+    };
+
 	OnBlur_CloseResultsPanel( ev )
 	{	//	console.debug("OnBlur_CloseResultsPanel");
 		ev.preventDefault();
@@ -122,10 +128,11 @@ export class SearchBox extends React.Component
 		if ( ev.relatedTarget == null || ev.relatedTarget == undefined )
 		{
 			let _rp = document.getElementById( this.ResultsPanel_ID );
-			_rp.className = "results-panel-open";
+			_rp.className = "results-panel";
 		}
 		return;
-	};
+    };
+
 	OnChange_FilterDataSet( ev )
 	{	//	console.debug( "SearchBox::OnChange_FilterDataSet", ev.target.value  );
 		this.TextValue = ev.target.value;
@@ -166,14 +173,22 @@ export class SearchBox extends React.Component
         return;
     };
 	render()
-	{
+    {
+
+        //
+        let quadrant_title = React.createElement("div",
+            {
+                id: "quadrant-title",
+                className: "quadrant-title",
+                key: Utils.NewKey(),
+            });
 		// empty results panel
 		let _results_panel = React.createElement( "div",
 			{
 				id: this.ResultsPanel_ID,
 				className: "results-panel",
 				key: Utils.NewKey(),
-            });
+            }, );
 
 		// input text box
 		let _box =	 React.createElement( "input",
@@ -181,16 +196,24 @@ export class SearchBox extends React.Component
 				id: "input-box",
 				type: "text",
 				className: "input-box-class",
-				onChange: this.handle_UserInput,
+				onChange: this.handle_UserInput, 
 				onBlur: this.handle_BoxBlur,
 				onFocus: this.handle_BoxFocus,
 				placeholder: this.PlaceholderText,
 				key: Utils.NewKey(),
-			});
-		
+            });
+
+        //let _quadrant = React.createElement("div",
+        //    {
+        //        id: "quadrant-container",
+        //        className: "search-results-container",
+        //        key: Utils.NewKey()
+        //    }, _results_panel, _results_panel);
+
+       
 		let _children = [
 			_box,
-			_results_panel
+            _results_panel,
 		];
 
 		// final element
