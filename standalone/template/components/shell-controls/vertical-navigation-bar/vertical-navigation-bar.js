@@ -135,9 +135,9 @@ export class VerticalNavigationBar extends React.Component
             React.createElement(BtnCtrl, { attributeTitle: 'Function Apps', buttonText: 'Function Apps', svgIcon: AzSvgs.Color.Functions, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed , onClickHandler: this.Handle_NavButton  } )
 		];
 
-		let _standard_link_panel = React.createElement( 'div', { id: Utils.NewId( "std-nav" ), className: "" }, this.StandardCollection ); 
-		let _favorites_break = React.createElement( 'div', { id: Utils.NewId( "fav-break" ), className: "favorites-breaker" } );
-		let _favorites_link_panel = React.createElement( 'div', { id: Utils.NewId( "fav-nav" ), className: "" }, this.FavoritesCollection ); 
+		let _standard_link_panel = React.createElement( 'div', { id: Utils.NewId( "std-nav" ), key: Utils.NewId(), className: "" }, this.StandardCollection ); 
+		let _favorites_break = React.createElement( 'div', { id: Utils.NewId( "fav-break" ), key: Utils.NewId(), className: "favorites-breaker" } );
+		let _favorites_link_panel = React.createElement( 'div', { id: Utils.NewId( "fav-nav" ), key: Utils.NewId(), className: "" }, this.FavoritesCollection ); 
 
 		// vertical nav bar button - open/close
 		let _expand_collapse_button = React.createElement( 'div',
