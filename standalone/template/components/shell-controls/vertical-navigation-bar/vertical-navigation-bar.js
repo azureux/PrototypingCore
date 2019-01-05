@@ -8,6 +8,9 @@ import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js"
 import { SVG as AzSvgs } from "../../../js/svg-assets.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
 
+import * as StandardExtensions from "../../../extensions/standards-list.js";
+//	import * as FavoritesExtensions from "../extensions/favorites-list.js";
+
 export class VerticalNavigationBar extends React.Component
 {
 	constructor( props )
@@ -53,7 +56,7 @@ export class VerticalNavigationBar extends React.Component
 		//	HANDLE SETTING THE STATE OF A SELECTED ITEM IN THE VERTICAL NAV
 		//	this.SelectedExtension = this.props.SelectedExtension;
 		//	this.props.Application.OnClick_SelectNavigationItem.bind( this.props.Application );
-		this.Handle_NavButton = this.props.Application.OnClick_SelectNavigationItem.bind( [this.props.Application, this] );
+		this.Handle_NavButton = this.props.Application.OnClick_SelectNavigationItem.bind( this.props.Application, this );
 
 		return;
 	}
@@ -107,10 +110,10 @@ export class VerticalNavigationBar extends React.Component
 
 		// DATA
 		this.StandardCollection = [
-			React.createElement( BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
-			React.createElement( BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
-            React.createElement(BtnCtrl, { attributeTitle: 'Create a resource', buttonText: 'Create a resource', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton }),
+			React.createElement( BtnCtrl, { attributeTitle: "Create New", buttonText: 'Create New', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
+			React.createElement( BtnCtrl, { attributeTitle: 'Create a 2', buttonText: 'Create a 2', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
+			React.createElement( BtnCtrl, { attributeTitle: 'Create a 3', buttonText: 'Create a 3', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } ),
+			React.createElement( BtnCtrl, { attributeTitle: 'Create a 4', buttonText: 'Create a 4', svgIcon: AzSvgs.Color.NewPlusSign, key: Utils.NewId(), IsCollapsed: this.state.IsCollapsed, onClickHandler: this.Handle_NavButton } )
 		];
 
 		this.FavoritesCollection = [

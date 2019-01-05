@@ -35,5 +35,9 @@ export const OverrideConfig =
 	ContextPanel:
 	{
 		Title: "My Azure ContextPanel"
-    }
+	},
+	ExtensionsList:
+		[
+
+		]
  };

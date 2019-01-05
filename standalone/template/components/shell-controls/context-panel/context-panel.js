@@ -56,7 +56,7 @@ export class ContextPanel extends React.Component
 	
 	render()
 	{	//	
-		console.debug( "ContextPanel.render()", this.IsVisible, this.state.IsOpen );
+		// console.debug( "ContextPanel.render()", this.IsVisible, this.state.IsOpen );
 
 		let _close_btn = React.createElement( BtnCtrl,
 			{

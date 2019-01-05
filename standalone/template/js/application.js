@@ -12,7 +12,11 @@ import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/v
 import { ContentContainer as ContentContainer } from "../components/shell-controls/content-container/content-container.js";
 import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
-import { CreateNewExtension as Create } from "../extensions/create/create-new-ext.js";
+// fixing extensions
+import * as ExtensionsList from "../extensions/all-extensions-list.js";
+import * as StandardExtensions from "../extensions/standards-list.js";
+import * as FavoritesExtensions from "../extensions/favorites-list.js";
+
 
 export class Application extends React.Component
 {
@@ -34,10 +38,12 @@ export class Application extends React.Component
 		this.Theme = {};
 		this.Users = [];
 		this.Data = [];
+
 		this.Notifications = [];
 
 		this.CurrentExtension = undefined;
 		this.StandardsList = [];
+		this.ExtensionsList = [];
 
 		// for computing layout dimensions to be passed down to child components
 		this.BoundingClientRect = {};
@@ -149,9 +155,49 @@ export class Application extends React.Component
 	};
 
 	//	HANDLE CYCLING LEFT NAV ITEMS
-	OnClick_SelectNavigationItem( args )
+	OnClick_SelectNavigationItem( args, args2 )
 	{
-		console.debug( "OnClick_SelectNavigationItem" , args );
+		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type, typeof ExtensionsArray.AllServicesExt);
+		console.debug( "TESTING WITH RANDOM EXTENSIONS, MAY MOVE TO NAVBAR" );
+		let _new_extension = undefined;
+		let _random_extension = Math.round( Math.random() * 4 );
+		//	console.debug( "_random_extension", _random_extension );
+
+		switch (_random_extension)
+		{
+			case 0: {
+				_new_extension = StandardExtensions.AllServicesExt;
+				break;
+			}
+			case 1: {
+				_new_extension = StandardExtensions.CreateNewExt;
+				break;
+			}
+			case 2: {
+				_new_extension = StandardExtensions.DashboardExt;
+				break;
+			}
+			case 3: {
+				_new_extension = StandardExtensions.HomeExt;
+				break;
+			}
+			default: {
+				_new_extension = StandardExtensions.AllServicesExt;
+				break;
+			}
+		}
+
+		if ( this.CurrentExtension.type == _new_extension )
+		{
+			this.CurrentExtension = React.createElement( StandardExtensions.CreateNewExt, { Application: this } );
+		}
+		else if ( this.CurrentExtension.type !== _new_extension )
+		{
+			this.CurrentExtension = React.createElement( _new_extension, { Application: this } );
+		}
+
+		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension );
+		this.setState( { CurrentExtension: this.CurrentExtension } );
 		return;
 	};
 
@@ -181,6 +227,7 @@ export class Application extends React.Component
 		//console.debug( "this.ClientWidth ", this.ClientWidth, document.body.clientWidth );
 		//console.debug( "this.ClientRect ", this.ClientRect, document.body.getClientRects() );
 		//console.debug( "this.BoundingClientRect", this.BoundingClientRect, document.body.getBoundingClientRect() );
+		console.debug( "ADD PATH TO EXTENSION RESOLUTION" );
 		return;
 	};
 	render()
@@ -188,15 +235,17 @@ export class Application extends React.Component
 		//console.debug( "Application::render()" );
 		//console.debug( "this.state", this.state );
 		//console.debug( "this.props", this.props );
+		this.InitRunTimeProperties();
 
-		this.CurrentExtension = React.createElement( Create, { Application: this } );
+		//	console.debug( "1.app:render:", this.CurrentExtension );
+		if ( this.CurrentExtension == undefined )
+		{
+			this.CurrentExtension = React.createElement( StandardExtensions.CreateNewExt, { Application: this } );
+			// this.setState( { CurrentExtension: this.CurrentExtension } );
+		}
+		//console.debug( "2.app:render:", this.CurrentExtension.type);
 
 		this.StandardsList.push( this.CurrentExtension );
-
-
-		this.InitRunTimeProperties();
-		//this.AssignConfiguration( this.Configuration );
-		//this.AssignDefaultState( this.state );
 
         this.TopNav = React.createElement(TopBar,
 			{
@@ -207,8 +256,8 @@ export class Application extends React.Component
 				stateTest: this.state
             });
 
-		//	console.debug( "1. Application:Render", this.state.VerticalNavigation_IsOpen );
-		//console.debug( "2. Application:Render", this.props.VerticalNavigationBar.IsCollapsed );
+		//	console.debug( "1. Application:Render::this.state.VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
+		//	console.debug( "2. Application:Render::this.props.VerticalNavigationBar.IsCollapsed", this.props.VerticalNavigationBar.IsCollapsed );
         this.VertNav = React.createElement(LeftNav, 
             {
                 key: Utils.NewKey(),
@@ -229,7 +278,7 @@ export class Application extends React.Component
             });
  
 		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
-		console.debug( "RENDER BUG::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
+		//	console.debug( "RENDER BUG::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
 		this.ContextPanel = React.createElement( ContextBlade, {
 			key: Utils.NewKey(),
 			//	currentTheme: this.ThemeName,
