@@ -22,40 +22,45 @@
     border-radius: 2px;
 }
 
-.results-panel
-{
-	border: solid 1px rgba(128,128,128,1);
-	box-shadow: 0px 4px 10px 4px rgba(0,0,0,0.5);
-	background-color: rgba(242,242,242,1);
-	color: rgba(0,0,0,1);
-	position:absolute;
-	top:36px;
-	min-width:calc(292px);
-	width:calc(460px);
-	min-height:calc(auto);
-	max-height: calc(50%);
-	overflow:auto;
-	padding:5px;
-	margin:0px;
-	display:none;
-	z-index:1;
-}
-.results-panel-open {
-    border: solid 1px rgba(128,128,128,1);
+.results-panel {
+    border: 1px solid #aeaeae;
+    border-radius:3px;
     box-shadow: 2px 4px 28px -5px rgba(0,0,0,0.58);
     background-color: #ffffff;
     color: rgba(0,0,0,1);
     position: absolute;
-    top: 36px;
-    /*min-width:calc(292px);*/
+    top: 40px;
+    /* min-width: calc(292px); */
     width: calc(800px);
-    min-height: calc(1%);
-    max-height: 648px;
+    /* min-height: calc(1%); */
+    height: fit-content;
     overflow: auto;
-    padding: 5px;
+    /* padding: 5px; */
     margin: 0px;
     z-index: 1;
     display: inline-block;
+    display: none;
+    flex-wrap: wrap;
+}
+.results-panel-open {
+    border: 1px solid #aeaeae;
+    border-radius: 3px;
+    box-shadow: 2px 4px 28px -5px rgba(0,0,0,0.58);
+    background-color: #ffffff;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 40px;
+    /* min-width: calc(292px); */
+    width: calc(800px);
+    /* min-height: calc(1%); */
+    height: fit-content;
+    overflow: auto;
+    /* padding: 5px; */
+    margin: 0px;
+    z-index: 1;
+    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -85,4 +90,35 @@
 {
 	font-size: 13px;
 	color: rgba(64,64,64,1);
+}
+
+.quadrant {
+    width:50%;
+    height:100px;
+}
+
+.quadrant-title {
+    width: 100%;
+    display: flex;
+    padding: 8px 17px;
+}
+
+.quadrant-title-text {
+    color: #000;
+    font-size: 13px;
+}
+
+.divider {
+    flex: 1 2 auto;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    height: 9px;
+    margin: 0 10px;
+    border-color: rgba(204,204,204,.8);
+}
+.see-more {
+    color: #005BD8;
+    font-size: 11px;
+    width: auto;
+    cursor: pointer;
 }

@@ -27,7 +27,9 @@ export class SearchBox extends React.Component
 		this.PlaceholderText = "Search all resources";
 		this.Icon = "";
 		this.DataSet = props.DataSet || [];
-		this.DataSet_Temp = props.DataSet || [];
+        this.DataSet_Temp = props.DataSet || [];
+        this.Quadrant_Title_Name = "Quadnrant title";
+        this.Search_Results_Num = "See more";
 
 		// result panel properties
 		this.Has_QuickResultPanel = props.HasResultsPanel || false;
@@ -105,6 +107,7 @@ export class SearchBox extends React.Component
 		let _rp = document.getElementById( this.ResultsPanel_ID );
 		_rp.className = "results-panel-open";
         let _results = [];
+
         //id 4 quadrants here & populate with _results
 		//let _results = this.RefreshData(this, this.DataSet_Temp );
 
@@ -116,7 +119,7 @@ export class SearchBox extends React.Component
 
 		ev.preventDefault();
 		ev.stopPropagation();
-		return;
+		return ;
     };
 
 	OnBlur_CloseResultsPanel( ev )
@@ -174,21 +177,48 @@ export class SearchBox extends React.Component
     };
 	render()
     {
+        let _quadrant_title_text = React.createElement("div",
+            {
+                id: "quadrant-title-text",
+                className: "quadrant-title-text",
+                key: Utils.NewKey(),
+            }, this.Quadrant_Title_Name );
 
-        //
-        let quadrant_title = React.createElement("div",
+        let _divider = React.createElement("div",
+            {
+                id: "divider",
+                className: "divider",
+                key: Utils.NewKey(),
+            });
+
+        let _see_more = React.createElement("div",
+            {
+                id: "see-more",
+                className: "see-more",
+                key: Utils.NewKey(),
+            }, this.Search_Results_Num);
+
+        let _quadrant_title = React.createElement("div",
             {
                 id: "quadrant-title",
                 className: "quadrant-title",
                 key: Utils.NewKey(),
-            });
+            }, _quadrant_title_text, _divider, _see_more);
+
+        let _quadrant = React.createElement("div",
+            {
+                id: "quadrant",
+                className: "quadrant",
+                key: Utils.NewKey(),
+            }, _quadrant_title);
+
 		// empty results panel
 		let _results_panel = React.createElement( "div",
 			{
 				id: this.ResultsPanel_ID,
 				className: "results-panel",
 				key: Utils.NewKey(),
-            }, );
+            }, _quadrant, _quadrant, _quadrant, _quadrant);
 
 		// input text box
 		let _box =	 React.createElement( "input",
