@@ -177,13 +177,15 @@ export class SearchBox extends React.Component
     };
 	render()
     {
+        //sections of quantrant title container 
         let _quadrant_title_text = React.createElement("div",
             {
                 id: "quadrant-title-text",
                 className: "quadrant-title-text",
                 key: Utils.NewKey(),
-            }, this.Quadrant_Title_Name );
+            }, this.Quadrant_Title_Name);
 
+        //sections of quantrant title container 
         let _divider = React.createElement("div",
             {
                 id: "divider",
@@ -191,6 +193,7 @@ export class SearchBox extends React.Component
                 key: Utils.NewKey(),
             });
 
+        //sections of quantrant title container 
         let _see_more = React.createElement("div",
             {
                 id: "see-more",
@@ -198,19 +201,42 @@ export class SearchBox extends React.Component
                 key: Utils.NewKey(),
             }, this.Search_Results_Num);
 
-        let _quadrant_title = React.createElement("div",
+        //quandrant title container
+        let _quadrant_title_container = React.createElement("div",
             {
                 id: "quadrant-title",
                 className: "quadrant-title",
                 key: Utils.NewKey(),
             }, _quadrant_title_text, _divider, _see_more);
 
-        let _quadrant = React.createElement("div",
+        //quadrant itself
+        let _quadrant1 = React.createElement("div",
             {
                 id: "quadrant",
                 className: "quadrant",
                 key: Utils.NewKey(),
-            }, _quadrant_title);
+            }, _quadrant_title_container);
+
+        let _quadrant2 = React.createElement("div",
+            {
+                id: "quadrant",
+                className: "quadrant",
+                key: Utils.NewKey(),
+            }, _quadrant_title_container);
+
+        let _quadrant3 = React.createElement("div",
+            {
+                id: "quadrant",
+                className: "quadrant",
+                key: Utils.NewKey(),
+            }, _quadrant_title_container);
+
+        let _quadrant4 = React.createElement("div",
+            {
+                id: "quadrant",
+                className: "quadrant",
+                key: Utils.NewKey(),
+            }, _quadrant_title_container);
 
 		// empty results panel
 		let _results_panel = React.createElement( "div",
@@ -218,7 +244,7 @@ export class SearchBox extends React.Component
 				id: this.ResultsPanel_ID,
 				className: "results-panel",
 				key: Utils.NewKey(),
-            }, _quadrant, _quadrant, _quadrant, _quadrant);
+            }, _quadrant1, _quadrant2, _quadrant3, _quadrant4);
 
 		// input text box
 		let _box =	 React.createElement( "input",
