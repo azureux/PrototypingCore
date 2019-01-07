@@ -109,7 +109,7 @@ export class SearchBox extends React.Component
         let _results = [];
 
         //id 4 quadrants here & populate with _results
-		//let _results = this.RefreshData(this, this.DataSet_Temp );
+		_results = this.RefreshData(this, this.DataSet_Temp );
 
 		_results.forEach( function ( v, i, a )
 		{	//	console.debug( i, v );
@@ -119,7 +119,7 @@ export class SearchBox extends React.Component
 
 		ev.preventDefault();
 		ev.stopPropagation();
-		return ;
+		return;
     };
 
 	OnBlur_CloseResultsPanel( ev )
@@ -258,14 +258,6 @@ export class SearchBox extends React.Component
 				placeholder: this.PlaceholderText,
 				key: Utils.NewKey(),
             });
-
-        //let _quadrant = React.createElement("div",
-        //    {
-        //        id: "quadrant-container",
-        //        className: "search-results-container",
-        //        key: Utils.NewKey()
-        //    }, _results_panel, _results_panel);
-
        
 		let _children = [
 			_box,
