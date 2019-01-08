@@ -39,7 +39,7 @@
     margin: 0px;
     z-index: 1;
     display: inline-block;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
 }
 .results-panel-open {
@@ -93,8 +93,9 @@
 }
 
 .quadrant {
-    width:50%;
-    height:100px;
+    width: 50%;
+    height: 220px;
+    overflow: hidden;
 }
 
 .quadrant-title {

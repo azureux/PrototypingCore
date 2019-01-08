@@ -103,10 +103,13 @@ export class SearchBox extends React.Component
     };
 
 	OnFocus_ShowResultsPanel( ev )
-	{	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
-		let _rp = document.getElementById( this.ResultsPanel_ID );
-       // let _rp = document.getElementById(quadrant);
-		_rp.className = "results-panel-open";
+    {	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
+
+        //let _rp = document.getElementById(this.ResultsPanel_ID);
+        let _rp = document.getElementById("quadrant");
+
+        let panel = document.getElementById(this.ResultsPanel_ID);
+        panel.className = "results-panel-open";
         let _results = [];
 
         //id 4 quadrants here & populate with _results
@@ -149,24 +152,27 @@ export class SearchBox extends React.Component
 			if ( item.name.toLowerCase().includes( _query.toLowerCase() )  )
 			{ 
 				return item;
+                //console.log("Return matches");
 			}
 			else
-			{
+            {
+                //returns nothing
 				return;
 			}
 		}, _query );
 		//	console.debug( "_results", _results.length );
 
 		let _elements = this.RefreshData( this, _results );
-
-        //let _rp = document.getElementById(quadrant);
-		let _rp = document.getElementById( this.ResultsPanel_ID );
+        
+        //let _rp = document.getElementById(this.ResultsPanel_ID);
+        let _rp = document.getElementById("quadrant");
+        let panel = document.getElementById(this.ResultsPanel_ID);
 		//	console.debug( "_rp", _rp );
 		if ( _rp !== undefined || _rp !== null )
 		{
 			_rp.innerHTML = "";
 			//	_rp.style.display = "inline-block";
-			_rp.className = "results-panel-open";
+            panel.className = "results-panel-open";
 
 			_elements.forEach( function ( v, i, a )
 			{	//	console.debug( i, v );
@@ -219,7 +225,7 @@ export class SearchBox extends React.Component
         for (let i = 0; i < 4; i++) {
             let _quad = React.createElement("div",
                 {
-                    id: "quadrant" + (i+1),
+                    id: "quadrant", // + (i+1),
                     className: "quadrant",
                     key: Utils.NewKey(),
                 }, _quadrant_title_container);
