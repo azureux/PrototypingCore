@@ -1,4 +1,4 @@
-﻿.ExtensionBase
+﻿/*.ExtensionBase
 {
 	border: solid 10px red;
 	background-color:rgba(32,32,32,1);
@@ -8,14 +8,4 @@
 	width:calc(100%);
 	padding:20px;
 	overflow:auto;
-}
-.test-title
-{
-	margin-bottom:20px;
-	font-size:32px;
-}
-.test-icon
-{
-	width:100px;
-	height:100px;
-}
+}*/

@@ -29,4 +29,5 @@ export class DashboardExtension extends ExtBase
 	{
 		return Dashboard_PropertyBag._icon;
 	};
+
 };

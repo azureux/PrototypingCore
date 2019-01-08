@@ -542,6 +542,18 @@ class _Utilities
 		if ( _found !== true ) document.head.insertBefore( _css, document.head.childNodes[4] );
 		return;
 	};
+	static RemoveInjectedCss( id, filePath )
+	{	//	console.debug( "Utilities.RemoveInjectedCss", id, filePath );
+		let _css_link = document.getElementById( id );
+		//	console.debug( "_css_link", _css_link );
+
+		if ( _css_link !== undefined || _css_link !== null )
+		{
+			_css_link.remove(); 
+		}
+		return;
+	};
+
 	static CreateSvgMarkup( svgIcon )
 	{	//	console.debug( "CreateSvgMarkup", svgIcon );
 		return { __html: svgIcon };

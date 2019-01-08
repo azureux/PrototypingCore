@@ -19,7 +19,6 @@ export class CreateNewExtension extends ExtBase
 
 		this.Init( CreateNew_PropertyBag );
 
-		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	static Title()

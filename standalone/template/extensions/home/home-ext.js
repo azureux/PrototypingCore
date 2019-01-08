@@ -29,4 +29,5 @@ export class HomePageExtension extends ExtBase
 	{
 		return HomePage_PropertyBag._icon;
 	};
+
 };

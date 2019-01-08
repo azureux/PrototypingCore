@@ -29,7 +29,7 @@ export class ExtensionBase extends React.Component
 		this.DefaultCssClass = this._ext_name;
 
 		this.Init( ExtensionBase_PropertyBag );
-		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		//	this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	Init(_property_bag)
@@ -51,6 +51,23 @@ export class ExtensionBase extends React.Component
 	static Icon()
 	{
 		return ExtensionBase_PropertyBag._icon;
+	};
+	componentWillMount()
+	{
+		//	console.debug( "componentWillMount" );
+		return;
+	};
+	componentDidMount()
+	{
+		//	console.debug( "componentDidMount" );
+		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		return;
+	};
+	componentWillUnmount()
+	{
+		//	console.debug( "componentWillUnmount--REMOVE CSS" );
+		this.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
+		return;
 	};
 	render()
 	{

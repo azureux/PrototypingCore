@@ -9,3 +9,13 @@
 	padding:20px;
 	overflow:auto;
 }
+.test-title
+{
+	margin-bottom:20px;
+	font-size:32px;
+}
+.test-icon
+{
+	width:100px;
+	height:100px;
+}
