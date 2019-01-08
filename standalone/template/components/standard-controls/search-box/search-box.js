@@ -105,6 +105,7 @@ export class SearchBox extends React.Component
 	OnFocus_ShowResultsPanel( ev )
 	{	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
 		let _rp = document.getElementById( this.ResultsPanel_ID );
+       // let _rp = document.getElementById(quadrant);
 		_rp.className = "results-panel-open";
         let _results = [];
 
@@ -131,7 +132,9 @@ export class SearchBox extends React.Component
 		if ( ev.relatedTarget == null || ev.relatedTarget == undefined )
 		{
 			let _rp = document.getElementById( this.ResultsPanel_ID );
-			_rp.className = "results-panel";
+            //let _rp = document.getElementById( quadrant );
+
+            _rp.className = "results-panel";
 		}
 		return;
     };
@@ -156,6 +159,7 @@ export class SearchBox extends React.Component
 
 		let _elements = this.RefreshData( this, _results );
 
+        //let _rp = document.getElementById(quadrant);
 		let _rp = document.getElementById( this.ResultsPanel_ID );
 		//	console.debug( "_rp", _rp );
 		if ( _rp !== undefined || _rp !== null )
@@ -239,6 +243,7 @@ export class SearchBox extends React.Component
             }, _quadrant_title_container);
 
 		// empty results panel
+        //results
 		let _results_panel = React.createElement( "div",
 			{
 				id: this.ResultsPanel_ID,
