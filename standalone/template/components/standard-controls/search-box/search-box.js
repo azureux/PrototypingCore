@@ -105,22 +105,9 @@ export class SearchBox extends React.Component
 	OnFocus_ShowResultsPanel( ev )
     {	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
 
-        //let _rp = document.getElementById(this.ResultsPanel_ID);
-        let _rp = document.getElementById("quadrant");
-
         let panel = document.getElementById(this.ResultsPanel_ID);
         panel.className = "results-panel-open";
-        let _results = [];
-
-        //id 4 quadrants here & populate with _results
-		_results = this.RefreshData(this, this.DataSet_Temp );
-
-		_results.forEach( function ( v, i, a )
-		{	//	console.debug( i, v );
-			_rp.appendChild( v );
-			return;
-		} );
-
+        
 		ev.preventDefault();
 		ev.stopPropagation();
 		return;
@@ -147,6 +134,14 @@ export class SearchBox extends React.Component
 		this.TextValue = ev.target.value;
 		let _query = this.TextValue;
 
+        //let _rp = document.getElementById(this.ResultsPanel_ID);
+        let _rp1 = document.getElementById("quadrant-results1");
+        let _rp2 = document.getElementById("quadrant-results2");
+        let _rp3 = document.getElementById("quadrant-results3");
+        let _rp4 = document.getElementById("quadrant-results4");
+
+        //id 4 quadrants here & populate with _results
+        //  let _results = this.RefreshData(this, this.DataSet_Temp);
 		let _results = this.DataSet.filter( function ( item )
 		{
 			if ( item.name.toLowerCase().includes( _query.toLowerCase() )  )
@@ -159,27 +154,64 @@ export class SearchBox extends React.Component
                 //returns nothing
 				return;
 			}
-		}, _query );
-		//	console.debug( "_results", _results.length );
+        }, _query);
+		console.debug( "_results", _results.length );
 
 		let _elements = this.RefreshData( this, _results );
-        
-        //let _rp = document.getElementById(this.ResultsPanel_ID);
-        let _rp = document.getElementById("quadrant");
-        let panel = document.getElementById(this.ResultsPanel_ID);
-		//	console.debug( "_rp", _rp );
-		if ( _rp !== undefined || _rp !== null )
-		{
-			_rp.innerHTML = "";
-			//	_rp.style.display = "inline-block";
-            panel.className = "results-panel-open";
 
-			_elements.forEach( function ( v, i, a )
-			{	//	console.debug( i, v );
-				_rp.appendChild( v );
-				return;
-			} );
-		}
+        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
+            _rp1.appendChild(v);
+            return;
+        });
+
+        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
+            _rp2.appendChild(v);
+            return;
+        });
+
+        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
+            _rp3.appendChild(v);
+            return;
+        });
+
+        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
+            _rp4.appendChild(v);
+            return;
+        });
+
+		//let _results = this.DataSet.filter( function ( item )
+		//{
+		//	if ( item.name.toLowerCase().includes( _query.toLowerCase() )  )
+		//	{ 
+		//		return item;
+  //              //console.log("Return matches");
+		//	}
+		//	else
+  //          {
+  //              //returns nothing
+		//		return;
+		//	}
+		//}, _query );
+		////	console.debug( "_results", _results.length );
+
+		//let _elements = this.RefreshData( this, _results );
+        
+  //      //let _rp = document.getElementById(this.ResultsPanel_ID);
+  //      let _rp = document.getElementById("quadrant-results");
+  //      let panel = document.getElementById(this.ResultsPanel_ID);
+		////	console.debug( "_rp", _rp );
+		//if ( _rp !== undefined || _rp !== null )
+		//{
+		//	_rp.innerHTML = "";
+		//	//	_rp.style.display = "inline-block";
+  //          panel.className = "results-panel-open";
+
+		//	_elements.forEach( function ( v, i, a )
+		//	{	//	console.debug( i, v );
+		//		_rp.appendChild( v );
+		//		return;
+		//	} );
+		//}
 	
 		ev.preventDefault();
 		ev.stopPropagation();
@@ -212,23 +244,33 @@ export class SearchBox extends React.Component
             }, this.Search_Results_Num);
 
         //quandrant title container
-        let _quadrant_title_container = React.createElement("div",
-            {
-                id: "quadrant-title",
-                className: "quadrant-title",
-                key: Utils.NewKey(),
-            }, _quadrant_title_text, _divider, _see_more);
 
-        //generate 4 quadrants w different IDs
+
+        //empty array generate 4 quadrants w different IDs
         let quad_cont = [];
 
         for (let i = 0; i < 4; i++) {
+
+            let _quadrant_title_container = React.createElement("div",
+                {
+                    id: "quadrant-title" + (i + 1),
+                    className: "quadrant-title",
+                    key: Utils.NewKey(),
+                }, _quadrant_title_text, _divider, _see_more);
+
+            let _results_div = React.createElement("div",
+                {
+                    id: "quadrant-results" + (i + 1),
+                    className: "quadrant-results",
+                    key: Utils.NewKey(),
+                });
+
             let _quad = React.createElement("div",
                 {
-                    id: "quadrant", // + (i+1),
+                    id: "quadrant" + (i+1),
                     className: "quadrant",
                     key: Utils.NewKey(),
-                }, _quadrant_title_container);
+                }, _quadrant_title_container, _results_div);
             quad_cont.push(_quad);
         }
         
