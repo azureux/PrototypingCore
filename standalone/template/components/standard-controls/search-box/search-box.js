@@ -213,35 +213,19 @@ export class SearchBox extends React.Component
                 key: Utils.NewKey(),
             }, _quadrant_title_text, _divider, _see_more);
 
-        //quadrant itself
-        let _quadrant1 = React.createElement("div",
-            {
-                id: "quadrant",
-                className: "quadrant",
-                key: Utils.NewKey(),
-            }, _quadrant_title_container);
+        //generate 4 quadrants w different IDs
+        let quad_cont = [];
 
-        let _quadrant2 = React.createElement("div",
-            {
-                id: "quadrant",
-                className: "quadrant",
-                key: Utils.NewKey(),
-            }, _quadrant_title_container);
-
-        let _quadrant3 = React.createElement("div",
-            {
-                id: "quadrant",
-                className: "quadrant",
-                key: Utils.NewKey(),
-            }, _quadrant_title_container);
-
-        let _quadrant4 = React.createElement("div",
-            {
-                id: "quadrant",
-                className: "quadrant",
-                key: Utils.NewKey(),
-            }, _quadrant_title_container);
-
+        for (let i = 0; i < 4; i++) {
+            let _quad = React.createElement("div",
+                {
+                    id: "quadrant" + (i+1),
+                    className: "quadrant",
+                    key: Utils.NewKey(),
+                }, _quadrant_title_container);
+            quad_cont.push(_quad);
+        }
+        
 		// empty results panel
         //results
 		let _results_panel = React.createElement( "div",
@@ -249,7 +233,7 @@ export class SearchBox extends React.Component
 				id: this.ResultsPanel_ID,
 				className: "results-panel",
 				key: Utils.NewKey(),
-            }, _quadrant1, _quadrant2, _quadrant3, _quadrant4);
+            }, quad_cont);
 
 		// input text box
 		let _box =	 React.createElement( "input",

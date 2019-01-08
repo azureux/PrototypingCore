@@ -39,7 +39,7 @@
     margin: 0px;
     z-index: 1;
     display: inline-block;
-    display: none;
+    display: flex;
     flex-wrap: wrap;
 }
 .results-panel-open {
