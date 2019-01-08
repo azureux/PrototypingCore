@@ -1,0 +1,36 @@
+﻿		//let _new_extension = undefined;
+		//let _random_extension = Math.round( Math.random() * 4 );
+		////	console.debug( "_random_extension", _random_extension );
+
+		//switch (_random_extension)
+		//{
+		//	case 0: {
+		//		_new_extension = StandardExtensions.AllServicesExt;
+		//		break;
+		//	}
+		//	case 1: {
+		//		_new_extension = StandardExtensions.CreateNewExt;
+		//		break;
+		//	}
+		//	case 2: {
+		//		_new_extension = StandardExtensions.DashboardExt;
+		//		break;
+		//	}
+		//	case 3: {
+		//		_new_extension = StandardExtensions.HomeExt;
+		//		break;
+		//	}
+		//	default: {
+		//		_new_extension = StandardExtensions.AllServicesExt;
+		//		break;
+		//	}
+		//}
+
+		//if ( this.CurrentExtension.type == _new_extension )
+		//{
+		//	this.CurrentExtension = React.createElement( StandardExtensions.CreateNewExt, { Application: this } );
+		//}
+		//else if ( this.CurrentExtension.type !== _new_extension )
+		//{
+		//	this.CurrentExtension = React.createElement( _new_extension, { Application: this } );
+		//}

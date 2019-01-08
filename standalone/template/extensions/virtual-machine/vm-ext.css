@@ -1,6 +1,6 @@
-﻿.CreateNewExtension
+﻿.VirtualMachineExtension
 {
-	border: solid 20px pink;
+	border: solid 20px rgba(245, 0, 255,1);
 	background-color:white;
 	color:black;
 	display:block;

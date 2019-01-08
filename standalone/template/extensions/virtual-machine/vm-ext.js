@@ -4,29 +4,29 @@
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 
-const Dashboard_PropertyBag = {
-	_title : "My Azure Dashboard",
-	_icon : ExtBase.Icons().Color.Dashboard,
-	_css_id : "dashboard-ext-css",
-	_css_path : "extensions/dashboard/dashboard-ext.css"
+const VirtualMachine_PropertyBag = {
+	_title :  "Virtual Machines",
+	_icon : ExtBase.Icons().Color.VirtualMachines,
+	_css_id : "vm-ext-css",
+	_css_path : "extensions/virtual-machine/vm-ext.css"
 };
 
-export class DashboardExtension extends ExtBase 
+export class VirtualMachineExtension extends ExtBase
 {
 	constructor( props )
 	{
 		super( props );
 
-		this.Init( Dashboard_PropertyBag );
+		this.Init( VirtualMachine_PropertyBag );
 		this.Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
 	static Title()
 	{
-		return Dashboard_PropertyBag._title;
+		return VirtualMachine_PropertyBag._title;
 	};
 	static Icon()
 	{
-		return Dashboard_PropertyBag._icon;
+		return VirtualMachine_PropertyBag._icon;
 	};
 };

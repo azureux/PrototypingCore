@@ -14,6 +14,7 @@ export class ButtonControl extends React.Component
         
 		//properties
 		this.Id = this.props.id;
+		//	this.Object = this.props.objectType;
         this.Application = this.props.Application;
         this.Title = this.props.buttonText || "Button";
 		this.SvgIcon = this.props.svgIcon || undefined;
@@ -121,8 +122,8 @@ export class ButtonControl extends React.Component
                 className: _btn_class,
 				onClick: (ev) =>
 				{
-					this.HandleClick(ev);
-					this.NavigationClick(ev);
+					this.HandleClick( ev );
+					this.NavigationClick( ev, this.props.extensionObject );
 				},
                 title: this.state.AltTextTitle,
                 key: Utils.NewId(),

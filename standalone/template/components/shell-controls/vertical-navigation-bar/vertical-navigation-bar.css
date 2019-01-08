@@ -76,11 +76,26 @@
 /* favorites breaker */
 .favorites-breaker
 {
-	border: solid 1px red;
+	/*border: solid 1px red;*/
 	min-height:24px;
+    height: 28px;
+	width:100%;
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
 }
 .favorites-breaker-collpased
 {
 	border: solid 1px red;
 	min-height:24px;
+}
+.favorites-breaker > svg
+{
+	/*border: solid 1px green;*/
+	margin:0px;
+	padding:0px;
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
+	/*background-color:rgba(128, 128, 128, 0.5);*/
 }

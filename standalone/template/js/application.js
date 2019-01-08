@@ -13,9 +13,9 @@ import { ContentContainer as ContentContainer } from "../components/shell-contro
 import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
 // fixing extensions
-import * as ExtensionsList from "../extensions/all-extensions-list.js";
-import * as StandardExtensions from "../extensions/standards-list.js";
-import * as FavoritesExtensions from "../extensions/favorites-list.js";
+//	import * as ExtensionsList from "../extensions/all-extensions-list.js";
+import { StandardExtensionsList as StandardExtensions } from "../extensions/standards-list.js";
+//	import * as FavoritesExtensions from "../extensions/favorites-list.js";
 
 
 export class Application extends React.Component
@@ -42,8 +42,9 @@ export class Application extends React.Component
 		this.Notifications = [];
 
 		this.CurrentExtension = undefined;
-		this.StandardsList = [];
-		this.ExtensionsList = [];
+		this.Standards_ExtensionList = [];
+		this.Favorites_ExtensionList = [];
+		this.All_ExtensionsList = [];
 
 		// for computing layout dimensions to be passed down to child components
 		this.BoundingClientRect = {};
@@ -56,7 +57,7 @@ export class Application extends React.Component
 		// state
 		this.state = {
 			CurrentUser: {},
-			CurrentExtension: {},
+			CurrentExtension: "",
 			CurrentTheme: {},
 			CurrentThemeName: this.ThemeName,
 			VerticalNavigation_IsOpen: false,
@@ -155,49 +156,14 @@ export class Application extends React.Component
 	};
 
 	//	HANDLE CYCLING LEFT NAV ITEMS
-	OnClick_SelectNavigationItem( args, args2 )
+	OnClick_SelectNavigationItem( extension )
 	{
-		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type, typeof ExtensionsArray.AllServicesExt);
-		console.debug( "TESTING WITH RANDOM EXTENSIONS, MAY MOVE TO NAVBAR" );
-		let _new_extension = undefined;
-		let _random_extension = Math.round( Math.random() * 4 );
-		//	console.debug( "_random_extension", _random_extension );
+		console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name );
+		this.CurrentExtension = React.createElement( extension, { Application: this } );
+		console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name );
 
-		switch (_random_extension)
-		{
-			case 0: {
-				_new_extension = StandardExtensions.AllServicesExt;
-				break;
-			}
-			case 1: {
-				_new_extension = StandardExtensions.CreateNewExt;
-				break;
-			}
-			case 2: {
-				_new_extension = StandardExtensions.DashboardExt;
-				break;
-			}
-			case 3: {
-				_new_extension = StandardExtensions.HomeExt;
-				break;
-			}
-			default: {
-				_new_extension = StandardExtensions.AllServicesExt;
-				break;
-			}
-		}
-
-		if ( this.CurrentExtension.type == _new_extension )
-		{
-			this.CurrentExtension = React.createElement( StandardExtensions.CreateNewExt, { Application: this } );
-		}
-		else if ( this.CurrentExtension.type !== _new_extension )
-		{
-			this.CurrentExtension = React.createElement( _new_extension, { Application: this } );
-		}
-
-		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension );
-		this.setState( { CurrentExtension: this.CurrentExtension } );
+		this.setState( { CurrentExtension: this.CurrentExtension.name } );
+	
 		return;
 	};
 
@@ -240,12 +206,10 @@ export class Application extends React.Component
 		//	console.debug( "1.app:render:", this.CurrentExtension );
 		if ( this.CurrentExtension == undefined )
 		{
-			this.CurrentExtension = React.createElement( StandardExtensions.CreateNewExt, { Application: this } );
+			this.CurrentExtension = React.createElement( StandardExtensions[0], { Application: this } );
 			// this.setState( { CurrentExtension: this.CurrentExtension } );
 		}
 		//console.debug( "2.app:render:", this.CurrentExtension.type);
-
-		this.StandardsList.push( this.CurrentExtension );
 
         this.TopNav = React.createElement(TopBar,
 			{
@@ -263,9 +227,9 @@ export class Application extends React.Component
                 key: Utils.NewKey(),
                 Application: this,
 				NavExpanded: this.state.VerticalNavigation_IsOpen,
-				Standards: this.StandardsList,
-				Favorites: [],
-				SelectedItem: {}
+				Standards: StandardExtensions,
+				Favorites: this.Favorites_ExtensionList,
+				SelectedItem: this.CurrentExtension
             });
 
         this.ContentContainer = React.createElement(ContentContainer, 
@@ -305,9 +269,8 @@ export class Application extends React.Component
 				//	onClick: this.OnClick_HandleBodyElementClick.bind( this ),
 				//	onClick: this.Handle_BodyClick,
 				key: Utils.NewId()
-			},
-			this.Layout
-		);
+			}, this.Layout );
+
 		return _app;
 	};
 };
