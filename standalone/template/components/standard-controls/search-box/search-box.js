@@ -134,15 +134,29 @@ export class SearchBox extends React.Component
 		this.TextValue = ev.target.value;
 		let _query = this.TextValue;
 
-        //let _rp = document.getElementById(this.ResultsPanel_ID);
+        //doesnt replace whats existing just appends MORE to the bottom of the list. 
         let _rp1 = document.getElementById("quadrant-results1");
         let _rp2 = document.getElementById("quadrant-results2");
         let _rp3 = document.getElementById("quadrant-results3");
         let _rp4 = document.getElementById("quadrant-results4");
 
-        //id 4 quadrants here & populate with _results
-        //  let _results = this.RefreshData(this, this.DataSet_Temp);
-		let _results = this.DataSet.filter( function ( item )
+        while (_rp1.firstChild) {
+            _rp1.removeChild(_rp1.firstChild);
+        }
+
+        while (_rp2.firstChild) {
+            _rp2.removeChild(_rp2.firstChild);
+        }
+
+        while (_rp3.firstChild) {
+            _rp3.removeChild(_rp3.firstChild);
+        }
+
+        while (_rp4.firstChild) {
+            _rp4.removeChild(_rp4.firstChild);
+        }
+
+		let _results1 = this.DataSet.filter( function ( item )
 		{
 			if ( item.name.toLowerCase().includes( _query.toLowerCase() )  )
 			{ 
@@ -155,63 +169,73 @@ export class SearchBox extends React.Component
 				return;
 			}
         }, _query);
-		console.debug( "_results", _results.length );
+        let _results2 = this.DataSet.filter(function (item) {
+            if (item.name.toLowerCase().includes(_query.toLowerCase())) {
+                return item;
+                //console.log("Return matches");
+            }
+            else {
+                //returns nothing
+                return;
+            }
+        }, _query);
+        let _results3 = this.DataSet.filter(function (item) {
+            if (item.name.toLowerCase().includes(_query.toLowerCase())) {
+                return item;
+                //console.log("Return matches");
+            }
+            else {
+                //returns nothing
+                return;
+            }
+        }, _query);
+        let _results4 = this.DataSet.filter(function (item) {
+            if (item.name.toLowerCase().includes(_query.toLowerCase())) {
+                return item;
+                //console.log("Return matches");
+            }
+            else {
+                //returns nothing
+                return;
+            }
+        }, _query);
 
-		let _elements = this.RefreshData( this, _results );
+        _results1.forEach(function (v, i, a) {	//	console.debug( i, v );
+            //console.log("i", i);
+            console.log(i, "v", v);
+            let _el = document.createElement("div");
+            _el.innerText = v.name;
+            _rp1.appendChild(_el);
 
-        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
-            _rp1.appendChild(v);
             return;
         });
 
-        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
-            _rp2.appendChild(v);
+        _results2.forEach(function (v, i, a) {	//	console.debug( i, v );
+            //console.log("i", i);
+            console.log("v", v);
+            let _el = document.createElement("div");
+            _el.innerText = v.name;
+            _rp2.appendChild(_el);
             return;
         });
 
-        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
-            _rp3.appendChild(v);
+        _results3.forEach(function (v, i, a) {	//	console.debug( i, v );
+            //console.log("i", i);
+            console.log("v", v);
+            let _el = document.createElement("div");
+            _el.innerText = v.name;
+            _rp3.appendChild(_el);
             return;
         });
 
-        _elements.forEach(function (v, i, a) {	//	console.debug( i, v );
-            _rp4.appendChild(v);
+        _results4.forEach(function (v, i, a) {	//	console.debug( i, v );
+            //console.log("i", i);
+            console.log("v", v);
+            let _el = document.createElement("div");
+            _el.innerText = v.name;
+            _rp4.appendChild(_el);
             return;
         });
-
-		//let _results = this.DataSet.filter( function ( item )
-		//{
-		//	if ( item.name.toLowerCase().includes( _query.toLowerCase() )  )
-		//	{ 
-		//		return item;
-  //              //console.log("Return matches");
-		//	}
-		//	else
-  //          {
-  //              //returns nothing
-		//		return;
-		//	}
-		//}, _query );
-		////	console.debug( "_results", _results.length );
-
-		//let _elements = this.RefreshData( this, _results );
-        
-  //      //let _rp = document.getElementById(this.ResultsPanel_ID);
-  //      let _rp = document.getElementById("quadrant-results");
-  //      let panel = document.getElementById(this.ResultsPanel_ID);
-		////	console.debug( "_rp", _rp );
-		//if ( _rp !== undefined || _rp !== null )
-		//{
-		//	_rp.innerHTML = "";
-		//	//	_rp.style.display = "inline-block";
-  //          panel.className = "results-panel-open";
-
-		//	_elements.forEach( function ( v, i, a )
-		//	{	//	console.debug( i, v );
-		//		_rp.appendChild( v );
-		//		return;
-		//	} );
-		//}
 	
 		ev.preventDefault();
 		ev.stopPropagation();

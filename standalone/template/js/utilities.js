@@ -609,7 +609,7 @@ class _Utilities
 			}
 
 			let _name = _SampleDataResources.ResourceNames.data[_name_index] + " " + Math.random().toString().split( '.' )[1].substr(0,3);
-			//	console.debug( "_name", _name );
+		    console.debug( "_name", _name );
 
 			// fill in object
 			let _new_data = {
