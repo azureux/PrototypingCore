@@ -94,7 +94,7 @@ export class VerticalNavigationBar extends React.Component
 	SelectExtension( poxyEvent, extensionObject)
 	{	//	console.debug( "vert-nav: SelectExtension");
 		//	this.props.Application.OnClick_SelectNavigationItem.bind( this.props.Application, this );
-		this.props.Application.OnClick_SelectNavigationItem( extensionObject );
+		this.Application.OnClick_SelectNavigationItem( extensionObject );
 		return;
 	};
 	render()
@@ -126,7 +126,6 @@ export class VerticalNavigationBar extends React.Component
 			//	console.debug( i, StandardExtensions[i].name );
 			//	console.debug( "Title()", StandardExtensions[i].Title() );
 			//	console.debug( "Icon()", StandardExtensions[i].Icon() );
-
 			let _std_item = React.createElement( BtnCtrl,
 			{
 				attributeTitle: StandardExtensions[i].Title(),
@@ -162,12 +161,14 @@ export class VerticalNavigationBar extends React.Component
 		};
 
 		let _standard_link_panel = React.createElement( 'div', { id: Utils.NewId( "std-nav" ), key: Utils.NewId(), className: "" }, this.StandardCollection ); 
+
 		let _favorites_break = React.createElement( 'div', {
 			id: Utils.NewId( "fav-break" ),
 			key: Utils.NewId(),
 			className: "favorites-breaker",
             dangerouslySetInnerHTML: Utils.CreateSvgMarkup( this._fav_bar ) 
 		} );
+
 		let _favorites_link_panel = React.createElement( 'div', { id: Utils.NewId( "fav-nav" ), key: Utils.NewId(), className: "" }, this.FavoritesCollection ); 
 
 		// vertical nav bar button - open/close

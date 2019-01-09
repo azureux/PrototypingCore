@@ -1,21 +1,11 @@
 ﻿.CreateNewExtension
 {
-	border: solid 20px pink;
-	background-color:white;
+	border: solid 0px pink;
+	background-color:transparent;
 	color:black;
 	display:block;
 	height:calc(100%);
 	width:calc(100%);
-	padding:20px;
+	padding:0px;
 	overflow:auto;
-}
-.test-title
-{
-	margin-bottom:20px;
-	font-size:32px;
-}
-.test-icon
-{
-	width:100px;
-	height:100px;
 }

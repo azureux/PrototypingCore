@@ -1,21 +1,13 @@
 ﻿.DashboardExtension
 {
-	border: solid 20px purple;
-	background-color:white;
-	color:black;
+	border: solid 1px purple;
+	background-color:rgba(228,228,228,1);
+	color:rgba(0,0,0,1);
 	display:block;
-	height:calc(100%);
-	width:calc(100%);
-	padding:20px;
+	height:calc(100% - 60px);
+	width:calc(100% - 60px);
+	padding:0px;
+	margin:30px;
 	overflow:auto;
-}
-.test-title
-{
-	margin-bottom:20px;
-	font-size:32px;
-}
-.test-icon
-{
-	width:100px;
-	height:100px;
+	font-size:13px;
 }

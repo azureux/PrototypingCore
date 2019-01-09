@@ -66,8 +66,8 @@
     margin: 0;
 }
 
-.TopNavBtn :hover {
-    background-color: rgba(255, 255, 255, .2);
+.TopNavBtn:hover {
+    background-color: #106ebe;
 }
 
     .TopNavBtn .icon {

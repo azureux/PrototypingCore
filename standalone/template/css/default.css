@@ -76,7 +76,10 @@ body
 	font-style:italic;
 	font-family: 'SegoePro';
 }
-
+:focus
+{
+	outline: #00bcf2 dashed 1px;
+}
 /*template css class, will remove later*/
 .top-level
 {

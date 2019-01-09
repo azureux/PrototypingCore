@@ -29,7 +29,6 @@ export class ExtensionBase extends React.Component
 		this.DefaultCssClass = this._ext_name;
 
 		this.Init( ExtensionBase_PropertyBag );
-		//	this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	Init(_property_bag)

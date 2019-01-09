@@ -29,5 +29,24 @@ export class DashboardExtension extends ExtBase
 	{
 		return Dashboard_PropertyBag._icon;
 	};
+	render()
+	{
+		const _extension_header = React.createElement( "div", {
+			key: this.Utils.NewKey(),
+		}, `${this.Title}` );
 
+		const _grid_panel = React.createElement( "div", {
+			key: this.Utils.NewKey(),
+		}, "Tiles" );
+
+		const _layout = [
+			_extension_header,
+			_grid_panel
+		];
+
+		return React.createElement( "div", {
+			id: this.ID,
+			className: this.DefaultCssClass,
+		}, _layout );
+	};
 };

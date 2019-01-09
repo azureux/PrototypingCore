@@ -1,0 +1,85 @@
+﻿.ExtensionHeader
+{
+	background-color: rgba(242,242,242,1);
+	border-top: solid 1px rgba(204,204,204,.8);
+	border-bottom: solid 1px rgba(204,204,204,.8);
+	height:45px;
+	min-width:450px;
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.header-icon
+{
+	border: solid 0px red;
+	background-color:rgba(128,128,128,0);
+	height:32px;
+	width:32px;
+	display:inline-block;
+	margin-left:20px;
+	margin-top:5px;
+}
+.header-title-panel
+{
+	border: solid 0px red;
+	/*background-color:rgba(128,128,128,1);*/
+	display:inline-block;
+	margin-left:10px;
+	vertical-align:top;
+	width:calc(100% - 100px);
+}
+.header-action-panel
+{
+	border: solid 0px red;
+	/*background-color:rgba(128,128,128,1);*/
+	/*display:inline-block;*/
+    display: flex;
+    flex: 0 0;
+}
+.header-action-panel:first-child
+{
+	margin-left:4px;
+}
+
+.header-title
+{
+	border: solid 0px red;
+	font-family: 'az_SemiBold';
+	font-size: 16px;
+	vertical-align:top;
+}
+.header-sub-title
+{
+	border: solid 0px red;
+	font-family: 'az_SemiBold';
+	font-size: 10px;
+	color: rgba(100,100,100,1);
+	vertical-align:top;
+
+}
+
+.header-pin, .header-close
+{
+	border: solid 0px red;
+	height:28px;
+	width:28px;
+	padding:4px;
+	display:inline-block;
+	cursor:pointer;
+}
+.header-pin, .header-close > svg
+{
+	fill: rgba(100,100,100,1);
+}
+.header-pin:hover
+{
+	background-color: rgba(0, 188, 255, 0.1);
+}
+.header-close:hover
+{
+	background-color: rgba(255,0,0,1);
+}
+.header-close:hover > svg
+{
+	fill: rgba(255,255,255,1);
+}
