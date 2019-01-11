@@ -133,13 +133,13 @@ export class SearchBox extends React.Component
 	{	//	console.debug( "SearchBox::OnChange_FilterDataSet", ev.target.value  );
 		this.TextValue = ev.target.value;
 		let _query = this.TextValue;
-
-        //doesnt replace whats existing just appends MORE to the bottom of the list. 
+        
         let _rp1 = document.getElementById("quadrant-results1");
         let _rp2 = document.getElementById("quadrant-results2");
         let _rp3 = document.getElementById("quadrant-results3");
         let _rp4 = document.getElementById("quadrant-results4");
 
+        //clear contents on each new key stroke
         while (_rp1.firstChild) {
             _rp1.removeChild(_rp1.firstChild);
         }
@@ -158,9 +158,10 @@ export class SearchBox extends React.Component
 
 		let _results1 = this.DataSet.filter( function ( item )
 		{
-			if ( item.name.toLowerCase().includes( _query.toLowerCase() )  )
-			{ 
-				return item;
+			if ( item.name.toLowerCase().includes( _query.toLowerCase() ) )
+            { 
+                //console.log("results1 item: ", item);
+                return item;
                 //console.log("Return matches");
 			}
 			else
@@ -202,26 +203,42 @@ export class SearchBox extends React.Component
 
         _results1.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log(i, "v", v);
+            //console.log(i, "v", v);
             let _el = document.createElement("div");
-            _el.innerText = v.name;
-            _rp1.appendChild(_el);
+            let _text = document.createElement("div");
+            _text.innerText = v.name;
+            _el.innerHTML = v.icon.SVG;
+            
+            //console.log(_container)
+            //onsole.log(v.icon.SVG);
+            //_rp1.appendChild(_results_container);
+
+            let _results_container = React.createElement("div",
+                {
+                    id: "results-container",
+                    className: "results-container",
+                    key: Utils.NewKey(),
+                }, _el, _text);
+
+            console.log(_results_container)
+           // _rp1.appendChild(_results_container);
 
             return;
         });
 
         _results2.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log("v", v);
+            //console.log("v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
+            //console.log(_el);
             _rp2.appendChild(_el);
             return;
         });
 
         _results3.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log("v", v);
+            //console.log("v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
             _rp3.appendChild(_el);
@@ -230,7 +247,7 @@ export class SearchBox extends React.Component
 
         _results4.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log("v", v);
+            //console.log("v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
             _rp4.appendChild(_el);
@@ -241,6 +258,7 @@ export class SearchBox extends React.Component
 		ev.stopPropagation();
         return;
     };
+
 	render()
     {
         //sections of quantrant title container 
@@ -266,8 +284,6 @@ export class SearchBox extends React.Component
                 className: "see-more",
                 key: Utils.NewKey(),
             }, this.Search_Results_Num);
-
-        //quandrant title container
 
 
         //empty array generate 4 quadrants w different IDs
@@ -298,7 +314,6 @@ export class SearchBox extends React.Component
             quad_cont.push(_quad);
         }
         
-		// empty results panel
         //results
 		let _results_panel = React.createElement( "div",
 			{
