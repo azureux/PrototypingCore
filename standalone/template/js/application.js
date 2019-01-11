@@ -31,6 +31,7 @@ export class Application extends React.Component
 		};
 
 		//	this.Configuration = props;
+		this.Utils = Utils;
 		this.CssID = "app-shell-css",
 		this.CssFile = "css/default.css";
 		this.ThemeName = props.Application.Theme; // "dark-theme" || "default-theme" 
@@ -41,7 +42,7 @@ export class Application extends React.Component
 		this.Notifications = [];
 
 		this.DefaultExtension = StandardExtensions[1];
-		this.CurrentExtension = undefined;	//StandardExtensions[1];
+		this.CurrentExtensions = [this.DefaultExtension];	//StandardExtensions[1];
 		this.Standards_ExtensionList = [];
 		this.Favorites_ExtensionList = [];
 		this.All_ExtensionsList = [];
@@ -57,7 +58,7 @@ export class Application extends React.Component
 		// state
 		this.state = {
 			CurrentUser: {},
-			CurrentExtension: undefined,
+			CurrentExtensions: [],
 			CurrentTheme: {},
 			CurrentThemeName: this.ThemeName,
 			VerticalNavigation_IsOpen: false,
@@ -157,23 +158,26 @@ export class Application extends React.Component
 	//	HANDLE CYCLING LEFT NAV ITEMS
 	OnClick_SelectNavigationItem( extension )
 	{	//	console.debug( "OnClick_SelectNavigationItem", extension.name, this.CurrentExtension.type.name );
-		if ( extension.name === this.CurrentExtension.type.name )
+		// add code to make this.CurrentExtension(s) an array, based on the journey, for breadcrumbs
+		if ( extension.name === this.CurrentExtensions[0].name )
 		{
-			this.Reset_CurrentExtenssion();
+			this.Reset_CurrentExtension();
 		}
 		else
 		{
-			this.CurrentExtension = React.createElement( extension, { Application: this } );
-			this.setState( { CurrentExtension: extension.name } );
+			//	this.CurrentExtensions[0] = React.createElement( extension, { Application: this, key: this.Utils.NewKey() } );
+			this.CurrentExtensions[0] = extension;
+			this.setState( { CurrentExtensions: [extension.name] } );
 		}
 		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name, this.state.CurrentExtension );
 		return;
 	};
-	Reset_CurrentExtenssion()
+	Reset_CurrentExtension()
 	{	//	console.debug( "Application::Reset_CurrentExtension" );
-		this.CurrentExtension = React.createElement( this.DefaultExtension, { Application: this } );
+		//	this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this } );
+		this.CurrentExtensions[0] = this.DefaultExtension;
 		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name );
-		this.setState( { CurrentExtension: this.CurrentExtension.type.name } );
+		this.setState( { CurrentExtensions: this.CurrentExtensions[0].name } );
 		return;
 	};
 	OnClick_PinCurrentExtension( proxyEvent )
@@ -202,19 +206,19 @@ export class Application extends React.Component
 	};
 	InitRunTimeProperties()
 	{	//	console.debug( "Application::InitRunTimeProperties()" );
-		this.ClientTop = document.body.clientTop;
-		this.ClientLeft = document.body.clientLeft
-		this.ClientHeight = document.body.clientHeight;
-		this.ClientWidth = document.body.clientWidth;
-		this.ClientRect = document.body.getClientRects()[0];
-		this.BoundingClientRect = document.body.getBoundingClientRect();
+		//this.ClientTop = document.body.clientTop;
+		//this.ClientLeft = document.body.clientLeft
+		//this.ClientHeight = document.body.clientHeight;
+		//this.ClientWidth = document.body.clientWidth;
+		//this.ClientRect = document.body.getClientRects()[0];
+		//this.BoundingClientRect = document.body.getBoundingClientRect();
 		//console.debug( "this.ClientTop", this.ClientTop, document.body.clientTop );
 		//console.debug( "this.ClientLeft", this.ClientLeft, document.body.clientLeft );
 		//console.debug( "this.ClientHeight ", this.ClientHeight, document.body.clientHeight);
 		//console.debug( "this.ClientWidth ", this.ClientWidth, document.body.clientWidth );
 		//console.debug( "this.ClientRect ", this.ClientRect, document.body.getClientRects() );
 		//console.debug( "this.BoundingClientRect", this.BoundingClientRect, document.body.getBoundingClientRect() );
-		console.debug( "ADD PATH TO EXTENSION RESOLUTION" );
+		//	console.debug( "ADD PATH TO EXTENSION RESOLUTION" );
 		return;
 	};
 	render()
@@ -222,12 +226,12 @@ export class Application extends React.Component
 		//console.debug( "Application::render()" );
 		//console.debug( "this.state", this.state );
 		//console.debug( "this.props", this.props );
-		this.InitRunTimeProperties();
+		//	this.InitRunTimeProperties();
 
 		//	console.debug( "1.app:render:", this.CurrentExtension );
-		if ( this.CurrentExtension == undefined )
+		if ( this.CurrentExtensions[0] == undefined )
 		{
-			this.CurrentExtension = React.createElement( this.DefaultExtension, { Application: this } );
+			this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this } );
 			//	this.setState( { CurrentExtension: this.CurrentExtension.type.name } );
 		}
 		//console.debug( "App.render::this.CurrentExtension", this.CurrentExtension.type.name );
@@ -251,7 +255,7 @@ export class Application extends React.Component
 				NavExpanded: this.state.VerticalNavigation_IsOpen,
 				Standards: StandardExtensions,
 				Favorites: this.Favorites_ExtensionList,
-				SelectedItem: this.CurrentExtension
+				SelectedItem: this.CurrentExtensions[0]
             });
 
         this.ContentContainer = React.createElement(ContentContainer, 
@@ -259,7 +263,7 @@ export class Application extends React.Component
                 key: Utils.NewKey(),
                 Application: this,
 				NavExpanded: this.state.VerticalNavigation_IsOpen,
-				CurrentExtension: this.CurrentExtension
+				CurrentExtension: this.CurrentExtensions[0]
 				//	OpenContextPanel: this.OnClick_Test_OpenContextPanel
             });
  

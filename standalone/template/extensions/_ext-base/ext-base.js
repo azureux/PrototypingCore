@@ -19,6 +19,7 @@ export class ExtensionBase extends React.Component
 		super( props );
 
 		this.Utils = Utils;
+		//	this.Key = ( props.key || this.Utils.NewKey() );
 		this.Application = props.Application;
 		this.Theme = props.Application.props.Theme;
 		this.state = { IsDirty: false };

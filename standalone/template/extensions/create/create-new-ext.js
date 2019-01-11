@@ -4,7 +4,7 @@
 /// <reference path="../../components/custom-controls/extension-header/extension-header.js" />
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { ExtensionHeader as Header } from "../../components/custom-controls/extension-header/extension-header.js";
+import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
 
 const CreateNew_PropertyBag = {
 	_title : "Create a resource",
