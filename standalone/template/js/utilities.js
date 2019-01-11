@@ -591,7 +591,7 @@ class _Utilities
 		let _return = [];
 
 		//	console.debug( "intSize ", intSize );
-		if ( intSize == undefined || intSize == 0 || intSize == null )
+		if ( intSize === undefined || intSize === 0 || intSize === null )
 		{
 			intSize = 100;
 		}

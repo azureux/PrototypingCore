@@ -5,6 +5,7 @@
 "use strict";
 
 import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js";
+import { BreadCrumbControl as BreadCrumb } from "../../standard-controls/breadcrumb/breadcrumb.js";
 
 export class ContentContainer extends React.Component
 {
@@ -20,7 +21,7 @@ export class ContentContainer extends React.Component
 			Expanded: this.Theme + " dsh-brd-main-expanded"
 		};
 		this.CurrentCssClassName = this.CssClassNames.Normal;
-		this.CurrentExtension = this.props.CurrentExtension;
+		this.CurrentExtensions = this.props.Application.CurrentExtensions;
 
 		// each time, unlike "extensions", this CSS stays loaded as it's part of the shell.
 		Utils.InjectControlCss( this.CssFileID, this.CssFile );
@@ -28,18 +29,21 @@ export class ContentContainer extends React.Component
 	};
 	render()
 	{	//	console.debug( "ContentContainer.render()", this.props );
-		if ( this.props.Application.state.VerticalNavigation_IsOpen == false )
+		if ( this.props.Application.state.VerticalNavigation_IsOpen === false )
 		{
 			this.CurrentCssClassName = this.CssClassNames.Normal;
 		}
-		else 	if ( this.props.Application.state.VerticalNavigation_IsOpen == true )
+		else 	if ( this.props.Application.state.VerticalNavigation_IsOpen === true )
 		{
 			this.CurrentCssClassName = this.CssClassNames.Expanded;
 		}
 
+		const _bc = React.createElement( BreadCrumb, {key: Utils.NewKey(), Application: this.props.Application } );
+		const _ext = React.createElement( this.CurrentExtensions[0], { key: Utils.NewKey(), Application: this.props.Application } );
+
 		return React.createElement( 'div', {
 			id: this.ID,
 			className: this.CurrentCssClassName
-		}, 	this.CurrentExtension );
+		}, 	_bc,_ext  );
 	};
 };

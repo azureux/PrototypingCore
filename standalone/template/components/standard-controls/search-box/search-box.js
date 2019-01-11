@@ -202,7 +202,7 @@ export class SearchBox extends React.Component
 
         _results1.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log(i, "v", v);
+           // console.log(i, "v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
             _rp1.appendChild(_el);
@@ -212,7 +212,7 @@ export class SearchBox extends React.Component
 
         _results2.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log("v", v);
+           // console.log("v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
             _rp2.appendChild(_el);
@@ -221,7 +221,7 @@ export class SearchBox extends React.Component
 
         _results3.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log("v", v);
+           // console.log("v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
             _rp3.appendChild(_el);
@@ -230,7 +230,7 @@ export class SearchBox extends React.Component
 
         _results4.forEach(function (v, i, a) {	//	console.debug( i, v );
             //console.log("i", i);
-            console.log("v", v);
+          //  console.log("v", v);
             let _el = document.createElement("div");
             _el.innerText = v.name;
             _rp4.appendChild(_el);
