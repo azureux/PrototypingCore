@@ -459,6 +459,7 @@ class _Utilities
 
 	};
 
+	// id & key methods
 	static NewId( strValue )
 	{
 		let _rv = "";
@@ -495,25 +496,8 @@ class _Utilities
 		//	console.debug( "Utilities.NewKey()._rv", _rv );
 		return _rv;
 	};
-	static ReverseString ( strValue )
-	{
-		let _new;
-		let _temp = [];
 
-		if ( Array.isArray(strValue) == true )
-		{
-			strValue = strValue.join();
-		}
-
-		for ( let i = 0; i < strValue.length; i++ )
-		{	//	console.debug( i, strValue.length, strValue.charAt( i ) );
-			let _last = strValue.charAt( (strValue.length-1) - i );
-			//	console.debug( i, _last );
-			_temp.push( _last );
-		}	//	console.debug( "_temp", _temp );
-		_new = _temp.join('');
-		return _new;
-	};
+	// css injection and removal methods
 	static InjectControlCss( id, filePath )
 	{	//	console.debug( "Utilities.InjectControlCss", id, filePath );
 		let _found = false;
@@ -554,12 +538,13 @@ class _Utilities
 		return;
 	};
 
+	// react specific , to insert SVG & HTML
 	static CreateSvgMarkup( svgIcon )
 	{	//	console.debug( "CreateSvgMarkup", svgIcon );
 		return { __html: svgIcon };
 	};
 
-	/* data generator methods */
+	// data generator methods
 	static SortArrays( dataArray, sortKey, sortDirection )
 	{	console.debug( "UNDER CONSTRUCTION:: Utilities.SortArrays" );
 		dataArray.sort( function ( a, b )
@@ -719,6 +704,46 @@ class _Utilities
 
 		//	window.AcuityCache.ClearAllItems();
 		return;
+	};
+
+	// URI parsing methods
+	static GrabURIs()
+	{
+		console.debug( "GrabUI, try to enforce some schema here" );
+		let _uri_pathing = [];
+
+
+		return _uri_pathing;
+	};
+	static ParsePathing()
+	{
+		console.debug( "ParsePathing, do look ups and try to resolve or fail" );
+		let _extension_mapping = [];
+
+
+		return _extension_mapping;
+	};
+
+
+	// general methods
+	static ReverseString ( strValue )
+	{
+		let _new;
+		let _temp = [];
+
+		if ( Array.isArray(strValue) == true )
+		{
+			strValue = strValue.join();
+		}
+
+		for ( let i = 0; i < strValue.length; i++ )
+		{	//	console.debug( i, strValue.length, strValue.charAt( i ) );
+			let _last = strValue.charAt( (strValue.length-1) - i );
+			//	console.debug( i, _last );
+			_temp.push( _last );
+		}	//	console.debug( "_temp", _temp );
+		_new = _temp.join('');
+		return _new;
 	};
 }
 

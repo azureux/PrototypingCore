@@ -12,9 +12,9 @@ export class ContentContainer extends React.Component
 	constructor( props )
 	{
 		super( props );
-		this.ID = "dshbrd";
+		this.ID = "extension-panel";
 		this.Title = "Dashboard";
-		this.CssFileID = "dshbrd-css";
+		this.CssFileID = this.ID + "-css";
 		this.CssFile = "components/shell-controls/content-container/content-container.css";
 		this.CssClassNames = {
 			Normal: this.Theme + " dsh-brd-main",

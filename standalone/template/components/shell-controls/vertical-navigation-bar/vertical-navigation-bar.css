@@ -5,9 +5,9 @@
     left: 0px;
     bottom: 0px;
     width: 225px;
-    background-color: rgba(240, 240, 240, 1);
+    background-color: rgba(249, 249, 249, 1);
 	background:
-		linear-gradient( -180deg, rgba(160, 160, 160, 1) 0px, rgba(240, 240, 240, 0) 15px),
+		linear-gradient( -180deg, rgba(176, 176, 176, 1) 0px, rgba(240, 240, 240, 0) 10px),
 		linear-gradient( 90deg, rgba(240, 240, 240, 0) 215px, rgba(208, 208, 208, 1) 225px);
 
     color: rgba(0,0,0,1);
@@ -21,8 +21,8 @@
     width: 50px;
     background-color: rgba(249, 249, 249,1);
 	background:
-		linear-gradient( -180deg, rgba(160, 160, 160, 1) 0px, rgba(240, 240, 240, 0) 15px),
-		linear-gradient( 90deg, rgba(240, 240, 240, 0) 40px, rgba(208, 208, 208, 1) 50px);
+		linear-gradient( -180deg, rgba(176, 176, 176, 1) 0px, rgba(240, 240, 240, 0) 10px),
+		linear-gradient( 90deg, rgba(240, 240, 240, 0) 45px, rgba(208, 208, 208, 1) 50px);
 
     color: rgba(0,0,0,1);
 

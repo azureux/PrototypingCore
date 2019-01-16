@@ -44,8 +44,8 @@ export class Application extends React.Component
 		this.DefaultExtension = StandardExtensions[1];
 		this.CurrentExtensions = [this.DefaultExtension];	//StandardExtensions[1];
 		this.Standards_ExtensionList = [];
-		this.Favorites_ExtensionList = [];
-		this.All_ExtensionsList = [];
+		//this.Favorites_ExtensionList = [];
+		//this.All_ExtensionsList = [];
 
 		// for computing layout dimensions to be passed down to child components
 		this.BoundingClientRect = {};
@@ -76,9 +76,14 @@ export class Application extends React.Component
 		//	Utils.TestCache();
 
 		// INJECT CSS
-		Utils.InjectControlCss( this.CssID, this.CssFile );
+		this.Utils.InjectControlCss( this.CssID, this.CssFile );
 
 		//	EVENT HANDLERS
+		this.Paths = this.Utils.GrabURIs();
+		console.debug( "this.Paths", this.Paths );
+		this.Utils.ParsePathing( this.Paths, this.CurrentExtensions );
+		console.debug( "this.CurrentExtensions", this.CurrentExtensions );
+
 		//	this.Handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
 		return;
 	};
@@ -155,21 +160,25 @@ export class Application extends React.Component
 		return;
 	};
 
+
 	//	HANDLE CYCLING LEFT NAV ITEMS
 	OnClick_SelectNavigationItem( extension )
 	{	//	console.debug( "OnClick_SelectNavigationItem", extension.name, this.CurrentExtension.type.name );
-		//if ( extension.name === this.CurrentExtensions[0].name )
-		//{
-		//	this.Reset_CurrentExtension();
-		//}
-		//else
-		//{
-		//	this.CurrentExtensions[0] = extension;
-		//	this.setState( { CurrentExtensions: [extension.name] } );
-		//}
-		this.CurrentExtensions.push( extension );
-		this.setState( { CurrentExtensions: [extension.name] } );
-		console.debug( "this.CurrentExtensions", this.CurrentExtensions.length );
+		if ( extension.name === this.CurrentExtensions[0].name )
+		{
+			this.Reset_CurrentExtension();
+		}
+		else
+		{
+			this.CurrentExtensions[0] = extension;
+			this.setState( { CurrentExtensions: [extension.name] } );
+		}
+
+		// NEED A WAY TO MANAGE HORIZONTAL PATHING & URL PATHING LOOKUP
+		//this.CurrentExtensions.push( extension );
+		//this.setState( { CurrentExtensions: [extension.name] } );
+
+		//console.debug( "this.CurrentExtensions", this.CurrentExtensions.length );
 		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name, this.state.CurrentExtension );
 		return;
 	};
