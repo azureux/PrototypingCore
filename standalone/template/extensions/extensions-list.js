@@ -4,11 +4,13 @@ import { AllServicesExtension } from "./all-services/all-services-ext.js";
 import { CreateNewExtension } from "./create/create-new-ext.js";
 import { DashboardExtension } from "./dashboard/dashboard-ext.js";
 import { HomePageExtension } from "./home/home-ext.js";
+import { VirtualMachineExtension } from "./virtual-machine/vm-ext.js";
 
-export
-{
-	AllServicesExtension as AllServicesExt,
-	CreateNewExtension as CreateNewExt,
-	DashboardExtension as DashboardExt,
-	HomePageExtension as HomeExt
-};
+
+export const AllExtensionsList = [
+	AllServicesExtension,
+	CreateNewExtension,
+	DashboardExtension,
+	HomePageExtension,
+	VirtualMachineExtension
+];

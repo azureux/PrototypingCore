@@ -4,7 +4,9 @@
 "use strict";
 
 import { Utilities as Utils } from "../../../js/utilities.js";
-import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
+import { SVG as Svgs } from "../../../js/svg-assets.js";
+import { AllExtensionsList as Extensions} from "../../../extensions/extensions-list.js";
+
 
 export class BreadCrumbControl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
@@ -37,13 +39,16 @@ export class BreadCrumbControl extends React.Component
 	};
 	render()
 	{
-		//	console.debug( "BreadCrumbControl.this.constructor.name ", this.constructor.name );
-		//	console.debug( "this.Links", this.Links[0].Title() );
+		console.debug( "BreadCrumbControl.render: this.constructor.name ", this.constructor.name );
+		//	 ON LONG BREAD CRUMB EXAMPLE IN THE PORTAL
+		//	https://ms.portal.azure.com/#blade/Microsoft_Azure_AD/RoleMemberAssignmentPropertiesBlade/roleAssignmentId/%2Fsubscriptions%2F690e5c20-1047-41fa-9b54-81bdb53ba7e8%2FresourceGroups%2Faz-design-templates%2Fproviders%2FMicrosoft.Web%2Fsites%2Faz-design-templates%2Fproviders%2FMicrosoft.Authorization%2FroleAssignments%2F0da80bcf-b6e7-4022-9ea9-6838546f5349/scope/%2Fsubscriptions%2F690e5c20-1047-41fa-9b54-81bdb53ba7e8%2FresourceGroups%2Faz-design-templates%2Fproviders%2FMicrosoft.Web%2Fsites%2Faz-design-templates
+
+		//	console.debug( "BreadCrumbControl.render():: this.Links", this.Links[0].length);
 
 		let _temp_links = [];
 		for ( let i = 0; i < this.Links.length; i++ )
 		{
-			console.debug( "this.Links", this.Links[i].Title() );
+			//	console.debug( "this.Links", this.Links[i].Title() );
 			let _text = this.Links[i].Title();
 			let _link = React.createElement( "a", { href: "#?link" + i, key: Utils.NewKey(), className: "bc-link" }, _text);
 			_temp_links.push( _link );

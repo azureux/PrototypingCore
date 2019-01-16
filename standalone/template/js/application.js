@@ -158,17 +158,18 @@ export class Application extends React.Component
 	//	HANDLE CYCLING LEFT NAV ITEMS
 	OnClick_SelectNavigationItem( extension )
 	{	//	console.debug( "OnClick_SelectNavigationItem", extension.name, this.CurrentExtension.type.name );
-		// add code to make this.CurrentExtension(s) an array, based on the journey, for breadcrumbs
-		if ( extension.name === this.CurrentExtensions[0].name )
-		{
-			this.Reset_CurrentExtension();
-		}
-		else
-		{
-			//	this.CurrentExtensions[0] = React.createElement( extension, { Application: this, key: this.Utils.NewKey() } );
-			this.CurrentExtensions[0] = extension;
-			this.setState( { CurrentExtensions: [extension.name] } );
-		}
+		//if ( extension.name === this.CurrentExtensions[0].name )
+		//{
+		//	this.Reset_CurrentExtension();
+		//}
+		//else
+		//{
+		//	this.CurrentExtensions[0] = extension;
+		//	this.setState( { CurrentExtensions: [extension.name] } );
+		//}
+		this.CurrentExtensions.push( extension );
+		this.setState( { CurrentExtensions: [extension.name] } );
+		console.debug( "this.CurrentExtensions", this.CurrentExtensions.length );
 		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name, this.state.CurrentExtension );
 		return;
 	};

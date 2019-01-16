@@ -1,8 +1,8 @@
 ﻿.BreadCrumbControl
 {
 	/*border: solid 1px red;*/
-	background-color: rgba(224,0,0,0);
-	color: rgba(255,255,255,1);
+	background-color: rgba(240,240,240,1);
+	color: rgba(0,0,0,1);
 	height:32px;
 	padding:5px;
 	padding-left:30px;
@@ -11,16 +11,16 @@
 }
 .bc-link
 {
-	color: rgba(0,0,255,1);
+	color: rgba(16,96,255,1);
 	text-decoration:none;
 	display: inline-block;
-	border: solid 1px white;
+	/*border: solid 1px white;*/
 	margin-right:5px;
 }
 .bc-divider
 {
 	display: inline-block;
-	border: solid 1px white;
+	/*border: solid 1px white;*/
 	color: rgba(0,0,0,1);
 	margin-right:5px;
 }

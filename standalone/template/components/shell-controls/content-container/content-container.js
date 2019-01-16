@@ -38,8 +38,13 @@ export class ContentContainer extends React.Component
 			this.CurrentCssClassName = this.CssClassNames.Expanded;
 		}
 
-		const _bc = React.createElement( BreadCrumb, {key: Utils.NewKey(), Application: this.props.Application } );
-		const _ext = React.createElement( this.CurrentExtensions[0], { key: Utils.NewKey(), Application: this.props.Application } );
+		const _bc = React.createElement( BreadCrumb, { key: Utils.NewKey(), Application: this.props.Application } );
+
+		//	console.debug( "ContentContainer::this.CurrentExtensions.length", this.CurrentExtensions.length);
+		//	console.debug( "ContentContainer::this.CurrentExtensions.length", this.CurrentExtensions[this.CurrentExtensions.length - 1]);
+		//	always render the last extension, may need to make this a horizontal scrolling situation later
+		//	const _ext = React.createElement( this.CurrentExtensions[0], { key: Utils.NewKey(), Application: this.props.Application } );
+		const _ext = React.createElement( this.CurrentExtensions[this.CurrentExtensions.length-1], { key: Utils.NewKey(), Application: this.props.Application } );
 
 		return React.createElement( 'div', {
 			id: this.ID,
