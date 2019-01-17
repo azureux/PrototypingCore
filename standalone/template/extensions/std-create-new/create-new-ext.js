@@ -20,7 +20,7 @@ export class CreateNewExtension extends ExtBase
 			_breadcrumb_title: "New",
 			_icon : ExtBase.Icons().Color.NewPlusSign,
 			_css_id : "create-new-css",
-			_css_path: "extensions/create/create-new-ext.css",
+			_css_path: "extensions/std-create-new/create-new-ext.css",
 		};
 	};
 	render()

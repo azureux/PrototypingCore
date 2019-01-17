@@ -5,7 +5,7 @@
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 //import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
 
-export class VirtualMachineExtension extends ExtBase
+export class AllVmsExtension extends ExtBase
 {
 	constructor( props )
 	{
@@ -15,11 +15,11 @@ export class VirtualMachineExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title :  "Virtual Machine",
-			_breadcrumb_title: "Virtual machine",
+			_title :  "Virtual machines",
+			_breadcrumb_title: "Virtual machines",
 			_icon : ExtBase.Icons().Color.VirtualMachines,
-			_css_id : "vm-ext-css",
-			_css_path : "extensions/virtual-machine/vm-ext.css"
+			_css_id : "all-vms-css",
+			_css_path : "extensions/all-virtual-machines/all-virtual-machines.css"
 		};
 	};
 };

@@ -18,7 +18,7 @@ export class DashboardExtension extends ExtBase
 			_breadcrumb_title: "Dashboard",
 			_icon : ExtBase.Icons().Color.Dashboard,
 			_css_id : "dashboard-ext-css",
-			_css_path : "extensions/dashboard/dashboard-ext.css"
+			_css_path : "extensions/std-dashboard/dashboard-ext.css"
 		};
 	};
 	render()

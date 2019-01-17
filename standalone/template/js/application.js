@@ -4,16 +4,16 @@
 "use strict";
 
 import { Utilities as Utils } from "../js/utilities.js";
-import { ApplicationStateCache as Cache } from "../components/app-state-cache/app-state-cache.js";
-import { CacheItem as cacheItem } from "../components/app-state-cache/cache-item.js";
+//import { ApplicationStateCache as Cache } from "../components/app-state-cache/app-state-cache.js";
+//import { CacheItem as cacheItem } from "../components/app-state-cache/cache-item.js";
 import { SVG as AzureSvgs } from "../js/svg-assets.js";
 import { TopNavigationBar as TopBar } from "../components/shell-controls/top-navigation-bar/top-navigation-bar.js"; 
 import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.js";
 import { ContentContainer as ContentContainer } from "../components/shell-controls/content-container/content-container.js";
 import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
+//	extensions
 import { AllExtensionsList as Extensions } from "../extensions/extensions-list.js";
-//	import { StandardExtensionsList as StandardExtensions } from "../extensions/standards-list.js";
 import { FavoritesExtensionsList as FavoriteExtensions } from "../extensions/favorites-list.js";
 
 

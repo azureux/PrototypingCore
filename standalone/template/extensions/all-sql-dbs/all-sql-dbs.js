@@ -3,8 +3,9 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+//import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
 
-export class HomePageExtension extends ExtBase
+export class AllSqlDbsExtension extends ExtBase
 {
 	constructor( props )
 	{
@@ -14,11 +15,11 @@ export class HomePageExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title :  "My Azure Home Page",
-			_breadcrumb_title: "Home",
-			_icon : ExtBase.Icons().AvatarDefault,
-			_css_id : "home-page-css",
-			_css_path : "extensions/home/home-ext.css"
+			_title :  "SQL databases",
+			_breadcrumb_title: "SQL Databases",
+			_icon : ExtBase.Icons().Color.SQLServers,
+			_css_id : "all-sql-dbs-css",
+			_css_path : "extensions/all-sql-dbs/all-sql-dbs.css"
 		};
 	};
 };
