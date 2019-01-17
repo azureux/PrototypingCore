@@ -3,14 +3,7 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 import { Utilities as Utils } from "../../../js/utilities.js";
-import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
-
-const ExtensionBase_PropertyBag = {
-	_title : "Extension Base component",
-	_icon :  AzureSvgs.Color.ResourceGroup,
-	_css_id : "ExtensionBase",
-	_css_path: "extensions/_ext-base/ext-base.css",
-};
+import { SVG as Svgs } from "../../../js/svg-assets.js";
 
 export class ExtensionBase extends React.Component
 {	
@@ -19,7 +12,6 @@ export class ExtensionBase extends React.Component
 		super( props );
 
 		this.Utils = Utils;
-		//	this.Key = ( props.key || this.Utils.NewKey() );
 		this.Application = props.Application;
 		this.Theme = props.Application.props.Theme;
 		this.state = { IsDirty: false };
@@ -31,28 +23,43 @@ export class ExtensionBase extends React.Component
 
 		this.BaseCssId = "ext-base-css";
 		this.BaseCssPath = "extensions/_ext-base/ext-base.css";
-		this.Init( ExtensionBase_PropertyBag );
+
+		this.Title = this.props.PropertyBag._title;
+		this.BreadCrumbTitle = this.props.PropertyBag._breadcrumb_title;
+		this.SvgIcon = this.props.PropertyBag._icon;
+        this.CssFileID = this.props.PropertyBag._css_id;
+		this.CssFile = this.props.PropertyBag._css_path;
+
 		return;
 	};
-	Init(_property_bag)
+	static PropertyBag()
 	{
-		this.Title = _property_bag._title;
-		this.SvgIcon = _property_bag._icon;
-        this.CssFileID = _property_bag._css_id;
-		this.CssFile = _property_bag._css_path;
-		return;
+		return  {
+			_title: "Extension Base component",
+			_breadcrumb_title: "breadcrumb short title",
+			_icon :  Svgs.Color.ResourceGroup,
+			_css_id : "ExtensionBase",
+			_css_path: "extensions/_ext-base/ext-base.css",
+		};
 	};
 	static Icons()
 	{
-		return AzureSvgs;
+		return Svgs;
 	};
 	static Title()
 	{
-		return ExtensionBase_PropertyBag._title;
+		//return ExtensionBase_PropertyBag._title;
+		return this.PropertyBag()._title;
+	};
+	static BreadCrumbTitle()
+	{
+		//return ExtensionBase_PropertyBag._breadcrumb_title;
+		return this.PropertyBag()._breadcrumb_title;
 	};
 	static Icon()
 	{
-		return ExtensionBase_PropertyBag._icon;
+		//	return ExtensionBase_PropertyBag._icon;
+		return this.PropertyBag()._icon;
 	};
 	componentWillMount()
 	{
@@ -62,6 +69,8 @@ export class ExtensionBase extends React.Component
 	componentDidMount()
 	{
 		//	console.debug( "componentDidMount" );
+		//	this.Init( ExtensionBase_PropertyBag );
+		//	this.Init();
 		this.Utils.InjectControlCss( this.BaseCssId, this.BaseCssPath );
 		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;

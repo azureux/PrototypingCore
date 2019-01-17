@@ -1,11 +1,9 @@
 ﻿.ExtensionBase
 {
-	border-top: solid 1px rgba(190,190,190,1);
+	/*border-top: solid 1px rgba(190,190,190,1);
 	border-left: solid 0px rgba(190,190,190,0);
 	border-right: solid 0px rgba(190,190,190,0);
-	border-bottom: solid 0px rgba(190,190,190,0);
-	background-color:rgba(242,242,242,1);
-	color:rgba(0,0,0,1);
+	border-bottom: solid 0px rgba(190,190,190,0);*/
 	display:block;
 	/* breadcrumb height 27px */
 	height:calc(100% - 27px);

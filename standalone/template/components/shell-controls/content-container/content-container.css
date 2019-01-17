@@ -8,6 +8,7 @@
     color: rgba(0,0,0,1);
     margin: 0px;
 	overflow:auto;
+	background-color:rgba(240,240,240,1);
     /*width: calc(100%);*/
     /*min-width: 400px;*/
     /*height: calc(100%);*/

@@ -6,48 +6,42 @@
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
 
-const CreateNew_PropertyBag = {
-	_title : "Create a resource",
-	_icon : ExtBase.Icons().Color.NewPlusSign,
-	_css_id : "create-new-css",
-	_css_path: "extensions/create/create-new-ext.css",
-};
-
 export class CreateNewExtension extends ExtBase
 {
 	constructor( props )
-	{	//	console.debug( "CreateNewExtension.props", props );
+	{	
 		super( props );
-
-		this.Init( CreateNew_PropertyBag );
-
 		return;
 	};
-	static Title()
+	static PropertyBag()
 	{
-		return CreateNew_PropertyBag._title;
-	};
-	static Icon()
-	{
-		return CreateNew_PropertyBag._icon;
+		return  {
+			_title: "Create a resource",
+			_breadcrumb_title: "New",
+			_icon : ExtBase.Icons().Color.NewPlusSign,
+			_css_id : "create-new-css",
+			_css_path: "extensions/create/create-new-ext.css",
+		};
 	};
 	render()
 	{
 		const _header = React.createElement( Header, {
 			key: this.Utils.NewKey(),
-			Title: this.Title,
-			Icon: this.SvgIcon,
+			Title: this.BreadCrumbTitle,
+			SvgIcon: this.SvgIcon,
 			Application: this.Application,
 			extensionObject: this
 		} );
 
 		const _command_bar = React.createElement( "div", {
 			key: this.Utils.NewKey(),
-		}, "command bar" );
+			className: "cmdBar"
+		}, "command bar panel" );
 
 		const _content = React.createElement( "div", {
 			key: this.Utils.NewKey(),
-		}, "content" );
+			className: "contentPanel"
+		}, "content area" );
 
 		const _layout = [
 			_header,

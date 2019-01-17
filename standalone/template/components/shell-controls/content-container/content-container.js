@@ -44,7 +44,10 @@ export class ContentContainer extends React.Component
 		//	console.debug( "ContentContainer::this.CurrentExtensions.length", this.CurrentExtensions[this.CurrentExtensions.length - 1]);
 		//	always render the last extension, may need to make this a horizontal scrolling situation later
 		//	const _ext = React.createElement( this.CurrentExtensions[0], { key: Utils.NewKey(), Application: this.props.Application } );
-		const _ext = React.createElement( this.CurrentExtensions[this.CurrentExtensions.length-1], { key: Utils.NewKey(), Application: this.props.Application } );
+
+		//console.debug( "this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag()", this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag() );
+
+		const _ext = React.createElement( this.CurrentExtensions[this.CurrentExtensions.length - 1], { key: Utils.NewKey(), Application: this.props.Application, PropertyBag: this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag() } );
 
 		return React.createElement( 'div', {
 			id: this.ID,

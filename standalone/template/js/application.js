@@ -41,7 +41,7 @@ export class Application extends React.Component
 
 		this.Notifications = [];
 
-		this.DefaultExtension = StandardExtensions[1];
+		this.DefaultExtension = StandardExtensions[0];
 		this.CurrentExtensions = [this.DefaultExtension];	//StandardExtensions[1];
 		this.Standards_ExtensionList = [];
 		//this.Favorites_ExtensionList = [];
@@ -183,7 +183,8 @@ export class Application extends React.Component
 		return;
 	};
 	Reset_CurrentExtension()
-	{	//	console.debug( "Application::Reset_CurrentExtension" );
+	{	//	
+		console.debug( "Application::Reset_CurrentExtension" );
 		//	this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this } );
 		this.CurrentExtensions[0] = this.DefaultExtension;
 		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name );
@@ -194,10 +195,10 @@ export class Application extends React.Component
 	{	//	
 		console.debug( "Application::OnClick_PinCurrentExtension. Pin this dashboard/home extensions" );
 		//	console.debug( "currentTarget", proxyEvent.currentTarget.attributes["dataextname"].value );
-		let _pinned_extension = StandardExtensions.find( function ( val )
-		{
-			return val.name == proxyEvent.currentTarget.attributes["dataextname"].value;
-		} );
+		//let _pinned_extension = StandardExtensions.find( function ( val )
+		//{
+		//	return val.name == proxyEvent.currentTarget.attributes["dataextname"].value;
+		//} );
 		//	console.debug( "_pinned_extension", _pinned_extension );
 		return;
 	};
@@ -241,7 +242,9 @@ export class Application extends React.Component
 		//	console.debug( "1.app:render:", this.CurrentExtension );
 		if ( this.CurrentExtensions[0] == undefined )
 		{
-			this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this } );
+			console.debug( "this.DefaultExtension.PropertyBag()", this.DefaultExtension.PropertyBag() );
+
+			this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this, PropertyBag: this.DefaultExtension.PropertyBag() } );
 			//	this.setState( { CurrentExtension: this.CurrentExtension.type.name } );
 		}
 		//console.debug( "App.render::this.CurrentExtension", this.CurrentExtension.type.name );

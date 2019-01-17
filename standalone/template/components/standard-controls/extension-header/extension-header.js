@@ -12,9 +12,9 @@ export class ExtensionHeader extends React.Component
 	{
 		super( props );
 
-		this.Utils = Utils;
 		this.Application = props.Application;
 		this.Extension = props.Application.CurrentExtensions[0];
+
 		this._internal_name = this.constructor.name;
 		this.Title = props.Title || this._internal_name;
 		this.SubTitle = ( props.SubTitle || "Microsoft Corporation" );
@@ -23,10 +23,8 @@ export class ExtensionHeader extends React.Component
 		this.CssFile = "components/standard-controls/extension-header/extension-header.css";
 		this.DefaultCssClass = this._internal_name;
 
-		this.state = {};
-
-		this.OnClick_Close = props.Application.Reset_CurrentExtension.bind( this.Application );
 		this.OnClick_Pin = this.Application.OnClick_PinCurrentExtension.bind( this.Application );
+		this.OnClick_Close = props.Application.Reset_CurrentExtension.bind( this.Application );
 		return;
 	};
 	componentWillMount()
@@ -35,30 +33,36 @@ export class ExtensionHeader extends React.Component
 	};
 	componentDidMount()
 	{	//	console.debug( "componentDidMount" );
-		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		this.Application.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	componentWillUnmount()
 	{	//	console.debug( "componentWillUnmount--REMOVE CSS" );
-		this.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
+		this.Application.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	render()
 	{	//	console.debug( "ExtensionHeader::render" );	//	, this.state, this.props );
+		//	config conditions for this header
+		//	add multiple header resource icon, buttons & related flags
+		//	resize
+		//	pin
+		//	close
+
 		const _title = React.createElement( "div", { className: "header-title" }, `${this.Title}` );
 		const _sub_title = React.createElement( "div", { className: "header-sub-title" }, `${this.SubTitle}` );
-		const _icon = React.createElement( "div", { className: "header-icon", dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( this.SvgIcon.SVG ) } );
+		const _icon = React.createElement( "div", { className: "header-icon", dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( this.SvgIcon.SVG ) } );
 
 		const _pin = React.createElement( "a", {
 			className: "header-pin",
-			dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( AzureSvgs.Pin.SVG ),
+			dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( AzureSvgs.Pin.SVG ),
 			onClick: this.OnClick_Pin,
 			dataextname: this.Extension.Title()
 		} );
 
 		const _close = React.createElement( "a", {
 			className: "header-close",
-			dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( AzureSvgs.Shell.Close.SVG ),
+			dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( AzureSvgs.Shell.Close.SVG ),
 			onClick: this.OnClick_Close,
 			dataextname: this.Extension.Title()
 		} );

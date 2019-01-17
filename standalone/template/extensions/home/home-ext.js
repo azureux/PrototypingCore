@@ -4,30 +4,21 @@
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 
-const HomePage_PropertyBag = {
-	_title :  "My Azure Home Page",
-	_icon : ExtBase.Icons().AvatarDefault,
-	_css_id : "home-page-css",
-	_css_path : "extensions/home/home-ext.css"
-};
-
 export class HomePageExtension extends ExtBase
 {
 	constructor( props )
 	{
 		super( props );
-
-		this.Init( HomePage_PropertyBag );
-		this.Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
-	static Title()
+	static PropertyBag()
 	{
-		return HomePage_PropertyBag._title;
+		return  {
+			_title :  "My Azure Home Page",
+			_breadcrumb_title: "Home",
+			_icon : ExtBase.Icons().AvatarDefault,
+			_css_id : "home-page-css",
+			_css_path : "extensions/home/home-ext.css"
+		};
 	};
-	static Icon()
-	{
-		return HomePage_PropertyBag._icon;
-	};
-
 };

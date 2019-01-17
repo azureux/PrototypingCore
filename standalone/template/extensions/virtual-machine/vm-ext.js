@@ -3,30 +3,23 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-
-const VirtualMachine_PropertyBag = {
-	_title :  "Virtual Machines",
-	_icon : ExtBase.Icons().Color.VirtualMachines,
-	_css_id : "vm-ext-css",
-	_css_path : "extensions/virtual-machine/vm-ext.css"
-};
+import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
 
 export class VirtualMachineExtension extends ExtBase
 {
 	constructor( props )
 	{
 		super( props );
-
-		this.Init( VirtualMachine_PropertyBag );
-		this.Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
-	static Title()
+	static PropertyBag()
 	{
-		return VirtualMachine_PropertyBag._title;
-	};
-	static Icon()
-	{
-		return VirtualMachine_PropertyBag._icon;
+		return  {
+			_title :  "Virtual Machines",
+			_breadcrumb_title: "VMs",
+			_icon : ExtBase.Icons().Color.VirtualMachines,
+			_css_id : "vm-ext-css",
+			_css_path : "extensions/virtual-machine/vm-ext.css"
+		};
 	};
 };

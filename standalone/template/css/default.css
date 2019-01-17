@@ -20,9 +20,10 @@ body
 	display:block;
 	padding:0px;
 	margin:0px;
-    background-color: rgba(0, 0, 0, 1);
-    color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
     font-family: 'Segoe UI', 'Tahoma', Arial;
+    font-size: medium;
 	overflow:hidden;
 }
 .cds-react-app
@@ -41,12 +42,7 @@ body
 /* root level themes, usually limited to attributes that use colors */
 .default-theme
 {
-    /*original portal theme background-color: #215b7d;*/
-	background-color: rgba(242,242,242, 1);
-    color: rgba(32,32,32,1);
-    font-size: medium;
-    border-color: blue;
-    font-family: 'Segoe UI', 'Tahoma', Arial;
+
 }
 .dark-theme
 {

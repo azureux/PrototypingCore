@@ -49,7 +49,7 @@ export class BreadCrumbControl extends React.Component
 		for ( let i = 0; i < this.Links.length; i++ )
 		{
 			//	console.debug( "this.Links", this.Links[i].Title() );
-			let _text = this.Links[i].Title();
+			let _text = this.Links[i].BreadCrumbTitle();
 			let _link = React.createElement( "a", { href: "#?link" + i, key: Utils.NewKey(), className: "bc-link" }, _text);
 			_temp_links.push( _link );
 

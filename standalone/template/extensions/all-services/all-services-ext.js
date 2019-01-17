@@ -3,31 +3,23 @@
 /// <reference path="../../js/utilities.js" />
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-
-const AllServices_PropertyBag = {
-	_title : "All Services",
-	_icon : ExtBase.Icons().Color.Alerts_color,
-	_css_id : "all-services-css",
-	_css_path : "extensions/all-services/all-services-ext.css"
-};
+import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
 
 export class AllServicesExtension extends ExtBase
 {
 	constructor( props )
 	{	//	console.debug( "AllServicesExtension.props", props );
 		super( props );
-
-		this.Init( AllServices_PropertyBag );
-
-		this.Utils.InjectControlCss(this.CssFileID, this.CssFile);
 		return;
 	};
-	static Title()
+	static PropertyBag()
 	{
-		return AllServices_PropertyBag._title;
-	};
-	static Icon()
-	{
-		return AllServices_PropertyBag._icon;
+		return  {
+			_title : "All Services",
+			_breadcrumb_title: "Services",
+			_icon : ExtBase.Icons().Color.Alerts_color,
+			_css_id : "all-services-css",
+			_css_path : "extensions/all-services/all-services-ext.css"
+		};
 	};
 };
