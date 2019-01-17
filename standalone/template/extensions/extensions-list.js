@@ -8,9 +8,9 @@ import { VirtualMachineExtension } from "./virtual-machine/vm-ext.js";
 
 
 export const AllExtensionsList = [
+	HomePageExtension,
+	DashboardExtension,
 	AllServicesExtension,
 	CreateNewExtension,
-	DashboardExtension,
-	HomePageExtension,
 	VirtualMachineExtension
 ];

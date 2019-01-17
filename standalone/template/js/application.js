@@ -12,10 +12,10 @@ import { VerticalNavigationBar as LeftNav } from "../components/shell-controls/v
 import { ContentContainer as ContentContainer } from "../components/shell-controls/content-container/content-container.js";
 import { ContextPanel as ContextBlade } from "../components/shell-controls/context-panel/context-panel.js";
 
-// fixing extensions
-//	import * as ExtensionsList from "../extensions/all-extensions-list.js";
-import { StandardExtensionsList as StandardExtensions } from "../extensions/standards-list.js";
-//	import * as FavoritesExtensions from "../extensions/favorites-list.js";
+import { AllExtensionsList as Extensions } from "../extensions/extensions-list.js";
+//	import { StandardExtensionsList as StandardExtensions } from "../extensions/standards-list.js";
+import { FavoritesExtensionsList as FavoriteExtensions } from "../extensions/favorites-list.js";
+
 
 export class Application extends React.Component
 {
@@ -26,7 +26,7 @@ export class Application extends React.Component
 		// default properties
 		Application.defaultProps = {
 			ID: Utils.NewId( "cds-azure-proto-app" ),
-			AppName: "Microsoft Azure",
+			AppName: "Microsoft Azure 2",
 			Theme: "default-theme",
 		};
 
@@ -36,26 +36,6 @@ export class Application extends React.Component
 		this.CssFile = "css/default.css";
 		this.ThemeName = props.Application.Theme; // "dark-theme" || "default-theme" 
 		this.Theme = {};
-		this.Users = [];
-		this.Data = [];
-
-		this.Notifications = [];
-
-		this.DefaultExtension = StandardExtensions[0];
-		this.CurrentExtensions = [this.DefaultExtension];	//StandardExtensions[1];
-		this.Standards_ExtensionList = [];
-		//this.Favorites_ExtensionList = [];
-		//this.All_ExtensionsList = [];
-
-		// for computing layout dimensions to be passed down to child components
-		this.BoundingClientRect = {};
-		this.ClientRect = {};
-		this.ClientTop = 0;
-		this.ClientLeft = 0;
-		this.ClientHeight = 0;
-		this.ClientWidth = 0;
-
-		// state
 		this.state = {
 			CurrentUser: {},
 			CurrentExtensions: [],
@@ -65,64 +45,75 @@ export class Application extends React.Component
 			UserPanel_IsOpen: false,
 			ContextPanel_IsOpen: false
 		};
+		this.Notifications = [];
+		//	this.Users = [];
+		//	this.Data = [];
 
-		// cache
-		// global cache testing
-		//if ( window.AcuityCache == undefined )
-		//{
-		//	window.AcuityCache = new Cache();
-		//}
-		//	console.debug( "window.AcuityCache", window.AcuityCache );
-		//	Utils.TestCache();
+		this.Extensions = Extensions;
+		this.DefaultExtension = this.Extensions[2];
+		this.CurrentExtensions = [];
+		this.CurrentFavoriteExtensions = [];
+		this.TempCurrentExtensions = this.Utils.GetURI( Extensions );
+		//	console.debug( "Application.CurrentExtensions", this.CurrentExtensions.length);
+		if ( this.TempCurrentExtensions.length == 0 )
+		{
+			this.CurrentExtensions = [this.DefaultExtension];
+		}
+		else
+		{
+			this.CurrentExtensions = this.TempCurrentExtensions;	
+		}
 
-		// INJECT CSS
-		this.Utils.InjectControlCss( this.CssID, this.CssFile );
-
-		//	EVENT HANDLERS
-		this.Paths = this.Utils.GrabURIs();
-		console.debug( "this.Paths", this.Paths );
-		this.Utils.ParsePathing( this.Paths, this.CurrentExtensions );
-		console.debug( "this.CurrentExtensions", this.CurrentExtensions );
-
-		//	this.Handle_OnClick_ToggleThemes = this.OnClick_ToggleThemes.bind( this );
+		// for computing layout dimensions to be passed down to child components
+		//this.BoundingClientRect = {};
+		//this.ClientRect = {};
+		//this.ClientTop = 0;
+		//this.ClientLeft = 0;
+		//this.ClientHeight = 0;
+		//this.ClientWidth = 0;
+		return;
+	};
+	componentDidMount()
+	{	//	console.debug( "Application:componentDidMount" );
+		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 
-	// application scope event handlers
-	//OnClick_HandleBodyElementClick( proxyEvent )
-	//{	//	changing the state object cause a re-render, and by default all flyouts are closed
-	//	//	probably decide on what items should close and which should maintain thier own state
-	//	//	"leftnav" should not default close
-	//	//	"contextblade" may not default close ??
-	//	// "feature flag" may not default close ??
 
-	//	console.debug( "Application::OnClick_HandleBodyElementClick", proxyEvent );
-	//	proxyEvent.preventDefault();
-	//	proxyEvent.stopPropagation();
+	//	NAVIGATION METHODS
+	Reset_CurrentExtension()
+	{	//	console.debug( "Application::Reset_CurrentExtension" );
+		//	this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this } );
+		this.CurrentExtensions[0] = this.DefaultExtension;
+		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name );
+		this.setState( { CurrentExtensions: this.CurrentExtensions[0].name } );
+		return;
+	};
+	OnClick_SelectNavigationItem( extension )
+	{	//	console.debug( "OnClick_SelectNavigationItem", extension.name, this.CurrentExtension.type.name );
+		if ( extension.name === this.CurrentExtensions[0].name )
+		{
+			this.Reset_CurrentExtension();
+		}
+		else
+		{
+			this.CurrentExtensions[0] = extension;
+			this.setState( { CurrentExtensions: "foo" } );
+		}
+		return;
+	};
 
-	//	// setting these at the end of the function to avoid bubbling
-	//	this.setState( { UserPanel_IsOpen: false } );
-
-	//	return;
-	//};
-	//OnClick_ToggleThemes( ev )
-	//{
-	//	ev.preventDefault();
-	//	ev.stopPropagation();
-	//	//	console.debug( "OnClick_ToggleThemes", this.state );
-	//	if ( this.state.CurrentTheme == "dark-theme" )
-	//	{
- //           this.setState({ CurrentTheme: "default-theme" } );
- //           this.setState({ CurrentThemeName: "default-theme" } );
-	//	}
- //       else if (this.state.CurrentTheme == "default-theme" )
-	//	{
- //           this.setState({ CurrentTheme: "dark-theme" } );
- //           this.setState({ CurrentThemeName: "dark-theme" } );
-	//	}
-	//	//	console.debug( "OnClick_ToggleThemes", this.state );
-	//	return;
-	//};
+	OnClick_PinCurrentExtension( proxyEvent )
+	{	//	
+		console.debug( "Application::OnClick_PinCurrentExtension. Pin this dashboard/home extensions" );
+		//	console.debug( "currentTarget", proxyEvent.currentTarget.attributes["dataextname"].value );
+		//let _pinned_extension = StandardExtensions.find( function ( val )
+		//{
+		//	return val.name == proxyEvent.currentTarget.attributes["dataextname"].value;
+		//} );
+		//	console.debug( "_pinned_extension", _pinned_extension );
+		return;
+	};
 
 	// child control scope event handlers
 	OnClick_VertNav_OpenClose( proxyEvent )
@@ -160,50 +151,6 @@ export class Application extends React.Component
 		return;
 	};
 
-
-	//	HANDLE CYCLING LEFT NAV ITEMS
-	OnClick_SelectNavigationItem( extension )
-	{	//	console.debug( "OnClick_SelectNavigationItem", extension.name, this.CurrentExtension.type.name );
-		if ( extension.name === this.CurrentExtensions[0].name )
-		{
-			this.Reset_CurrentExtension();
-		}
-		else
-		{
-			this.CurrentExtensions[0] = extension;
-			this.setState( { CurrentExtensions: [extension.name] } );
-		}
-
-		// NEED A WAY TO MANAGE HORIZONTAL PATHING & URL PATHING LOOKUP
-		//this.CurrentExtensions.push( extension );
-		//this.setState( { CurrentExtensions: [extension.name] } );
-
-		//console.debug( "this.CurrentExtensions", this.CurrentExtensions.length );
-		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name, this.state.CurrentExtension );
-		return;
-	};
-	Reset_CurrentExtension()
-	{	//	
-		console.debug( "Application::Reset_CurrentExtension" );
-		//	this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this } );
-		this.CurrentExtensions[0] = this.DefaultExtension;
-		//	console.debug( "OnClick_SelectNavigationItem", this.CurrentExtension.type.name );
-		this.setState( { CurrentExtensions: this.CurrentExtensions[0].name } );
-		return;
-	};
-	OnClick_PinCurrentExtension( proxyEvent )
-	{	//	
-		console.debug( "Application::OnClick_PinCurrentExtension. Pin this dashboard/home extensions" );
-		//	console.debug( "currentTarget", proxyEvent.currentTarget.attributes["dataextname"].value );
-		//let _pinned_extension = StandardExtensions.find( function ( val )
-		//{
-		//	return val.name == proxyEvent.currentTarget.attributes["dataextname"].value;
-		//} );
-		//	console.debug( "_pinned_extension", _pinned_extension );
-		return;
-	};
-
-
 	//	TBD
 	AssignConfiguration( oConfig )
 	{
@@ -232,6 +179,8 @@ export class Application extends React.Component
 		//	console.debug( "ADD PATH TO EXTENSION RESOLUTION" );
 		return;
 	};
+
+	// REACT RENDER
 	render()
 	{	//  React.createElement() params
 		//console.debug( "Application::render()" );
@@ -239,16 +188,8 @@ export class Application extends React.Component
 		//console.debug( "this.props", this.props );
 		//	this.InitRunTimeProperties();
 
-		//	console.debug( "1.app:render:", this.CurrentExtension );
-		if ( this.CurrentExtensions[0] == undefined )
-		{
-			console.debug( "this.DefaultExtension.PropertyBag()", this.DefaultExtension.PropertyBag() );
-
-			this.CurrentExtensions[0] = React.createElement( this.DefaultExtension, { Application: this, PropertyBag: this.DefaultExtension.PropertyBag() } );
-			//	this.setState( { CurrentExtension: this.CurrentExtension.type.name } );
-		}
-		//console.debug( "App.render::this.CurrentExtension", this.CurrentExtension.type.name );
-		//console.debug( "App.render.state", this.state.CurrentExtension );
+		//	console.debug( "APP:RENDER:", this.CurrentExtensions );
+		this.Utils.SetURI( this.CurrentExtensions );
 
         this.TopNav = React.createElement(TopBar,
 			{
@@ -266,8 +207,8 @@ export class Application extends React.Component
                 key: Utils.NewKey(),
                 Application: this,
 				NavExpanded: this.state.VerticalNavigation_IsOpen,
-				Standards: StandardExtensions,
-				Favorites: this.Favorites_ExtensionList,
+				//	Standards: StandardExtensions,
+				Favorites: this.CurrentFavoriteExtensions,
 				SelectedItem: this.CurrentExtensions[0]
             });
 
@@ -277,16 +218,15 @@ export class Application extends React.Component
                 Application: this,
 				NavExpanded: this.state.VerticalNavigation_IsOpen,
 				CurrentExtension: this.CurrentExtensions[0]
-				//	OpenContextPanel: this.OnClick_Test_OpenContextPanel
             });
  
 		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
 		//	console.debug( "RENDER BUG::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
-		this.ContextPanel = React.createElement( ContextBlade, {
-			key: Utils.NewKey(),
-			//	currentTheme: this.ThemeName,
-			IsVisible: this.state.ContextPanel_IsOpen
-		} );
+		//this.ContextPanel = React.createElement( ContextBlade, {
+		//	key: Utils.NewKey(),
+		//	//	currentTheme: this.ThemeName,
+		//	IsVisible: this.state.ContextPanel_IsOpen
+		//} );
 
         //	this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
         //	this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
@@ -295,18 +235,16 @@ export class Application extends React.Component
 			this.TopNav,
             this.VertNav,
             this.ContentContainer,
-			this.ContextPanel
+			//	this.ContextPanel
 			//	this.NotificationsPanel,
 			//	this.FeatureFlightsPanel
         ];
 
-		// adding the global body onclick handler to reset certain states just doesn't work as expected.
+		// RENDER!!!
 		let _app = React.createElement( "div",
 			{
 				id: this.ID,
 				className: this.state.CurrentThemeName + " cds-react-app",
-				//	onClick: this.OnClick_HandleBodyElementClick.bind( this ),
-				//	onClick: this.Handle_BodyClick,
 				key: Utils.NewId()
 			}, this.Layout );
 

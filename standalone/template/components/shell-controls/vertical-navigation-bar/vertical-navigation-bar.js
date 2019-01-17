@@ -142,9 +142,9 @@ export class VerticalNavigationBar extends React.Component
 
 		for ( let i = 0; i < FavoritesExtensions.length; i++)
 		{
-			//	console.debug( i, StandardExtensions[i].name );
-			//	console.debug( "Title()", StandardExtensions[i].Title() );
-			//	console.debug( "Icon()", StandardExtensions[i].Icon() );
+			//	console.debug( i, FavoritesExtensions[i].name );
+			//	console.debug( "Title()", FavoritesExtensions[i].Title() );
+			//	console.debug( "Icon()", FavoritesExtensions[i].Icon() );
 
 			let _fav_item = React.createElement( BtnCtrl,
 			{

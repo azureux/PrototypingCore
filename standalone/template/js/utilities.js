@@ -706,22 +706,66 @@ class _Utilities
 		return;
 	};
 
-	// URI parsing methods
-	static GrabURIs()
-	{
-		console.debug( "GrabUI, try to enforce some schema here" );
-		let _uri_pathing = [];
+	//	URI PARSING METHODS
+	//	http://localhost:55614/default.html#home|browse-rgs|contoso|overview
+	static GetURI( extensions )
+	{	//	console.debug( "GetURI", extensions );
+		let _hashes = this.ParseUriHash( window.location.hash );
+		console.debug( _hashes );
+		let _new_extensions = [];
 
+		if ( _hashes[0] == "" & _hashes.length == 1 )
+		{
+			return _new_extensions;
+		}
 
-		return _uri_pathing;
+		_hashes.forEach( function ( v, i, a )
+		{	//	console.debug( i, v );
+			extensions.forEach( function ( v2, i2, a2 )
+			{	//	console.debug( i2, v2.name );
+				if ( v == v2.name )
+				{
+					_new_extensions.push( v2 );
+				}
+				return;
+			} );
+			return;
+		} );
+
+		console.debug( "GetURI::_new_extensions", _new_extensions );
+		return _new_extensions;
 	};
-	static ParsePathing()
-	{
-		console.debug( "ParsePathing, do look ups and try to resolve or fail" );
-		let _extension_mapping = [];
+	static SetURI( extensions )
+	{	//	console.debug( "Util.SetURI");
+		//	console.debug( "window.location.hash OLD:", window.location.hash);
+		let _new_hash = [];
 
+		extensions.forEach( function ( v, i, a )
+		{
+			//	console.debug( i, v.name );
+			if ( i == 0 )
+			{
+				_new_hash.push( "#" + v.name );
+			}
+			else
+			{
+				_new_hash.push( v.name );
 
-		return _extension_mapping;
+			}
+			return;
+		} );
+
+		let _hash = _new_hash.join( "|" );
+		window.location.hash = _hash;
+		console.debug( "window.location.hash NEW:", window.location.hash);
+		return;
+	};
+	static ParseUriHash( hash )
+	{	//	console.debug( "ParseURI", hash );
+		let _return_value = hash.split( "|" );
+		_return_value[0] = _return_value[0].toString().replace( "#", "" );
+		//	console.debug( _return_value );
+		return _return_value;
 	};
 
 
