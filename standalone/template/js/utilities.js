@@ -711,7 +711,7 @@ class _Utilities
 	static GetURI( extensions )
 	{	//	console.debug( "GetURI", extensions );
 		let _hashes = this.ParseUriHash( window.location.hash );
-		console.debug( _hashes );
+		//	console.debug( _hashes );
 		let _new_extensions = [];
 
 		if ( _hashes[0] == "" & _hashes.length == 1 )
@@ -732,7 +732,7 @@ class _Utilities
 			return;
 		} );
 
-		console.debug( "GetURI::_new_extensions", _new_extensions );
+		//	console.debug( "GetURI::_new_extensions", _new_extensions );
 		return _new_extensions;
 	};
 	static SetURI( extensions )
@@ -757,7 +757,7 @@ class _Utilities
 
 		let _hash = _new_hash.join( "|" );
 		window.location.hash = _hash;
-		console.debug( "window.location.hash NEW:", window.location.hash);
+		//	console.debug( "window.location.hash NEW:", window.location.hash);
 		return;
 	};
 	static ParseUriHash( hash )

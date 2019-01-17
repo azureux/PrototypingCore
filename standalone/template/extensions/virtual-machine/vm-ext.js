@@ -14,7 +14,8 @@ export class VirtualMachineExtension extends ExtBase
 	};
 	static PropertyBag()
 	{
-		return  {
+		return {
+			_extension: this.name,
 			_title :  "Virtual Machine",
 			_breadcrumb_title: "Virtual machine",
 			_icon : ExtBase.Icons().Color.VirtualMachines,

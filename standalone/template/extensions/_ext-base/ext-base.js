@@ -13,7 +13,7 @@ export class ExtensionBase extends React.Component
 
 		this.Utils = Utils;
 		this.Application = props.Application;
-		this.Theme = props.Application.props.Theme;
+		this.Theme = props.Application.ThemeName;
 		this.state = { IsDirty: false };
 
 		// base class 
@@ -24,12 +24,13 @@ export class ExtensionBase extends React.Component
 		this.BaseCssId = "ext-base-css";
 		this.BaseCssPath = "extensions/_ext-base/ext-base.css";
 
+		this.ExtensionName = this.props.PropertyBag._extension;
 		this.Title = this.props.PropertyBag._title;
 		this.BreadCrumbTitle = this.props.PropertyBag._breadcrumb_title;
 		this.SvgIcon = this.props.PropertyBag._icon;
         this.CssFileID = this.props.PropertyBag._css_id;
 		this.CssFile = this.props.PropertyBag._css_path;
-
+		this.Data = this.props.PropertyBag._data;
 		return;
 	};
 	static PropertyBag()
@@ -40,7 +41,12 @@ export class ExtensionBase extends React.Component
 			_icon :  Svgs.Color.ResourceGroup,
 			_css_id : "ExtensionBase",
 			_css_path: "extensions/_ext-base/ext-base.css",
+			_data : []
 		};
+	};
+	static Utils()
+	{
+		return Utils;
 	};
 	static Icons()
 	{
@@ -60,6 +66,10 @@ export class ExtensionBase extends React.Component
 	{
 		//	return ExtensionBase_PropertyBag._icon;
 		return this.PropertyBag()._icon;
+	};
+	static Data()
+	{
+		this.props.PropertyBag._data;
 	};
 	componentWillMount()
 	{

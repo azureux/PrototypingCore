@@ -32,7 +32,7 @@ export class Application extends React.Component
 
 		//	this.Configuration = props;
 		this.Utils = Utils;
-		this.CssID = "app-shell-css",
+		this.CssFileID = "app-shell-css",
 		this.CssFile = "css/default.css";
 		this.ThemeName = props.Application.Theme; // "dark-theme" || "default-theme" 
 		this.Theme = {};

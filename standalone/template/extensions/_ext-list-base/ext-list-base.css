@@ -1,0 +1,26 @@
+﻿.ExtensionListBase
+{
+	display:block;
+	height:calc(100% - 27px);
+	width:calc(100%);
+	overflow:auto;
+}
+
+/* this will move stop a grid control */
+.grid-table
+{
+	width:calc(100%);
+	border: solid 1px rgba(190,190,190,1);
+}
+.grid-tbody
+{
+	border: solid 1px rgba(190,190,190,1);
+}
+.grid-row
+{
+	border: solid 1px rgba(190,190,190,1);
+}
+.grid-cell
+{
+	border: solid 1px rgba(190,190,190,1);
+}
