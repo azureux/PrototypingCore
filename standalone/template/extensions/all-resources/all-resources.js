@@ -9,32 +9,32 @@ export class AllResourcesExtension extends ExtensionList
 	constructor( props )
 	{
 		super( props );
-		this.Data = [
-			{
-				_extension: "VirtualMachineExtension",
-				_title: "Virtual Machine One",
-				_breadcrumb_title: "VM One",
-				_icon: ExtensionList.Icons().Color.VirtualMachines,
-				_css_id: "vm-ext-css",
-				_css_path: "extensions/virtual-machine/vm-ext.css"
-			},
-			{
-				_extension: "VirtualMachineExtension",
-				_title: "Virtual Machine Two",
-				_breadcrumb_title: "VM Two",
-				_icon: ExtensionList.Icons().Color.VirtualMachines,
-				_css_id: "vm-ext-css",
-				_css_path: "extensions/virtual-machine/vm-ext.css"
-			},
-			{
-				_extension: "VirtualMachineExtension",
-				_title: "Virtual Machine Three",
-				_breadcrumb_title: "VM Three",
-				_icon: ExtensionList.Icons().Color.VirtualMachines,
-				_css_id: "vm-ext-css",
-				_css_path: "extensions/virtual-machine/vm-ext.css"
-			}
-		];
+		//this.Data = [
+		//	{
+		//		_extension: "VirtualMachineExtension",
+		//		_title: "Virtual Machine One",
+		//		_breadcrumb_title: "VM One",
+		//		_icon: ExtensionList.Icons().Color.VirtualMachines,
+		//		_css_id: "vm-ext-css",
+		//		_css_path: "extensions/virtual-machine/vm-ext.css"
+		//	},
+		//	{
+		//		_extension: "VirtualMachineExtension",
+		//		_title: "Virtual Machine Two",
+		//		_breadcrumb_title: "VM Two",
+		//		_icon: ExtensionList.Icons().Color.VirtualMachines,
+		//		_css_id: "vm-ext-css",
+		//		_css_path: "extensions/virtual-machine/vm-ext.css"
+		//	},
+		//	{
+		//		_extension: "VirtualMachineExtension",
+		//		_title: "Virtual Machine Three",
+		//		_breadcrumb_title: "VM Three",
+		//		_icon: ExtensionList.Icons().Color.VirtualMachines,
+		//		_css_id: "vm-ext-css",
+		//		_css_path: "extensions/virtual-machine/vm-ext.css"
+		//	}
+		//];
 		return;
 	};
 	static PropertyBag()
@@ -46,30 +46,30 @@ export class AllResourcesExtension extends ExtensionList
 			_css_id : "all-resources-css",
 			_css_path: "extensions/all-resources/all-resources.css",
 			_data: [
-				//{
-				//	_extension: "VirtualMachineExtension",
-				//	_title :  "Virtual Machine One",
-				//	_breadcrumb_title: "VM One",
-				//	_icon : ExtensionList.Icons().Color.VirtualMachines,
-				//	_css_id : "vm-ext-css",
-				//	_css_path : "extensions/virtual-machine/vm-ext.css"
-				//},
-				//{
-				//	_extension: "VirtualMachineExtension",
-				//	_title :  "Virtual Machine Two",
-				//	_breadcrumb_title: "VM Two",
-				//	_icon : ExtensionList.Icons().Color.VirtualMachines,
-				//	_css_id : "vm-ext-css",
-				//	_css_path : "extensions/virtual-machine/vm-ext.css"
-				//},
-				//{
-				//	_extension: "VirtualMachineExtension",
-				//	_title :  "Virtual Machine Three",
-				//	_breadcrumb_title: "VM Three",
-				//	_icon : ExtensionList.Icons().Color.VirtualMachines,
-				//	_css_id : "vm-ext-css",
-				//	_css_path : "extensions/virtual-machine/vm-ext.css"
-				//}
+				{
+					_extension: "VirtualMachineExtension",
+					_title :  "Virtual Machine One",
+					_breadcrumb_title: "VM One",
+					_icon : ExtensionList.Icons().Color.VirtualMachines,
+					_css_id : "vm-ext-css",
+					_css_path : "extensions/virtual-machine/vm-ext.css"
+				},
+				{
+					_extension: "VirtualMachineExtension",
+					_title :  "Virtual Machine Two",
+					_breadcrumb_title: "VM Two",
+					_icon : ExtensionList.Icons().Color.VirtualMachines,
+					_css_id : "vm-ext-css",
+					_css_path : "extensions/virtual-machine/vm-ext.css"
+				},
+				{
+					_extension: "VirtualMachineExtension",
+					_title :  "Virtual Machine Three",
+					_breadcrumb_title: "VM Three",
+					_icon : ExtensionList.Icons().Color.VirtualMachines,
+					_css_id : "vm-ext-css",
+					_css_path : "extensions/virtual-machine/vm-ext.css"
+				}
 			]
 		};
 	};

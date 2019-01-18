@@ -30,7 +30,6 @@ export class ExtensionBase extends React.Component
 		this.SvgIcon = this.props.PropertyBag._icon;
         this.CssFileID = this.props.PropertyBag._css_id;
 		this.CssFile = this.props.PropertyBag._css_path;
-		this.Data = this.props.PropertyBag._data;
 		return;
 	};
 	static PropertyBag()
@@ -66,10 +65,6 @@ export class ExtensionBase extends React.Component
 	{
 		//	return ExtensionBase_PropertyBag._icon;
 		return this.PropertyBag()._icon;
-	};
-	static Data()
-	{
-		this.props.PropertyBag._data;
 	};
 	componentWillMount()
 	{

@@ -455,9 +455,7 @@ const _SortTypes = {
 class _Utilities 
 {
 	constructor()
-	{
-
-	};
+	{};
 
 	// id & key methods
 	static NewId( strValue )
@@ -545,6 +543,14 @@ class _Utilities
 	};
 
 	// data generator methods
+	static SortType()
+	{
+		return  {
+			DEFAULT: { text: "default", arrow: "&varr;" },
+			ASC: { text: "asc", arrow: "&uarr;" },
+			DESC: { text: "desc", arrow: "&darr;" }
+		};
+	};
 	static SortArrays( dataArray, sortKey, sortDirection )
 	{	console.debug( "UNDER CONSTRUCTION:: Utilities.SortArrays" );
 		dataArray.sort( function ( a, b )
@@ -795,6 +801,6 @@ class _Utilities
 export
 {
 	_SampleDataResources as DataEnums,
-	_SortTypes as SortTypes,
+	//_SortTypes as SortTypes,
 	_Utilities as Utilities
 };

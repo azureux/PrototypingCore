@@ -4,6 +4,7 @@
 "use strict";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
+import { DataGridControl as DataGrid } from "../../components/custom-controls/data-grid/data-grid.js";
 
 export class ExtensionListBase extends ExtBase	//	React.Component
 {	
@@ -25,7 +26,7 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 		//this.SvgIcon = this.props.PropertyBag._icon;
 		//this.CssFileID = this.props.PropertyBag._css_id;
 		//this.CssFile = this.props.PropertyBag._css_path;
-		//this.Data = ( this.props.PropertyBag._data || ExtensionListBase.Data() );
+		this.Data = ( this.props.PropertyBag._data || ExtensionListBase.PropertyBag()._data );
 		this.BaseCssId = "ext-list-base-css";
 		this.BaseCssPath = "extensions/_ext-list-base/ext-list-base.css";
 		return;
@@ -40,36 +41,36 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 			_css_id : "ExtensionListBase",
 			_css_path: "extensions/_ext-list-base/ext-list-base.css",
 			_data: [
-				{
-					_extension: "VirtualMachineExtension",
-					_title :  "EXAMPLE Virtual Machine One",
-					_breadcrumb_title: "VM One",
-					_icon : ExtBase.Icons().Color.VirtualMachines,
-					_css_id : "vm-ext-css",
-					_css_path : "extensions/virtual-machine/vm-ext.css"
-				},
-				{
-					_extension: "VirtualMachineExtension",
-					_title :  "EXAMPLE Virtual Machine Two",
-					_breadcrumb_title: "VM Two",
-					_icon : ExtBase.Icons().Color.VirtualMachines,
-					_css_id : "vm-ext-css",
-					_css_path : "extensions/virtual-machine/vm-ext.css"
-				},
-				{
-					_extension: "VirtualMachineExtension",
-					_title :  "EXAMPLE Virtual Machine Three",
-					_breadcrumb_title: "VM Three",
-					_icon : ExtBase.Icons().Color.VirtualMachines,
-					_css_id : "vm-ext-css",
-					_css_path : "extensions/virtual-machine/vm-ext.css"
-				}
+				//{
+				//	_extension: "VirtualMachineExtension",
+				//	_title :  "EXAMPLE Virtual Machine One",
+				//	_breadcrumb_title: "VM One",
+				//	_icon : ExtBase.Icons().Color.VirtualMachines,
+				//	_css_id : "vm-ext-css",
+				//	_css_path : "extensions/virtual-machine/vm-ext.css"
+				//},
+				//{
+				//	_extension: "VirtualMachineExtension",
+				//	_title :  "EXAMPLE Virtual Machine Two",
+				//	_breadcrumb_title: "VM Two",
+				//	_icon : ExtBase.Icons().Color.VirtualMachines,
+				//	_css_id : "vm-ext-css",
+				//	_css_path : "extensions/virtual-machine/vm-ext.css"
+				//},
+				//{
+				//	_extension: "VirtualMachineExtension",
+				//	_title :  "EXAMPLE Virtual Machine Three",
+				//	_breadcrumb_title: "VM Three",
+				//	_icon : ExtBase.Icons().Color.VirtualMachines,
+				//	_css_id : "vm-ext-css",
+				//	_css_path : "extensions/virtual-machine/vm-ext.css"
+				//}
 			]
 		};
 	};
-
 	render()
 	{
+		// may need other controls
 		const _header = React.createElement( Header, {
 			key: ExtBase.Utils().NewKey(),
 			Title: this.Title,
@@ -78,26 +79,17 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 			extensionObject: this
 		} );
 
-		console.debug( "this.Data", this.Data );
-		let _formatted_data = [];
-
-		this.Data.forEach( function ( v, i, a )
-		{
-			const _row_icon = React.createElement( "td", { key:ExtBase.Utils().NewKey(), className: "grid-cell icon", dangerouslySetInnerHTML: ExtBase.Utils().CreateSvgMarkup( v._icon.SVG )} );
-			const _row_ext_name = React.createElement( "td", { key:ExtBase.Utils().NewKey(), className: "grid-cell" }, v._extension );
-			const _row_name = React.createElement( "td", { key:ExtBase.Utils().NewKey(), className: "grid-cell" }, v._title );
-			const _row = React.createElement( "tr", { key:ExtBase.Utils().NewKey(), className: "grid-row" }, [_row_icon, _row_ext_name, _row_name] );
-
-			_formatted_data.push( _row );
-			return;
+		const _data_grid = React.createElement( DataGrid, {
+			key: ExtBase.Utils().NewKey(),
+			Application: this.Application,
+			Data: this.Data,
+			Columns: this.Columns,
+			//SortDirection: ExtBase.Utils().SortType().DEFAULT
 		} );
-		const _grid_header_row = React.createElement( "tbody", { className: "grid-tbody"},_formatted_data); 
-		const _grid_table = React.createElement( "table", { className: "grid-table"},_grid_header_row);
-
 
 		return React.createElement( "div", {
 			id: this.ID,
 			className: this.DefaultCssClass,
-		}, _header, _grid_table );
+		}, _header, _data_grid );
 	};
 };

@@ -8,7 +8,7 @@
 
 "use strict";
 
-import { SortTypes } from "../../js/utilities.js";
+
 import { Utilities as Utils } from "../../js/utilities.js";
 import { CacheItem as Item } from "../app-state-cache/cache-item.js";
 
@@ -19,6 +19,7 @@ export class ApplicationStateCache
 
 		const _self = this;
 		this.Items = [];
+		this.Utils = Utils;
 
 		// set 
 		this.ClearAllItems = this.Handle_ClearAll.bind( this );
@@ -37,9 +38,9 @@ export class ApplicationStateCache
 	};
 	Sort_All_Items(direction)
 	{	//	console.debug( "Sort(direction)", direction );
-		if ( direction == undefined || direction == SortTypes.DEFAULT )
+		if ( direction == undefined || direction == this.Utils.SortTypes().DEFAULT )
 		{
-			direction = SortTypes.ASC;
+			direction = this.Utils.SortTypes().SortTypes.ASC;
 		}
 
         this.Items.sort( function ( a, b )
@@ -50,7 +51,7 @@ export class ApplicationStateCache
             //  console.debug( "dir", dir, _self.SortType2.ASC );
             switch ( direction )
             {
-                case SortTypes.ASC:
+                case this.Utils.SortTypes().ASC:
                     {   //  sort string ascending
                         if ( a < b ) return -1;
                         //  sort string descending    
@@ -58,7 +59,7 @@ export class ApplicationStateCache
                         //  default return value (no sorting)
                         return 0;
                     }
-                case SortTypes.DESC:
+                case this.Utils.SortTypes().DESC:
                     {   //  sort string ascending
                         if ( a < b ) return 1;
                         //  sort string descending    
@@ -80,7 +81,7 @@ export class ApplicationStateCache
 		const _error_message = "The item added was not a valid \'CacheItem\' object";
 
 		this.Items.push( item );
-		this.Sort( SortTypes.ASC.text );
+		this.Sort( this.Utils.SortTypes().ASC.text );
 
 		//if ( item.constructor.name == "CacheItem" )
 		//{
