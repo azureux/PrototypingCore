@@ -1,4 +1,26 @@
-﻿.className
+﻿.DataGridControl
 {
-	color:red;
+	border: solid 1px rgba(190,190,190,1);
+	padding:20px;
+	margin:10px;
+	margin-right:0px;
+}
+
+
+.grid-table
+{
+	width:calc(100%);
+	border: solid 1px rgba(190,190,190,1);
+}
+.grid-tbody
+{
+	border: solid 1px rgba(190,190,190,1);
+}
+.grid-row
+{
+	border: solid 1px rgba(190,190,190,1);
+}
+.grid-cell
+{
+	border: solid 1px rgba(190,190,190,1);
 }

@@ -26,6 +26,7 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 		//this.SvgIcon = this.props.PropertyBag._icon;
 		//this.CssFileID = this.props.PropertyBag._css_id;
 		//this.CssFile = this.props.PropertyBag._css_path;
+		this.Columns =  ( this.props.PropertyBag._columns || ExtensionListBase.PropertyBag()._columns ); 
 		this.Data = ( this.props.PropertyBag._data || ExtensionListBase.PropertyBag()._data );
 		this.BaseCssId = "ext-list-base-css";
 		this.BaseCssPath = "extensions/_ext-list-base/ext-list-base.css";
@@ -40,6 +41,14 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 			_icon :  ExtBase.Icons().Color.ResourceGroup,
 			_css_id : "ExtensionListBase",
 			_css_path: "extensions/_ext-list-base/ext-list-base.css",
+			_columns: [
+				{ name: "Icon", key: "_icon", visible: true },
+				{ name: "Extension Name", key: "_extension", visible: true },
+				{ name: "Resource", key: "_title", visible: true },
+				{ name: "BreadCrumb Title", key: "_breadcrumb_title", visible: false },
+				{ name: "CSS ID", key: "_css_id", visible: false },
+				{ name: "CSS PATH", key: "_css_path" },
+			],
 			_data: [
 				//{
 				//	_extension: "VirtualMachineExtension",

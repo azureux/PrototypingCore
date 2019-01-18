@@ -45,6 +45,14 @@ export class AllResourcesExtension extends ExtensionList
 			_icon : ExtensionList.Icons().Color.AllResources_color,
 			_css_id : "all-resources-css",
 			_css_path: "extensions/all-resources/all-resources.css",
+			//_columns: [
+			//	{ name: "Resource", key: "_title", visible: true },
+			//	{ name: "Icon", key: "_icon", visible: true },
+			//	{ name: "BreadCrumb Title", key: "_breadcrumb_title", visible: true },
+			//	{ name: "Extension Name", key: "_extension", visible: true },
+			//	{ name: "CSS ID", key: "_css_id", visible: true },
+			//	{ name: "CSS PATH", key: "_css_path", visible: true },
+			//],
 			_data: [
 				{
 					_extension: "VirtualMachineExtension",

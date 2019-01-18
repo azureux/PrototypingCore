@@ -19,7 +19,7 @@ export class AllResourceGroupsExtension extends ExtBase
 			_breadcrumb_title: "Resources Groups",
 			_icon : ExtBase.Icons().Color.ResourceGroup,
 			_css_id : "all-res-css",
-			_css_path : "extensions/all-resources-grousp/all-resources-grousp.css"
+			_css_path : "extensions/all-resource-groups/all-resource-groups.css"
 		};
 	};
 };
