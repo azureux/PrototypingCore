@@ -17,8 +17,8 @@ export class ContentContainer extends React.Component
 		this.CssFileID = this.ID + "-css";
 		this.CssFile = "components/shell-controls/content-container/content-container.css";
 		this.CssClassNames = {
-			Normal: this.Theme + " dsh-brd-main",
-			Expanded: this.Theme + " dsh-brd-main-expanded"
+			Normal: this.Theme + " extension-panel-root",
+			Expanded: this.Theme + " extension-panel-root-expanded"
 		};
 		this.CurrentCssClassName = this.CssClassNames.Normal;
 		this.CurrentExtensions = this.props.Application.CurrentExtensions;
@@ -38,16 +38,50 @@ export class ContentContainer extends React.Component
 			this.CurrentCssClassName = this.CssClassNames.Expanded;
 		}
 
-		const _bc = React.createElement( BreadCrumb, { key: Utils.NewKey(), Application: this.props.Application } );
+		// determine is extension should display a breadcrumb navigation control
+		// this is for the first four controls in the left nav, and only 3 of those don't render a breadcrumb
+		console.debug( "this.CurrentExtensions[this.CurrentExtensions.length - 1]", this.CurrentExtensions[this.CurrentExtensions.length - 1].name );
 
-		//	console.debug( "ContentContainer::this.CurrentExtensions.length", this.CurrentExtensions.length);
-		//	console.debug( "ContentContainer::this.CurrentExtensions.length", this.CurrentExtensions[this.CurrentExtensions.length - 1]);
-		//	always render the last extension, may need to make this a horizontal scrolling situation later
-		//	const _ext = React.createElement( this.CurrentExtensions[0], { key: Utils.NewKey(), Application: this.props.Application } );
+		let _bool_has_breadcrumb_control = true;
+		let _extension_name = this.CurrentExtensions[this.CurrentExtensions.length - 1].name;
 
-		//console.debug( "this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag()", this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag() );
+		switch (_extension_name)
+		{
+			case "AllServicesExtension":
+				{
+					_bool_has_breadcrumb_control = false;
+					break;
+				}
+			case "HomePageExtension":  
+				{
+					_bool_has_breadcrumb_control = false;
+					break;
+				}
+			case "DashboardExtension":  
+				{
+					_bool_has_breadcrumb_control = false;
+					break;
+				}
+			default: {
+				_bool_has_breadcrumb_control = true;
+				break;
+			}
+		}
+		console.debug( "_bool_has_breadcrumb_control", _bool_has_breadcrumb_control );
 
-		const _ext = React.createElement( this.CurrentExtensions[this.CurrentExtensions.length - 1], { key: Utils.NewKey(), Application: this.props.Application, PropertyBag: this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag() } );
+		// final collection
+		let  _bc = undefined;
+		if ( _bool_has_breadcrumb_control == true )
+		{
+			_bc = React.createElement( BreadCrumb, { key: Utils.NewKey(), Application: this.props.Application } );
+		}
+
+		let _ext = React.createElement( this.CurrentExtensions[this.CurrentExtensions.length - 1], {
+			key: Utils.NewKey(),
+			Application: this.props.Application,
+			PropertyBag: this.CurrentExtensions[this.CurrentExtensions.length - 1].PropertyBag(),
+			HasBreadCrumb: _bool_has_breadcrumb_control,
+		} );
 
 		return React.createElement( 'div', {
 			id: this.ID,

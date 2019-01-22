@@ -20,6 +20,7 @@ export class ExtensionBase extends React.Component
 		this._ext_name = this.constructor.name;
 		this.ID = Utils.NewId( this._ext_name );
 		this.DefaultCssClass = "ExtensionBase " + this._ext_name;
+		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this._ext_name;
 
 		this.BaseCssId = "ext-base-css";
 		this.BaseCssPath = "extensions/_ext-base/ext-base.css";
@@ -30,6 +31,12 @@ export class ExtensionBase extends React.Component
 		this.SvgIcon = this.props.PropertyBag._icon;
         this.CssFileID = this.props.PropertyBag._css_id;
 		this.CssFile = this.props.PropertyBag._css_path;
+
+		this.HasBreadCrumb = props.HasBreadCrumb;
+		if ( this.HasBreadCrumb == false )
+		{
+			this.DefaultCssClass = this.DefaultCssClassNoBreadCrumb;
+		}
 		return;
 	};
 	static PropertyBag()

@@ -200,8 +200,7 @@ export class Application extends React.Component
 				stateTest: this.state
             });
 
-		//	console.debug( "1. Application:Render::this.state.VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
-		//	console.debug( "2. Application:Render::this.props.VerticalNavigationBar.IsCollapsed", this.props.VerticalNavigationBar.IsCollapsed );
+		//	console.debug( "Application:Render::this.state.VerticalNavigation_IsOpen", this.state.VerticalNavigation_IsOpen );
         this.VertNav = React.createElement(LeftNav, 
             {
                 key: Utils.NewKey(),
@@ -222,12 +221,11 @@ export class Application extends React.Component
  
 		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
 		//	console.debug( "RENDER BUG::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
-		//this.ContextPanel = React.createElement( ContextBlade, {
+		//	this.ContextPanel = React.createElement( ContextBlade, {
 		//	key: Utils.NewKey(),
 		//	//	currentTheme: this.ThemeName,
 		//	IsVisible: this.state.ContextPanel_IsOpen
-		//} );
-
+		//	} );
         //	this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
         //	this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
 

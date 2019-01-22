@@ -22,10 +22,10 @@ export class VerticalNavigationBar extends React.Component
 		this.CssFileID = "vert-nav-panel-css";
 		this.CssFile = "components/shell-controls/vertical-navigation-bar/vertical-navigation-bar.css";
 		this.CssClasses = {
-			Normal: "vertnav-main " + this.Theme,
-			Collapsed: "vertnav-main-collapsed " + this.Theme,
-			Dirty: "vertnav-main-dirty " + this.Theme,
-			Saved: "vertnav-main-saved " + this.Theme,
+			Normal: "vertnav-main",	//	 + this.Theme,
+			Collapsed: "vertnav-main-collapsed",	//	 + this.Theme,
+			Dirty: "vertnav-main-dirty",	//	 + this.Theme,
+			Saved: "vertnav-main-saved",	//	 + this.Theme,
 			ChevronExpanded: "exp-coll-button-default",	//	+ this.Theme,
 			ChevronCollapsed: "exp-coll-button-collapsed",	// + this.Theme,
 			ListPanelExpanded: "ext-list-panel-default",	// + this.Theme,

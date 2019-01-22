@@ -10,3 +10,11 @@
 	width:calc(100%);
 	overflow:auto;
 }
+
+.ExtensionBase-NoBreadCrumb
+{
+	display:block;
+	height:calc(100% );
+	width:calc(100%);
+	overflow:auto;
+}
