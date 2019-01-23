@@ -1,6 +1,6 @@
-﻿.VirtualMachineExtension
+﻿.AzureActiveDirectoryExtension
 {
-	border: solid 20px rgba(0, 0128, 255,1);
+	border: solid 20px rgba(222, 224, 38, 0.87);
 	background-color:white;
 	color:black;
 	display:block;

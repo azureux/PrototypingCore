@@ -1,6 +1,6 @@
-﻿.VirtualMachineExtension
+﻿.AllVmsExtension
 {
-	border: solid 20px rgba(0, 0128, 255,1);
+	border: solid 20px rgba(76, 255, 0,1);
 	background-color:white;
 	color:black;
 	display:block;

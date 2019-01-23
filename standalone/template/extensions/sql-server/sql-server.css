@@ -1,6 +1,6 @@
-﻿.VirtualMachineExtension
+﻿.SqlServerExtension
 {
-	border: solid 20px rgba(245, 0, 255,1);
+	border: solid 20px rgba(194, 22, 22,1);
 	background-color:white;
 	color:black;
 	display:block;
