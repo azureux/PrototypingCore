@@ -52,12 +52,9 @@ export class ContextPanel extends React.Component
 		this.setState( { IsOpen: this.IsVisible } );
 		console.debug( "OnClick_Close", this.IsVisible, this.state.IsOpen );
 		return;
-	};
-	
+	};	
 	render()
-	{	//	
-		// console.debug( "ContextPanel.render()", this.IsVisible, this.state.IsOpen );
-
+	{	// console.debug( "ContextPanel.render()", this.IsVisible, this.state.IsOpen );
 		let _close_btn = React.createElement( BtnCtrl,
 			{
 				className: "context-close-button",

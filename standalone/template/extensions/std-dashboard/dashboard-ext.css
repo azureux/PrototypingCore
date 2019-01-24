@@ -13,6 +13,17 @@
 }
 .dash-title-panel
 {
-	/*border: solid 1px red;*/
+	border: solid 1px red;
 	font-size: 26px;
+	display:inline-block;
+}
+
+.db-btn
+{
+	display:inline-block;
+}
+.db-btn > .btn-text-default
+{
+	width:auto;
+	/*border: solid 1px red;*/
 }
