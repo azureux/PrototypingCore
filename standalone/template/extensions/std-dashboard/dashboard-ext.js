@@ -12,6 +12,8 @@ export class DashboardExtension extends ExtBase
 
 		this.DefaultImage = "/../../img/dashboard/sample-dashboard-01.png";
 		this.Title = "Contoso Dashboard";
+
+
 		return;
 	};
 	static PropertyBag()
