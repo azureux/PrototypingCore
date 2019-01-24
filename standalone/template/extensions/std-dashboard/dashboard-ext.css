@@ -1,4 +1,17 @@
-﻿.DashboardExtension {
-	background-color:rgba(242,242,242,1);
+﻿.DashboardExtension
+{
+	background-color:rgba(227,227,227,1);
 	padding:20px;
+}
+
+.dashboard-header
+{
+	/*border: solid 1px red;*/
+	margin-left:10px;
+	padding:0px;
+}
+.dash-title-panel
+{
+	/*border: solid 1px red;*/
+	font-size: 26px;
 }

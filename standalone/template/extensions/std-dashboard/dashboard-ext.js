@@ -9,6 +9,9 @@ export class DashboardExtension extends ExtBase
 	constructor( props )
 	{
 		super( props );
+
+		this.DefaultImage = "/../../img/dashboard/sample-dashboard-01.png";
+		this.Title = "Contoso Dashboard";
 		return;
 	};
 	static PropertyBag()
@@ -23,17 +26,27 @@ export class DashboardExtension extends ExtBase
 	};
 	render()
 	{
-		const _extension_header = React.createElement( "div", {
+		const _dash = React.createElement( "span", {
 			key: this.Utils.NewKey(),
+			className: "dash-title-panel"
 		}, `${this.Title}` );
 
-		const _grid_panel = React.createElement( "div", {
+		// add buttons bars
+
+		const _extension_header = React.createElement( "div", {
 			key: this.Utils.NewKey(),
-		}, "Tiles" );
+			className: "dashboard-header"
+		}, _dash );
+
+		let _splash = React.createElement( "img", {
+			key: this.Utils.NewKey(),
+			src: this.DefaultImage,
+			className: "splash-dash"
+		});
 
 		const _layout = [
 			_extension_header,
-			_grid_panel
+			_splash
 		];
 
 		return React.createElement( "div", {
