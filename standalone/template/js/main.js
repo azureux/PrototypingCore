@@ -13,9 +13,7 @@ import { ApplicationStateCache as Cache } from "../components/app-state-cache/ap
 		console.log( "TRY", new Date().toISOString() );
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
 		{
-			ReactDOM.render( React.createElement( App, Config ), document.getElementById( "ApplicationElement" ) );
-
-			//	const _new_random_id = Utils.NewBlockID();			
+			ReactDOM.render( React.createElement( App, Config ), document.getElementById( "ApplicationElement" ) );	
 			return;
 		} );
 	}

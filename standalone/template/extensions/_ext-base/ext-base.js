@@ -1,9 +1,12 @@
 ﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
 /// <reference path="../../script/react/react-dom-latest.js" />
+/// <reference path="../../script/babel/babel.7.1.0.min.js" />
 /// <reference path="../../js/utilities.js" />
+
 "use strict";
 import { Utilities as Utils } from "../../../js/utilities.js";
 import { SVG as Svgs } from "../../../js/svg-assets.js";
+import { ButtonControl as Button } from "../../components/standard-controls/button/button.js";
 
 export class ExtensionBase extends React.Component
 {	
