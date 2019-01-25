@@ -40,7 +40,7 @@ export class AllResourcesExtension extends ExtensionList
 	static PropertyBag()
 	{
 		return  {
-			_title :  "All resources",
+			_title :   "All resources",
 			_breadcrumb_title: "All resources",
 			_icon : ExtensionList.Icons().Color.AllResources_color,
 			_css_id : "all-resources-css",

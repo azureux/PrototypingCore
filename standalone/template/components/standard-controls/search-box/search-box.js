@@ -24,7 +24,7 @@ export class SearchBox extends React.Component
 		// configurable properties
 		this.Theme = this.props.Theme || "";
 		this.AltTitle = "Search across the entire application";
-		this.PlaceholderText = "Search all resources";
+		this.PlaceholderText = "Search ressrouces, services and documentation";
 		this.Icon = "";
 		this.DataSet = props.DataSet || [];
         this.DataSet_Temp = props.DataSet || [];

@@ -8,7 +8,7 @@ import { HomePageExtension } from "./std-home/home-ext.js";
 
 export const StandardExtensionsList = [
 	CreateNewExtension,
-	DashboardExtension,
 	HomePageExtension,
+	DashboardExtension,
 	AllServicesExtension
 ];

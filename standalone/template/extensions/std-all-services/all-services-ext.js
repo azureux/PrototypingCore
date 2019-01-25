@@ -17,7 +17,7 @@ export class AllServicesExtension extends ExtBase
 		return  {
 			_title : "All Services",
 			_breadcrumb_title: "Services",
-			_icon : ExtBase.Icons().Color.Alerts_color,
+			_icon : ExtBase.Icons().Color.All_Services,
 			_css_id : "all-services-css",
 			_css_path : "extensions/std-all-services/all-services-ext.css"
 		};

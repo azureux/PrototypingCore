@@ -14,8 +14,8 @@ export class AzureActiveDirectoryExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title :  "Azure Active Directory",
-			_breadcrumb_title: "AZure AD",
+			_title :  "Microsoft Azure Active Directory",
+			_breadcrumb_title: "Azure AD",
 			_icon : ExtBase.Icons().Color.ActiveDirectory,
 			_css_id : "azure-ad-css",
 			_css_path : "extensions/azure-active-directory/azure-active-directory.css"

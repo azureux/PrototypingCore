@@ -16,9 +16,9 @@ export class HomePageExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title :  "My Azure Home Page",
+			_title :  "Home",
 			_breadcrumb_title: "Home",
-			_icon : ExtBase.Icons().AvatarDefault,
+			_icon : ExtBase.Icons().Color.Home,
 			_css_id : "home-page-css",
 			_css_path : "extensions/std-home/home-ext.css"
 		};

@@ -43,17 +43,40 @@ export class ExtensionHeader extends React.Component
 	};
 	render()
 	{	//	console.debug( "ExtensionHeader::render" );	//	, this.state, this.props );
-		//	config conditions for this header
-		//	add multiple header resource icon, buttons & related flags
-		//	resize
-		//	pin
-		//	close
+		console.debug( "ExtensionHeader.render()", this.props.SvgIcon );
+		let _icon;
 
-		const _title = React.createElement( "div", { className: "header-title" }, `${this.Title}` );
-		const _sub_title = React.createElement( "div", { className: "header-sub-title" }, `${this.SubTitle}` );
-		const _icon = React.createElement( "div", { className: "header-icon", dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( this.SvgIcon.SVG ) } );
+		if ( this.props.SvgIcon !== undefined ) {
+			_icon = React.createElement( "div", {
+				key: this.Application.Utils.NewKey(),
+				className: "header-icon-panel",
+				dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( this.SvgIcon.SVG )
+			} );
+		}
 
+		let _title = React.createElement( "div", {
+			className: "header-title",
+			key: this.Application.Utils.NewKey()
+		}, `${this.Title}` );
+
+		let _sub_title = React.createElement( "div", {
+			key: this.Application.Utils.NewKey(),
+			className: "header-sub-title"
+		}, `${this.SubTitle}` );
+
+		let _titles = React.createElement( "div", {
+			key: this.Application.Utils.NewKey(),
+			className: "header-titles"
+		}, _title, _sub_title  );
+
+		const _titles_panel = React.createElement( "div", {
+			key: this.Application.Utils.NewKey(),
+			className: "header-titles-panel"
+			}, _titles);
+
+		//// check action panel items
 		const _pin = React.createElement( "a", {
+			key: this.Application.Utils.NewKey(),
 			className: "header-pin",
 			dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( AzureSvgs.Pin.SVG ),
 			onClick: this.OnClick_Pin,
@@ -61,18 +84,23 @@ export class ExtensionHeader extends React.Component
 		} );
 
 		const _close = React.createElement( "a", {
+			key: this.Application.Utils.NewKey(),
 			className: "header-close",
 			dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( AzureSvgs.Shell.Close.SVG ),
 			onClick: this.OnClick_Close,
 			dataextname: this.Extension.Title()
 		} );
 
-		const _title_panel = React.createElement( "div", { className: "header-title-panel" }, _title, _sub_title );
-		const _action_panel = React.createElement( "div", { className: "header-action-panel" }, _pin, _close  );
+		const _action_panel = React.createElement( "div", {
+			key: this.Application.Utils.NewKey(),
+			className: "header-action-panel"
+		}, _pin, _close );
 
+
+		// final layout
 		return React.createElement( "div",
 			{
 				className: this.DefaultCssClass
-			}, _icon, _title_panel, _action_panel);
+			},  _icon, _titles_panel, _action_panel);
 	};
 };

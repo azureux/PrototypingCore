@@ -29,6 +29,7 @@ export class CreateNewExtension extends ExtBase
 			key: this.Utils.NewKey(),
 			Title: this.BreadCrumbTitle,
 			SvgIcon: this.SvgIcon,
+			SubTitle: "",
 			Application: this.Application,
 			extensionObject: this
 		} );

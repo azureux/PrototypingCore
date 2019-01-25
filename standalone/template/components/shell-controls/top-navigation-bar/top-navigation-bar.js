@@ -44,21 +44,22 @@ export class TopNavigationBar extends React.Component
 		this.Search = React.createElement( SearchCtrl, { key: Utils.NewId(), HasResultsPanel: true, DataSet: _data_set } );
 
 		// portal buttons and button bar
-		let _notiifications_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() } );
-        let _powershell_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Console, key: Utils.NewId() });
-        let _portal_settings_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Gear, key: Utils.NewId() });
-        let _portal_feedback_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Help, key: Utils.NewId() });
-        let _portal_help_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.SubscriptionsAndDirectories, key: Utils.NewId() });
-        let _portal_switcher_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() });
+		let _powershell_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Console, key: Utils.NewId() } );
+		let _directory_switcher_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.SubscriptionsAndDirectories, key: Utils.NewId() } );
+		let _notifications_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() } );
+		let _portal_settings_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Gear, key: Utils.NewId() } );
+		let _portal_help_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Help, key: Utils.NewId() } );
+		let _portal_feedback_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Feedback, key: Utils.NewId() } );
 
 		this.ShellControls = React.createElement( 'div', { className:  this.Theme + " shell-ctrls-panel", key: Utils.NewId() },
 			[
-				_notiifications_btn,
 				_powershell_btn,
+				_directory_switcher_btn,
+				_notifications_btn,
 				_portal_settings_btn,
-				_portal_feedback_btn,
 				_portal_help_btn,
-				_portal_switcher_btn]
+				_portal_feedback_btn,
+			]
 		);
 
 		// user switcher
