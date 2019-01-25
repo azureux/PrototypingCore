@@ -46,7 +46,7 @@ export class TopNavigationBar extends React.Component
 		// portal buttons and button bar
 		let _notiifications_btn = React.createElement( BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Notifications', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() } );
         let _powershell_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Cloud Shell', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Console, key: Utils.NewId() });
-        let _portal_settings_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() });
+        let _portal_settings_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Settings', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Gear, key: Utils.NewId() });
         let _portal_feedback_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Feedback', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Help, key: Utils.NewId() });
         let _portal_help_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Help', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.SubscriptionsAndDirectories, key: Utils.NewId() });
         let _portal_switcher_btn = React.createElement(BtnCtrl, { className: 'TopNavBtn', attributeTitle: 'Directory and Subscription folder', buttonText: ' ', Application: this.props, svgIcon: AzSvgs.Shell.Notification, key: Utils.NewId() });

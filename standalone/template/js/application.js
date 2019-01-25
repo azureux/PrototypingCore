@@ -16,7 +16,6 @@ import { ContextPanel as ContextBlade } from "../components/shell-controls/conte
 import { AllExtensionsList as Extensions } from "../extensions/extensions-list.js";
 import { FavoritesExtensionsList as FavoriteExtensions } from "../extensions/favorites-list.js";
 
-
 export class Application extends React.Component
 {
 	constructor( props )
@@ -50,7 +49,7 @@ export class Application extends React.Component
 		//	this.Data = [];
 
 		this.Extensions = Extensions;
-		this.DefaultExtension = this.Extensions[2];
+		this.DefaultExtension = this.Extensions[3];
 		this.CurrentExtensions = [];
 		this.CurrentFavoriteExtensions = [];
 		this.TempCurrentExtensions = this.Utils.GetURI( Extensions );
@@ -78,7 +77,6 @@ export class Application extends React.Component
 		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
-
 
 	//	NAVIGATION METHODS
 	Reset_CurrentExtension()
@@ -182,13 +180,7 @@ export class Application extends React.Component
 
 	// REACT RENDER
 	render()
-	{	//  React.createElement() params
-		//console.debug( "Application::render()" );
-		//console.debug( "this.state", this.state );
-		//console.debug( "this.props", this.props );
-		//	this.InitRunTimeProperties();
-
-		//	console.debug( "APP:RENDER:", this.CurrentExtensions );
+	{	//	console.debug( "APP:RENDER:", this.CurrentExtensions );
 		this.Utils.SetURI( this.CurrentExtensions );
 
         this.TopNav = React.createElement(TopBar,
@@ -211,6 +203,7 @@ export class Application extends React.Component
 				SelectedItem: this.CurrentExtensions[0]
             });
 
+		//	console.debug( "Application:Render::this.CurrentExtensions", this.CurrentExtensions );
         this.ContentContainer = React.createElement(ContentContainer, 
             {
                 key: Utils.NewKey(),
@@ -219,13 +212,13 @@ export class Application extends React.Component
 				CurrentExtension: this.CurrentExtensions[0]
             });
  
-		// PLACEHOLDERS, CONTROLS NEEDED FOR THESE AS WELL.
 		//	console.debug( "RENDER BUG::OnClick_Test_OpenContextPanel", this.state.ContextPanel_IsOpen );
-		//	this.ContextPanel = React.createElement( ContextBlade, {
-		//	key: Utils.NewKey(),
-		//	//	currentTheme: this.ThemeName,
-		//	IsVisible: this.state.ContextPanel_IsOpen
-		//	} );
+		this.ContextPanel = React.createElement( ContextBlade,
+		{
+			key: Utils.NewKey(),
+			//	currentTheme: this.ThemeName,
+			IsVisible: this.state.ContextPanel_IsOpen
+		} );
         //	this.NotificationsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "NotificationsPanel" );
         //	this.FeatureFlightsPanel = React.createElement("div", { key: Utils.NewKey(), className: "top-level" }, "FeaturePanel " );
 
@@ -233,7 +226,7 @@ export class Application extends React.Component
 			this.TopNav,
             this.VertNav,
             this.ContentContainer,
-			//	this.ContextPanel
+			this.ContextPanel
 			//	this.NotificationsPanel,
 			//	this.FeatureFlightsPanel
         ];

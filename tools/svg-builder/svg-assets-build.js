@@ -100,7 +100,7 @@ const _writeToFile = function ( inputFolder, outputFile, ns, data )
 
 		if ( index == 0 )
 		{
-			_entry = "const " + value + " = {};\n";
+			_entry = "export const " + value + " = {};\n";
 		}
 		else
 		{

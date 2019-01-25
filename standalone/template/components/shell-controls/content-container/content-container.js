@@ -38,9 +38,9 @@ export class ContentContainer extends React.Component
 			this.CurrentCssClassName = this.CssClassNames.Expanded;
 		}
 
-		// determine is extension should display a breadcrumb navigation control
-		// this is for the first four controls in the left nav, and only 3 of those don't render a breadcrumb
-		console.debug( "this.CurrentExtensions[this.CurrentExtensions.length - 1]", this.CurrentExtensions[this.CurrentExtensions.length - 1].name );
+		//	determine is extension should display a breadcrumb navigation control
+		//	this is for the first four controls in the left nav, and only 3 of those don't render a breadcrumb
+		//	console.debug( "this.CurrentExtensions[this.CurrentExtensions.length - 1]", this.CurrentExtensions[this.CurrentExtensions.length - 1].name );
 
 		let _bool_has_breadcrumb_control = true;
 		let _extension_name = this.CurrentExtensions[this.CurrentExtensions.length - 1].name;
@@ -67,7 +67,7 @@ export class ContentContainer extends React.Component
 				break;
 			}
 		}
-		console.debug( "_bool_has_breadcrumb_control", _bool_has_breadcrumb_control );
+		//	console.debug( "_bool_has_breadcrumb_control", _bool_has_breadcrumb_control );
 
 		// final collection
 		let  _bc = undefined;
