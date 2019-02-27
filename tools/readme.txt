@@ -31,5 +31,8 @@ C+AI Cloud Design Studio - Prototyping team tools notes
 
 	Run this script everytime you add an svg to the original img_folder
 
+12:17 PM 2/26/2019
+note: When using this output file for other more generalized JavaScript files, remove the first "export" keyword from the beginning of the file.
+
 
 

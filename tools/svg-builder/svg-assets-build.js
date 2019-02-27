@@ -4,6 +4,8 @@ const chalk = require('chalk');
 
 const svg_folder = "../../assets/svg";
 const final_svg_file = "../../standalone/template/js/svg-assets.js";
+const _local_final_svg_file = "svg-assets.js";
+const _ko_template_version_svg_file = "../../../General-Prototyping/azure-template/ko-fluent-template-1/js/svg-assets.js";
 
 //const img_folder = "../src/css/img";
 //const final_img_file = "../src/azux-images.js";
@@ -122,7 +124,7 @@ const _writeToFile = function ( inputFolder, outputFile, ns, data )
 		var svg_file = filesystem.readFileSync( new_uri, 'utf8' );
 		//	console.log( "svg_file", svg_file );
 
-		var _re = new RegExp( /[\n]{1,}|[\r]{1,}|[\t]{1,}|[\s]{2,}|<!--[\s\S]{1,}-->|<\?xml[\s\S]{31}\?>|<!DOCTYPE[\s\S]{88}>/, "igm" );
+		var _re = new RegExp( /[\n]{1,}|[\r]{1,}|[\t]{1,}|[\s]{2,}|<!--[\s\S]{1,}-->|<\?xml[\s\S]{31}\?>|<!DOCTYPE[\s\S]{88}>|<title>.+?<\/title>/, "igm" );
 		var _temp = svg_file.replace( _re, '' );
 		//	console.log( "_new_svg", v , _temp );
 
@@ -175,7 +177,7 @@ const _writeToFile = function ( inputFolder, outputFile, ns, data )
 			stream.write( v );
 		} );
 		//stream.write( "export default " + ns + ";" );
-		//	stream.close();
+		stream.close();
 		stream.end();
 	} );
 
@@ -193,7 +195,16 @@ function Write_Json_File(inputFolder, outputFile, namespace)
 	return;
 };
 
-Console.log( "BEGIN:assets-build.js" );
-Write_Json_File( svg_folder, final_svg_file, "SVG" );
-//Write_Json_File( img_folder, final_img_file, "Images" );
-Console.log( "END:assets-build.js" );
+function WriteSvgAssetsFiles()
+{
+	Console.log( "BEGIN:assets-build.js" );
+	//	write out a local version of this file
+	Write_Json_File( svg_folder, _local_final_svg_file, "SVG" );
+	//	write out a version for Project Acuity/React project code base
+	Write_Json_File( svg_folder, final_svg_file, "SVG" );
+	//	write out a version for the Knockout.JS main template location
+	Write_Json_File( svg_folder, _ko_template_version_svg_file, "SVG" );
+	Console.log( "END:assets-build.js" );
+	return;
+}
+WriteSvgAssetsFiles();
