@@ -1,0 +1,17 @@
+<svg id="b9688bde-9846-4c63-83c6-9dfb16e830fc" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="37px" height="17px" viewBox="0 0 37 17">
+  <defs>
+    <linearGradient id="be93f2db-54da-4698-94cd-ec911151d4cd" x1="12" y1="8.5" x2="37" y2="8.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stop-color="#11b19a"/>
+      <stop offset="0.21" stop-color="#11b19a"/>
+      <stop offset="0.32" stop-color="#11b29b"/>
+      <stop offset="0.35" stop-color="#12b7a0"/>
+      <stop offset="0.54" stop-color="#14cfb5"/>
+      <stop offset="0.71" stop-color="#15dec2"/>
+      <stop offset="0.86" stop-color="#16e3c7"/>
+    </linearGradient>
+  </defs>
+  <line y1="7.25" x2="8" y2="7.25" fill="none" stroke="#1782da" stroke-width="1.5"/>
+  <line x1="2" y1="11.25" x2="8" y2="11.25" fill="none" stroke="#3aa2ee" stroke-width="1.5"/>
+  <line x1="3" y1="15.25" x2="8" y2="15.25" fill="none" stroke="#58b0ef" stroke-width="1.5"/>
+  <path d="M37,12.87A4.11,4.11,0,0,0,34.29,9a4.8,4.8,0,0,0,.55-2.22,5,5,0,0,0-5.08-4.93A5.2,5.2,0,0,0,26.4,3.11a5.83,5.83,0,0,0-11,2.53,6.05,6.05,0,0,0,.15,1.28A5.21,5.21,0,0,0,12,11.82,5.26,5.26,0,0,0,17.32,17H32.81A4.19,4.19,0,0,0,37,12.87Z" fill="url(#be93f2db-54da-4698-94cd-ec911151d4cd)"/>
+</svg>
