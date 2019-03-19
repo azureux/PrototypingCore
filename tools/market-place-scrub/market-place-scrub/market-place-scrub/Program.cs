@@ -17,7 +17,8 @@ namespace market_place_scrub
 	class Program
 	{
 		const string _azure_market_place_uri = "http://catalogapi.azure.com/offers/?api-version=2018-08-01-beta";
-		const string _temp_file_1 = "_temp_file_1.js";
+		const string _img_folder = "/mp-images/";
+		const string _mp_data_file = "_mp_data.js";
 
 		static void Main( string[] args )
 		{
@@ -100,17 +101,38 @@ namespace market_place_scrub
 				sb.Append("\"icon\":");
 				if ( _item[ "iconFileUris" ]["large"] != null )
 				{
-					sb.Append("\"" + _item[ "iconFileUris" ]["large"] + "\"");
-					//using ( var webClient = new WebClient() )
-					//{
-					//	byte[] imageBytes = webClient.DownloadData(_item[ "iconFileUris" ]["large"].ToString());
-					//	//	Console.WriteLine(imageBytes.ToString());
-					//	string _s = Convert.ToBase64String(imageBytes);
-					//	string _b64 = "data:image/jpeg;base64,";
-					//	string _final = _b64 + _s;
-					//	//	Console.WriteLine("The base 64 string:\n   {0}{1}\n", _b64_data, s);
-					//	sb.Append("\"" + _final + "\"");
-					//}
+					//	sb.Append("\"" + _item[ "iconFileUris" ]["large"] + "\"");
+
+					using ( var webClient = new WebClient() )
+					{
+						// for base64 encoding downloaded images
+						//byte[] imageBytes = webClient.DownloadData(_item[ "iconFileUris" ][ "large" ].ToString());
+						//string _s = Convert.ToBase64String(imageBytes);
+						//string _b64 = "data:image/jpeg;base64,";
+						//string _final = _b64 + _s;
+						//	Console.WriteLine("The base 64 string:\n   {0}{1}\n", _b64_data, s);
+
+
+						// for writing to the filesytem, best approach given the problem
+						// could be refactored for async/await and threading
+						string[] _file_name = _item[ "iconFileUris" ][ "large" ].ToString().Split('.');
+						string _folder_path = System.Environment.CurrentDirectory + _img_folder;
+
+						if ( System.IO.Directory.Exists(_folder_path) == false )
+						{
+							System.IO.Directory.CreateDirectory(_folder_path);
+						}
+
+						string _file_path = _folder_path + _file_name[_file_name .Length-1] + ".jpg";
+
+						if ( System.IO.File.Exists(_file_path) == false )
+						{
+							webClient.DownloadFile(_item[ "iconFileUris" ]["large"].ToString(), _file_path);
+						}
+						string _json_path = _img_folder + _file_name[_file_name .Length-1] + ".jpg";
+						
+						sb.Append("\"" + _json_path + "\"");
+					}
 				}
 				else
 				{
@@ -202,7 +224,8 @@ namespace market_place_scrub
 
 			items_json_list.Add(obj_tail);
 
-			using (StreamWriter writer = new StreamWriter( _temp_file_1, false))
+			string _data_file = System.Environment.CurrentDirectory + _img_folder + _mp_data_file;
+			using (StreamWriter writer = new StreamWriter( _data_file, false))
 			{
 				foreach ( string s in items_json_list )
 				{
@@ -210,6 +233,8 @@ namespace market_place_scrub
 				}
 			}
 
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.WriteLine("removing the images folder after running, don't include in GIT.");
 			Console.ForegroundColor = ConsoleColor.Blue;
 			Console.WriteLine("END");
 			Console.ForegroundColor = ConsoleColor.White;
