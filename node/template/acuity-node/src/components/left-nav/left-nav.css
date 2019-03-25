@@ -6,20 +6,32 @@
 
 }
 
-img{
-	width: 20px;
-    height: 20px;
+.nav-panel-default img{
+    width: 15px;
+    height: 15px;
+	margin: 0px 5px;
 }
 
-.divider{
+.divider1{
+	width: 10px;
+	height:1px;
+	background-color: #000000;
+	margin: 7px 0 0 0;
+}
+
+.divider2{
 	width: 20px;
 	height:1px;
 	background-color: #000000;
+	margin: 7px 0 0 0;
 }
 
 
 .left-nav-favorites{
-	
+    display: flex;
+    font-size: 13px;
+    margin: 2px 0 1px 60px;
+
 }
 
 /* .nav-panel-default

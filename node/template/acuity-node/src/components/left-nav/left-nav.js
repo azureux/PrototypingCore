@@ -46,9 +46,10 @@ class LeftNav extends Component {
           ))}
 
           <li className="left-nav-favorites">
+            <div className="divider1"></div>
             <img src={ logo } />
             <div>Favorites</div>
-            <div className="divider"></div>
+            <div className="divider2"></div>
           </li>
          
           {this.state.resources.map(item => (
