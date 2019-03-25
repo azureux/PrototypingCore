@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import LeftNav from './components/left-nav/left-nav.js';
 import './App.css';
 
 class App extends Component
@@ -40,51 +41,7 @@ class App extends Component
 				</header>
 				<main>
 					<div className="nav-panel-default">
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
-						<div>left nav</div>
+						<LeftNav />
 					</div>
 					<div className="extension-panel-default">
 						<img className="test-logo" src={ logo } />
