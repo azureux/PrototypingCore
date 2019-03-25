@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 
 class App extends Component
@@ -11,6 +11,7 @@ class App extends Component
 		this.TEST_ButtonTest = "React";
 		this.TEST_ProjectName = "Project \"Acuity\"";
 		this.HandleClick = this.OnClick_TestingClicks.bind( this );
+		//this.Logo = logo;
 		return;
 	};
 	OnClick_TestingClicks( pe )
@@ -20,7 +21,6 @@ class App extends Component
 	};
 	render()
 	{
-		//	<p>Edit <code>src/App.js</code> and save to reload.</p>
 		return (
 			<div className="App">
 				<header>
@@ -87,63 +87,7 @@ class App extends Component
 						<div>left nav</div>
 					</div>
 					<div className="extension-panel-default">
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-						<div>extensions content</div>
-
+						<img className="test-logo" src={ logo } />
 					</div>
 					<div className="context-panel-default">
 						<div>context blade</div>

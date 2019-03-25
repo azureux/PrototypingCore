@@ -30,3 +30,11 @@ body
 	width:calc(100%);
 	display:grid;
 }
+
+.test-logo
+{
+	/*border: solid 1px red;*/
+	height:100px;
+	width:100px;
+	margin-top:100px;
+}
