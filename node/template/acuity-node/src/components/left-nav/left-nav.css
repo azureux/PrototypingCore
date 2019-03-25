@@ -1,6 +1,25 @@
 .left-nav-btn{
-    border:1px solid red;
-    padding: 10px 0;
+	/* border: 1px solid red; */
+	display:flex;
+    padding: 4px 0;
+	font-size: 13px;
+
+}
+
+img{
+	width: 20px;
+    height: 20px;
+}
+
+.divider{
+	width: 20px;
+	height:1px;
+	background-color: #000000;
+}
+
+
+.left-nav-favorites{
+	
 }
 
 /* .nav-panel-default
