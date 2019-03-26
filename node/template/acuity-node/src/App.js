@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import logo from './logo.svg';
 import LeftNav from './components/left-nav/left-nav.js';
 import './App.css';
+import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
+
 
 class App extends Component
 {
+
 	constructor( props )
 	{
 		super( props );
@@ -42,6 +46,9 @@ class App extends Component
 				<main>
 					<div className="nav-panel-default">
 						<LeftNav />
+						<Button appearance={ButtonAppearance.primary}>
+							Click me!
+						</Button>
 					</div>
 					<div className="extension-panel-default">
 						<img className="test-logo" src={ logo } />
