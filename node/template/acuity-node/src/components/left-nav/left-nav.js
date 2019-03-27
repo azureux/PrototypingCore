@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./left-nav.css";
 import logo from './../../logo.svg'
+import getPath from "./../icons/svg.js";
 
 class LeftNav extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class LeftNav extends Component {
         <ul>
           {this.state.topNavigation.map(item => (
             <li className="left-nav-btn">
-              <img src={ logo } />
+              <getPath name="jackie"/> 
                <div className="resource-name">{item.name}</div>
             </li>
           ))}
