@@ -1,43 +1,57 @@
-.left-nav-btn{
-	/* border: 1px solid red; */
-	display:flex;
-    padding: 4px 0;
-	font-size: 13px;
-
-}
-
-.nav-panel-default img{
-    width: 15px;
-    height: 15px;
-	margin: 0px 5px;
-}
-
-.divider1{
-	width: 10px;
-	height:1px;
-	background-color: #000000;
-	margin: 7px 0 0 0;
-}
-
-.divider2{
-	width: 20px;
-	height:1px;
-	background-color: #000000;
-	margin: 7px 0 0 0;
-}
-
-
-.left-nav-favorites{
-    display: flex;
-    font-size: 13px;
-    margin: 2px 0 1px 60px;
-
-}
-
-/* .nav-panel-default
+.left-nav-btn
 {
-	width:  250px ;
-	min-width:50px;
-	max-width:250px;
-	order:1;
-} */
+	border: 1px solid transparent; 
+	background-color: rgba(249, 249, 249, 1);
+	color:rgba(0,0,0,1);
+	display:flex;
+    padding: 0px;
+	cursor:pointer;
+	height:32px;
+	vertical-align:top;
+	text-decoration:none;
+}
+.left-nav-btn:hover
+{
+	background-color: rgba(85,179,255,0.1);
+	border: 1px solid transparent; 
+}
+.left-nav-btn:focus
+{
+	background-color: rgba(85,179,255,0.1);
+	border: 1px dashed rgba(85,179,255,0.1);
+}
+
+.left-nav-icon
+{
+	flex: 0 0 32px;
+	vertical-align:top;
+}
+.left-nav-icon > svg
+{
+	/*border: solid 1px blue;*/
+	width: 18px;
+	height: 18px;
+	vertical-align:top;
+	margin-top:8px;
+}
+.left-nav-res-name
+{
+	/*border: 1px solid red;*/ 
+	flex: 1 0 auto;
+	text-align:left;
+	font-size:13px;
+	vertical-align:top;
+	color:rgba(0,0,0,1);
+	padding-top:7px;
+	padding-left:4px;
+	padding-right:4px;
+	padding-bottom:4px;
+}
+
+.left-nav-favorites
+{
+	/*border: 1px solid red;*/ 
+	/*color: rgba(255, 215, 0, 1);*/
+
+	height:30px;
+}

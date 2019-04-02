@@ -1,11 +1,9 @@
-﻿//	basic static "Utilities" object
-//	contains methods for:
-//	injecting CSS
-//	react method for injecting SVG
+﻿//	basic static "Utilities" object contains methods for:
+//	Injecting & removing CSS
+//	ReactJs method for injecting SVG
+//	SVG icons references
 
-"use strict";
-import { SVG as AzSvgs } from "../../../js/svg-assets.js";
-import { CacheItem as cache_item } from "../components/app-state-cache/cache-item.js";
+import { SVG as AzSvgs } from "./svg-assets.js";
 
 const _SampleDataResources = {
 	ResourceNames:
@@ -454,8 +452,8 @@ const _SortTypes = {
 
 class _Utilities 
 {
-	constructor()
-	{};
+	//constructor()
+	//{};
 
 	// id & key methods
 	static NewId( strValue )
@@ -508,9 +506,9 @@ class _Utilities
 		{
 			if ( v.tagName !== undefined )
 			{
-				if ( v.tagName.toLowerCase() == "link" )
+				if ( v.tagName.toLowerCase() === "link" )
 				{
-					if ( v.id == id || v.href == filePath )
+					if ( v.id === id || v.href === filePath )
 					{	//	console.debug( i, v.tagName, v.id, v.href );
 						_found = true;
 					}
@@ -555,7 +553,7 @@ class _Utilities
 	{	console.debug( "UNDER CONSTRUCTION:: Utilities.SortArrays" );
 		dataArray.sort( function ( a, b )
 		{
-			if ( a[sortKey] == b[sortKey])
+			if ( a[sortKey] === b[sortKey])
 			{
 				return 0;
 			}
@@ -567,6 +565,7 @@ class _Utilities
 			{
 				return -1;
 			}
+			return null;
 		} );
 		return;
 	};
@@ -575,7 +574,7 @@ class _Utilities
 		console.debug( "Utility.GetData()", _SampleDataResources );
 		let _return = [];
 
-		return;
+		return _return.length;
 	};
 	static GetData_SearchSamples(intSize)
 	{	//	console.debug( "Utility.GetData_SearchSamples()", _SampleDataResources );
@@ -619,7 +618,7 @@ class _Utilities
 		//	console.debug("_return", _return.length, _return);
 		_return.sort( function ( a, b )
 		{
-			if ( a.name == b.name )
+			if ( a.name === b.name )
 			{
 				return 0;
 			}
@@ -631,85 +630,12 @@ class _Utilities
 			{
 				return -1;
 			}
+			return null;
 		} );
 
 		//	console.debug( "_return", JSON.stringify( _return ) );
 
 		return _return; 
-	};
-
-	// app state cache testing
-	static AppCacheDebug()
-	{
-		//	console.debug( "AppCacheDebug()" );
-		let _return_array = [];
-		for ( let i = 0; i < 10; i++ )
-		{
-			let _new_item = new cache_item();
-
-			_new_item.Name = "Foo test chace item # " + i;
-			_new_item.Sender = { name: "foo", data: []  };
-			_new_item.Target = { name: "foo2"};
-			_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", i ); return; } ) );
-
-			_return_array.push( _new_item );
-		}
-
-		//	console.debug( "ApplicationStateCache::Debug()", _return_array );
-
-		return _return_array;
-	};
-	static TestCache()
-	{	//	console.debug( "TestCache()" );
-		// temp cache fill
-		window.AcuityCache.Items = this.AppCacheDebug();
-
-		// singleton, typed
-		let _new_item = new cache_item();
-		_new_item.Name = "Foo test chace item # 1000";
-		_new_item.Sender = { name: "foo", data: []  };
-		_new_item.Target = { name: "foo2"};
-		_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", this.Name ); return; } ) );
-
-		window.AcuityCache.Add( _new_item );
-
-		// array, typed
-		let _temp = [];
-		for ( let i = 0; i < 5; i++ )
-		{
-			let _new_item = new cache_item();
-
-			_new_item.Name = "Foo test chace item # " + i;
-			_new_item.Sender = { name: "foo", data: []  };
-			_new_item.Target = { name: "foo2"};
-			_new_item.Callback = new Event( "click", ( function () { console.debug( "clicked", i ); return; } ) );
-
-			_temp.push( _new_item );
-		}
-		window.AcuityCache.Add( _temp );
-
-		// uncomment to debug
-		// singleton, non-typed
-		//let _random_object = {};
-		//_random_object.Name = "Foo test chace item # 1000";
-		//_random_object.Sender = { name: "foo", data: []  };
-
-		//window.AcuityCache.Add( _random_object );
-
-		//// array, non-typed
-		//let _temp_2 = [];
-		//for ( let i = 0; i < 7; i++ )
-		//{
-		//	let _random_object = {};
-		//	_random_object.Name = "Foo test chace item # 1000";
-		//	_random_object.Sender = { name: "foo", data: []  };
-
-		//	_temp_2.push( _random_object );
-		//}
-		//window.AcuityCache.Add( _temp_2 );
-
-		//	window.AcuityCache.ClearAllItems();
-		return;
 	};
 
 	//	URI PARSING METHODS
@@ -720,7 +646,7 @@ class _Utilities
 		//	console.debug( _hashes );
 		let _new_extensions = [];
 
-		if ( _hashes[0] == "" & _hashes.length == 1 )
+		if ( _hashes[0] === "" & _hashes.length === 1 )
 		{
 			return _new_extensions;
 		}
@@ -729,7 +655,7 @@ class _Utilities
 		{	//	console.debug( i, v );
 			extensions.forEach( function ( v2, i2, a2 )
 			{	//	console.debug( i2, v2.name );
-				if ( v == v2.name )
+				if ( v === v2.name )
 				{
 					_new_extensions.push( v2 );
 				}
@@ -749,7 +675,7 @@ class _Utilities
 		extensions.forEach( function ( v, i, a )
 		{
 			//	console.debug( i, v.name );
-			if ( i == 0 )
+			if ( i === 0 )
 			{
 				_new_hash.push( "#" + v.name );
 			}
@@ -773,15 +699,12 @@ class _Utilities
 		//	console.debug( _return_value );
 		return _return_value;
 	};
-
-
-	// general methods
 	static ReverseString ( strValue )
 	{
 		let _new;
 		let _temp = [];
 
-		if ( Array.isArray(strValue) == true )
+		if ( Array.isArray(strValue) === true )
 		{
 			strValue = strValue.join();
 		}
@@ -797,10 +720,9 @@ class _Utilities
 	};
 }
 
-//	export _Utilities
 export
 {
 	_SampleDataResources as DataEnums,
-	//_SortTypes as SortTypes,
+	_SortTypes as SortTypes,
 	_Utilities as Utilities
 };

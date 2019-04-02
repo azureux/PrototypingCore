@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import logo from './logo.svg';
 import LeftNav from './components/left-nav/left-nav.js';
 import './App.css';
-import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
+//import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
 
-
-class App extends Component
+export default class App extends Component
 {
-
 	constructor( props )
 	{
 		super( props );
 
+		this.state = {};
+
+		this.LeftNavOpened = false;
+
 		this.TEST_ButtonTest = "React";
 		this.TEST_ProjectName = "Project \"Acuity\"";
 		this.HandleClick = this.OnClick_TestingClicks.bind( this );
-		//this.Logo = logo;
+
 		return;
 	};
 	OnClick_TestingClicks( pe )
 	{
-		console.debug( "OnClick_TestingClicks" );
+		console.debug( "OnClick_TestingClicks",pe);
 		return;
 	};
 	render()
 	{
+		//	FAST-DNA button - <Button appearance={ButtonAppearance.primary} onClick={this.HandleClick}>Click me!</Button>
 		return (
 			<div className="App">
 				<header>
@@ -45,13 +47,11 @@ class App extends Component
 				</header>
 				<main>
 					<div className="nav-panel-default">
-						<LeftNav />
-						<Button appearance={ButtonAppearance.primary}>
-							Click me!
-						</Button>
+						<LeftNav opened={this.LeftNavOpened}/>
+
 					</div>
 					<div className="extension-panel-default">
-						<img className="test-logo" src={ logo } />
+						<img className="test-logo" src={logo} alt={logo} />
 					</div>
 					<div className="context-panel-default">
 						<div>context blade</div>
@@ -104,4 +104,3 @@ class App extends Component
 		);
 	}
 }
-export default App;

@@ -76,7 +76,7 @@ main > *
 }
 .nav-panel-default
 {
-	min-width: 225px;
+	min-width: 250px;
     flex: inherit;
     order: 1;
 	order:1;
