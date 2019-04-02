@@ -3,8 +3,9 @@ const Console = require( 'console' );
 const chalk = require('chalk');
 
 const svg_folder = "../../assets/svg";
-const final_svg_file = "../../standalone/template/js/svg-assets.js";
 const _local_final_svg_file = "svg-assets.js";
+const final_svg_file = "../../standalone/template/js/svg-assets.js";
+const final_svg_node_file = "../../../PrototypingCore/node/template/acuity-node/src/js/svg-assets.js";
 const _ko_template_version_svg_file = "../../../General-Prototyping/azure-template/ko-fluent-template-1/js/svg-assets.js";
 
 //const img_folder = "../src/css/img";
@@ -202,8 +203,11 @@ function WriteSvgAssetsFiles()
 	Write_Json_File( svg_folder, _local_final_svg_file, "SVG" );
 	//	write out a version for Project Acuity/React project code base
 	Write_Json_File( svg_folder, final_svg_file, "SVG" );
+	// write out a version for the Project Acuity/React node.js project
+	Write_Json_File( svg_folder, final_svg_node_file, "SVG" );
 	//	write out a version for the Knockout.JS main template location
 	Write_Json_File( svg_folder, _ko_template_version_svg_file, "SVG" );
+	
 	Console.log( "END:assets-build.js" );
 	return;
 }
