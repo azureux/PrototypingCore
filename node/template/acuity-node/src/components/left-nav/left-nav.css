@@ -32,7 +32,9 @@
 	width: 18px;
 	height: 18px;
 	vertical-align:top;
+	text-align:center;
 	margin-top:8px;
+	margin-left:4px;
 }
 .left-nav-res-name
 {
@@ -51,7 +53,5 @@
 .left-nav-favorites
 {
 	/*border: 1px solid red;*/ 
-	/*color: rgba(255, 215, 0, 1);*/
-
 	height:30px;
 }

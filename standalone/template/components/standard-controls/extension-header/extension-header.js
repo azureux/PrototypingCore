@@ -86,7 +86,7 @@ export class ExtensionHeader extends React.Component
 		const _close = React.createElement( "a", {
 			key: this.Application.Utils.NewKey(),
 			className: "header-close",
-			dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( AzureSvgs.Shell.Close.SVG ),
+			dangerouslySetInnerHTML: this.Application.Utils.CreateSvgMarkup( AzureSvgs.Shell.close.SVG ),
 			onClick: this.OnClick_Close,
 			dataextname: this.Extension.Title()
 		} );
