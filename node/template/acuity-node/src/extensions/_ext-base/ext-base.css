@@ -1,0 +1,20 @@
+﻿.ExtensionBase
+{
+	/*border-top: solid 1px rgba(190,190,190,1);
+	border-left: solid 0px rgba(190,190,190,0);
+	border-right: solid 0px rgba(190,190,190,0);
+	border-bottom: solid 0px rgba(190,190,190,0);*/
+	display:block;
+	/* breadcrumb hieght 27px */
+	height:calc(100% - 27px);
+	width:calc(100%);
+	overflow:auto;
+}
+
+.ExtensionBase-NoBreadCrumb
+{
+	display:block;
+	height:calc(100% );
+	width:calc(100%);
+	overflow:auto;
+}

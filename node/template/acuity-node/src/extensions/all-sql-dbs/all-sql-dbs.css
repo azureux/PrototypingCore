@@ -1,0 +1,21 @@
+﻿.AllSqlDbsExtension
+{
+	border: solid 20px rgba(0, 0128, 255,1);
+	background-color:white;
+	color:black;
+	display:block;
+	height:calc(100%);
+	width:calc(100%);
+	padding:20px;
+	overflow:auto;
+}
+.test-title
+{
+	margin-bottom:20px;
+	font-size:32px;
+}
+.test-icon
+{
+	width:100px;
+	height:100px;
+}

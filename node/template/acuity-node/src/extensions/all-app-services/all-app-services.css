@@ -1,0 +1,21 @@
+﻿.AllAppServicesExtension
+{
+	border: solid 20px rgba(11, 63, 114,1);
+	background-color:white;
+	color:black;
+	display:block;
+	height:calc(100%);
+	width:calc(100%);
+	padding:20px;
+	overflow:auto;
+}
+.test-title
+{
+	margin-bottom:20px;
+	font-size:32px;
+}
+.test-icon
+{
+	width:100px;
+	height:100px;
+}

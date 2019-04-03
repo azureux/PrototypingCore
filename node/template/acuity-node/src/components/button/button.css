@@ -1,0 +1,153 @@
+﻿.buttonControl {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    display: inline-block;
+    margin: 0px 10px;
+    color: #fff;
+    cursor: pointer;
+    border-radius:2px;
+    padding: 5px;
+}
+
+    .buttonControl :focus {
+        border: 1px dashed #55b3ff;
+    }
+
+    .buttonControl:hover {
+        background-color: rgba(255, 255, 255,.2);
+    }
+
+
+.RootLinkCss {
+    padding: 20px;
+    border: solid 2px red;
+    cursor: pointer;
+    user-select: none;
+}
+
+.RootLinkCssExtra {
+    /*padding:20px;
+	border: solid 2px yellow;*/
+}
+
+.RootLinkCss:hover {
+    border: solid 2px blue;
+}
+
+.RootLinkCssExtra:hover {
+    border: #00bcf2 dashed 1px;
+}
+
+.RootLinkCss:focus {
+    border: solid 2px blue;
+}
+
+.RootLinkCssExtra:focus {
+    border: #00bcf2 dashed 1px;
+    outline: 0;
+}
+
+.svg-icon {
+    /*border: solid 1px red;*/
+}
+
+.dark.buttonControl {
+    border: 2px dashed #fff;
+}
+
+.TopNavBtn {
+    display: inline-block;
+    fill: #fff;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.TopNavBtn:hover {
+    background-color: #106ebe;
+}
+
+    .TopNavBtn .icon {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+    }
+
+.IconNoText {
+
+}
+
+.IconWithText {
+    display:flex;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* net new for left nav icons with expanded & collapsible states */
+.btn-icon-text-default {
+    /*border: solid 1px red;*/
+    width: calc(100%);
+    vertical-align: top;
+    cursor: pointer;
+	border-top: solid 1px rgba(255, 255, 255,0);
+	border-bottom: solid 1px rgba(255, 255, 255,0);
+	/*border-left: solid 1px rgba(255, 255, 255,0);
+	border-right: solid 1px rgba(255, 255, 255,0);*/
+    height: 32px;
+
+}
+.btn-icon-text-default:hover
+{
+	background-color: rgba(255, 255, 255,1);
+    background-image:  linear-gradient( 90deg, rgba(240, 240, 240, 0) 215px, rgba(208, 208, 208, 1) 226px),
+		url()
+}
+
+.btn-icon-text-default-selected
+{
+	background-color: transparent;
+	/*background-color: rgba(255, 0, 0,1);*/
+	/*background-color: rgba(255, 255, 255,1);
+    background-image:  linear-gradient( 90deg, rgba(240, 240, 240, 0) 215px, rgba(208, 208, 208, 1) 225px);*/
+	/*border-top: solid 1px rgba(255, 255, 255,0.6);
+	border-bottom: solid 1px rgba(255, 255, 255,0.6);*/
+	/*border-top: solid 1px rgba(255, 0, 0,0.6);
+	border-bottom: solid 1px rgba(255, 0, 0,0.6);*/
+	/*border-left: solid 1px rgba(255, 255, 255,0);
+	border-right: solid 1px rgba(255, 255, 255,0);*/
+
+}
+.btn-icon-text-default-selected:hover
+{
+	background-color: rgba(255, 255, 255,0.8);
+	color:rgba(32,32,32,1);
+}
+
+.btn-icon-default {
+    /* border: solid 1px red; */
+    width: 18px;
+    height: 18px;
+    margin: 6px 7px 0px 15px;
+    display: inline-block;
+}
+.btn-text-default
+{
+	/*border: solid 1px red;*/
+	width:calc(100% - 48px);
+	display:inline-block;
+	font-size:13px;
+    line-height: 32px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.btn-text-hidden
+{
+	display:none;
+}

@@ -1,0 +1,101 @@
+﻿.vertnav-main
+{
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    bottom: 0px;
+    width: 225px;
+    background-color: rgba(249, 249, 249, 1);
+	background:
+		linear-gradient( -180deg, rgba(176, 176, 176, 1) 0px, rgba(240, 240, 240, 0) 10px),
+		linear-gradient( 90deg, rgba(240, 240, 240, 0) 215px, rgba(208, 208, 208, 1) 225px);
+
+    color: rgba(0,0,0,1);
+}
+.vertnav-main-collapsed
+{
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    bottom: 0px;
+    width: 50px;
+    background-color: rgba(249, 249, 249,1);
+	background:
+		linear-gradient( -180deg, rgba(176, 176, 176, 1) 0px, rgba(240, 240, 240, 0) 10px),
+		linear-gradient( 90deg, rgba(240, 240, 240, 0) 45px, rgba(208, 208, 208, 1) 50px);
+
+    color: rgba(0,0,0,1);
+
+	overflow:hidden;
+}
+
+/* expland collapse button */
+.exp-coll-button-default
+{
+	/*border: solid 1px red;*/
+	height:24px;
+	text-align:right;
+	cursor:pointer;
+}
+.exp-coll-button-default > svg
+{
+	fill: rgba(0,0,0,1);
+	/*border: solid 1px red;*/
+	height:24px;
+	width:24px;
+	padding:6px;
+}
+.exp-coll-button-collapsed
+{
+	/*border: solid 1px blue;*/
+	height:24px;
+	text-align:right;
+	cursor:pointer;
+}
+.exp-coll-button-collapsed > svg
+{
+	fill: rgba(0,0,0,1);
+	/*border: solid 1px blue;*/
+	height:24px;
+	width:24px;
+	padding:6px;
+}
+
+.ext-list-panel-default
+{
+	/*border: solid 1px red;*/
+	overflow: auto;
+	height:calc(100% - 24px);
+}
+.ext-list-panel-collapsed
+{
+	overflow: hidden;
+	height:calc(100% - 24px);
+}
+
+/* favorites breaker */
+.favorites-breaker
+{
+	/*border: solid 1px red;*/
+	min-height:24px;
+    height: 28px;
+	width:100%;
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
+}
+.favorites-breaker-collpased
+{
+	border: solid 1px red;
+	min-height:24px;
+}
+.favorites-breaker > svg
+{
+	/*border: solid 1px green;*/
+	margin:0px;
+	padding:0px;
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
+	/*background-color:rgba(128, 128, 128, 0.5);*/
+}

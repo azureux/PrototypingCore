@@ -1,0 +1,22 @@
+﻿.HomePageExtension
+{
+    background-image: linear-gradient(-180deg, rgba(176, 176, 176, 1) 0px, rgba(222, 222, 222, 0) 10px);
+	background-color:rgba(242,242,242,1);
+	padding:20px;
+}
+.test-title
+{
+	margin-bottom:20px;
+	font-size:32px;
+}
+.test-icon
+{
+	width:100px;
+	height:100px;
+	display:inline-block;
+}
+.test-icon > svg
+{
+	border: solid 4px rgba(128,0,0,1);
+	border-radius:50px;
+}

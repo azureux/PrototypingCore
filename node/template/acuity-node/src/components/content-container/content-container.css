@@ -1,0 +1,30 @@
+﻿.extension-panel-root
+{
+    position: absolute;
+    left: 225px;
+	top: 40px;
+	right:0px;
+	bottom:0px;
+    margin: 0px;
+	overflow:auto;
+    /*width: calc(100%);*/
+    /*min-width: 400px;*/
+    /*height: calc(100%);*/
+    /*padding: 10px;*/
+}
+.extension-panel-root-expanded
+{
+    position: absolute;
+	top: 40px;
+    left: 50px;
+	right:0px;
+	bottom:0px;
+	background-color:rgba(255,255,255,1);
+    color: rgba(0,0,0,1);
+    margin: 0px;
+	overflow:auto;
+    /*width: calc(100%);
+    min-width: 400px;
+    height: calc(100%);*/
+    /*padding: 10px;*/
+}

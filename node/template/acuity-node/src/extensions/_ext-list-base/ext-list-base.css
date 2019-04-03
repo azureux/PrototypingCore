@@ -1,0 +1,7 @@
+﻿.ExtensionListBase
+{
+	display:block;
+	height:calc(100% - 27px);
+	width:calc(100%);
+	overflow:auto;
+}
