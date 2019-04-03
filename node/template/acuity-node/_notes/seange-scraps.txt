@@ -1,0 +1,43 @@
+﻿
+//https://codesandbox.io/s/ryy418r5km?from-embed
+//https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91
+
+//// const getPath = (name) => {
+//const getPath = (name) => {
+//  switch (name) {
+//    case "appservice":
+//      return (
+//        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216">
+//            <g fill="#106ebe" stroke-width="0">
+//                <polygon points="49.35 167.38 216 167.4 126.24 11.83 98.9 86.94 151.4 149.39 49.35 167.38"/>
+//                <polygon points="119.08 0 54.94 53.83 0 148.98 49.55 148.98 49.55 149.13 119.08 0"/>
+//            </g>
+//        </svg>
+//      );
+//      case "jackie":
+//      return (
+//        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216">
+//            <g fill="#106ebe" stroke-width="0">
+//                <polygon points="49.35 167.38 216 167.4 126.24 11.83 98.9 86.94 151.4 149.39 49.35 167.38"/>
+//                <polygon points="119.08 0 54.94 53.83 0 148.98 49.55 148.98 49.55 149.13 119.08 0"/>
+//            </g>
+//        </svg>
+//      );
+//    default:
+//      return <test />;
+//  }
+//};
+
+//const SVGIcon = ({}) => (
+//    getPath()
+//    //getPath({name})
+//    //{getPath(name)}
+//);
+
+//export default SVGIcon;
+////export default getPath;
+
+
+		/*<div className="left-nav-favorites" dangerouslySetInnerHTML={Utilities.CreateSvgMarkup( this.FavoriteBar)}></div>*/
+		//this._fav_bar_closed = '<svg><g id="azure-nav-favorites-closed" transform="scale(1,1)"><line x1="0" y1="15" x2="15" y2="15" stroke="black" stroke-width="0.2"></line><polygon transform="translate(7,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" style="fill:gold" stroke="black"></polygon><line x1="31" y1="15" x2="50" y2="15" stroke="black" stroke-width="0.2"></line></g></svg>';
+		//this._fav_bar_open = '<svg><g id="azure-nav-favorites-open"  transform="scale(1,1)"><line x1="0" y1="15" x2="12" y2="15" stroke="black" stroke-width="0.2"></line><polygon transform="translate(1,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" style="fill:gold" stroke="black"></polygon><line x1="22" y1="15" x2="36" y2="15" stroke="black" stroke-width="0.2"></line><text x="36" y="19" font-size="13px" fill="rgba(0,0,0,1)">FAVORITES</text><line x1="100" y1="15" x2="400" y2="15" stroke="black" stroke-width="0.2"></line></g></svg>';

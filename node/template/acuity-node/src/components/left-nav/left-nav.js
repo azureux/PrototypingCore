@@ -13,20 +13,24 @@ export default class LeftNav extends Component
 			NavOpened: this.props.opened
 		};
 		//	console.debug( "LeftNav", this.state.NavOpened, this.props.opened );
-		//	console.debug( "LeftNav", Svg );
 
-		this._fav_bar_closed = "favorite-closed";
-		this._fav_bar_open = "favorite-open";
+		// toggle buttons
+		this._open_panel_chevron = SvgIcon.Icons.DoubleChevronOpen;
+		this._close_panel_chevron = SvgIcon.Icons.DoubleChevronOpen;
+		this.ToggleChevron = this._close_panel_chevron;
+
+		// favorites
+		this._fav_bar_closed = SvgIcon.Icons.FavoriteClosed;
+		this._fav_bar_open = SvgIcon.Icons.FavoriteOpen;
 		this.FavoriteBar = this._fav_bar_open; 
 
 		// this will move out to ES6 array files
 		this.Links = {
 			topNavigation: [
-
-				{ name: "Create a resource", icon: "create-new", key: Utilities.NewKey() },
-				{ name: "Home", icon: "home", key: Utilities.NewKey() },
-				{ name: "Dashboard", icon: "dashboard", key: Utilities.NewKey() },
-				{ name: "All services", icon: "all-resources", key: Utilities.NewKey() },
+				{ name: "Create a resource", icon: SvgIcon.Icons.CreateNew, key: Utilities.NewKey() },
+				{ name: "Home", icon: SvgIcon.Icons.AzureHome, key: Utilities.NewKey() },
+				{ name: "Dashboard", icon: SvgIcon.Icons.AzureDashboard, key: Utilities.NewKey() },
+				{ name: "All services", icon: SvgIcon.Icons.AllServices, key: Utilities.NewKey() },
 			],
 			resources: [
 				{ name: "App services", iconName: "svg", key: Utilities.NewKey() },
