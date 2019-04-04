@@ -4,6 +4,7 @@ import SearchBox from './components/search-box/search-box.js';
 import LeftNav from './components/left-nav/left-nav.js';
 import Button from './components/button/button2';
 import logo from './logo.svg';
+import SvgIcon from "./components/svg-icons/svg-icon";
 import './App.css';
 //import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
 
@@ -25,6 +26,13 @@ export default class App extends React.Component
 		this.state = {
 			AllFlyoutsClosed: true,
 		};
+
+		this.topNavCommands = [
+			{ icon: SvgIcon.Icons.CreateNew},
+			{ icon: SvgIcon.Icons.CreateNew},
+			{ icon: SvgIcon.Icons.CreateNew},
+			{ icon: SvgIcon.Icons.CreateNew },
+		]
 
 		// props
 		this.Application = this;
@@ -51,17 +59,18 @@ export default class App extends React.Component
 					{this.state.AllFlyoutsClosed}
 					<div className={this.state.AllFlyoutsClosed == true ? 'preview-panel' : 'preview-panel-2'}>Preview</div>
 					{/* <div className="ms-az-brand">Microsoft Azure</div> */}
-					<Button title="Microsoft Azure" btn_class="az_bold"/> 
+					<Button title="Microsoft Azure" btn_class="ms-az-brand"/> 
 				</div>
 				<div className="search-panel">
 					<SearchBox/>
 				</div>
 				<div className="tools-panel">
-					<div>Console</div>
-					<div>directory switcher</div>
-					<div>Notifications</div>
-					<div>help</div>
-					<div>feedback</div>
+					{/* trying to pass SVG through title - JG WIP */}
+
+					{this.topNavCommands.map(item => (
+						<Button><SvgIcon icon={item.icon} /></Button>
+					))}
+
 				</div>
 				<div className="users-panel">Acounts</div>
 			</header>
