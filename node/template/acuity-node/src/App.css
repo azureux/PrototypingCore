@@ -76,13 +76,13 @@ main > *
 }
 .nav-panel-default
 {
-	min-width: 250px;
+	min-width: 32px;
     flex: inherit;
     order: 1;
-	order:1;
 	background-color: #f9f9f9;
 	color: #000000;
 }
+
 .extension-panel-default
 {
 	width:auto;
@@ -101,5 +101,9 @@ main > *
 	min-width:400px;
 	max-width:  400px;
 	order:3;
-
+}
+.context-panel-default > p 
+{
+	text-align: left;
+	padding: 20px;
 }
