@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Utilities } from './../../js/utilities';
 import SvgIcon from "./../svg-icons/svg-icon";
 import "./left-nav.css";
 
-export default class LeftNav extends Component
+export default class LeftNav extends React.Component
 {
 	constructor( props )
 	{	//	console.debug("LeftNav.props", props.opened);

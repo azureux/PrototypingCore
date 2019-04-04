@@ -33,8 +33,8 @@ header > *
 }
 .search-panel
 {
-	border: solid 1px white;
-	margin:2px;
+	/*border: solid 1px white;
+	margin:2px;*/
 	flex: 1 1 auto;
 }
 .tools-panel
@@ -49,7 +49,6 @@ header > *
 	margin:2px;
 	flex: 0 0 300px;
 }
-
 
 /* HEADER COMPONENT STYLES */
 /* "brand-panel" children */
@@ -81,16 +80,9 @@ header > *
 	font-size:16px
 }
 
-/* "search-panel" children, also see other controls */
-
-
-/* "tools-panel" children, also see other controls */
-
-
-
-/* "users-panel" children, also see other controls */
-
-
+/* "search-panel" children if needed, also see other controls */
+/* "tools-panel" children if needed, also see other controls */
+/* "users-panel" children if needed, also see other controls */
 
 /* content area */
 main
@@ -102,8 +94,6 @@ main
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
-	/*justify-content:center;
-	align-items:stretch;*/
 }
 main > *
 {

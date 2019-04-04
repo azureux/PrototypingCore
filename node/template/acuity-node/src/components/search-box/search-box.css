@@ -1,72 +1,72 @@
-﻿.search-panel
+﻿.search-box-panel
 {
-	/*border: solid 1px red;*/
+	/*background-color:yellow;*/
 	padding:0px;
 	margin:0px;
-	height:36px;
-	font-style:normal;
+	display:block;
+	width:100%;
+	vertical-align:top;
+	text-align:center;
+}
+.search-area-panel
+{
+	text-align:center;
 	display:inline-block;
 }
 
-.input-box-class {
-    /*border: solid 1px red;*/
-    padding: 10px;
-    margin: 5px 0 0 0;
-    background-color: rgba(179, 214, 242, 1);
-    font-style: normal;
-    height: 30px;
-    width: 400px;
-    color: rgba(0,0,0,1);
-    outline: 0;
+.input-box-class 
+{
     border: none;
     border-radius: 2px;
+    background-color: rgba(179, 214, 242, 1);
+    height: 30px;
+    width: 400px;
+    padding: 0px;
+	padding-left:10px;
+    margin: 0px;
+	margin-top:5px;
+	text-align:left;
+    font-style: normal;
+    color: rgba(0,0,0,1);
+}
+.input-box-class::placeholder 
+{
+    font-family: 'Segoe UI', 'Tahoma', Arial;
+	font-style: italic;
+    color: rgba(128,128,128,1);
 }
 
-.results-panel {
+.results-panel 
+{
     border: 1px solid #aeaeae;
     border-radius:3px;
     box-shadow: 2px 4px 28px -5px rgba(0,0,0,0.58);
     background-color: #ffffff;
     color: rgba(0,0,0,1);
     position: absolute;
-    top: 40px;
-    /* min-width: calc(292px); */
+    top: 36px;
     width: calc(800px);
-    /* min-height: calc(1%); */
-    height: fit-content;
     overflow: auto;
-    /* padding: 5px; */
     margin: 0px;
     z-index: 1;
-    display: inline-block;
     display: none;
     flex-wrap: wrap;
 }
-.results-panel-open {
-    border: 1px solid #aeaeae;
+.results-panel-open 
+{
+    /*border: 1px solid #aeaeae;
     border-radius: 3px;
     box-shadow: 2px 4px 28px -5px rgba(0,0,0,0.58);
     background-color: #ffffff;
     color: rgba(0,0,0,1);
     position: absolute;
-    top: 40px;
-    /* min-width: calc(292px); */
+    top: 36px;
     width: calc(800px);
-    /* min-height: calc(1%); */
-    height: fit-content;
     overflow: auto;
-    /* padding: 5px; */
     margin: 0px;
     z-index: 1;
-    display: inline-block;
+    flex-wrap: wrap;*/
     display: flex;
-    flex-wrap: wrap;
-}
-
-#input-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    opacity: 1; /* Firefox */
-    font-family: 'Segoe UI', 'Tahoma', Arial;
-
 }
 
 .search-result

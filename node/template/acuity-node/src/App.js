@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Utilities as Utils } from './js/utilities';
+import SearchBox from './components/search-box/search-box.js';
 import LeftNav from './components/left-nav/left-nav.js';
 import Button from './components/button/button2';
 import logo from './logo.svg';
 import './App.css';
 //import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
 
-export default class App extends Component
+export default class App extends React.Component
 {
 	constructor(props)
 	{
@@ -37,8 +38,7 @@ export default class App extends Component
 		return;
 	};
 	ResetAllMenus(pe)
-	{	
-		console.debug( "App.ResetAllMenus-1", this.LeftNavOpen );
+	{	//	console.debug( "App.ResetAllMenus-1", this.LeftNavOpen );
 		this.setState( { AllFlyoutsClosed: !this.state.AllFlyoutsClosed });
 		return;
 	};
@@ -53,7 +53,9 @@ export default class App extends Component
 					{/* <div className="ms-az-brand">Microsoft Azure</div> */}
 					<Button title="Microsoft Azure" btn_class="az_bold"/> 
 				</div>
-				<div className="search-panel">Search</div>
+				<div className="search-panel">
+					<SearchBox/>
+				</div>
 				<div className="tools-panel">
 					<div>Console</div>
 					<div>directory switcher</div>

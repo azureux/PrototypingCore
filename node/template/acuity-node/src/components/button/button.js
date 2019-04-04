@@ -1,10 +1,6 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../js/utilities.js" />
-"use strict";
-
-import { Utilities as Utils } from "../../../js/utilities.js";
-import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
+﻿import React from 'react';
+import { Utilities as Utils } from "./../../js/utilities.js";
+//	import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
 
 export class ButtonControl extends React.Component
 {	// methods in order, constructor first, render last, events & function in the middle
@@ -78,9 +74,9 @@ export class ButtonControl extends React.Component
         return;
 
         // set overrives - need the same pathway as themeing 
-        if (props.Application.Application.ButtonCtrl.Title !== undefined) {
-            this.Title = props.Application.Application.ButtonCtrl.Title;
-		}
+  //      if (props.Application.Application.ButtonCtrl.Title !== undefined) {
+  //          this.Title = props.Application.Application.ButtonCtrl.Title;
+		//}
         return;
     };
 	render()
