@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Utilities as Utils } from './js/utilities';
 import LeftNav from './components/left-nav/left-nav.js';
+import Button from './components/button/button2';
 import logo from './logo.svg';
 import './App.css';
 //import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
@@ -50,8 +51,8 @@ export default class App extends Component
 		return (<div className="App">
 			<header>
 				<div className="brand-panel" onClick={this.HandleClick}>
-					<div>Preview</div>
-					<div>Microsoft Azure</div>
+					<Button title="Preview" btn_class="orange"/>
+					<Button title="Microsoft" btn_class="clear primary"/>
 				</div>
 				<div className="search-panel">Search</div>
 				<div className="tools-panel">
