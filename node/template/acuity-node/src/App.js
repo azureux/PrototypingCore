@@ -37,12 +37,9 @@ export default class App extends Component
 		return;
 	};
 	ResetAllMenus(pe)
-	{	//	<div className="extension-panel-default" onClick={this.OnClick_ToggleMenus}>
-		//	console.debug("App.ResetAllMenus-1", this.state.LeftNavOpen);
-		let _temp = !this.state.AllFlyoutsClosed;
-		//	console.debug("_temp", _temp);
-		this.setState({ AllFlyoutsClosed: _temp });
-		//	console.debug("App.ResetAllMenus-2", this.state.AllFlyoutsClosed);
+	{	
+		console.debug( "App.ResetAllMenus-1", this.LeftNavOpen );
+		this.setState( { AllFlyoutsClosed: !this.state.AllFlyoutsClosed });
 		return;
 	};
 	render()
@@ -50,9 +47,10 @@ export default class App extends Component
 		//	console.debug("app.render()->this.state.LeftNavOpen", this.state.LeftNavOpen);
 		return (<div className="App">
 			<header>
-				<div className="brand-panel" onClick={this.HandleClick}>
-					<Button title="Preview" btn_class="orange"/>
-					<Button title="Microsoft" btn_class="clear primary"/>
+				<div className="brand-panel" onClick={this.OnClick_ToggleMenus}>
+					{this.state.AllFlyoutsClosed}
+					<div className={this.state.AllFlyoutsClosed == true ? 'preview-panel' : 'preview-panel-2'}>Preview</div>
+					<div className="ms-az-brand">Microsoft Azure</div>
 				</div>
 				<div className="search-panel">Search</div>
 				<div className="tools-panel">
