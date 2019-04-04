@@ -72,8 +72,8 @@ export default class SvgIcon extends Component
 					<line x1="0" y1="15" x2="12" y2="15" stroke="black" strokeWidth="0.2"></line>
 					<polygon transform="translate(9,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" fill="rgba(255, 215, 0, 1)" stroke="black"></polygon>
 					<line x1="36" y1="15" x2="46" y2="15" stroke="black" strokeWidth="0.2"></line>
-					<text x="48" y="19" fontSize="13px" fontWeight="500" fill="rgba(0,0,0,1)">FAVORITES</text>
-					<line x1="116" y1="15" x2="250" y2="15" stroke="black" strokeWidth="0.2"></line>
+					<text x="48" y="18" fontSize="10px" fontWeight="700" fill="rgba(0,0,0,1)">FAVORITES</text>
+					<line x1="104" y1="15" x2="250" y2="15" stroke="black" strokeWidth="0.2"></line>
 				</g>
 			</svg>
 		),
