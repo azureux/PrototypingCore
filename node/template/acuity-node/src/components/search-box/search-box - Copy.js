@@ -11,8 +11,11 @@ export default class SearchBox extends React.Component
 		super( props );
 
 		// default props
+		// change pattern in other controls to this for any non-configurable values
 		SearchBox.defaultProps = {
-			ID: Utils.NewId( "sb-id" )
+			ID: Utils.NewId( "sb-id" ),
+			CssFileID : "search-box-css",
+			CssFile : "components/standard-controls/search-box/search-box.css"
 		};
 
 		// configurable properties
@@ -27,6 +30,7 @@ export default class SearchBox extends React.Component
 
 		// result panel properties
 		this.Has_QuickResultPanel = props.HasResultsPanel || false;
+		//	this.ResultsPanel_ID = Utils.NewId( SearchBox.defaultProps.ID + "-results" );
 		this.TextValue = "";
 		this.ResultsPanel_ID = SearchBox.defaultProps.ID + Utils.NewId("-rp")
 
@@ -86,13 +90,15 @@ export default class SearchBox extends React.Component
 
 			_rv.push( _zero_result );
 		}
+	
+		//	console.debug( "RefreshData::_rv", _rv.length );
 		return _rv;
     };
 	OnFocus_ShowResultsPanel( ev )
     {	//	console.debug( "SearchBox::OnFocus_ShowResultsPanel", ev );
+
         let panel = document.getElementById(this.ResultsPanel_ID);
-		//	panel.className = "results-panel-open";
-		panel.classList.add( "results-panel-open" );
+        panel.className = "results-panel-open";
         
 		ev.preventDefault();
 		ev.stopPropagation();
@@ -104,9 +110,11 @@ export default class SearchBox extends React.Component
 		ev.stopPropagation();
 		//	console.debug( "SearchBox::OnBlur_CloseResultsPanel", ev.relatedTarget );
 
-		if ( ev.relatedTarget === null || ev.relatedTarget === undefined )
+		if ( ev.relatedTarget == null || ev.relatedTarget == undefined )
 		{
 			let _rp = document.getElementById( this.ResultsPanel_ID );
+            //let _rp = document.getElementById( quadrant );
+
             _rp.className = "results-panel";
 		}
 		return;
@@ -224,47 +232,93 @@ export default class SearchBox extends React.Component
         return;
     };
 	render()
-    {     
-		return (
-			<div className="search-box-panel">
-				<div class="search-area-panel">
-					<input id="input-box" type="text" className="input-box-class" onChange={this.handle_UserInput} onBlur={this.handle_BoxBlur} onFocus={this.handle_BoxFocus} placeholder={this.PlaceholderText} />
-					<div id={this.ResultsPanel_ID} className="results-panel">
-					<div id="quadrant1" className="quadrant">
-						<div id="quadrant-title1" className="quadrant-title">
-							<div id="quadrant-title-text" className="quadrant-title-text">{this.Quadrant_Title_Name}</div>
-							<div id="divider" className="divider"></div>
-							<div id="see-more" className="see-more">{this.Search_Results_Num}</div>
-						</div>
-						<div id="quadrant-results1" className="quadrant-title"></div>
-					</div>
-					<div id="quadrant2" className="quadrant">
-						<div id="quadrant-title2" className="quadrant-title">
-							<div id="quadrant-title-text" className="quadrant-title-text">{this.Quadrant_Title_Name}</div>
-							<div id="divider" className="divider"></div>
-							<div id="see-more" className="see-more">{this.Search_Results_Num}</div>
-						</div>
-						<div id="quadrant-results2" className="quadrant-title"></div>
-					</div>
-					<div id="quadrant3" className="quadrant">
-						<div id="quadrant-title3" className="quadrant-title">
-							<div id="quadrant-title-text" className="quadrant-title-text">{this.Quadrant_Title_Name}</div>
-							<div id="divider" className="divider"></div>
-							<div id="see-more" className="see-more">{this.Search_Results_Num}</div>
-						</div>
-						<div id="quadrant-results3" className="quadrant-title"></div>
-					</div>
-					<div id="quadrant4" className="quadrant">
-						<div id="quadrant-title4" className="quadrant-title">
-							<div id="quadrant-title-text" className="quadrant-title-text">{this.Quadrant_Title_Name}</div>
-							<div id="divider" className="divider"></div>
-							<div id="see-more" className="see-more">{this.Search_Results_Num}</div>
-						</div>
-						<div id="quadrant-results4" className="quadrant-title"></div>
-					</div>
-					</div>
-				</div>
-			</div>
-		);
+    {
+        //sections of quantrant title container 
+        let _quadrant_title_text = React.createElement("div",
+            {
+                id: "quadrant-title-text",
+                className: "quadrant-title-text",
+                key: Utils.NewKey(),
+            }, this.Quadrant_Title_Name);
+
+        //sections of quantrant title container 
+        let _divider = React.createElement("div",
+            {
+                id: "divider",
+                className: "divider",
+                key: Utils.NewKey(),
+            });
+
+        //sections of quantrant title container 
+        let _see_more = React.createElement("div",
+            {
+                id: "see-more",
+                className: "see-more",
+                key: Utils.NewKey(),
+            }, this.Search_Results_Num);
+
+        //quandrant title container
+
+        //empty array generate 4 quadrants w different IDs
+        let quad_cont = [];
+
+        for (let i = 0; i < 4; i++) {
+
+            let _quadrant_title_container = React.createElement("div",
+                {
+                    id: "quadrant-title" + (i + 1),
+                    className: "quadrant-title",
+                    key: Utils.NewKey(),
+                }, _quadrant_title_text, _divider, _see_more);
+
+            let _results_div = React.createElement("div",
+                {
+                    id: "quadrant-results" + (i + 1),
+                    className: "quadrant-results",
+                    key: Utils.NewKey(),
+                });
+
+            let _quad = React.createElement("div",
+                {
+                    id: "quadrant" + (i+1),
+                    className: "quadrant",
+                    key: Utils.NewKey(),
+                }, _quadrant_title_container, _results_div);
+            quad_cont.push(_quad);
+        }
+        
+		// empty results panel
+        //results
+		let _results_panel = React.createElement( "div",
+			{
+				id: this.ResultsPanel_ID,
+				className: "results-panel",
+				key: Utils.NewKey(),
+		   }, quad_cont);
+
+		// input text box
+		let _box =	 React.createElement( "input",
+			{
+				id: "input-box",
+				type: "text",
+				className: "input-box-class",
+				onChange: this.handle_UserInput, 
+				onBlur: this.handle_BoxBlur,
+				onFocus: this.handle_BoxFocus,
+				placeholder: this.PlaceholderText,
+				key: Utils.NewKey(),
+		     });
+       
+		let _children = [
+			_box,
+		  _results_panel,
+		];
+
+		 //	final element
+		  return  React.createElement( "div",
+			{
+				id: this.ID,
+				className: "search-panel",
+			}, _children );
 	};
 };
