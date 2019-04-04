@@ -2,6 +2,7 @@ import React from 'react';
 import { Utilities as Utils } from './js/utilities';
 import SearchBox from './components/search-box/search-box.js';
 import LeftNav from './components/left-nav/left-nav.js';
+import Button from './components/button/button2';
 import logo from './logo.svg';
 import './App.css';
 //import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
