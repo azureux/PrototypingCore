@@ -29,7 +29,6 @@ body
 	height:calc(100%);
 	width:calc(100%);
 	display:grid;
-	font-size: 13px;
 }
 
 .test-logo
