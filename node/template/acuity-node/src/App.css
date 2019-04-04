@@ -39,9 +39,7 @@ header > *
 }
 .tools-panel
 {
-	border: solid 1px white;
-	margin:2px;
-	flex: 0 0 300px;
+	flex: 0 1 auto;
 }
 .users-panel
 {
