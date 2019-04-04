@@ -13,7 +13,7 @@ export default class LeftNav extends Component
 			NavOpened: this.props.opened
 		};
 
-		this.IsOpened = this.state.NavOpened;
+		this.IsOpened = true;	// this.state.NavOpened;
 
 		// MAIN CSS
 		this._css_left_nav_open = "left-nav-open";
@@ -21,18 +21,11 @@ export default class LeftNav extends Component
 		this.CssLeftNav = this._css_left_nav_closed;
 
 		// TOGGLE BUTTONS
-		this._panel_chevron_open = SvgIcon.Icons.DoubleChevronOpen;
-		this._panel_chevron_closed = SvgIcon.Icons.DoubleChevronClosed;
-		this.ToggleChevron = this._close_panel_chevron;
-		this._css_toggle_panel_open = "toggle-open";
-		this._css_toggle_panel_closed = "toggle-closed";
-		this.ToggleCss = this._css_toggle_open_panel;
+		this.ToggleChevron = undefined;
 		this.OnClick_ToggleNav = this.ToggleNav.bind(this);
 
 		// FAVORITES
-		this._fav_bar_closed = SvgIcon.Icons.FavoriteClosed;
-		this._fav_bar_open = SvgIcon.Icons.FavoriteOpen;
-		this.FavoriteBarSvg = this._fav_bar_open; 
+		this.FavoriteBarSvg = undefined;
 
 		// this will move out to ES6 array files
 		this.Links = {
@@ -65,43 +58,39 @@ export default class LeftNav extends Component
 		return;
 	}
 	CheckToggleStatus()
-	{	//	console.debug("LeftNav.SetState", this.props.opened, this.state.NavOpened, this.IsOpened);
-		if (this.IsOpened === true)
+	{	//	
+		if (this.state.NavOpened === true)
 		{
-			this.ToggleChevron = this._panel_chevron_open;
-			this.ToggleCss = this._css_toggle_panel_open;
-			this.FavoriteBarSvg = this._fav_bar_open;
+			this.ToggleChevron = SvgIcon.ShellIcons.LeftNavChevronOpen;
+			this.FavoriteBarSvg = SvgIcon.ShellIcons.FavoriteOpen;
 			this.CssLeftNav = this._css_left_nav_open;
 			this.IsOpened = false;
 		}
-		else if (this.IsOpened === false)
+		else if (this.state.NavOpened === false)
 		{
-			this.ToggleChevron = this._panel_chevron_closed;
-			this.ToggleCss = this._css_toggle_panel_closed;
-			this.FavoriteBarSvg = this._fav_bar_closed;
+			this.ToggleChevron = SvgIcon.ShellIcons.LeftNavChevronClosed;
+			this.FavoriteBarSvg = SvgIcon.ShellIcons.FavoriteClosed;
 			this.CssLeftNav = this._css_left_nav_closed;
 			this.IsOpened = true;
 		}
 		return;
 	};
 	ToggleNav(pe)
-	{	
-		//	console.debug("LeftNav.ToggleNav", this.state.NavOpened);
-		let _new_state = !this.state.NavOpened;
-		//	console.debug("_new_state", _new_state);
-		this.setState({ NavOpened: _new_state });
+	{	//	console.debug("LeftNav.ToggleNav", this.state.NavOpened);
+		this.setState({ NavOpened: !this.state.NavOpened });
 		return;
 	};
 	render()
 	{
-		//	console.debug("LeftNav.render", this.state.NavOpened, this.IsOpened);
 		//	changing state causes a render, in this case we have to check the state & a prop each render?
 		this.CheckToggleStatus();
 
 		return (
 			<div className={this.CssLeftNav}>
-				<div title="Expand and collapse the left navigation" className={this.ToggleCss} onClick={this.OnClick_ToggleNav} >
-					<SvgIcon icon={this.ToggleChevron} />
+
+				<div title="Expand and collapse the left navigation" className="toggle-open" tabIndex="0" onClick={this.OnClick_ToggleNav}>
+					{this.state.NavOpened && <SvgIcon icon={this.ToggleChevron} />}
+					{!this.state.NavOpened && <SvgIcon icon={this.ToggleChevron} />}
 				</div>
 
 				{this.Links.topNavigation.map(item => (
@@ -109,19 +98,20 @@ export default class LeftNav extends Component
 						<span className="left-nav-icon"><SvgIcon icon={item.icon} /></span>
 						<span className="left-nav-res-name">{item.name}</span>
 					</a>
-				) )}
+				))}
 
 				<div className="left-nav-favorites">
-					<SvgIcon icon={this.FavoriteBarSvg} />
+					{this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
+					{!this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
 				</div>
-         
-				{this.Links.resources.map( item => (
+
+				{this.Links.resources.map(item => (
 					<a href="{item.key}" className="left-nav-btn" key={item.key} title={item.name} tabIndex="0">
 						<span className="left-nav-icon"><SvgIcon icon={item.icon} /></span>
 						<span className="left-nav-res-name">{item.name}</span>
 					</a>
-				) )}
+				))}
 			</div>
 		);
-	}
+	};
 }

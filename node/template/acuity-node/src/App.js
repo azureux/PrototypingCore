@@ -31,7 +31,7 @@ export default class App extends Component
 		this.SearchPanelOpen = false;
 		this.ContextBladeOpen = false;
 
-
+		// event handler bindings
 		this.OnClick_ToggleMenus = this.ResetAllMenus.bind(this);
 		return;
 	};

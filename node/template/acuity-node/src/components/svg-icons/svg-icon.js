@@ -7,10 +7,11 @@ export default class SvgIcon extends Component
 	{
 		super(props);
 		this.Icon = this.props.icon || SvgIcon.Icons.Default;
+		this.Name = this.props.name;
 	};
 	static Icons = {
 		Default: (
-			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enableBackground="new 0 0 50 50" >
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enableBackground="new 0 0 50 50" >
 				<path fill="#3999C6" d="M25.561,23.167c-0.103,0-0.197-0.03-0.288-0.083L6.011,12.045c-0.183-0.103-0.292-0.297-0.292-0.506 c0-0.203,0.108-0.395,0.292-0.496L25.149,0.075c0.182-0.1,0.405-0.1,0.579,0L44.994,11.12c0.174,0.102,0.29,0.291,0.29,0.496 c0,0.212-0.116,0.4-0.29,0.504L25.853,23.084C25.762,23.137,25.665,23.167,25.561,23.167" />
 				<path fill="#59B4D9" d="M22.792,50c-0.104,0-0.207-0.024-0.295-0.077L3.295,38.917C3.11,38.814,3,38.626,3,38.416V16.331				c0-0.207,0.11-0.397,0.295-0.506c0.176-0.1,0.401-0.1,0.586,0L23.08,26.831c0.178,0.107,0.286,0.297,0.286,0.504v22.086 c0,0.212-0.108,0.397-0.286,0.502C22.985,49.976,22.888,50,22.792,50" />
 				<path fill="#59B4D9" d="M28.225,50c-0.098,0-0.199-0.024-0.295-0.077c-0.178-0.105-0.288-0.289-0.288-0.502V27.478						c0-0.207,0.11-0.397,0.288-0.504l19.196-11.002c0.185-0.102,0.403-0.102,0.587,0c0.176,0.103,0.287,0.295,0.287,0.5v21.943 c0,0.211-0.111,0.398-0.287,0.502L28.511,49.923C28.429,49.976,28.325,50,28.225,50" />
@@ -50,15 +51,29 @@ export default class SvgIcon extends Component
 					<circle fill="#3999c6" cx="6.818" cy="25.53" r="3.784" />
 				</g>
 			</svg>
-		),
+		)
+	};
+	static ShellIcons = {
+		LeftNavChevronOpen: (
+			<svg version="1.1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" >
+				<path d="M9.8,8l5.5,5.5L14.7,14l-6-6l6-6l0.5,0.5L9.8,8z" />
+				<path d="M1.8,8l5.5,5.5L6.7,14l-6-6l6-6l0.5,0.5L1.8,8z" />
+			</svg>
+			),
+		LeftNavChevronClosed: (
+			<svg version="1.1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" >
+				<path d="M6.2,8L0.7,2.5L1.3,2l6,6l-6,6l-0.5-0.5L6.2,8z" />
+				<path d="M14.2,8L8.7,2.5L9.3,2l6,6l-6,6l-0.5-0.5L14.2,8z" />
+			</svg>			
+			),
 		FavoriteOpen: (
 			<svg>
 				<g id="azure-nav-favorites-open" transform="scale(1,1)">
 					<line x1="0" y1="15" x2="12" y2="15" stroke="black" strokeWidth="0.2"></line>
-					<polygon transform="translate(1,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" fill="rgba(255, 215, 0, 1)" stroke="black"></polygon>
-					<line x1="22" y1="15" x2="36" y2="15" stroke="black" strokeWidth="0.2"></line>
-					<text x="36" y="19" fontSize="13px" fill="rgba(0,0,0,1)">FAVORITES</text>
-					<line x1="100" y1="15" x2="400" y2="15" stroke="black" strokeWidth="0.2"></line>
+					<polygon transform="translate(9,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" fill="rgba(255, 215, 0, 1)" stroke="black"></polygon>
+					<line x1="36" y1="15" x2="46" y2="15" stroke="black" strokeWidth="0.2"></line>
+					<text x="48" y="19" fontSize="13px" fontWeight="500" fill="rgba(0,0,0,1)">FAVORITES</text>
+					<line x1="116" y1="15" x2="250" y2="15" stroke="black" strokeWidth="0.2"></line>
 				</g>
 			</svg>
 		),
@@ -66,8 +81,8 @@ export default class SvgIcon extends Component
 			<svg>
 				<g id="azure-nav-favorites-closed" transform="scale(1,1)">
 					<line x1="0" y1="15" x2="15" y2="15" stroke="black" strokeWidth="0.2"></line>
-					<polygon transform="translate(7,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" fill="rgba(255, 215, 0, 1)" stroke="black"></polygon>
-					<line x1="31" y1="15" x2="50" y2="15" stroke="black" strokeWidth="0.2"></line>
+					<polygon transform="translate(9,7) scale(0.3,0.3)" points="53.46 0 59.06 17.72 77.64 17.57 62.52 28.37 68.41 46 53.46 34.95 38.51 46 44.4 28.37 29.27 17.57 47.86 17.72 53.46 0" fill="rgba(255, 215, 0, 1)" stroke="black"></polygon>
+					<line x1="34" y1="15" x2="50" y2="15" stroke="black" strokeWidth="0.2"></line>
 				</g>
 			</svg>
 		)
