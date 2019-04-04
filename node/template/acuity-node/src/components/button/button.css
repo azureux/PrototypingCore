@@ -1,4 +1,7 @@
-﻿.buttonControl {
+﻿@import "./../fonts/fonts.css"; 
+
+
+.buttonControl {
     width: auto;
     height: auto;
     background-color: transparent;
@@ -84,10 +87,10 @@
     display:flex;
 }
 
-svg {
+/* svg {
     width: 100%;
     height: 100%;
-}
+} */
 
 /* net new for left nav icons with expanded & collapsible states */
 .btn-icon-text-default {
@@ -155,5 +158,14 @@ svg {
 /* JG */
 .orange{
 	background-color: #ff8c00;
-	color: #000000;
+    color: #000000;
+    font-family: az_Bold;
+}
+
+.az_bold{
+    font-family: az_Bold;
+}
+
+#btn{
+  
 }

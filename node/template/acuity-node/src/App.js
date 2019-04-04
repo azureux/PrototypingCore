@@ -50,7 +50,8 @@ export default class App extends Component
 				<div className="brand-panel" onClick={this.OnClick_ToggleMenus}>
 					{this.state.AllFlyoutsClosed}
 					<div className={this.state.AllFlyoutsClosed == true ? 'preview-panel' : 'preview-panel-2'}>Preview</div>
-					<div className="ms-az-brand">Microsoft Azure</div>
+					{/* <div className="ms-az-brand">Microsoft Azure</div> */}
+					<Button title="Microsoft Azure" btn_class="az_bold"/> 
 				</div>
 				<div className="search-panel">Search</div>
 				<div className="tools-panel">

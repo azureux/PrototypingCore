@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./button.css";
 // import { Utilities } from './../../js/utilities';
 // import SvgIcon from "./../svg-icons/svg-icon";
 
@@ -39,7 +40,7 @@ export default class Button extends Component
 	render()
 	{
 		return (
-            <div className={this.props.btn_class}>{this.props.title}</div>
+            <div id="btn" className={this.props.btn_class}>{this.props.title}</div>
             // <div id="btn-text" onClick={this.HandleClick} title={this.state.AltTextTitle} >{this.Title}</div>
 		);
 	}

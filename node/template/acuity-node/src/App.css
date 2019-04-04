@@ -60,7 +60,7 @@ header > *
 	width:100px;
 	vertical-align:top;
 	padding-top:11px;
-	font-size:13px;
+	/* font-size:13px; */
 	cursor:pointer;
 }
 .preview-panel-2 
@@ -70,7 +70,7 @@ header > *
 	width:100px;
 	vertical-align:top;
 	padding-top:11px;
-	font-size:13px;
+	/* font-size:13px; */
 	cursor:pointer;
 }
 .ms-az-brand
