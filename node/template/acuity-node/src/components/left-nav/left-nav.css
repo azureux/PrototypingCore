@@ -1,14 +1,37 @@
-.left-nav-btn
+.left-nav-open
 {
-	border: 1px solid transparent; 
-	background-color: rgba(249, 249, 249, 1);
-	color:rgba(0,0,0,1);
-	display:flex;
-    padding: 0px;
+	width:250px;
+	height:calc(100%);
+	background-image: linear-gradient(90deg, rgba(0,0,0,0) 244px, rgba(0,0,0,0.3) 250px);
+}
+.left-nav-closed 
+{
+	width: 50px;
+	height: calc(100%);
+	background-image: linear-gradient(90deg, rgba(0,0,0,0) 44px, rgba(0,0,0,0.3) 50px);
+}
+
+.toggle-open 
+{
+	/*border: solid 1px red;*/
 	cursor:pointer;
-	height:32px;
-	vertical-align:top;
-	text-decoration:none;
+	text-align:right;
+	padding:4px;
+	padding-right:8px;
+	padding-bottom:0px;
+}
+
+.left-nav-btn 
+{
+	border: 1px solid transparent;
+	background-color: rgba(249, 249, 249, 0);
+	color: rgba(0,0,0,1);
+	display: flex;
+	padding: 0px;
+	cursor: pointer;
+	height: 32px;
+	vertical-align: top;
+	text-decoration: none;
 }
 .left-nav-btn:hover
 {
@@ -23,7 +46,8 @@
 
 .left-nav-icon
 {
-	flex: 0 0 32px;
+	border: solid 0px green;
+	flex: 0 0 48px;
 	vertical-align:top;
 }
 .left-nav-icon > svg
@@ -45,7 +69,7 @@
 	vertical-align:top;
 	color:rgba(0,0,0,1);
 	padding-top:7px;
-	padding-left:4px;
+	padding-left:0px;
 	padding-right:4px;
 	padding-bottom:4px;
 }
