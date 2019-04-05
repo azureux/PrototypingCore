@@ -1,10 +1,7 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../js/utilities.js" />
-"use strict";
+﻿import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
-import { DataGridControl as DataGrid } from "../../components/custom-controls/data-grid/data-grid.js";
+import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
+import { DataGridControl as DataGrid } from "../../components/data-grid/data-grid.js";
 
 export class ExtensionListBase extends ExtBase	//	React.Component
 {	

@@ -1,7 +1,7 @@
-﻿// All configuration is handled in standard OOP style at the component level.
-// This file is meant as an "override" for application theming, specific controls (and features) and/or feature sets.
+﻿// TBD
 const OverrideConfig =
 {
+	Debug: false,
 	Application:
 	{
 		Theme: "default-theme", // "dark-theme" || "default-theme" 

@@ -1,10 +1,6 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../js/utilities.js" />
-/// <reference path="../../components/custom-controls/extension-header/extension-header.js" />
-"use strict";
+﻿import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
+import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
 
 export class CreateNewExtension extends ExtBase
 {
@@ -17,6 +13,7 @@ export class CreateNewExtension extends ExtBase
 	{
 		return  {
 			_title: "Create a resource",
+			_path: "/foo",
 			_breadcrumb_title: "New",
 			_icon : ExtBase.Icons().Color.NewPlusSign,
 			_css_id : "create-new-css",

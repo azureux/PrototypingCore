@@ -1,9 +1,6 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../js/utilities.js" />
-"use strict";
+﻿//	import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
+//	import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
 
 export class AllResourceGroupsExtension extends ExtBase
 {
@@ -15,7 +12,8 @@ export class AllResourceGroupsExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title :  "Resource Groups",
+			_title: "Resource Groups",
+			_path: "/resource-groups",
 			_breadcrumb_title: "Resources Groups",
 			_icon : ExtBase.Icons().Color.ResourceGroup,
 			_css_id : "all-res-css",

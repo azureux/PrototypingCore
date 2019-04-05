@@ -1,12 +1,7 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../script/babel/babel.7.1.0.min.js" />
-/// <reference path="../../js/utilities.js" />
-
-"use strict";
-import { Utilities as Utils } from "../../../js/utilities.js";
-import { SVG as Svgs } from "../../../js/svg-assets.js";
-import { ButtonControl as Button } from "../../components/standard-controls/button/button.js";
+﻿import React from 'react';
+import { Utilities as Utils } from "./../../js/utilities.js";
+import { SVG as Svgs } from "./../../js/svg-assets.js";
+//	import { ButtonControl as Button } from "../../components/standard-controls/button/button.js";
 
 export class ExtensionBase extends React.Component
 {	
@@ -15,6 +10,8 @@ export class ExtensionBase extends React.Component
 		super( props );
 
 		this.Utils = Utils;
+		this.Key = Utils.NewKey();
+
 		this.Application = props.Application;
 		this.Theme = props.Application.ThemeName;
 		this.state = { IsDirty: false };
@@ -29,6 +26,7 @@ export class ExtensionBase extends React.Component
 		this.BaseCssPath = "extensions/_ext-base/ext-base.css";
 
 		this.ExtensionName = this.props.PropertyBag._extension;
+		this.Path = this.props.PropertyBag._path;
 		this.Title = this.props.PropertyBag._title;
 		this.BreadCrumbTitle = this.props.PropertyBag._breadcrumb_title;
 		this.SvgIcon = this.props.PropertyBag._icon;
@@ -36,7 +34,7 @@ export class ExtensionBase extends React.Component
 		this.CssFile = this.props.PropertyBag._css_path;
 
 		this.HasBreadCrumb = props.HasBreadCrumb;
-		if ( this.HasBreadCrumb == false )
+		if ( this.HasBreadCrumb === false )
 		{
 			this.DefaultCssClass = this.DefaultCssClassNoBreadCrumb;
 		}
@@ -44,8 +42,10 @@ export class ExtensionBase extends React.Component
 	};
 	static PropertyBag()
 	{
-		return  {
+		return {
+			_key: Utils.NewKey(),
 			_title: "Extension Base component",
+			_path: "/foo",
 			_breadcrumb_title: "breadcrumb short title",
 			_icon :  Svgs.Color.ResourceGroup,
 			_css_id : "ExtensionBase",
@@ -61,10 +61,18 @@ export class ExtensionBase extends React.Component
 	{
 		return Svgs;
 	};
+	static Key()
+	{
+		return this.PropertyBag()._key;
+	};
 	static Title()
 	{
 		//return ExtensionBase_PropertyBag._title;
 		return this.PropertyBag()._title;
+	};
+	static Path()
+	{
+		return this.PropertyBag()._path;
 	};
 	static BreadCrumbTitle()
 	{
@@ -86,24 +94,24 @@ export class ExtensionBase extends React.Component
 		//	console.debug( "componentDidMount" );
 		//	this.Init( ExtensionBase_PropertyBag );
 		//	this.Init();
-		this.Utils.InjectControlCss( this.BaseCssId, this.BaseCssPath );
-		this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		//this.Utils.InjectControlCss( this.BaseCssId, this.BaseCssPath );
+		//this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	componentWillUnmount()
 	{
 		//	console.debug( "componentWillUnmount--REMOVE CSS" );
-		this.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
+		//this.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
 		return;
 	};
-	render()
-	{
-		const _title = `${this.Title}`;
-		const _icon = React.createElement( "div", {className: "test-icon", dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( this.SvgIcon.SVG )} );
+	//render()
+	//{
+	//	const _title = `${this.Title}`;
+	//	const _icon = React.createElement( "div", {className: "test-icon", dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( this.SvgIcon.SVG )} );
 
-		return React.createElement( "div", {
-			id: this.ID,
-			className: this.DefaultCssClass,
-		}, _icon, _title );
-	};
+	//	return React.createElement( "div", {
+	//		id: this.ID,
+	//		className: this.DefaultCssClass,
+	//	}, _icon, _title );
+	//};
 };

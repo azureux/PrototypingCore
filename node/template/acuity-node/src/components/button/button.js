@@ -57,13 +57,13 @@ export class ButtonControl extends React.Component
 
 		//let _changed = Utilities.ReverseString( this.state.prev_text );
 
-		if ( this.state.isClicked == true )
+		if ( this.state.isClicked === true )
 		{
 			this.setState( { isClicked: false } );
 			//this.setState( { inner_text: this.state.prev_text } );
 			this.setState( { currentCssClass: this.CssClassNames.Normal } );
 		}
-		else if ( this.state.isClicked == false )
+		else if ( this.state.isClicked === false )
 		{
 			this.setState( { isClicked: true } );
 			//this.setState( { inner_text: _changed } );
@@ -71,12 +71,6 @@ export class ButtonControl extends React.Component
 		}
 		//	for firing events at the top level of "Application" class
 		//	this.Application.OnClick_HandleBodyElementClick( ev, false );
-        return;
-
-        // set overrives - need the same pathway as themeing 
-  //      if (props.Application.Application.ButtonCtrl.Title !== undefined) {
-  //          this.Title = props.Application.Application.ButtonCtrl.Title;
-		//}
         return;
     };
 	render()
@@ -101,12 +95,12 @@ export class ButtonControl extends React.Component
 			let _icon_class = "btn-icon-default";
 			let _text_class = "btn-text-default";
 
-			if ( this.state.IsLeftNavCollapsed == true )
+			if ( this.state.IsLeftNavCollapsed === true )
 			{
 				_text_class = "btn-text-hidden";
 			}
 
-			if ( this.state.isClicked == true )
+			if ( this.state.isClicked === true )
 			{
 				_btn_class = _btn_class + " btn-icon-text-default-selected";
 			}
@@ -126,7 +120,7 @@ export class ButtonControl extends React.Component
             }, [_icon, _text] ); 
         }
         //SVG + no unique text
-		else if ( this.SvgIcon !== undefined && this.props.buttonText == " " )
+		else if ( this.SvgIcon !== undefined && this.props.buttonText === " " )
 		{
             let _j = React.createElement('div', { className: 'icon', dangerouslySetInnerHTML: Utils.CreateSvgMarkup(this.SvgIcon.SVG) });
 

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Utilities } from './../../js/utilities';
+//	import { Utilities } from './../../js/utilities';
 import SvgIcon from "./../svg-icons/svg-icon";
 import "./left-nav.css";
+
+import { AzureLinks, FaveLinks} from './../../extensions/extensions-list.js';
 
 export default class LeftNav extends React.Component
 {
@@ -13,7 +15,7 @@ export default class LeftNav extends React.Component
 			NavOpened: this.props.opened
 		};
 
-		this.IsOpened = true;	// this.state.NavOpened;
+		this.IsOpened = true;
 
 		// MAIN CSS
 		this._css_left_nav_open = "left-nav-open";
@@ -27,33 +29,8 @@ export default class LeftNav extends React.Component
 		// FAVORITES
 		this.FavoriteBarSvg = undefined;
 
-		// this will move out to ES6 array files
-		this.Links = {
-			topNavigation: [
-				{ name: "Create a resource", icon: SvgIcon.Icons.CreateNew, key: Utilities.NewKey() },
-				{ name: "Home", icon: SvgIcon.Icons.AzureHome, key: Utilities.NewKey() },
-				{ name: "Dashboard", icon: SvgIcon.Icons.AzureDashboard, key: Utilities.NewKey() },
-				{ name: "All services", icon: SvgIcon.Icons.AllServices, key: Utilities.NewKey() },
-			],
-			resources: [
-				{ name: "App services", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "All resources", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Function Apps", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Resource groups", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "SQL databases", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Virtual Machines", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Load balancers", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Storage accounts", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Virtual networks", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Azure Active Directory", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Monitor", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Advisor", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Azure Cosmos DB", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Security Center", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Cost Management + Billing", iconName: "svg", key: Utilities.NewKey() },
-				{ name: "Help + support", iconName: "svg", key: Utilities.NewKey() },
-			]
-		};
+		this.NavLinks = AzureLinks;
+		this.FavLinks = FaveLinks;
 
 		return;
 	}
@@ -93,22 +70,22 @@ export default class LeftNav extends React.Component
 					{!this.state.NavOpened && <SvgIcon icon={this.ToggleChevron} />}
 				</div>
 
-				{this.Links.topNavigation.map(item => (
-					<a href="{item.key}" className="left-nav-btn" key={item.key} title={item.name} tabIndex="0">
+				{this.NavLinks.map( (item, index) => (
+					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
 						<span className="left-nav-icon"><SvgIcon icon={item.icon} /></span>
-						<span className="left-nav-res-name">{item.name}</span>
+						<span className="left-nav-res-name">{item.Title()}</span>
 					</a>
-				))}
+				) )}
 
 				<div className="left-nav-favorites">
 					{this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
 					{!this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
 				</div>
 
-				{this.Links.resources.map(item => (
-					<a href="{item.key}" className="left-nav-btn" key={item.key} title={item.name} tabIndex="0">
+				{this.FavLinks.map((item ,index) => (
+					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
 						<span className="left-nav-icon"><SvgIcon icon={item.icon} /></span>
-						<span className="left-nav-res-name">{item.name}</span>
+						<span className="left-nav-res-name">{item.Title()}</span>
 					</a>
 				))}
 			</div>

@@ -1,10 +1,9 @@
-﻿/// <reference path="../js/utilities.js" />
-/// <reference path="../script/react/react-latest.js" />
-/// <reference path="../script/react/react-dom-latest.js" />
-"use strict";
-import { Utilities as Utils } from "../../../js/utilities.js";
-import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
-import { ButtonControl as Btn } from "../../standard-controls/button/button.js";
+﻿import React from 'react';
+import { ExtensionBase as ExtBase } from './../../extensions/_ext-base/ext-base.js';
+import { Utilities as Utils } from "./../../js/utilities.js";
+//	import { SVG as AzureSvgs } from "./../../js/svg-assets.js";
+//	import { ButtonControl as Btn } from "./../button/button.js";
+import './data-grid.css';
 
 export class DataGridControl extends React.Component
 {
@@ -26,7 +25,6 @@ export class DataGridControl extends React.Component
 		//this.CurrentSelectedColumn = "";
 		//this.OnClick_SortAsc = this.SortAcending( this );
 		//this.OnClick_SortDesc = this.SortAcending( this );
-
 		return;
 	};
 	componentWillMount()
@@ -35,13 +33,13 @@ export class DataGridControl extends React.Component
 	};
 	componentDidMount()
 	{	//	console.debug( "componentDidMount" );
-		this.Application.Utils.InjectControlCss( this.CssFileID, this.CssFile );
-		this.Compute_ColumnsAndData();
+		//this.Application.Utils.InjectControlCss( this.CssFileID, this.CssFile );
+		//this.Compute_ColumnsAndData();
 		return;
 	};
 	componentWillUnmount()
 	{	//	console.debug( "componentWillUnmount--REMOVE CSS" );
-		this.Application.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
+		//this.Application.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	Compute_ColumnsAndData()
@@ -91,14 +89,14 @@ export class DataGridControl extends React.Component
 
 		// colum headers
 		let _cols = [];
-		if ( this.Columns.length != 0 )
+		if ( this.Columns.length !== 0 )
 		{
 			this.Columns.forEach( function ( v, i, a )
 			{
 				//	console.debug( i, v );
 				if ( v.visible !== undefined )
 				{
-					if ( v.visible == true )
+					if ( v.visible === true )
 					{
 						const _column_header = React.createElement( "td", { key: Utils.NewKey(), className: "grid-cell icon" }, v.name );
 						_cols.push( _column_header );

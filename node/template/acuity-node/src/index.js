@@ -1,28 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/fonts.css';
-import './css/index.css';
-import Config from './js/config';
+//	import Config from './js/config';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-//	ReactDOM.render(<App />, document.getElementById('root'));
 
 ( function ()
 {
 	console.log( "BEGIN", new Date().toISOString() );
 	try
 	{
-		console.log( "TRY", new Date().toISOString() );
-
+		//	console.log( "TRY", new Date().toISOString() );
+		//	console.debug( Config );
 		// If you want your app to work offline and load faster, you can change
 		// unregister() to register() below. Note this comes with some pitfalls.
 		// Learn more about service workers: http://bit.ly/CRA-PWA
+		//	TBD - TESTING THIS IN VSCODE & MAC FOR JACKIEG
+		//if ( Config.Debug )
+		//{
+		//	serviceWorker.unregister();
+		//}
 		serviceWorker.unregister();
 
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
 		{
-			ReactDOM.render( React.createElement( App, Config ), document.getElementById( "root" ) );
+			//	console.debug( "DOMContentLoaded" );
+			//	ReactDOM.render( React.createElement( App, Config ), document.getElementById( "root" ) );
+			ReactDOM.render(<App />, document.getElementById('root'));
 			return;
 		} );
 	}
@@ -35,7 +38,7 @@ import * as serviceWorker from './serviceWorker';
 	}
 	finally
 	{
-		console.log( "FINALLY", new Date().toISOString() );
+		//	console.log( "FINALLY", new Date().toISOString() );
 	}
 	console.log( "END", new Date().toISOString() );
 	return;

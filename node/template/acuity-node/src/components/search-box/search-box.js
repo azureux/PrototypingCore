@@ -82,7 +82,7 @@ export default class SearchBox extends React.Component
 		{
 			let _zero_result = document.createElement( "div" );
 			_zero_result.className = "zero-result";
-			_zero_result.innerText = "No results found for \'" + this.TextValue + "\'";
+			_zero_result.innerText = "No results found for \"" + this.TextValue + "\"";
 
 			_rv.push( _zero_result );
 		}

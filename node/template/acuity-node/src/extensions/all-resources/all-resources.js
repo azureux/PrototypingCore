@@ -1,8 +1,4 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../js/utilities.js" />
-"use strict";
-import { ExtensionListBase as ExtensionList } from "../_ext-list-base/ext-list-base.js";
+﻿import { ExtensionListBase as ExtensionList } from "../_ext-list-base/ext-list-base.js";
 
 export class AllResourcesExtension extends ExtensionList
 {

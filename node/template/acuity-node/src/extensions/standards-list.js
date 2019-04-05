@@ -1,14 +1,17 @@
-﻿// main nav list
-"use strict";
+﻿// TOP LEVEL EXTENSIONS LIST
+import { CreateNewExtension } from './azure-marketplace/create-new-ext.js';
+import { DashboardExtension } from './azure-dashboard/dashboard-ext.js';
+import { HomePageExtension } from './azure-home/home-ext.js';
+import { AllServicesExtension } from './all-services/all-services-ext.js';
 
-import { CreateNewExtension } from "./azure-marketplace/create-new-ext.js.js";
-import { DashboardExtension } from "./azure-dashboard/dashboard-ext.js";
-import { HomePageExtension } from "./azure-home/home-ext.js.js";
-import { AllServicesExtension } from "./all-services/";
-
-export const StandardExtensionsList = [
+const _links = [
 	CreateNewExtension,
 	HomePageExtension,
 	DashboardExtension,
 	AllServicesExtension
-];
+]
+
+export
+{
+	_links as AzureStandardLinks
+};

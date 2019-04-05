@@ -1,18 +1,15 @@
-﻿/// <reference path="../../script/react/react-dom-16.4.0.js" />
-/// <reference path="../../script/react/react-dom-latest.js" />
-/// <reference path="../../js/utilities.js" />
-"use strict";
+﻿import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { ButtonControl as Button } from "../../components/standard-controls/button/button.js";
+import { ButtonControl as Button } from "../../components/button/button.js";
 
 export class DashboardExtension extends ExtBase 
 {
 	constructor( props )
 	{
 		super( props );
-		this.Props = props;
-		this.DefaultImage = "/../../img/dashboard/sample-dashboard-01.png";
-		this.CurrentTitle = "Contoso Dashboard";
+		//this.Props = props;
+		//this.DefaultImage = "/../../img/dashboard/sample-dashboard-01.png";
+		//this.CurrentTitle = "Contoso Dashboard";
 		return;
 	};
 	static PropertyBag()
