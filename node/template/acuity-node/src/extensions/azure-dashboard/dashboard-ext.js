@@ -17,8 +17,9 @@ export class DashboardExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title: "Dashboard",
+			_title: "Azure Dashboard",
 			_breadcrumb_title: "Dashboard",
+			_path: "/dashboard",
 			_icon: SvgIcon.Icons.AzureDashboard,
 		};
 	};

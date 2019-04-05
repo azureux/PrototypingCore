@@ -34,7 +34,7 @@ export default class App extends React.Component
 
 		// props
 		this.Application = this;
-		this.LeftNavOpen = false;
+		this.LeftNavOpen = true;
 		this.MeControlOpen = false;
 		this.SearchPanelOpen = false;
 		this.ContextBladeOpen = false;

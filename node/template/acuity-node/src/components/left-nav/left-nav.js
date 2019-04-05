@@ -71,7 +71,7 @@ export default class LeftNav extends React.Component
 				</div>
 
 				{this.NavLinks.map( (item, index) => (
-					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
+					<a href={item.Path()} className="left-nav-btn" key={item.Key()} title={item.Title()} tabIndex="0">
 						<span className="left-nav-icon"><SvgIcon icon={item.Icon()} /></span>
 						<span className="left-nav-res-name">{item.Title()}</span>
 					</a>
@@ -82,7 +82,7 @@ export default class LeftNav extends React.Component
 					{!this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
 				</div>
 
-				{this.FavLinks.map((item ,index) => (
+				{this.FavLinks.map((item, index) => (
 					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
 						<span className="left-nav-icon"><SvgIcon icon={item.Icon()} /></span>
 						<span className="left-nav-res-name">{item.Title()}</span>

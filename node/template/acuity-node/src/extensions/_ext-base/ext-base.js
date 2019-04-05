@@ -3,6 +3,7 @@ import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './ext-base.css';
 
+//	BASE CLASS 
 export class ExtensionBase extends React.Component
 {	
 	constructor( props )
@@ -10,24 +11,22 @@ export class ExtensionBase extends React.Component
 		super( props );
 
 		this.Utils = Utils;
-		this.Key = Utils.NewKey();
-
-		this.Application = props.Application;
-		this.Theme = props.Application.ThemeName;
-		this.state = { IsDirty: false };
-
-		// base class 
-		this._ext_name = this.constructor.name;
 		this.ID = Utils.NewId( this._ext_name );
-		this.DefaultCssClass = "ExtensionBase " + this._ext_name;
-		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this._ext_name;
 
-		this.ExtensionName = this.props.PropertyBag._extension;
+		//	this._ext_name = this.constructor.name;
+		this.ExtensionName = this.constructor.name;	//	this.props.PropertyBag._extension;
 		this.Path = this.props.PropertyBag._path;
 		this.Title = this.props.PropertyBag._title;
+		this.SubTitle = this.props.PropertyBag._subtitle;
 		this.BreadCrumbTitle = this.props.PropertyBag._breadcrumb_title;
 		this.SvgIcon = this.props.PropertyBag._icon;
 
+		//this.Application = props.Application;
+		//this.Theme = props.Application.ThemeName;
+		this.state = { IsDirty: false };
+
+		this.DefaultCssClass = "ExtensionBase " + this._ext_name;
+		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this._ext_name;
 		this.HasBreadCrumb = props.HasBreadCrumb;
 		if ( this.HasBreadCrumb === false )
 		{
@@ -38,9 +37,9 @@ export class ExtensionBase extends React.Component
 	static PropertyBag()
 	{
 		return {
-			_key: Utils.NewKey(),
-			_title: "Extension Base component",
-			_path: "/foo",
+			_title: "Extension Base Component",
+			_subtitle: "The javascript base class for \"ExtensionBase\" ",
+			_path: Utils.FormatPathFromTitle( "Extension Base Component" ),
 			_breadcrumb_title: "breadcrumb short title",
 			_icon: SvgIcon.Icons.Default,
 			_data : []
@@ -48,12 +47,15 @@ export class ExtensionBase extends React.Component
 	};
 	static Key()
 	{
-		return this.PropertyBag()._key;
+		return Utils.NewKey();	//	this.PropertyBag()._key;
 	};
 	static Title()
 	{
-		//return ExtensionBase_PropertyBag._title;
 		return this.PropertyBag()._title;
+	};
+	static SubTitle()
+	{
+		return this.PropertyBag()._subtitle;
 	};
 	static Path()
 	{
@@ -61,13 +63,15 @@ export class ExtensionBase extends React.Component
 	};
 	static BreadCrumbTitle()
 	{
-		//return ExtensionBase_PropertyBag._breadcrumb_title;
 		return this.PropertyBag()._breadcrumb_title;
 	};
 	static Icon()
 	{
-		//	return ExtensionBase_PropertyBag._icon;
 		return this.PropertyBag()._icon;
+	};
+	static Data()
+	{
+		return this.PropertyBag()._data;
 	};
 	componentWillMount()
 	{
@@ -89,14 +93,21 @@ export class ExtensionBase extends React.Component
 		//this.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
 		return;
 	};
-	//render()
-	//{
-	//	const _title = `${this.Title}`;
-	//	const _icon = React.createElement( "div", {className: "test-icon", dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( this.SvgIcon.SVG )} );
+	render()
+	{
+		//const _title = `${this.Title}`;
+		//const _icon = React.createElement( "div", {className: "test-icon", dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( this.SvgIcon.SVG )} );
 
-	//	return React.createElement( "div", {
-	//		id: this.ID,
-	//		className: this.DefaultCssClass,
-	//	}, _icon, _title );
-	//};
+		//return React.createElement( "div", {
+		//	id: this.ID,
+		//	className: this.DefaultCssClass,
+		//}, _icon, _title );
+		return (
+			<div id={this.ID} className={this.DefaultCssClass}>
+				<SvgIcon icon={this.SvgIcon} />
+				<div>{this.Title}</div>
+				<div>{this.SubTitle}</div>
+			</div>
+		);
+	};
 };

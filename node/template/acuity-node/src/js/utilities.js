@@ -455,7 +455,7 @@ class _Utilities
 	//constructor()
 	//{};
 
-	// id & key methods
+	// react related -  id & key methods
 	static NewId( strValue )
 	{
 		let _rv = "";
@@ -491,6 +491,13 @@ class _Utilities
 		const _rv = "key-" + Math.random().toPrecision( 7 ).replace( ".", "" );
 		//	console.debug( "Utilities.NewKey()._rv", _rv );
 		return _rv;
+	};
+	static FormatPathFromTitle( strName )
+	{
+		let _new_replace = strName.replace( / /gi, "-" );
+		let _new_lower = encodeURI( "/" + _new_replace.toLowerCase() );
+		//	console.debug( "_new_lower", _new_lower );
+		return _new_lower;
 	};
 
 	// css injection and removal methods
@@ -699,6 +706,8 @@ class _Utilities
 		//	console.debug( _return_value );
 		return _return_value;
 	};
+
+
 	static ReverseString ( strValue )
 	{
 		let _new;

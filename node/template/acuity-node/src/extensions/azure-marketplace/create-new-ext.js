@@ -14,12 +14,10 @@ export class CreateNewExtension extends ExtBase
 	static PropertyBag()
 	{
 		return  {
-			_title: "Create a resource",
-			_path: "/foo",
+			_title: "Azure Marketplace",
+			_path: "/marketplace",
 			_breadcrumb_title: "New",
 			_icon: SvgIcon.Icons.CreateNew,
-			//_css_id : "create-new-css",
-			//_css_path: "extensions/std-create-new/create-new-ext.css",
 		};
 	};
 	render()

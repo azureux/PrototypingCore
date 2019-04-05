@@ -1,4 +1,5 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './vm-ext.css';
 
@@ -12,10 +13,10 @@ export class VirtualMachineExtension extends ExtBase
 	static PropertyBag()
 	{
 		return {
-			_extension: this.name,
-			_title :  "Virtual Machine",
-			_breadcrumb_title: "Virtual machine",
-			_icon: SvgIcon.Icons.Default,
+			_title: "Virtual Machine 0123",
+			_path: Utils.FormatPathFromTitle( "virtual-machine-0123" ),
+			_breadcrumb_title: "Virtual machine 0123",
+			_icon: SvgIcon.Extensions.VirtualMachine,
 		};
 	};
 };
