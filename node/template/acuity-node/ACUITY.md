@@ -1,23 +1,8 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Cloud Design Studio - Project 'Acuity'
+## Available Scripts
 
-This project in provided by the "Cloud Design Studio Design Engineering" team, for use for with research projects and user expereince testing. 
-
-### Builds
-TBD
-
-### Deployments
-TBD
-
-
-
-
-
-
-
-### Notes
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The following notes are copied from the [Create React App README.md].
-
+In the project directory, you can run:
 
 ### `npm start`
 
