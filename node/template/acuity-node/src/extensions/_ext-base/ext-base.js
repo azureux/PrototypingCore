@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Utilities as Utils } from "./../../js/utilities.js";
-import { SVG as Svgs } from "./../../js/svg-assets.js";
-//	import { ButtonControl as Button } from "../../components/standard-controls/button/button.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './ext-base.css';
 
 export class ExtensionBase extends React.Component
 {	
@@ -22,16 +22,11 @@ export class ExtensionBase extends React.Component
 		this.DefaultCssClass = "ExtensionBase " + this._ext_name;
 		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this._ext_name;
 
-		this.BaseCssId = "ext-base-css";
-		this.BaseCssPath = "extensions/_ext-base/ext-base.css";
-
 		this.ExtensionName = this.props.PropertyBag._extension;
 		this.Path = this.props.PropertyBag._path;
 		this.Title = this.props.PropertyBag._title;
 		this.BreadCrumbTitle = this.props.PropertyBag._breadcrumb_title;
 		this.SvgIcon = this.props.PropertyBag._icon;
-        this.CssFileID = this.props.PropertyBag._css_id;
-		this.CssFile = this.props.PropertyBag._css_path;
 
 		this.HasBreadCrumb = props.HasBreadCrumb;
 		if ( this.HasBreadCrumb === false )
@@ -47,19 +42,9 @@ export class ExtensionBase extends React.Component
 			_title: "Extension Base component",
 			_path: "/foo",
 			_breadcrumb_title: "breadcrumb short title",
-			_icon :  Svgs.Color.ResourceGroup,
-			_css_id : "ExtensionBase",
-			_css_path: "extensions/_ext-base/ext-base.css",
+			_icon: SvgIcon.Icons.Default,
 			_data : []
 		};
-	};
-	static Utils()
-	{
-		return Utils;
-	};
-	static Icons()
-	{
-		return Svgs;
 	};
 	static Key()
 	{

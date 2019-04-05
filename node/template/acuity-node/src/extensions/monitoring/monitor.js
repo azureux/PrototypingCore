@@ -1,4 +1,6 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './monitor.css';
 
 export class MonitoringExtension extends ExtBase
 {
@@ -12,9 +14,7 @@ export class MonitoringExtension extends ExtBase
 		return  {
 			_title :  "Monitor",
 			_breadcrumb_title: "Monitor",
-			_icon : ExtBase.Icons().Monitoring,
-			_css_id : "monitor-css",
-			_css_path : "extensions/monitor/monitor.css"
+			_icon: SvgIcon.Icons.Default,
 		};
 	};
 };

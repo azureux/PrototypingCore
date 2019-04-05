@@ -1,4 +1,6 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './sql-server.css';
 
 export class SqlServerExtension extends ExtBase
 {
@@ -12,9 +14,7 @@ export class SqlServerExtension extends ExtBase
 		return  {
 			_title :  "SQL Server",
 			_breadcrumb_title: "SQL Server",
-			_icon : ExtBase.Icons().Extensions.DatabaseSQLServer,
-			_css_id : "sql-server-css",
-			_css_path : "extensions/sql-server/sql-server.css"
+			_icon: SvgIcon.Icons.Default,
 		};
 	};
 };

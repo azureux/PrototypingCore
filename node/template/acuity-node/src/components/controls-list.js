@@ -1,12 +1,45 @@
-﻿//// all controls
-//"use strict";
+﻿// TBD - CONTROLS COLLECTIONS
 
-//// all standard nav extensions
-//import { AllServicesExtension } from "./std-all-services/all-services-ext.js";
-//import { CreateNewExtension } from "./std-create-new/create-new-ext.js";
+// TOP LEVEL EXTENSIONS LIST
+//import { CreateNewExtension } from './azure-marketplace/create-new-ext.js';
+//import { DashboardExtension } from './azure-dashboard/dashboard-ext.js';
+//import { HomePageExtension } from './azure-home/home-ext.js';
+//import { AllServicesExtension } from './all-services/all-services-ext.js';
 
-//export const AllExtensionsList = [
-//	// all std
-//	AllServicesExtension,
-//	CreateNewExtension
+//// FAVORITES NAVIGATION LIST
+//// NON-CUSTOMIZED EXTENSIONS
+//import { AllAppServicesExtension } from "./all-app-services/all-app-services.js";
+//import { AllResourceGroupsExtension } from "./all-resource-groups/all-resource-groups.js";
+//import { AllResourcesExtension } from "./all-resources/all-resources.js";
+//import { AllSqlDbsExtension } from "./all-sql-dbs/all-sql-dbs.js";
+//import { AllVmsExtension } from "./all-virtual-machines/all-virtual-machines.js";
+
+//// CUSTOM ONE-OFF EXTENSIONS
+//import { VirtualMachineExtension } from "./virtual-machine/vm-ext.js";
+//import { SqlServerExtension } from "./sql-server/sql-server.js";
+//import { MonitoringExtension } from "./monitoring/monitor.js";
+//import { AzureActiveDirectoryExtension } from './azure-active-directory/azure-active-directory.js';
+
+//// IN RENDERING ORDER
+//const _azure_links = [
+//	CreateNewExtension,
+//	HomePageExtension,
+//	DashboardExtension,
+//	AllServicesExtension
 //];
+//const _fave_links = [
+//	AllResourcesExtension,
+//	AllResourceGroupsExtension,
+//	AllVmsExtension,
+//	AllAppServicesExtension,
+//	AllSqlDbsExtension,
+//	AzureActiveDirectoryExtension,
+//	MonitoringExtension,
+//	SqlServerExtension,
+//	VirtualMachineExtension
+//];
+//export
+//{
+//	_azure_links as AzureLinks,
+//	_fave_links as FaveLinks
+//}

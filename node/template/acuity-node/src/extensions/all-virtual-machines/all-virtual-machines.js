@@ -1,5 +1,6 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-//import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './all-virtual-machines.css';
 
 export class AllVmsExtension extends ExtBase
 {
@@ -13,9 +14,7 @@ export class AllVmsExtension extends ExtBase
 		return  {
 			_title :  "Virtual machines",
 			_breadcrumb_title: "Virtual machines",
-			_icon : ExtBase.Icons().Color.VirtualMachines,
-			_css_id : "all-vms-css",
-			_css_path : "extensions/all-virtual-machines/all-virtual-machines.css"
+			_icon: SvgIcon.Icons.Default,
 		};
 	};
 };

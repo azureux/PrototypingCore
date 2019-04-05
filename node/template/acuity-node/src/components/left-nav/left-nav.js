@@ -1,9 +1,8 @@
 import React from 'react';
 //	import { Utilities } from './../../js/utilities';
+import { AzureLinks, FaveLinks } from './../../extensions/extensions-list.js';
 import SvgIcon from "./../svg-icons/svg-icon";
 import "./left-nav.css";
-
-import { AzureLinks, FaveLinks} from './../../extensions/extensions-list.js';
 
 export default class LeftNav extends React.Component
 {
@@ -59,7 +58,8 @@ export default class LeftNav extends React.Component
 	};
 	render()
 	{
-		//	changing state causes a render, in this case we have to check the state & a prop each render?
+		//	changing state causes a render, 
+		//	we have to check the state & a prop each render ?
 		this.CheckToggleStatus();
 
 		return (
@@ -72,7 +72,7 @@ export default class LeftNav extends React.Component
 
 				{this.NavLinks.map( (item, index) => (
 					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
-						<span className="left-nav-icon"><SvgIcon icon={item.icon} /></span>
+						<span className="left-nav-icon"><SvgIcon icon={item.Icon()} /></span>
 						<span className="left-nav-res-name">{item.Title()}</span>
 					</a>
 				) )}
@@ -84,7 +84,7 @@ export default class LeftNav extends React.Component
 
 				{this.FavLinks.map((item ,index) => (
 					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
-						<span className="left-nav-icon"><SvgIcon icon={item.icon} /></span>
+						<span className="left-nav-icon"><SvgIcon icon={item.Icon()} /></span>
 						<span className="left-nav-res-name">{item.Title()}</span>
 					</a>
 				))}

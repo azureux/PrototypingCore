@@ -1,6 +1,8 @@
 ﻿import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { ButtonControl as Button } from "../../components/button/button.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './dashboard-ext.css';
 
 export class DashboardExtension extends ExtBase 
 {
@@ -17,9 +19,7 @@ export class DashboardExtension extends ExtBase
 		return  {
 			_title: "Dashboard",
 			_breadcrumb_title: "Dashboard",
-			_icon : ExtBase.Icons().Color.Dashboard,
-			_css_id : "dashboard-ext-css",
-			_css_path : "extensions/std-dashboard/dashboard-ext.css"
+			_icon: SvgIcon.Icons.AzureDashboard,
 		};
 	};
 	OnClick_DebugButtonHandler(thisButton)

@@ -1,5 +1,6 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-//import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './vm-ext.css';
 
 export class VirtualMachineExtension extends ExtBase
 {
@@ -14,9 +15,7 @@ export class VirtualMachineExtension extends ExtBase
 			_extension: this.name,
 			_title :  "Virtual Machine",
 			_breadcrumb_title: "Virtual machine",
-			_icon : ExtBase.Icons().Color.VirtualMachines,
-			_css_id : "vm-ext-css",
-			_css_path : "extensions/virtual-machine/vm-ext.css"
+			_icon: SvgIcon.Icons.Default,
 		};
 	};
 };

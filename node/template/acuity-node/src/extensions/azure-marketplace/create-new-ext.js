@@ -1,6 +1,8 @@
 ﻿import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './create-new-ext.css';
 
 export class CreateNewExtension extends ExtBase
 {
@@ -15,9 +17,9 @@ export class CreateNewExtension extends ExtBase
 			_title: "Create a resource",
 			_path: "/foo",
 			_breadcrumb_title: "New",
-			_icon : ExtBase.Icons().Color.NewPlusSign,
-			_css_id : "create-new-css",
-			_css_path: "extensions/std-create-new/create-new-ext.css",
+			_icon: SvgIcon.Icons.CreateNew,
+			//_css_id : "create-new-css",
+			//_css_path: "extensions/std-create-new/create-new-ext.css",
 		};
 	};
 	render()

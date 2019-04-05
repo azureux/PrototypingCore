@@ -1,5 +1,5 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-//	import { ExtensionHeader as Header } from "./../../components/extension-header/extension-header.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 
 export class AllServicesExtension extends ExtBase
 {
@@ -13,9 +13,7 @@ export class AllServicesExtension extends ExtBase
 		return  {
 			_title : "All Services",
 			_breadcrumb_title: "Services",
-			_icon : ExtBase.Icons().Color.All_Services,
-			_css_id : "all-services-css",
-			_css_path : "extensions/std-all-services/all-services-ext.css"
+			_icon: SvgIcon.Icons.AllServices
 		};
 	};
 };

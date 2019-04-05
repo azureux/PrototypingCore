@@ -1,7 +1,10 @@
 ﻿import React from 'react';
+import { Utilities as Utils } from "./../../js/utilities.js";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
 import { DataGridControl as DataGrid } from "../../components/data-grid/data-grid.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './ext-list-base.css';
 
 export class ExtensionListBase extends ExtBase	//	React.Component
 {	
@@ -25,8 +28,8 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 		//this.CssFile = this.props.PropertyBag._css_path;
 		this.Columns =  ( this.props.PropertyBag._columns || ExtensionListBase.PropertyBag()._columns ); 
 		this.Data = ( this.props.PropertyBag._data || ExtensionListBase.PropertyBag()._data );
-		this.BaseCssId = "ext-list-base-css";
-		this.BaseCssPath = "extensions/_ext-list-base/ext-list-base.css";
+		//this.BaseCssId = "ext-list-base-css";
+		//this.BaseCssPath = "extensions/_ext-list-base/ext-list-base.css";
 		return;
 	};
 	static PropertyBag()
@@ -35,9 +38,9 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 			_extension: "ExtensionListBase",
 			_title: "Extension List Base component",
 			_breadcrumb_title: "Extension List Base component",
-			_icon :  ExtBase.Icons().Color.ResourceGroup,
-			_css_id : "ExtensionListBase",
-			_css_path: "extensions/_ext-list-base/ext-list-base.css",
+			_icon: SvgIcon.Icons.Default,
+			//_css_id : "ExtensionListBase",
+			//_css_path: "extensions/_ext-list-base/ext-list-base.css",
 			_columns: [
 				{ name: "Icon", key: "_icon", visible: true },
 				{ name: "Extension Name", key: "_extension", visible: true },
@@ -78,15 +81,15 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 	{
 		// may need other controls
 		const _header = React.createElement( Header, {
-			key: ExtBase.Utils().NewKey(),
+			key: Utils.NewKey(),
 			Title: this.Title,
-			SvgIcon: this.SvgIcon,
+			SvgIcon: SvgIcon.Icons.Default,
 			Application: this.Application,
 			extensionObject: this
 		} );
 
 		const _data_grid = React.createElement( DataGrid, {
-			key: ExtBase.Utils().NewKey(),
+			key: Utils.NewKey(),
 			Application: this.Application,
 			Data: this.Data,
 			Columns: this.Columns,

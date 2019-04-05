@@ -1,5 +1,6 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-//import { ExtensionHeader as Header } from "../../components/standard-controls/extension-header/extension-header.js";
+import SvgIcon from "./../../components/svg-icons/svg-icon.js";
+import './all-sql-dbs.css';
 
 export class AllSqlDbsExtension extends ExtBase
 {
@@ -13,9 +14,7 @@ export class AllSqlDbsExtension extends ExtBase
 		return  {
 			_title :  "SQL databases",
 			_breadcrumb_title: "SQL Databases",
-			_icon : ExtBase.Icons().Color.SQLServers,
-			_css_id : "all-sql-dbs-css",
-			_css_path : "extensions/all-sql-dbs/all-sql-dbs.css"
+			_icon: SvgIcon.Icons.Default,
 		};
 	};
 };
