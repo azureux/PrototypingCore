@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import './search-box.css';
-import { Utilities as Utils } from "../../js/utilities.js";
+import { Utilities as Utils } from "../src/js/utilities.js";
 //import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
 
 export default class SearchBox extends React.Component

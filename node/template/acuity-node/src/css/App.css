@@ -1,12 +1,17 @@
-/* colors
-	#61dafb;
-	 #282c34;
+/* 
+colors
+[name] = #61dafb;
+[name] = #282c34;
 */
 .App
 {
 	border: solid 0px #61dafb;
 	margin:0px;
 	overflow:hidden;
+}
+:focus
+{
+	outline: dashed 1px #61dafb;
 }
 
 /* HEADER CONTAINER STYLES */
@@ -33,18 +38,18 @@ header > *
 }
 .search-panel
 {
-	/*border: solid 1px white;
-	margin:2px;*/
 	flex: 1 1 auto;
 }
 .tools-panel
 {
 	flex: 0 1 auto;
+	margin:1px;
+	padding:1px;
 }
 .users-panel
 {
-	border: solid 1px white;
-	margin:2px;
+	/* border: solid 1px white; */
+	color: rgba(255,255,255,1);
 	flex: 0 0 300px;
 }
 
@@ -57,7 +62,6 @@ header > *
 	width:100px;
 	vertical-align:top;
 	padding-top:11px;
-	/* font-size:13px; */
 	cursor:pointer;
 }
 .preview-panel-2 
@@ -67,14 +71,15 @@ header > *
 	width:100px;
 	vertical-align:top;
 	padding-top:11px;
-	/* font-size:13px; */
 	cursor:pointer;
 }
 .ms-az-brand
 {
-    font-family: az_bold;
+    font-family: 'az_SemiBold';
+	font-size:16px;
     line-height: 40px;
     padding: 0 20px;
+	color: rgba(255,255,255,1);
 }
 
 /* "search-panel" children if needed, also see other controls */
@@ -85,6 +90,8 @@ header > *
 main
 {
 	border: solid 0px red;
+	background-color: rgba(255,255,255,1);
+	background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0px, rgba(255,255,255,1) 8px);
 	margin: 0px;
 	overflow: auto;
 	height: calc(100% - 40px);
@@ -99,7 +106,7 @@ main > *
 	margin:0px;
 	flex-shrink:1;
 	flex-grow: 1;
-	flex-basis:0;
+	flex-basis: 0;
 }
 .nav-panel-default
 {
@@ -108,8 +115,6 @@ main > *
     flex: inherit;
 	overflow:hidden;
     order: 1;
-	background-color: #f9f9f9;
-	color: #000000;
 }
 
 .extension-panel-default

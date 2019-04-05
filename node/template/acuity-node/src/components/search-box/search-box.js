@@ -227,7 +227,7 @@ export default class SearchBox extends React.Component
     {     
 		return (
 			<div className="search-box-panel">
-				<div class="search-area-panel">
+				<div className="search-area-panel">
 					<input id="input-box" type="text" className="input-box-class" onChange={this.handle_UserInput} onBlur={this.handle_BoxBlur} onFocus={this.handle_BoxFocus} placeholder={this.PlaceholderText} />
 					<div id={this.ResultsPanel_ID} className="results-panel">
 					<div id="quadrant1" className="quadrant">

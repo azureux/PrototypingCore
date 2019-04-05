@@ -16,9 +16,13 @@
 	/*border: solid 1px red;*/
 	cursor:pointer;
 	text-align:right;
-	padding:4px;
+	padding:5px;
 	padding-right:8px;
-	padding-bottom:0px;
+}
+.toggle-open > svg
+{
+	height:14px;
+	width:14px;
 }
 
 .left-nav-btn 
