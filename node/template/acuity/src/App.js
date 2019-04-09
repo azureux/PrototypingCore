@@ -1,5 +1,6 @@
 import React from 'react';
 import { Utilities as Utils } from './js/utilities';
+import { AzureLinks, FaveLinks } from './extensions/extensions-list.js';
 import SearchBox from './components/search-box/search-box.js';
 import LeftNav from './components/left-nav/left-nav.js';
 import ButtonControl3 from './components/button/button3';
@@ -38,9 +39,50 @@ export default class App extends React.Component
 		this.MeControlOpen = false;
 		this.SearchPanelOpen = false;
 		this.ContextBladeOpen = false;
-
+	
 		// event handler bindings
 		this.OnClick_ToggleMenus = this.ResetAllMenus.bind( this );
+
+		// parsing paths for routing???
+		this.BreadCrumbs = [];
+		this.Extensions = [];
+		this.CurrentLeftNavExtension = {};
+		this.CurrentExtension = {};
+		this.ProcessRoutes();
+		return;
+	};
+	//	1. Determine if the first path matches anything in the left nav.
+	//	Last one in wins.
+	//	Because the path array could be formed to include mutliple items in the left nav,
+	//	and we want this to mimic standard path behavior, we are only looking at "_paths[0]"
+	//	
+	//	2. Anything that comes after "_path[0]" is will just define the breadcrumbs & flow
+	ProcessRoutes()
+	{
+		console.debug( "ProcessRoutes", Utils.ProcessRoutes() );
+		let _paths = Utils.ProcessRoutes();
+
+		AzureLinks.forEach( function ( v, i, a )
+		{
+			//`console.debug( i, v.Title(), v.Path(), v.Selected );
+			let _found = false;
+
+			for ( let _p = 0; _p < _paths.length; _p++ )
+			{
+				if ( _paths[_p] == v.Path() )
+				{
+					_found = true;
+					v.Selected = true;
+					break;
+				}
+			}
+			console.debug( i, v.Title(), v.Path(), "_found",_found, v.Selected );
+
+			return;
+		} );
+		//FaveLinks.forEach( function ( v, i, a ) { console.debug( i, v ); return; } );
+
+
 		return;
 	};
 	ResolveConfig()

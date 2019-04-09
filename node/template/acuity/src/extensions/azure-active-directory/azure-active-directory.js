@@ -15,7 +15,7 @@ export class AzureActiveDirectoryExtension extends ExtBase
 			_title :  "Microsoft Azure Active Directory",
 			_breadcrumb_title: "Azure AD",
 			_icon: SvgIcon.Icons.Default,
-			_path: "/azure-active-directory"
+			_path: "azure-active-directory"
 		};
 	};
 };

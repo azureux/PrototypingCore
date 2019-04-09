@@ -14,7 +14,7 @@ export class AllVmsExtension extends ExtBase
 		return  {
 			_title :  "Virtual machines",
 			_breadcrumb_title: "Virtual machines",
-			_path: "/all-virtual-machines",
+			_path: "all-virtual-machines",
 			_icon: SvgIcon.Extensions.VirtualMachine,
 		};
 	};

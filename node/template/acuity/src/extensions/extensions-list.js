@@ -43,30 +43,3 @@ export
 	_azure_links as AzureLinks,
 	_fave_links as FaveLinks
 }
-
-//this.Links = {
-//	topNavigation: [
-//		{ name: "Create a resource", icon: SvgIcon.Icons.CreateNew, key: Utilities.NewKey(), path: "/"},
-//		{ name: "Home", icon: SvgIcon.Icons.AzureHome, key: Utilities.NewKey(), path: "/" },
-//		{ name: "Dashboard", icon: SvgIcon.Icons.AzureDashboard, key: Utilities.NewKey(), path: "/" },
-//		{ name: "All services", icon: SvgIcon.Icons.AllServices, key: Utilities.NewKey(), path: "/" },
-//	],
-//	resources: [
-//		{ name: "App services", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "All resources", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Function Apps", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Resource groups", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "SQL databases", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Virtual Machines", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Load balancers", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Storage accounts", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Virtual networks", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Azure Active Directory", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Monitor", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Advisor", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Azure Cosmos DB", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Security Center", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Cost Management + Billing", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//		{ name: "Help + support", iconName: "svg", key: Utilities.NewKey(), path: "/" },
-//	]
-//};

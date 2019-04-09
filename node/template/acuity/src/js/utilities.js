@@ -3,7 +3,8 @@
 //	ReactJs method for injecting SVG
 //	SVG icons references
 
-import { SVG as AzSvgs } from "./svg-assets.js";
+//	/*NO LONGER NEEDED ??*/
+//	import { SVG as AzSvgs } from "./svg-assets.js";
 
 const _SampleDataResources = {
 	ResourceNames:
@@ -442,14 +443,14 @@ const _SampleDataResources = {
 	},
 };
 
-	// sort enum
+// sort enum
 const _SortTypes = {
 	DEFAULT: { text: "default", arrow: "&varr;" },
 	ASC: { text: "asc", arrow: "&uarr;" },
 	DESC: { text: "desc", arrow: "&darr;" }
 };
 
-
+// core utility class
 class _Utilities 
 {
 	//constructor()
@@ -495,7 +496,7 @@ class _Utilities
 	static FormatPathFromTitle( strName )
 	{
 		let _new_replace = strName.replace( / /gi, "-" );
-		let _new_lower = encodeURI( "/" + _new_replace.toLowerCase() );
+		let _new_lower = encodeURI( _new_replace.toLowerCase() );
 		//	console.debug( "_new_lower", _new_lower );
 		return _new_lower;
 	};
@@ -613,7 +614,7 @@ class _Utilities
 				subscription: "PBA-Transportation-portal",
 				resourceGroup: "PBA INTL",
 				location: "Europe 1",
-				icon: AzSvgs.Color.AppService_color,
+				//	icon: AzSvgs.Color.AppService_color,
 				name: _name,
 				type: "App Service",
 				status: "running"
@@ -705,6 +706,32 @@ class _Utilities
 		_return_value[0] = _return_value[0].toString().replace( "#", "" );
 		//	console.debug( _return_value );
 		return _return_value;
+	};
+	static ProcessRoutes()
+	{
+		let _rv = "";
+		let _incoming_paths = window.location.pathname.split("/");
+
+		// THE FIRST ONE IS ALWAYS AN EMPTY STRING
+		// CHECK IF THE LAST ONE IS A HTML PAGE OR OTHER GARBAGE
+		_incoming_paths = _incoming_paths.filter( function ( item )
+		{
+			let _rv = undefined;
+			let _i = item.toLowerCase();
+			//	console.debug( "_i", _i );
+			if (
+				( _i.indexOf( "." ) === -1 || _i.indexOf( "html" ) === -1 ) &&
+				( _i !== "" )
+			)
+			{
+				_rv = _i;
+			}
+			return _rv;
+		} );
+
+		//	console.debug( "_incoming_paths", _incoming_paths );
+		_rv = _incoming_paths;
+		return _rv;
 	};
 
 

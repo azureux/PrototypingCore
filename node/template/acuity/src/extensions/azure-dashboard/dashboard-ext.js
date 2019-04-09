@@ -19,7 +19,7 @@ export class DashboardExtension extends ExtBase
 		return  {
 			_title: "Azure Dashboard",
 			_breadcrumb_title: "Dashboard",
-			_path: "/dashboard",
+			_path: "dashboard",
 			_icon: SvgIcon.Icons.AzureDashboard,
 		};
 	};

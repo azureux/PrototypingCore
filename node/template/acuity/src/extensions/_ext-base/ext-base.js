@@ -24,6 +24,7 @@ export class ExtensionBase extends React.Component
 		//this.Application = props.Application;
 		//this.Theme = props.Application.ThemeName;
 		this.state = { IsDirty: false };
+		this._is_selected = false;
 
 		this.DefaultCssClass = "ExtensionBase " + this._ext_name;
 		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this._ext_name;
@@ -32,7 +33,19 @@ export class ExtensionBase extends React.Component
 		{
 			this.DefaultCssClass = this.DefaultCssClassNoBreadCrumb;
 		}
+
+
+		this.Selected( this._is_selected );
+		console.debug( "		this.Selected( this._is_selected)", this._is_selected, this.Selected );
 		return;
+	};
+	get Selected()
+	{
+		return this._is_selected;
+	};
+	set Selected( value )
+	{
+		this._is_selected = value;
 	};
 	static PropertyBag()
 	{
@@ -59,7 +72,7 @@ export class ExtensionBase extends React.Component
 	};
 	static Path()
 	{
-		return this.PropertyBag()._path;
+		return this.PropertyBag()._path.toLocaleLowerCase();
 	};
 	static BreadCrumbTitle()
 	{

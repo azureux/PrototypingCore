@@ -1,5 +1,5 @@
 import React from 'react';
-//	import { Utilities } from './../../js/utilities';
+//import { Utilities as Utils } from './../../js/utilities';
 import { AzureLinks, FaveLinks } from './../../extensions/extensions-list.js';
 import SvgIcon from "./../svg-icons/svg-icon";
 import "./left-nav.css";

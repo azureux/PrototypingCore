@@ -15,7 +15,7 @@ export class MonitoringExtension extends ExtBase
 			_title :  "Azure Monitoring",
 			_breadcrumb_title: "Monitoring",
 			_icon: SvgIcon.Icons.Default,
-			_path: "/monitoring"
+			_path: "monitoring"
 		};
 	};
 };

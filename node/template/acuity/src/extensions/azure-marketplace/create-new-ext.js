@@ -15,7 +15,7 @@ export class CreateNewExtension extends ExtBase
 	{
 		return  {
 			_title: "Azure Marketplace",
-			_path: "/marketplace",
+			_path: "marketplace",
 			_breadcrumb_title: "New",
 			_icon: SvgIcon.Icons.CreateNew,
 		};
