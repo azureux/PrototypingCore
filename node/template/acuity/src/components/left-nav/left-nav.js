@@ -1,7 +1,9 @@
 import React from 'react';
-//import { Utilities as Utils } from './../../js/utilities';
-import { AzureLinks, FaveLinks } from './../../extensions/extensions-list.js';
+//import { Utilities as Utils } from './../../js/utilities.js';
+//import { AzureLinks, FaveLinks } from './../../extensions/extensions-list.js';
 import SvgIcon from "./../svg-icons/svg-icon";
+import LeftNavButton from "./../button/left-nav-button.js";
+
 import "./left-nav.css";
 
 export default class LeftNav extends React.Component
@@ -28,8 +30,11 @@ export default class LeftNav extends React.Component
 		// FAVORITES
 		this.FavoriteBarSvg = undefined;
 
-		this.NavLinks = AzureLinks;
-		this.FavLinks = FaveLinks;
+		this.NavLinks = this.props.standardLinks;
+		this.FavLinks = this.props.favoriteLinks;
+
+		//	console.debug( "this.props.selectedKey", this.props.selectedKey );
+		this.SelectedExtension = this.props.selectedKey;
 
 		return;
 	}
@@ -62,6 +67,16 @@ export default class LeftNav extends React.Component
 		//	we have to check the state & a prop each render ?
 		this.CheckToggleStatus();
 
+		//this.NavLinks.forEach( function ( v, i, a )
+		//{
+		//	console.debug( "LeftNav..NavLinks::", i, v.name, v.PropertyBag._selected );
+		//	return;
+		//} );
+
+		//{ item.PropertyBag._selected == 'true' && <span style={{ color: 'red' }}>{item.PropertyBag._selected}</span> }
+		//{ !item.PropertyBag._selected !== 'true' && <span style={{ color: 'blue' }}>{item.PropertyBag._selected}</span> }
+
+
 		return (
 			<div className={this.CssLeftNav}>
 
@@ -70,25 +85,40 @@ export default class LeftNav extends React.Component
 					{!this.state.NavOpened && <SvgIcon icon={this.ToggleChevron} />}
 				</div>
 
-				{this.NavLinks.map( (item, index) => (
-					<a href={item.Path()} className="left-nav-btn" key={item.Key()} title={item.Title()} tabIndex="0">
-						<span className="left-nav-icon"><SvgIcon icon={item.Icon()} /></span>
-						<span className="left-nav-res-name">{item.Title()}</span>
-					</a>
-				) )}
+				<div className="WhatDoWeDoAboutOverflow">
+				{
+						this.NavLinks.map( ( item, index ) => (
+							<LeftNavButton
+								key={index}
+								selected={item.PropertyBag._selected}
+								path={item.Ext_Path()}
+								text={item.Ext_Title()}
+								css={LeftNavButton.Styles.LeftNav}>
+							<SvgIcon icon={item.Ext_Icon()} />	
+						</LeftNavButton>
+					) )
+				}
 
 				<div className="left-nav-favorites">
 					{this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
 					{!this.state.NavOpened && <SvgIcon icon={this.FavoriteBarSvg} />}
 				</div>
 
-				{this.FavLinks.map((item, index) => (
-					<a href={item.Path()} className="left-nav-btn" key={index} title={item.Title()} tabIndex="0">
-						<span className="left-nav-icon"><SvgIcon icon={item.Icon()} /></span>
-						<span className="left-nav-res-name">{item.Title()}</span>
-					</a>
-				))}
+				{
+					this.FavLinks.map( ( item, index ) => (
+						<LeftNavButton
+							key={index}
+							selected={item.PropertyBag._selected}
+							path={item.Ext_Path()}
+							text={item.Ext_Title()}
+							css={LeftNavButton.Styles.LeftNav}>
+							<SvgIcon icon={item.Ext_Icon()} />
+						</LeftNavButton>
+					) )
+				}
+				</div>
+
 			</div>
-		);
+		);;
 	};
 }

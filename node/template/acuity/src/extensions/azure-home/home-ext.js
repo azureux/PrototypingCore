@@ -1,5 +1,5 @@
 ﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { Utilities as Utils } from "./../../js/utilities.js";
+//import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './home-ext.css';
 
@@ -10,14 +10,12 @@ export class HomePageExtension extends ExtBase
 		super( props);
 		return;
 	};
-	static PropertyBag()
+	static PropertyBag = 
 	{
-		const _title_and_path = "Azure Home";
-		return  {
-			_title: _title_and_path,
+			_title: "Azure Home",
 			_breadcrumb_title: "Home",
-			_path: Utils.FormatPathFromTitle( _title_and_path ),
+			_path: "home",
 			_icon: SvgIcon.Icons.AzureHome,
-		};
 	};
+
 };

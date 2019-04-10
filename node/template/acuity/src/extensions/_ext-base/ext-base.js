@@ -4,88 +4,73 @@ import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './ext-base.css';
 
 //	BASE CLASS 
+//class _PropertyBag
+//{
+//	constructor()
+//	{
+//		this.Name = "Property Bag";
+//		this._path = undefined;
+//		this._title = undefined;
+//		this._subtitle = undefined;
+//		this._breadcrumb_title = undefined;
+//		this._icon = undefined;
+//		this._data = undefined;
+//		this._is_selected = undefined;
+//	};
+//	return;
+//};
 export class ExtensionBase extends React.Component
 {	
 	constructor( props )
-	{	//	console.debug( "ExtensionBase.props", props );
+	{
+		//	console.debug( "ExtensionBase.props", props );
 		super( props );
-
-		this.Utils = Utils;
-		this.ID = Utils.NewId( this._ext_name );
-
-		//	this._ext_name = this.constructor.name;
-		this.ExtensionName = this.constructor.name;	//	this.props.PropertyBag._extension;
-		this.Path = this.props.PropertyBag._path;
-		this.Title = this.props.PropertyBag._title;
-		this.SubTitle = this.props.PropertyBag._subtitle;
-		this.BreadCrumbTitle = this.props.PropertyBag._breadcrumb_title;
-		this.SvgIcon = this.props.PropertyBag._icon;
 
 		//this.Application = props.Application;
 		//this.Theme = props.Application.ThemeName;
 		this.state = { IsDirty: false };
-		this._is_selected = false;
 
-		this.DefaultCssClass = "ExtensionBase " + this._ext_name;
-		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this._ext_name;
-		this.HasBreadCrumb = props.HasBreadCrumb;
+		this.Utils = Utils;
+		this.ID = Utils.NewId( this._ext_name );
+
+		this.ExtensionName = this.constructor.name;
+		this.Path = ( this.props._path || "/" );
+		this.Title = ( this.props._title || this.ExtensionName);
+		this.SubTitle = ( this.props._subtitle || "ExtensionBase Subtitle");
+		this.BreadCrumbTitle = ( this.props._breadcrumb_title || "ExtensionBase breadcrumb" );
+		this.SvgIcon = ( this.props._icon || SvgIcon.Icons.Default );
+
+		// string boolean for render() hacks
+		this.IsSelected = ( this.props._selected || false );
+
+		this.DefaultCssClass = "ExtensionBase " + this.ExtensionName;
+		this.DefaultCssClassNoBreadCrumb = "ExtensionBase-NoBreadCrumb  " + this.ExtensionName;
+		this.HasBreadCrumb = (this.props.HasBreadCrumb || false);
 		if ( this.HasBreadCrumb === false )
 		{
 			this.DefaultCssClass = this.DefaultCssClassNoBreadCrumb;
 		}
-
-
-		this.Selected( this._is_selected );
-		console.debug( "		this.Selected( this._is_selected)", this._is_selected, this.Selected );
 		return;
 	};
-	get Selected()
+	static PropertyBag =
 	{
-		return this._is_selected;
-	};
-	set Selected( value )
-	{
-		this._is_selected = value;
-	};
-	static PropertyBag()
-	{
-		return {
-			_title: "Extension Base Component",
-			_subtitle: "The javascript base class for \"ExtensionBase\" ",
-			_path: Utils.FormatPathFromTitle( "Extension Base Component" ),
-			_breadcrumb_title: "breadcrumb short title",
+		_title: "Extension Base Component",
+		_subtitle: "The javascript base class for \"ExtensionBase\" ",
+		_path: Utils.FormatPathFromTitle( "Extension Base Component" ),
+		_breadcrumb_title: "breadcrumb short title",
 			_icon: SvgIcon.Icons.Default,
-			_data : []
-		};
+		_selected: "false",
+		_data : []
 	};
-	static Key()
-	{
-		return Utils.NewKey();	//	this.PropertyBag()._key;
-	};
-	static Title()
-	{
-		return this.PropertyBag()._title;
-	};
-	static SubTitle()
-	{
-		return this.PropertyBag()._subtitle;
-	};
-	static Path()
-	{
-		return this.PropertyBag()._path.toLocaleLowerCase();
-	};
-	static BreadCrumbTitle()
-	{
-		return this.PropertyBag()._breadcrumb_title;
-	};
-	static Icon()
-	{
-		return this.PropertyBag()._icon;
-	};
-	static Data()
-	{
-		return this.PropertyBag()._data;
-	};
+	static Ext_Key() { return Utils.NewKey(); };
+	static Ext_Name() { return this.ExtensionName; };
+	static Ext_Title() { return this.PropertyBag._title; };
+	static Ext_SubTitle() { return this.PropertyBag._subtitle; };
+	static Ext_Path() { return this.PropertyBag._path; };	
+	static Ext_BreadCrumbTitle() { return this.PropertyBag._breadcrumb_title; };
+	static Ext_Icon() { return this.PropertyBag._icon; };
+	static Ext_Data() { return this.PropertyBag._data; };
+	static Ext_IsSelected() { return this.PropertyBag._selected; };
 	componentWillMount()
 	{
 		//	console.debug( "componentWillMount" );
@@ -107,19 +92,18 @@ export class ExtensionBase extends React.Component
 		return;
 	};
 	render()
-	{
-		//const _title = `${this.Title}`;
-		//const _icon = React.createElement( "div", {className: "test-icon", dangerouslySetInnerHTML: this.Utils.CreateSvgMarkup( this.SvgIcon.SVG )} );
-
-		//return React.createElement( "div", {
-		//	id: this.ID,
-		//	className: this.DefaultCssClass,
-		//}, _icon, _title );
+	{	//	console.debug( "ExtBase.render.this.Selected", this.Selected );
+		//<div>HasBreadCrumb: {this.HasBreadCrumb}</div>
+		//<div>DefaultCssClass: {this.DefaultCssClass}</div>
 		return (
-			<div id={this.ID} className={this.DefaultCssClass}>
+			<div className="debug">
 				<SvgIcon icon={this.SvgIcon} />
-				<div>{this.Title}</div>
-				<div>{this.SubTitle}</div>
+				<div>ID: {this.ID}</div>
+				<div>ExtensionName: {this.ExtensionName}</div>
+				<div>Title: {this.Title}</div>
+				<div>SubTitle: {this.SubTitle}</div>
+				<div>BreadCrumbTitle: {this.BreadCrumbTitle}</div>
+				<div>Selected: {this.IsSelected}</div>
 			</div>
 		);
 	};

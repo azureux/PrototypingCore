@@ -9,13 +9,10 @@ export class AzureActiveDirectoryExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return  {
+	static PropertyBag = {
 			_title :  "Microsoft Azure Active Directory",
 			_breadcrumb_title: "Azure AD",
 			_icon: SvgIcon.Icons.Default,
 			_path: "azure-active-directory"
-		};
 	};
 };

@@ -9,13 +9,10 @@ export class AllVmsExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return  {
+	static PropertyBag = {
 			_title :  "Virtual machines",
 			_breadcrumb_title: "Virtual machines",
 			_path: "all-virtual-machines",
 			_icon: SvgIcon.Extensions.VirtualMachine,
-		};
 	};
 };

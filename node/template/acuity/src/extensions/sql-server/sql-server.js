@@ -10,15 +10,10 @@ export class SqlServerExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		let _title_and_path = "SQL Server 0123";
-
-		return  {
-			_title: _title_and_path,
-			_breadcrumb_title: _title_and_path,
-			_icon: SvgIcon.Extensions.SqlServer,
-			_path: Utils.FormatPathFromTitle( _title_and_path ),
-		};
+	static PropertyBag = {
+		_title: "SQL-SERVER-0123",
+		_breadcrumb_title: "SQL-SERVER-0123",
+		_icon: SvgIcon.Extensions.SqlServer,
+		_path: Utils.FormatPathFromTitle( "SQL-SERVER-0123" ),
 	};
 };

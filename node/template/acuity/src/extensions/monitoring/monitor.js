@@ -9,13 +9,10 @@ export class MonitoringExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return  {
+	static PropertyBag = {
 			_title :  "Azure Monitoring",
 			_breadcrumb_title: "Monitoring",
 			_icon: SvgIcon.Icons.Default,
 			_path: "monitoring"
-		};
 	};
 };

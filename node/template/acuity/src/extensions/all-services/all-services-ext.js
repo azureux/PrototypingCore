@@ -9,13 +9,10 @@ export class AllServicesExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return  {
+	static PropertyBag = {
 			_title : "All Azure Services",
 			_breadcrumb_title: "Services",
 			_icon: SvgIcon.Icons.AllServices,
 			_path: Utils.FormatPathFromTitle( "All Azure Services" ),
-		};
 	};
 };

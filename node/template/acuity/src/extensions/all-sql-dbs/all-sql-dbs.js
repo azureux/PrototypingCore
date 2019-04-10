@@ -10,13 +10,10 @@ export class AllSqlDbsExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return  {
+	static PropertyBag = {
 			_title :  "SQL databases",
 			_breadcrumb_title: "SQL Databases",
 			_icon: SvgIcon.Icons.Default,
 			_path: Utils.FormatPathFromTitle( "All SQL Server Databases" ),
-		};
 	};
 };

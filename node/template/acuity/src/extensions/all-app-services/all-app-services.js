@@ -10,13 +10,10 @@ export class AllAppServicesExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return  {
+	static PropertyBag= {
 			_title :  "All App Services",
 			_breadcrumb_title: "App Services",
 			_icon: SvgIcon.Extensions.AppServices,
 			_path: Utils.FormatPathFromTitle( "App Services" )
-		};
 	};
 };

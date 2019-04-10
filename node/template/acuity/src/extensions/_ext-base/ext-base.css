@@ -5,7 +5,7 @@
 	border-right: solid 0px rgba(190,190,190,0);
 	border-bottom: solid 0px rgba(190,190,190,0);*/
 	display:block;
-	/* breadcrumb hieght 27px */
+	/* breadcrumb height 27px */
 	height:calc(100% - 27px);
 	width:calc(100%);
 	overflow:auto;
@@ -17,4 +17,23 @@
 	height:calc(100% );
 	width:calc(100%);
 	overflow:auto;
+}
+
+.debug
+{
+	/*border: solid 1px red;*/
+	display:block;
+	text-align:left;
+	padding:20px;
+}
+.debug > *
+{
+	/*border: solid 1px red;*/
+	display:block;
+	text-align:left;
+}
+.debug > svg
+{
+	height:48px;
+	width:48px;
 }

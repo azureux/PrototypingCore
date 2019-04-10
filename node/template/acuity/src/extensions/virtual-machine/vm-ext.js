@@ -10,13 +10,10 @@ export class VirtualMachineExtension extends ExtBase
 		super( props );
 		return;
 	};
-	static PropertyBag()
-	{
-		return {
+	static PropertyBag = {
 			_title: "Virtual Machine 0123",
 			_path: Utils.FormatPathFromTitle( "virtual-machine-0123" ),
 			_breadcrumb_title: "Virtual machine 0123",
 			_icon: SvgIcon.Extensions.VirtualMachine,
-		};
 	};
 };

@@ -119,7 +119,10 @@ main > *
 
 .extension-panel-default
 {
-	width:auto;
+	/*border: solid 1px red;*/
+	/*width:100%;*/
+	/*flex-basis: calc(100%);*/
+	/*flex: 0 0 auto;*/
 	min-width: 400px;
 	max-width:100%;
 	order:2;

@@ -1,0 +1,70 @@
+﻿.left-nav
+{
+	cursor:pointer;
+}
+.left-nav > svg
+{
+	height:100%;
+	width:100%;
+}
+
+.left-nav-btn 
+{
+	border: 1px solid transparent;
+	background-color: rgba(249, 249, 249, 0);
+	color: rgba(0,0,0,1);
+	display: flex;
+	padding: 0px;
+	cursor: pointer;
+	height: 32px;
+	vertical-align: top;
+	text-decoration: none;
+}
+.left-nav-btn-selected
+{
+	height: 48px;
+	background-color: rgba(0,128,255,0.2);
+	display:flex;
+}
+.left-nav-btn:hover
+{
+	background-color: rgba(85,179,255,0.1);
+	border: 1px solid transparent; 
+}
+.left-nav-btn:focus
+{
+	background-color: rgba(85,179,255,0.1);
+	border: 1px dashed rgba(85,179,255,0.1);
+}
+
+.left-nav-icon
+{
+	border: solid 0px green;
+	flex: 0 0 48px;
+	vertical-align:top;
+}
+.left-nav-icon > svg
+{
+	/*border: solid 1px blue;*/
+	width: 18px;
+	height: 18px;
+	vertical-align:top;
+	text-align:center;
+	margin-top:8px;
+	margin-left:0px;
+}
+.left-nav-res-name
+{
+	/*border: 1px solid red;*/ 
+	flex: 1 0 auto;
+	text-align:left;
+	font-size:13px;
+	vertical-align:top;
+	color:rgba(0,0,0,1);
+	padding-top:7px;
+	padding-left:0px;
+	padding-right:4px;
+	padding-bottom:4px;
+}
+
+
