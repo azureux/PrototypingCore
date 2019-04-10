@@ -34,6 +34,7 @@ export default class App extends React.Component
 		// state, hate it, but it seems to be useful to kick off a re-render
 		this.state = {
 			AllFlyoutsClosed: true,
+			ExtensionChanged: App.defaultProps.CurrentExtension.name
 		};
 
 		// props
@@ -53,6 +54,8 @@ export default class App extends React.Component
 		this.Extensions = [];
 		this.CurrentLeftNavExtension = App.defaultProps.CurrentExtension;
 		this.CurrentExtension = App.defaultProps.CurrentExtension;
+
+		this.Handle_SelectExtension = this.OnClick_SelectExtension.bind( this );
 
 		this.AppProcessRoutes();
 		return;
@@ -121,8 +124,50 @@ export default class App extends React.Component
 		console.debug( "OnClick_LogoTestClick. TESTING" );
 		return;
 	};
+
+	ResetExtensionSelectionState()
+	{
+		AzureLinks.forEach( function ( v, i, a )
+		{	//	console.debug( i, _paths[0], v.PropertyBag._path );
+			v.PropertyBag._selected = false;
+			//	console.debug( i, v.PropertyBag );
+			return;
+		} );
+
+		FaveLinks.forEach( function ( v, i, a )
+		{	//	console.debug( i, v.Title(), v.Path(), v.Selected );
+			v.PropertyBag._selected = false;
+			//	console.debug( i, v.PropertyBag );
+			return;
+		} );
+
+		return;
+	};
+	OnClick_SelectExtension(extension, ev)
+	{
+		//	console.debug( "OnClick_SelectExtension", extension.name, this.CurrentExtension.name );
+		this.ResetExtensionSelectionState();
+		if ( extension.name === this.CurrentExtension.name )
+		{
+			this.CurrentExtension = AzureLinks[1];
+			this.CurrentExtension.PropertyBag._selected = true;
+			this.setState( { ExtensionChanged: this.CurrentExtension.name } );
+		}
+		else
+		{
+			this.CurrentExtension = extension;
+			this.CurrentExtension.PropertyBag._selected = true;
+			this.setState( { ExtensionChanged: this.CurrentExtension.name } );
+		}
+
+		return;
+	};
 	render()
 	{
+		//console.debug( "App.render()",
+		//	this.CurrentExtension.name,
+		//	this.CurrentExtension.PropertyBag._selected
+		//);
 		//	FAST-DNA button
 		//	<Button appearance={ButtonAppearance.primary} onClick={this.HandleClick}>Click me!</Button>
 		//	console.debug( "App.Render()::this.CurrentExtension", this.CurrentExtension.Title(), this.CurrentExtension.Selected );
@@ -167,10 +212,11 @@ export default class App extends React.Component
 						opened={this.LeftNavOpen}
 						standardLinks={AzureLinks}
 						favoriteLinks={FaveLinks}
+						clickSelect={this.Handle_SelectExtension}
 					/>
 				</div>
 				<div className="extension-panel-default">
-					{this.CurrentExtension !== undefined && <this.CurrentExtension {...this.CurrentExtension.PropertyBag} />}
+					<this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
 				</div>
 				<div className="context-panel-default" opened={this.ContextBladeOpen.toString()}>
 					<div>context blade</div>

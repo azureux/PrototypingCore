@@ -19,21 +19,3 @@
 	overflow:auto;
 }
 
-.debug
-{
-	/*border: solid 1px red;*/
-	display:block;
-	text-align:left;
-	padding:20px;
-}
-.debug > *
-{
-	/*border: solid 1px red;*/
-	display:block;
-	text-align:left;
-}
-.debug > svg
-{
-	height:48px;
-	width:48px;
-}

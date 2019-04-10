@@ -2,7 +2,7 @@ import React from 'react';
 //import { Utilities as Utils } from './../../js/utilities.js';
 //import { AzureLinks, FaveLinks } from './../../extensions/extensions-list.js';
 import SvgIcon from "./../svg-icons/svg-icon";
-import LeftNavButton from "./../button/left-nav-button.js";
+import LeftNavButton from "./left-nav-button.js";
 
 import "./left-nav.css";
 
@@ -36,6 +36,7 @@ export default class LeftNav extends React.Component
 		//	console.debug( "this.props.selectedKey", this.props.selectedKey );
 		this.SelectedExtension = this.props.selectedKey;
 
+		//	this.OnClick_ChangeExtension = this.props.clickSelect.bind( this );
 		return;
 	}
 	CheckToggleStatus()
@@ -93,7 +94,9 @@ export default class LeftNav extends React.Component
 								selected={item.PropertyBag._selected}
 								path={item.Ext_Path()}
 								text={item.Ext_Title()}
-								css={LeftNavButton.Styles.LeftNav}>
+								css={LeftNavButton.Styles.LeftNav}
+								extension={item}
+								navClick={this.props.clickSelect}>
 							<SvgIcon icon={item.Ext_Icon()} />	
 						</LeftNavButton>
 					) )
@@ -111,7 +114,9 @@ export default class LeftNav extends React.Component
 							selected={item.PropertyBag._selected}
 							path={item.Ext_Path()}
 							text={item.Ext_Title()}
-							css={LeftNavButton.Styles.LeftNav}>
+							css={LeftNavButton.Styles.LeftNav}
+							extension={item}
+							navClick={this.props.clickSelect}>
 							<SvgIcon icon={item.Ext_Icon()} />
 						</LeftNavButton>
 					) )

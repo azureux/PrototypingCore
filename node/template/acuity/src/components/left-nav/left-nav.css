@@ -37,6 +37,10 @@
 	vertical-align: top;
 	text-decoration: none;
 }
+.left-nav-btn-selected
+{
+	background-color: rgba(0,128,255,0.2);
+}
 .left-nav-btn:hover
 {
 	background-color: rgba(85,179,255,0.1);
