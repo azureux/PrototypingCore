@@ -4,20 +4,13 @@ import { Utilities as Utils } from "../../js/utilities.js";
 export default class LeftNavButton extends React.Component
 {
 	constructor( props )
-	{	//	
+	{
 		super( props );
 
 		this.Id = Utils.NewId( "btn3" );
 		this.Text = ( this.props.text || this.constructor.name );
 		this.Css = ( this.props.css || "left-nav-btn");
-		//	console.debug( "this.props.selected", this.props.selected, this.props.children, );
-		//this.IsSelected = ( this.props.selected || false );
-		//this.state = {
-		//	isClicked: this.IsSelected
-		//};
 		this.Path = "/" +  this.props.path + "/";
-
-		//	this.HandleClick = this.OnClick_GetLeftNavPath.bind( this );
 		this.Extension = this.props.extension;
 		this.HandleClick = this.props.navClick.bind( this, this.props.extension );
 		return;
@@ -42,7 +35,6 @@ export default class LeftNavButton extends React.Component
 			if ( this.props.selected === true )
 			{
 				let _css = LeftNavButton.Styles.LeftNavSelected + " " + this.Css;
-				//_rv = ( <div tabIndex="0" className={this.Css} title={this.Text} onClick={this.HandleClick}>{this.props.children}</div> );
 				_rv = (
 					<a href="javascript:void(0)" className={_css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
 						<span className="left-nav-icon">{this.props.children}</span>
@@ -52,7 +44,6 @@ export default class LeftNavButton extends React.Component
 			}
 			else
 			{
-				//_rv = ( <div tabIndex="0" className={this.Css} title={this.Text} onClick={this.HandleClick}>{this.props.children}</div> );
 				_rv = (
 					<a href="javascript:void(0)" className={this.Css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
 						<span className="left-nav-icon">{this.props.children}</span>
@@ -63,7 +54,6 @@ export default class LeftNavButton extends React.Component
 		}
 		else if ( this.props.children === undefined )
 		{
-			//_rv = ( <div tabIndex="0" className={this.Css} title={this.Text} onClick={this.HandleClick}>{this.Text}</div> );
 			_rv = (
 				<a href={this.Path} className={this.Css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
 					<span className="left-nav-res-name">{this.Text}</span>

@@ -128,16 +128,14 @@ export default class App extends React.Component
 	ResetExtensionSelectionState()
 	{
 		AzureLinks.forEach( function ( v, i, a )
-		{	//	console.debug( i, _paths[0], v.PropertyBag._path );
+		{
 			v.PropertyBag._selected = false;
-			//	console.debug( i, v.PropertyBag );
 			return;
 		} );
 
 		FaveLinks.forEach( function ( v, i, a )
-		{	//	console.debug( i, v.Title(), v.Path(), v.Selected );
+		{
 			v.PropertyBag._selected = false;
-			//	console.debug( i, v.PropertyBag );
 			return;
 		} );
 
