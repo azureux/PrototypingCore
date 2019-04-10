@@ -55,7 +55,7 @@ header > *
 
 /* HEADER COMPONENT STYLES */
 /* "brand-panel" children */
-.preview-panel 
+.prototype-panel 
 {
 	background-color:lime;
 	color:black;
@@ -64,7 +64,7 @@ header > *
 	padding-top:11px;
 	cursor:pointer;
 }
-.preview-panel-2 
+.preview-panel
 {
 	background-color: orange;
 	color:black;

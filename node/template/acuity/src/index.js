@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//	import Config from './js/config';
+import Config from './js/config';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -25,7 +25,7 @@ import * as serviceWorker from './serviceWorker';
 		{
 			//	console.debug( "DOMContentLoaded" );
 			//	ReactDOM.render( React.createElement( App, Config ), document.getElementById( "root" ) );
-			ReactDOM.render(<App />, document.getElementById('root'));
+			ReactDOM.render( <App config={Config} />, document.getElementById('root'));
 			return;
 		} );
 	}

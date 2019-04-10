@@ -3,22 +3,6 @@ import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './ext-base.css';
 
-//	BASE CLASS 
-//class _PropertyBag
-//{
-//	constructor()
-//	{
-//		this.Name = "Property Bag";
-//		this._path = undefined;
-//		this._title = undefined;
-//		this._subtitle = undefined;
-//		this._breadcrumb_title = undefined;
-//		this._icon = undefined;
-//		this._data = undefined;
-//		this._is_selected = undefined;
-//	};
-//	return;
-//};
 export class ExtensionBase extends React.Component
 {	
 	constructor( props )

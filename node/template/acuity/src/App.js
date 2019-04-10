@@ -23,6 +23,8 @@ export default class App extends React.Component
 		// default properties, needs more research
 		App.defaultProps = {
 			ID: Utils.NewId( "cds-azure-proto-app" ),
+			PreviewText: "Preview",
+			PrototypeText: "Protoype",
 			Application: this,
 			AppName: "Microsoft Azure 2",
 			Theme: "default-theme",
@@ -35,6 +37,8 @@ export default class App extends React.Component
 		};
 
 		// props
+		this.PreviewText = "Preview";
+
 		this.Application = this;
 		this.LeftNavOpen = true;
 		this.MeControlOpen = false;
@@ -117,19 +121,19 @@ export default class App extends React.Component
 		console.debug( "OnClick_LogoTestClick. TESTING" );
 		return;
 	};
-	OnClick
 	render()
 	{
 		//	FAST-DNA button
 		//	<Button appearance={ButtonAppearance.primary} onClick={this.HandleClick}>Click me!</Button>
 		//	console.debug( "App.Render()::this.CurrentExtension", this.CurrentExtension.Title(), this.CurrentExtension.Selected );
-		//					{this.CurrentExtension !== undefined && <this.CurrentExtension {...this.CurrentExtension.PropertyBag()} />}
-		//					<this.CurrentExtension {...this.CurrentExtension.PropertyBag()} />
+		//	{this.CurrentExtension !== undefined && <this.CurrentExtension {...this.CurrentExtension.PropertyBag()} />}
+		//	<this.CurrentExtension {...this.CurrentExtension.PropertyBag()} />
+		//	<div className={this.props.config.Debug === true ? 'preview-panel-2' : 'preview-panel'}>Prototype</div>
 		return ( <div className="App">
 			<header>
 				<div className="brand-panel" onClick={this.OnClick_ToggleMenus}>
-					{this.state.AllFlyoutsClosed}
-					<div className={this.state.AllFlyoutsClosed === true ? 'preview-panel' : 'preview-panel-2'}>Preview</div>
+					{this.props.config.Debug === true && <div className="prototype-panel">{App.defaultProps.PrototypeText}</div>}
+					{this.props.config.Debug === false && <div className="preview-panel">{App.defaultProps.PreviewText}</div>}
 					<div className="ms-az-brand">Microsoft Azure</div>
 				</div>
 				<div className="search-panel">
