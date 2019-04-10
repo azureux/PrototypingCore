@@ -22,11 +22,11 @@ export default class App extends React.Component
 
 		// default properties, needs more research
 		App.defaultProps = {
+			Application: this,
 			ID: Utils.NewId( "cds-azure-proto-app" ),
 			PreviewText: "Preview",
 			PrototypeText: "Protoype",
-			Application: this,
-			AppName: "Microsoft Azure 2",
+			AppName: "Microsoft Azure Acuity",
 			Theme: "default-theme",
 			CurrentExtension: AzureLinks[1]
 		};
@@ -38,9 +38,6 @@ export default class App extends React.Component
 		};
 
 		// props
-		this.PreviewText = "Preview";
-
-		this.Application = this;
 		this.LeftNavOpen = true;
 		this.MeControlOpen = false;
 		this.SearchPanelOpen = false;
@@ -141,11 +138,13 @@ export default class App extends React.Component
 
 		return;
 	};
-	OnClick_SelectExtension(extension, ev)
+	OnClick_SelectExtension(extension)
 	{
-		console.debug( "OnClick_SelectExtension", extension.name, this.CurrentExtension.name );
+		//console.debug( "extension", extension );
+		//console.debug( "this.CurrentExtension", this.CurrentExtension );
+
 		this.ResetExtensionSelectionState();
-		if ( extension.name === this.CurrentExtension.name )
+		if ( extension === this.CurrentExtension )
 		{
 			this.CurrentExtension = AzureLinks[1];
 			this.CurrentExtension.PropertyBag._selected = true;

@@ -35,8 +35,6 @@ export default class LeftNav extends React.Component
 
 		//	console.debug( "this.props.selectedKey", this.props.selectedKey );
 		this.SelectedExtension = this.props.selectedKey;
-
-		//	this.OnClick_ChangeExtension = this.props.clickSelect.bind( this );
 		return;
 	}
 	CheckToggleStatus()
@@ -73,10 +71,6 @@ export default class LeftNav extends React.Component
 		//	console.debug( "LeftNav..NavLinks::", i, v.name, v.PropertyBag._selected );
 		//	return;
 		//} );
-
-		//{ item.PropertyBag._selected == 'true' && <span style={{ color: 'red' }}>{item.PropertyBag._selected}</span> }
-		//{ !item.PropertyBag._selected !== 'true' && <span style={{ color: 'blue' }}>{item.PropertyBag._selected}</span> }
-
 
 		return (
 			<div className={this.CssLeftNav}>
