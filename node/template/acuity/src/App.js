@@ -143,7 +143,7 @@ export default class App extends React.Component
 	};
 	OnClick_SelectExtension(extension, ev)
 	{
-		//	console.debug( "OnClick_SelectExtension", extension.name, this.CurrentExtension.name );
+		console.debug( "OnClick_SelectExtension", extension.name, this.CurrentExtension.name );
 		this.ResetExtensionSelectionState();
 		if ( extension.name === this.CurrentExtension.name )
 		{

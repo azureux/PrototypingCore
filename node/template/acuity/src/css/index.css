@@ -5,6 +5,8 @@
 	padding: 0px;
 	text-align:center;
 	vertical-align:top;
+	line-height:normal;
+	/*border: solid 1px red;*/
 }
 
 body

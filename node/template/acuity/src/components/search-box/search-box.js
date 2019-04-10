@@ -148,6 +148,7 @@ export default class SearchBox extends React.Component
 			else
             {
                 //returns nothing
+				// eslint-disable-next-line
 				return;
 			}
         }, _query);
@@ -158,6 +159,7 @@ export default class SearchBox extends React.Component
             }
             else {
                 //returns nothing
+				// eslint-disable-next-line
                 return;
             }
         }, _query);
@@ -168,6 +170,7 @@ export default class SearchBox extends React.Component
             }
             else {
                 //returns nothing
+				// eslint-disable-next-line
                 return;
             }
         }, _query);
@@ -178,6 +181,7 @@ export default class SearchBox extends React.Component
             }
             else {
                 //returns nothing
+				// eslint-disable-next-line
                 return;
             }
         }, _query);

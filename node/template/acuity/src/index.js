@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Config from './js/config';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+//import * as serviceWorker from './serviceWorker';
 
 ( function ()
 {
@@ -19,7 +19,8 @@ import * as serviceWorker from './serviceWorker';
 		//{
 		//	serviceWorker.unregister();
 		//}
-		serviceWorker.unregister();
+		//	serviceWorker.register();
+		//	serviceWorker.unregister();
 
 		window.document.addEventListener( "DOMContentLoaded", function ( e ) 
 		{
@@ -39,6 +40,7 @@ import * as serviceWorker from './serviceWorker';
 	finally
 	{
 		//	console.log( "FINALLY", new Date().toISOString() );
+		//	serviceWorker.unregister();
 	}
 	console.log( "END", new Date().toISOString() );
 	return;

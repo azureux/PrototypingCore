@@ -36,28 +36,28 @@ export default class LeftNavButton extends React.Component
 			{
 				let _css = LeftNavButton.Styles.LeftNavSelected + " " + this.Css;
 				_rv = (
-					<a href="javascript:void(0)" className={_css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
+					<div className={_css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
 						<span className="left-nav-icon">{this.props.children}</span>
 						<span className="left-nav-res-name">{this.Text}</span>
-					</a>
+					</div>
 				);
 			}
 			else
 			{
 				_rv = (
-					<a href="javascript:void(0)" className={this.Css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
+					<div className={this.Css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
 						<span className="left-nav-icon">{this.props.children}</span>
 						<span className="left-nav-res-name">{this.Text}</span>
-					</a>
+					</div>
 				);
 			}
 		}
 		else if ( this.props.children === undefined )
 		{
 			_rv = (
-				<a href={this.Path} className={this.Css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
+				<div className={this.Css} title={this.Text} tabIndex="0" onClick={this.HandleClick}>
 					<span className="left-nav-res-name">{this.Text}</span>
-				</a>
+				</div>
 			);
 		}
 

@@ -1,6 +1,6 @@
 {
 	"name": "acuity-node",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Cloud Design Studios ReactJs project for prototyping",
 	"author": "AzurePrototyping@service.microsoft.com",
 	"contributors": [
@@ -14,7 +14,7 @@
 		"user interface design",
 		"user expreince design"
 	],
-	"homepage": ".",
+	"homepage": "https://azuredesignengineering.azurewebsites.net/acuity-test-0405/",
 	"license": "MSFT",
 	"repository": {
 		"type": "git",
