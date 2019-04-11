@@ -17,37 +17,23 @@ export default class ButtonControl3 extends React.Component
 		this.state = {
 			isClicked: false,
 		};
-		this.Path = this.props.path;
+		this.Path = ( this.props.path || "" );
 
-		this.HandleClick = this.OnClick_GetLeftNavPath.bind( this );
+		//	this.Extension = this.props.extension;
+		//	this.HandleClick = this.props.navClick.bind( this, this.props.extension );
+		//this.Panel = this.props.contextPanel;
+		this.HandleClick = undefined;
+		if ( this.props.navClick !== undefined )
+		{
+			this.HandleClick = this.props.navClick.bind( this, this.props.contextPanel);
+		} 
 		return;
 	};
 	static Styles =
 	{
 		TopNav: "top-bar-btn",
-		LeftNavSelected: "left-nav-btn-selected"
-		};
-	OnClick_GetLeftNavPath()
-	{
-		console.debug( this.Path );
-		window.location.href = this.Path;
-		return;
+		//	LeftNavSelected: "left-nav-btn-selected"
 	};
-	OnClick_ChangeBorderColor( ev )
-	{	
-		console.debug( "ButtonControl3::OnClick_ChangeBorderColor" );
-		if ( this.state.isClicked === true )
-		{
-			this.setState( { isClicked: false } );
-		}
-		else if ( this.state.isClicked === false )
-		{
-			this.setState( { isClicked: true } );
-		}
-		ev.preventDefault();
-		ev.stopPropagation();
-		return;
-    };
 	render()
 	{
 		let _rv;

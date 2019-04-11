@@ -21,16 +21,16 @@ export default class LeftNavButton extends React.Component
 			LeftNav: "left-nav-btn",
 			LeftNavSelected: "left-nav-btn-selected"
 		};
-	OnClick_BindUp()
-	{
-		//console.debug( "OnClick_BindUp",
-		//	this,
-		//	this.props.extension.name,
-		//	this.Extension
-		//);	//, this.props.extension, this.props.navClick );
-		this.props.navClick( this.Extension );
-		return;
-	};
+	//OnClick_BindUp()
+	//{
+	//	//console.debug( "OnClick_BindUp",
+	//	//	this,
+	//	//	this.props.extension.name,
+	//	//	this.Extension
+	//	//);	//, this.props.extension, this.props.navClick );
+	//	this.props.navClick( this.Extension );
+	//	return;
+	//};
 	render()
 	{
 		//<a href={item.Ext_Path()} className="left-nav-btn" key={index} title={item.Ext_Title()} tabIndex="0">

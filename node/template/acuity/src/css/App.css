@@ -138,8 +138,19 @@ main > *
 	overflow:auto;
 }
 
-.context-panel-default
+.context-panel-default-open
 {
+	/*border: solid 1px red;*/
+	width:  400px;
+	min-width:400px;
+	max-width:400px;
+	order:3;
+}
+.context-panel-default-closed
+{
+	/*border: solid 1px red;*/
+	background-color:red;
+	display:none;
 	width:  400px;
 	min-width:400px;
 	max-width:  400px;

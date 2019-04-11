@@ -1,0 +1,11 @@
+﻿.portal-settings
+{
+	margin:0px;
+	margin-top:20px;
+	border: solid 1px rgba(128,128,128,1);
+	height:calc(100% - 20px);
+	width: calc(100%);
+	text-align:left;
+	overflow:auto;
+	padding:20px;
+}
