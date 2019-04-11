@@ -3,35 +3,12 @@ colors
 [name] = #61dafb;
 [name] = #282c34;
 */
-.debug
-{
-	/*border: solid 1px red;*/
-	display:block;
-	text-align:left;
-	padding:20px;
-}
-.debug > *
-{
-	/*border: solid 1px red;*/
-	display:block;
-	text-align:left;
-}
-.debug > svg
-{
-	height:48px;
-	width:48px;
-}
-p
-{
-	text-align:left;
-}
-
-
 .App
 {
 	border: solid 0px #61dafb;
 	margin:0px;
 	overflow:hidden;
+	min-width:1000px;
 }
 :focus
 {
@@ -47,11 +24,11 @@ header
 	display:flex;
 	min-height:40px;
 	max-height:40px;
+	min-width:1000px;
 }
 header > * 
 {
-	/*border: solid 1px white;
-	margin: 2px;*/
+	/*border: solid 1px red;*/
 	overflow: hidden;
 	display: flex;
 }
@@ -59,22 +36,28 @@ header > *
 .brand-panel 
 {
 	flex: 0 0 300px;
+	min-width:300px;
 }
 .search-panel
 {
 	flex: 1 1 auto;
+	min-width:200px;
 }
 .tools-panel
 {
-	flex: 0 1 auto;
+	flex: 0 1 250px;
+	min-width:250px;
+	text-align:right;
+	align-items:center;
+	justify-content:flex-end;
 	margin:1px;
 	padding:1px;
 }
 .users-panel
 {
-	/* border: solid 1px white; */
 	color: rgba(255,255,255,1);
 	flex: 0 0 300px;
+	min-width:300px;
 }
 
 /* HEADER COMPONENT STYLES */
@@ -117,7 +100,7 @@ main
 	background-color: rgba(255,255,255,1);
 	background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0px, rgba(255,255,255,1) 8px);
 	margin: 0px;
-	overflow: auto;
+	overflow: hidden;
 	height: calc(100% - 40px);
 	display: flex;
 	flex-wrap: nowrap;
@@ -134,9 +117,9 @@ main > *
 }
 .nav-panel-default
 {
-	min-width: 32px;
+	/*min-width: 250px;*/
 	max-width:250px;
-    flex: inherit;
+    flex: 0 0 auto;
 	overflow:hidden;
     order: 1;
 }
