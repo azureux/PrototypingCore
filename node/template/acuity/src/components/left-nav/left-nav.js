@@ -80,19 +80,18 @@ export default class LeftNav extends React.Component
 					{!this.state.NavOpened && <SvgIcon icon={this.ToggleChevron} />}
 				</div>
 
-				<div className="WhatDoWeDoAboutOverflow">
 				{
-						this.NavLinks.map( ( item, index ) => (
-							<LeftNavButton
-								key={index}
-								selected={item.PropertyBag._selected}
-								path={item.Ext_Path()}
-								text={item.Ext_Title()}
-								css={LeftNavButton.Styles.LeftNav}
-								extension={item}
-								navClick={this.props.clickSelect}>
-							<SvgIcon icon={item.Ext_Icon()} />	
-						</LeftNavButton>
+					this.NavLinks.map( ( item, index ) => (
+						<LeftNavButton
+							key={index}
+							selected={item.PropertyBag._selected}
+							path={item.Ext_Path()}
+							text={item.Ext_Title()}
+							css={LeftNavButton.Styles.LeftNav}
+							extension={item}
+							navClick={this.props.clickSelect}>
+						<SvgIcon icon={item.Ext_Icon()} />	
+					</LeftNavButton>
 					) )
 				}
 
@@ -102,22 +101,45 @@ export default class LeftNav extends React.Component
 				</div>
 
 				{
-					this.FavLinks.map( ( item, index ) => (
-						<LeftNavButton
-							key={index}
-							selected={item.PropertyBag._selected}
-							path={item.Ext_Path()}
-							text={item.Ext_Title()}
-							css={LeftNavButton.Styles.LeftNav}
-							extension={item}
-							navClick={this.props.clickSelect}>
-							<SvgIcon icon={item.Ext_Icon()} />
-						</LeftNavButton>
-					) )
+					this.state.NavOpened && 
+					<div className="left-nav-ext-list-panel">
+						{
+							this.FavLinks.map( ( item, index ) => (
+								<LeftNavButton
+									key={index}
+									selected={item.PropertyBag._selected}
+									path={item.Ext_Path()}
+									text={item.Ext_Title()}
+									css={LeftNavButton.Styles.LeftNav}
+									extension={item}
+									navClick={this.props.clickSelect}>
+									<SvgIcon icon={item.Ext_Icon()} />
+								</LeftNavButton>
+							) )
+						}
+					</div>
 				}
-				</div>
+				{
+					!this.state.NavOpened &&
+					<div className="left-nav-ext-list-panel left-nav-ext-list-panel-closed">
+						{
+							this.FavLinks.map( ( item, index ) => (
+								<LeftNavButton
+									key={index}
+									selected={item.PropertyBag._selected}
+									path={item.Ext_Path()}
+									text={item.Ext_Title()}
+									css={LeftNavButton.Styles.LeftNav}
+									extension={item}
+									navClick={this.props.clickSelect}>
+									<SvgIcon icon={item.Ext_Icon()} />
+								</LeftNavButton>
+							) )
+						}
+					</div>
+				}
 
 			</div>
-		);;
+		);
 	};
 }

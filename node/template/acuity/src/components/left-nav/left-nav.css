@@ -1,14 +1,12 @@
 .left-nav-open
 {
-	width:250px;
+	width:225px;
 	height:calc(100%);
-	background-image: linear-gradient(90deg, rgba(0,0,0,0) 244px, rgba(0,0,0,0.3) 250px);
 }
 .left-nav-closed 
 {
 	width: 50px;
 	height: calc(100%);
-	background-image: linear-gradient(90deg, rgba(0,0,0,0) 44px, rgba(0,0,0,0.3) 50px);
 }
 
 .toggle-open 
@@ -24,6 +22,19 @@
 	height:14px;
 	width:14px;
 }
+
+.left-nav-ext-list-panel
+{
+	/*border: solid 1px red;*/
+	overflow-x:hidden;
+	overflow-y:auto;
+	height:calc(100% - 185px);
+}
+.left-nav-ext-list-panel-closed
+{
+	overflow-y:hidden;
+}
+
 
 .left-nav-btn 
 {
@@ -71,15 +82,17 @@
 .left-nav-res-name
 {
 	/*border: 1px solid red;*/ 
-	flex: 1 0 auto;
+	flex: 0 0 175px;
 	text-align:left;
-	font-size:13px;
 	vertical-align:top;
 	color:rgba(0,0,0,1);
 	padding-top:7px;
 	padding-left:0px;
 	padding-right:4px;
-	padding-bottom:4px;
+	padding-bottom:4px;	
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+	overflow:hidden;
 }
 
 .left-nav-favorites
