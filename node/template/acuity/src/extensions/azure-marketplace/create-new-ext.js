@@ -1,6 +1,5 @@
-﻿//import React from 'react';
+﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 //import { Utilities as Utils } from "../../js/utilities.js";
-import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 //import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './create-new-ext.css';
@@ -10,16 +9,13 @@ export class CreateNewExtension extends ExtBase
 	constructor( props )
 	{	
 		super( props );
-		//console.debug( "CreateNewExtension", this.IsSelected );
-		//console.debug( "CreateNewExtension", ExtBase.IsSelected );
-
 		return;
 	};
 	static PropertyBag = {
-			_title: "Azure Marketplace",
-			_path: "marketplace",
-			_breadcrumb_title: "New",
-			_icon: SvgIcon.Icons.CreateNew,
+		_title: "Azure Marketplace",
+		_path: "marketplace",
+		_breadcrumb_title: "New",
+		_icon: SvgIcon.Extensions.CreateNew,
 	};
 	//render()
 	//{

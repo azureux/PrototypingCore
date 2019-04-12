@@ -3,7 +3,7 @@ import { Utilities as Utils } from './js/utilities.js';
 import { AzureLinks, FaveLinks, ToolBarContextPanels } from './extensions-list.js';
 import SearchBox from './components/search-box/search-box.js';
 import LeftNav from './components/left-nav/left-nav.js';
-import ButtonControl3 from './components/button/button3.js';
+import ShellTopBarButton from './components/button/shell-top-bar-button.js';
 import SvgIcon from './components/svg-icons/svg-icon.js';
 
 import './css/fonts.css';
@@ -50,13 +50,13 @@ export default class App extends React.Component
 		this.Handle_SelectExtension = this.OnClick_SelectExtension.bind( this );
 
 		// CONTENT PANEL OBJECTS
-		this.CurrentContextPanel = App.defaultProps.CurrentContextPanel;
-		this.HandleContextPanelToggle = this.OnClick_TestTopNavBar_ContextBlade.bind( this );
+		this.CurrentContextPanelCloseButton = ( <SvgIcon icon={SvgIcon.ShellIcons.ContextPanelClose} /> );
+		this.CurrentContextPanel = undefined;	//App.defaultProps.CurrentContextPanel;
+		this.HandleContextPanelToggle = this.OnClick_ToggleTopLevelContextBlade.bind( this );
 		this.HandleContextPanelClose = this.OnClick_CloseContextPanel.bind( this );
 
 		// GENERAL event handler bindings
 		this.OnClick_ToggleMenus = this.ResetAllMenus.bind( this );
-
 
 		this.AppProcessRoutes();
 		return;
@@ -118,21 +118,9 @@ export default class App extends React.Component
 		return;
 	};
 
-
-	// depricated
-	OnClick_LogoTestClick( pe )
-	{
-		console.debug( "OnClick_LogoTestClick. TESTING" );
-		return;
-	};
-
 	// TOP TOOLBAR ICON METHODS
-	OnClick_TestTopNavBar_ContextBlade( newObj, ev )
-	{
-		//console.debug( "OnClick_TestTopNavBar_ContextBlade" );
-		//console.debug( "this.ContextPanelOpen", this.ContextPanelOpen );
-		//console.debug( "this.CurrentContextPanel", this.CurrentContextPanel.name );
-
+	OnClick_ToggleTopLevelContextBlade( newObj, ev )
+	{	//	console.debug( "OnClick_TestTopNavBar_ContextBlade" );
 		if ( newObj === this.CurrentContextPanel )
 		{
 			this.ContextPanelOpen = !this.ContextPanelOpen;
@@ -147,6 +135,7 @@ export default class App extends React.Component
 	};
 	OnClick_CloseContextPanel( pe )
 	{	//	console.debug( "this.OnClick_CloseContextPanel", this.ContextPanelOpen );
+		this.CurrentContextPanel = undefined;
 		this.ContextPanelOpen = !this.ContextPanelOpen;
 		this.setState( { AllFlyoutsClosed: this.ContextPanelOpen } );
 		return;
@@ -190,6 +179,7 @@ export default class App extends React.Component
 
 		return;
 	};
+
 	render()
 	{
 		//console.debug( "App.render()",this.CurrentExtension.name,this.CurrentExtension.PropertyBag._selected);
@@ -207,14 +197,14 @@ export default class App extends React.Component
 				<div className="tools-panel">
 					{
 						ToolBarContextPanels.map( ( item, index ) => (
-							<ButtonControl3
+							<ShellTopBarButton
 								key={index}
-								text="Console"
-								css={ButtonControl3.Styles.TopNav}
+								text={item.PropertyBag.Title}
 								contextPanel={item}
+								isCurrent={this.CurrentContextPanel}
 								navClick={this.HandleContextPanelToggle}>
 								<SvgIcon icon={item.PropertyBag.Icon} />
-							</ButtonControl3>
+							</ShellTopBarButton>
 						) )
 					}
 				</div>
@@ -234,8 +224,14 @@ export default class App extends React.Component
 				</div>
 				{
 					this.ContextPanelOpen &&
-					<div className="context-panel-default-open">
-						<this.CurrentContextPanel closeClick={this.HandleContextPanelClose }/>
+					<div className="context-panel-default">
+						<div className="context-panel-header">
+							<div className="cp-current-title">{this.CurrentContextPanel.PropertyBag.Title}</div>
+							<div className="cp-close-btn" onClick={this.HandleContextPanelClose} >{this.CurrentContextPanelCloseButton}</div>
+						</div>
+						<div className="context-panel-content">
+							<this.CurrentContextPanel closeClick={this.HandleContextPanelClose} />
+						</div>
 					</div>
 				}
 				{!this.ContextPanelOpen}

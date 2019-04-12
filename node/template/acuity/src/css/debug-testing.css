@@ -1,14 +1,14 @@
 ﻿
 .extension-panel-default * p 
 {
-	border: solid 1px red;
+	/*border: solid 1px red;*/
 	text-align:left;
 	padding:20px;
 }
 
 .context-panel-default * p 
 {
-	border: solid 1px red;
+	/*border: solid 1px red;*/
 	text-align: left;
 	margin:20px;
 	padding: 20px;

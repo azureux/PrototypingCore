@@ -1,15 +1,15 @@
 ﻿import React from 'react';
 //import { Utilities as Utils } from "../../js/utilities.js";
 import SvgIcon from "../svg-icons/svg-icon.js";
-import './portal-settings.css';
+//import './portal-settings.css';
 
-export class DirectorySwitcherPanel extends React.Component
+export class VirtualMachineDiskSizeSelectPanel extends React.Component
 {
 	static PropertyBag =
-	{
-		Title: "Azure Directory Settings",
-		Icon: SvgIcon.ShellIcons.DirectorySwitcher,
-	};
+		{
+			Title: "Virtual Machine Disk Size Selection",
+			Icon: SvgIcon.Extensions.VirtualMachine,
+		};
 	constructor( props )
 	{
 		super( props );
@@ -19,7 +19,7 @@ export class DirectorySwitcherPanel extends React.Component
 	{
 		return (
 			<div>
-				<h1>{DirectorySwitcherPanel.PropertyBag.Title}</h1>
+				<h1>{VirtualMachineDiskSizeSelectPanel.PropertyBag.Title}</h1>
 			</div>
 		);
 	};

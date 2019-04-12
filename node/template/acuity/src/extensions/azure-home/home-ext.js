@@ -12,10 +12,10 @@ export class HomePageExtension extends ExtBase
 	};
 	static PropertyBag = 
 	{
-			_title: "Azure Home",
-			_breadcrumb_title: "Home",
-			_path: "home",
-			_icon: SvgIcon.Icons.AzureHome,
+		_title: "Azure Home",
+		_breadcrumb_title: "Home",
+		_path: "home",
+		_icon: SvgIcon.Extensions.AzureHome,
 	};
 
 };

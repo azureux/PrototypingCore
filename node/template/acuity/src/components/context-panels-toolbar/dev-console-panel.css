@@ -1,0 +1,22 @@
+﻿.dev-console
+{
+	/*border: solid 1px red;*/
+	margin:0px;
+	height:calc(100%);
+	width: calc(100%);
+	overflow:auto;
+}
+.psuedo-coding
+{
+	/*border: solid 0px red;*/
+	height:100%;
+	width:100%;
+	background-color: rgba(16,16,16,1);
+	color:rgba(220,220,220,1);
+	text-align:left;
+	padding:8px;
+}
+.psuedo-coding:focus
+{
+	outline: none;
+}

@@ -13,10 +13,10 @@ export class DashboardExtension extends ExtBase
 		return;
 	};
 	static PropertyBag = {
-			_title: "Azure Dashboard",
-			_breadcrumb_title: "Dashboard",
-			_path: "dashboard",
-			_icon: SvgIcon.Icons.AzureDashboard
+		_title: "Azure Dashboard",
+		_breadcrumb_title: "Dashboard",
+		_path: "dashboard",
+		_icon: SvgIcon.Extensions.AzureDashboard
 	};
 	OnClick_DebugButtonHandler(thisButton)
 	{
