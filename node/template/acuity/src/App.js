@@ -2,6 +2,7 @@ import React from 'react';
 import { Utilities as Utils } from './js/utilities.js';
 import { AzureLinks, FaveLinks, ToolBarContextPanels } from './extensions-list.js';
 import SearchBox from './components/search-box/search-box.js';
+import { MeControl } from './components/user-logon/user-logon.js';
 import LeftNav from './components/left-nav/left-nav.js';
 import ShellTopBarButton from './components/button/shell-top-bar-button.js';
 import SvgIcon from './components/svg-icons/svg-icon.js';
@@ -35,7 +36,18 @@ export default class App extends React.Component
 		// STATES & PROPS
 		this.state = {
 			AllFlyoutsClosed: true,
+			DefaultFlyoutsClosed: true
 		};
+
+		this.UserData = [
+			{
+				avatar: SvgIcon.Avatars.SelinaKyle,
+				name: "Selina Kyle",
+				email: "selina.kyle@contoso.com",
+				companyName: "CONTOSO",
+				domain: "contoso.worldwide.com",
+			}
+		];
 
 		this.LeftNavOpen = true;
 		this.MeControlOpen = false;
@@ -54,6 +66,9 @@ export default class App extends React.Component
 		this.CurrentContextPanel = undefined;	//App.defaultProps.CurrentContextPanel;
 		this.HandleContextPanelToggle = this.OnClick_ToggleTopLevelContextBlade.bind( this );
 		this.HandleContextPanelClose = this.OnClick_CloseContextPanel.bind( this );
+
+		// ME CONTROL OBJECTS
+		this.HandleMeControl_Toggle = this.OnClick_OpenMeControl.bind( this );
 
 		// GENERAL event handler bindings
 		this.OnClick_ToggleMenus = this.ResetAllMenus.bind( this );
@@ -112,9 +127,24 @@ export default class App extends React.Component
 		console.debug( "resolve config overrides, including theme changes" );
 		return;
 	};
+
+
 	ResetAllMenus( pe )
-	{	//	console.debug( "App.ResetAllMenus-1", this.LeftNavOpen );
-		this.setState( { AllFlyoutsClosed: !this.state.AllFlyoutsClosed } );
+	{	//	
+		console.debug( "App.ResetAllMenus-1" );
+
+		//	pe.nativeEvent.preventDefault();
+		//pe.nativeEvent.stopPropagation();
+		//pe.nativeEvent.stopImmediatePropagation();
+
+		console.debug( pe.nativeEvent );
+
+		//this.LeftNavOpen = true;
+		//this.MeControlOpen = false;
+		//this.SearchPanelOpen = false;
+		//this.ContextPanelOpen = false;
+
+		this.setState( { DefaultFlyoutsClosed: true } );
 		return;
 	};
 
@@ -180,11 +210,38 @@ export default class App extends React.Component
 		return;
 	};
 
+	// ME CONTROL METHODS
+	OnClick_OpenMeControl( ev )
+	{	//	
+		console.debug( "OnClick_OpenMeControl", this.MeControlOpen );
+		ev.nativeEvent.preventDefault();
+		ev.nativeEvent.stopImmediatePropagation();
+		ev.nativeEvent.stopPropagation();
+
+		this.MeControlOpen = !this.MeControlOpen;
+		this.setState( { AllFlyoutsClosed: this.MeControlOpen } );
+
+		return false;
+	};
+
 	render()
 	{
 		//console.debug( "App.render()",this.CurrentExtension.name,this.CurrentExtension.PropertyBag._selected);
 		//	FAST-DNA <Button appearance={ButtonAppearance.primary} onClick={this.HandleClick}>Click me!</Button>
-		return ( <div className="App">
+
+		console.debug( "App.render():this.state.DefaultFlyoutsClosed", this.state.DefaultFlyoutsClosed );
+
+		if ( this.state.DefaultFlyoutsClosed === true )
+		{
+			this.LeftNavOpen = true;
+			this.MeControlOpen = false;
+			this.SearchPanelOpen = false;
+			this.ContextPanelOpen = false;
+		}
+
+
+		return (
+			<div className="App" onClick={this.OnClick_ToggleMenus}>
 			<header>
 				<div className="brand-panel" onClick={this.OnClick_ToggleMenus}>
 					{this.props.config.Debug === true && <div className="prototype-panel">{App.defaultProps.PrototypeText}</div>}
@@ -208,7 +265,9 @@ export default class App extends React.Component
 						) )
 					}
 				</div>
-				<div className="users-panel">Me Control</div>
+				<MeControl
+					IsOpen={this.MeControlOpen}
+					currentUser={this.UserData[0]} />
 			</header>
 			<main>
 				<div className="nav-panel-default">

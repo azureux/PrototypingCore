@@ -1,0 +1,68 @@
+﻿.user-logon-container-ctrl
+{
+	/*border: solid 1px white;*/
+	display:block;
+	flex: 0 0 220px;
+	min-width:220px;
+}
+
+.user-info-panel
+{
+	/*border: solid 1px red;*/
+	display:flex;
+	cursor: pointer;
+	height:40px;
+}
+.user-info-panel:hover
+{
+	background-color:rgba(0,0,0,0.2);
+}
+
+.user-info-text
+{
+	flex: 1 0 auto;
+	padding-right:5px;
+}
+.user-info-text-name
+{
+	color:rgba(255,255,255,1);
+	text-align:right;
+	font-size:13px;
+	margin-top:4px;
+}
+.user-info-text-company
+{
+	text-align:right;
+	font-size:10px;
+	color:rgba(255,255,255,1);
+}
+
+.user-image
+{
+	flex: 0 0 40px;
+	/*border: solid 1px red;*/
+}
+.user-image svg, .user-image img
+{
+	margin-top:5px;
+	height:30px;
+	width:30px;
+	border: solid 0px rgba(255,255,255,0.6);
+	border-radius:16px;
+	box-shadow: 0px 0px 4px 4px rgba(255,255,255,0.3);
+}
+
+
+/* flyout */
+.user-account-panel
+{
+	/*border: solid 1px red;*/
+	background-color:rgba(255,255,255,1);
+	box-shadow: -4px 4px 10px 0px rgba(0,0,0,0.2);
+	position:absolute;
+	right:0px;
+	width:320px;
+	min-height:100px;
+	cursor:pointer;
+	/*display:none;*/
+}

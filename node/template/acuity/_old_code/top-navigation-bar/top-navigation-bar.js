@@ -3,7 +3,7 @@
 
 import { Utilities as Utils, DataEnums as Data } from "../../../js/utilities.js";
 import { SVG as AzSvgs } from "../../../js/svg-assets.js";
-import { UserAccountSwitcher as UAS } from "../../src/components/user-account-switcher/user-account-switcher.js";
+import { UserAccountSwitcher as UAS } from "../../src/components/user-logon/user-logon.js";
 import { ButtonControl as BtnCtrl } from "../../standard-controls/button/button.js";
 import { SearchBox as SearchCtrl } from "../../standard-controls/search-box/search-box.js";
 

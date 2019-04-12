@@ -1,6 +1,8 @@
 //	NOTES FOR SVG SYNTAX
 //	attribute syntax may cause errors
 import React, { Component } from 'react';
+import SelinaKyle from './selina-kyle-50x50.jpg';
+
 export default class SvgIcon extends Component
 {
 	constructor(props)
@@ -8,6 +10,7 @@ export default class SvgIcon extends Component
 		super(props);
 		this.Icon = this.props.icon || SvgIcon.Icons.Default;
 		this.Name = this.props.name;
+		//	console.debug( "SelinaKyle", SelinaKyle, this.Name );
 	};
 	static Icons = {
 		Default: (
@@ -181,6 +184,19 @@ export default class SvgIcon extends Component
 		)
 	};
 	static Misc = {};
+	static Avatars = {
+		DefaultUser: (
+			<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
+				<circle fill="#59B4D9" cx="11.5" cy="7.5" r="7.5"/>
+				<path fill="#59B4D9" d="M15.696,14.883C14.456,15.59,13.026,16,11.5,16c-1.526,0-2.956-0.41-4.196-1.117 C3.746,16.441,1.218,19.912,1.025,24h20.949C21.782,19.912,19.254,16.441,15.696,14.883z"/>
+			</svg>
+		),
+		SelinaKyle: (			
+			<img src={SelinaKyle} alt={this.Name} />
+		),
+		//UserTwo: (),
+		//UserThree ()
+	};
 	render()
 	{
 		return this.Icon;

@@ -56,8 +56,8 @@ header > *
 .users-panel
 {
 	color: rgba(255,255,255,1);
-	flex: 0 0 300px;
-	min-width:300px;
+	flex: 0 0 220px;
+	min-width:220px;
 }
 
 /* HEADER COMPONENT STYLES */
