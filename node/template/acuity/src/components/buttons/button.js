@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { Utilities as Utils } from "./../../js/utilities.js";
+import { Utilities as Utils } from "../../js/utilities.js";
 //	import { SVG as AzureSvgs } from "../../../js/svg-assets.js";
 
 export class ButtonControl extends React.Component

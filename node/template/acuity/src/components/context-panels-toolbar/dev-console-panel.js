@@ -1,8 +1,6 @@
 ﻿import React from 'react';
-//import { Utilities as Utils } from "../../js/utilities.js";
 import SvgIcon from "../svg-icons/svg-icon.js";
 import './dev-console-panel.css';
-
 
 export class DevConsolePanel extends React.Component
 {
@@ -12,9 +10,7 @@ export class DevConsolePanel extends React.Component
 		Icon: SvgIcon.ShellIcons.DevConsole,
 	};
 	constructor( props )
-	{
-		super( props );
-
+	{	super( props );
 		this.ConsoleWidget = ">:_";
 		return;
 	};
@@ -22,7 +18,11 @@ export class DevConsolePanel extends React.Component
 	{
 		return (
 			<div className="dev-console">
-				<textarea className="psuedo-coding" placeholder={ this.ConsoleWidget }></textarea>
+				<textarea
+					className="psuedo-coding"
+					placeholder={this.ConsoleWidget}
+					readOnly={true}>
+				</textarea>
 			</div>
 		);
 	};

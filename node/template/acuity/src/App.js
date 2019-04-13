@@ -4,7 +4,7 @@ import { AzureLinks, FaveLinks, ToolBarContextPanels } from './extensions-list.j
 import SearchBox from './components/search-box/search-box.js';
 import { MeControl } from './components/user-logon/user-logon.js';
 import LeftNav from './components/left-nav/left-nav.js';
-import ShellTopBarButton from './components/button/shell-top-bar-button.js';
+import ShellTopBarButton from './components/buttons/shell-top-bar-button.js';
 import SvgIcon from './components/svg-icons/svg-icon.js';
 
 import './css/fonts.css';
@@ -12,7 +12,6 @@ import './css/debug-testing.css';
 import './css/index.css';
 import './css/App.css';
 
-//	import Button from './components/button/button2';
 //	import { Button, ButtonAppearance } from "@microsoft/fast-components-react-msft";
 
 export default class App extends React.Component
@@ -20,7 +19,6 @@ export default class App extends React.Component
 	constructor( props )
 	{
 		super( props );
-
 		// DEFAULT PROPERTIES, NEEDS MORE RESEARCH
 		App.defaultProps = {
 			Application: this,
@@ -36,7 +34,9 @@ export default class App extends React.Component
 		// STATES & PROPS
 		this.state = {
 			AllFlyoutsClosed: true,
-			DefaultFlyoutsClosed: true
+			DefaultFlyoutsClosed: true,
+			MeControl: false,
+			ContextPanel: false
 		};
 
 		this.UserData = [
@@ -50,9 +50,6 @@ export default class App extends React.Component
 		];
 
 		this.LeftNavOpen = true;
-		this.MeControlOpen = false;
-		this.SearchPanelOpen = false;
-		this.ContextPanelOpen = false;
 	
 		// LEFT NAV OBJECTS
 		this.BreadCrumbs = [];
@@ -67,11 +64,11 @@ export default class App extends React.Component
 		this.HandleContextPanelToggle = this.OnClick_ToggleTopLevelContextBlade.bind( this );
 		this.HandleContextPanelClose = this.OnClick_CloseContextPanel.bind( this );
 
-		// ME CONTROL OBJECTS
-		this.HandleMeControl_Toggle = this.OnClick_OpenMeControl.bind( this );
+		// ME CONTROL OBJECT
+		this.Handle_MeControlToggle = this.OnClick_ToggleMeControl.bind( this );
 
 		// GENERAL event handler bindings
-		this.OnClick_ToggleMenus = this.ResetAllMenus.bind( this );
+		this.OnClick_ResetAllMenus = this.ResetAllMenus.bind(this);
 
 		this.AppProcessRoutes();
 		return;
@@ -127,47 +124,62 @@ export default class App extends React.Component
 		console.debug( "resolve config overrides, including theme changes" );
 		return;
 	};
-
-
 	ResetAllMenus( pe )
 	{	//	
-		console.debug( "App.ResetAllMenus-1" );
+		//	console.debug( "APP.RESETALLMENUS()" );
+		pe.stopPropagation();
+		pe.nativeEvent.stopImmediatePropagation();
 
-		//	pe.nativeEvent.preventDefault();
-		//pe.nativeEvent.stopPropagation();
-		//pe.nativeEvent.stopImmediatePropagation();
+		this.setState( { MeControl: false } );
 
-		console.debug( pe.nativeEvent );
+		this.CurrentContextPanel = undefined;
+		this.setState( { ContextPanel: false } );
 
-		//this.LeftNavOpen = true;
-		//this.MeControlOpen = false;
-		//this.SearchPanelOpen = false;
-		//this.ContextPanelOpen = false;
+		return;
+	};
+	OnClick_HandleEventCancelling( pe )
+	{
+		console.debug( "OnClick_HandleEventCancelling" );
+		pe.stopPropagation();
+		pe.nativeEvent.stopImmediatePropagation();
+		return;
+	};
 
-		this.setState( { DefaultFlyoutsClosed: true } );
+	// ME CONTROL EVENTS
+	OnClick_ToggleMeControl( pe )
+	{	//	console.debug( "App.OnClick_ToggleMeControl()" );
+		pe.stopPropagation();
+		pe.nativeEvent.stopImmediatePropagation();
+
+		let _new_state = this.state.MeControl;
+		//	console.debug( "_new_state", _new_state );
+		this.setState( { MeControl: !_new_state } );
+		//	console.debug( this.state.MeControl, _new_state );
 		return;
 	};
 
 	// TOP TOOLBAR ICON METHODS
-	OnClick_ToggleTopLevelContextBlade( newObj, ev )
+	OnClick_ToggleTopLevelContextBlade( newObj, pe )
 	{	//	console.debug( "OnClick_TestTopNavBar_ContextBlade" );
+		pe.stopPropagation();
+		pe.nativeEvent.stopImmediatePropagation();
+
 		if ( newObj === this.CurrentContextPanel )
 		{
-			this.ContextPanelOpen = !this.ContextPanelOpen;
+			this.CurrentContextPanel = undefined;
+			this.setState( ( state ) => ( { ContextPanel: false } ) );
 		}
 		else if ( newObj !== this.CurrentContextPanel )
 		{
 			this.CurrentContextPanel = newObj;
-			this.ContextPanelOpen = true;
+			this.setState( { ContextPanel: true } );
 		}
-		this.setState( { AllFlyoutsClosed: !this.ContextPanelOpen } );
 		return;
 	};
 	OnClick_CloseContextPanel( pe )
 	{	//	console.debug( "this.OnClick_CloseContextPanel", this.ContextPanelOpen );
 		this.CurrentContextPanel = undefined;
-		this.ContextPanelOpen = !this.ContextPanelOpen;
-		this.setState( { AllFlyoutsClosed: this.ContextPanelOpen } );
+		this.setState( { ContextPanel: false } );
 		return;
 	};
 
@@ -188,10 +200,11 @@ export default class App extends React.Component
 
 		return;
 	};
-	OnClick_SelectExtension(extension)
-	{
-		//console.debug( "extension", extension );
+	OnClick_SelectExtension(extension, pe)
+	{	//	console.debug( "App.OnClick_SelectExtension", extension, pe);
 		//console.debug( "this.CurrentExtension", this.CurrentExtension );
+		pe.stopPropagation();
+		pe.nativeEvent.stopImmediatePropagation();
 
 		this.ResetExtensionSelectionState();
 		if ( extension === this.CurrentExtension )
@@ -206,42 +219,27 @@ export default class App extends React.Component
 			this.CurrentExtension.PropertyBag._selected = true;
 			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
 		}
-
 		return;
 	};
 
-	// ME CONTROL METHODS
-	OnClick_OpenMeControl( ev )
-	{	//	
-		console.debug( "OnClick_OpenMeControl", this.MeControlOpen );
-		ev.nativeEvent.preventDefault();
-		ev.nativeEvent.stopImmediatePropagation();
-		ev.nativeEvent.stopPropagation();
-
-		this.MeControlOpen = !this.MeControlOpen;
-		this.setState( { AllFlyoutsClosed: this.MeControlOpen } );
-
-		return false;
-	};
-
+	// HACKY ADDED to handlee events the way we need to handle them
+	componentDidMount()
+	{
+		//	console.debug( "App.componentDidMount()" );
+		//	window.addEventListener( "resize", this.handleResizedScreen.bind( this ) );
+		return;
+	}
+	componentWillUnmount()
+	{
+		//	console.debug( "App.componentWillUnmount()" );
+		//	window.removeEventListener( "resize", this.handleResizedScreen.bind( this ) );
+		return;
+	}
 	render()
 	{
-		//console.debug( "App.render()",this.CurrentExtension.name,this.CurrentExtension.PropertyBag._selected);
-		//	FAST-DNA <Button appearance={ButtonAppearance.primary} onClick={this.HandleClick}>Click me!</Button>
-
-		console.debug( "App.render():this.state.DefaultFlyoutsClosed", this.state.DefaultFlyoutsClosed );
-
-		if ( this.state.DefaultFlyoutsClosed === true )
-		{
-			this.LeftNavOpen = true;
-			this.MeControlOpen = false;
-			this.SearchPanelOpen = false;
-			this.ContextPanelOpen = false;
-		}
-
-
+		//	<div style={{ color: 'red', fontWeight: 'bold' }}>this.state.ContextPanel: {this.state.ContextPanel.toString()}</div>
 		return (
-			<div className="App" onClick={this.OnClick_ToggleMenus}>
+			<div className="App" onClick={this.OnClick_ResetAllMenus}>
 			<header>
 				<div className="brand-panel" onClick={this.OnClick_ToggleMenus}>
 					{this.props.config.Debug === true && <div className="prototype-panel">{App.defaultProps.PrototypeText}</div>}
@@ -266,7 +264,8 @@ export default class App extends React.Component
 					}
 				</div>
 				<MeControl
-					IsOpen={this.MeControlOpen}
+					visiblePanel={this.state.MeControl}
+					clickEvent={this.Handle_MeControlToggle}
 					currentUser={this.UserData[0]} />
 			</header>
 			<main>
@@ -279,11 +278,11 @@ export default class App extends React.Component
 					/>
 				</div>
 				<div className="extension-panel-default">
+					<div>BreadCrumbs</div>
 					<this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
 				</div>
-				{
-					this.ContextPanelOpen &&
-					<div className="context-panel-default">
+					{this.state.ContextPanel &&
+						<div className="context-panel-default" onClick={this.OnClick_HandleEventCancelling}>
 						<div className="context-panel-header">
 							<div className="cp-current-title">{this.CurrentContextPanel.PropertyBag.Title}</div>
 							<div className="cp-close-btn" onClick={this.HandleContextPanelClose} >{this.CurrentContextPanelCloseButton}</div>
@@ -293,7 +292,7 @@ export default class App extends React.Component
 						</div>
 					</div>
 				}
-				{!this.ContextPanelOpen}
+				{!this.state.ContextPanel}
 
 			</main>
 		</div> );
