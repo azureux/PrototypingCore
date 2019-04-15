@@ -1,6 +1,4 @@
-﻿// TBD - ADD EXTENSIONS FOR FAST-DNA, FABRIC/FLUENT, OTHERS
-
-// TOP LEVEL EXTENSIONS LIST
+﻿// TOP LEVEL EXTENSIONS LIST
 import { CreateNewExtension } from './extensions/azure-marketplace/create-new-ext.js';
 import { DashboardExtension } from './extensions/azure-dashboard/dashboard-ext.js';
 import { HomePageExtension } from './extensions/azure-home/home-ext.js';
@@ -20,6 +18,10 @@ import { SqlServerExtension } from "./extensions/sql-server/sql-server.js";
 import { MonitoringExtension } from "./extensions/monitoring/monitor.js";
 import { AzureActiveDirectoryExtension } from './extensions/azure-active-directory/azure-active-directory.js';
 
+//	TBD - ADD OTHER EXTENSIONS FOR FULL LIST OF NON-LEFT NAV
+//	INCLUDING FAST - DNA, FABRIC / FLUENT, OTHERS
+
+
 // TOP LEVEL TOOL BAR CONTEXT PANELS
 import { DevConsolePanel } from './components/context-panels-toolbar/dev-console-panel.js';
 import { DirectorySwitcherPanel } from './components/context-panels-toolbar/dir-switch-panel.js';
@@ -30,6 +32,21 @@ import { FeedbackPanel } from './components/context-panels-toolbar/feedback-pane
 
 
 // IN RENDERING ORDER
+const _all_extensions = [
+	CreateNewExtension,
+	HomePageExtension,
+	DashboardExtension,
+	AllServicesExtension,
+	AllResourcesExtension,
+	AllResourceGroupsExtension,
+	AllVmsExtension,
+	AllAppServicesExtension,
+	AllSqlDbsExtension,
+	AzureActiveDirectoryExtension,
+	MonitoringExtension,
+	SqlServerExtension,
+	VirtualMachineExtension,
+];
 const _azure_links = [
 	CreateNewExtension,
 	HomePageExtension,
@@ -100,6 +117,7 @@ const _context_panels = [
 
 export
 {
+	_all_extensions as AllExtensions,
 	_azure_links as AzureLinks,
 	_fave_links as FaveLinks,
 	_context_panels as ToolBarContextPanels

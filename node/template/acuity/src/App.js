@@ -4,6 +4,7 @@ import { AzureLinks, FaveLinks, ToolBarContextPanels } from './extensions-list.j
 import SearchBox from './components/search-box/search-box.js';
 import { MeControl } from './components/user-logon/user-logon.js';
 import LeftNav from './components/left-nav/left-nav.js';
+import BreadCrumbControl from "./components/breadcrumb/breadcrumb.js";
 import ShellTopBarButton from './components/buttons/shell-top-bar-button.js';
 import SvgIcon from './components/svg-icons/svg-icon.js';
 
@@ -27,7 +28,8 @@ export default class App extends React.Component
 			PrototypeText: "Protoype",
 			AppName: "Microsoft Azure Acuity",
 			Theme: "default-theme",
-			CurrentExtension: AzureLinks[1],
+			CurrentExtension: AzureLinks[2],
+			DefaultExtension: AzureLinks[2],
 			CurrentContextPanel: ToolBarContextPanels[0]
 		};
 
@@ -52,11 +54,24 @@ export default class App extends React.Component
 		this.LeftNavOpen = true;
 	
 		// LEFT NAV OBJECTS
-		this.BreadCrumbs = [];
 		this.Extensions = [];
 		this.CurrentLeftNavExtension = App.defaultProps.CurrentExtension;
 		this.CurrentExtension = App.defaultProps.CurrentExtension;
+		this.BreadCrumbs = [
+			App.defaultProps.CurrentExtension,
+			FaveLinks[0],
+			FaveLinks[1],
+			FaveLinks[2],
+			FaveLinks[3],
+			FaveLinks[4],
+			FaveLinks[5],
+			FaveLinks[6],
+			FaveLinks[7],
+			FaveLinks[8],
+		];
+		//	console.debug( "this.BreadCrumbs", this.BreadCrumbs );
 		this.Handle_SelectExtension = this.OnClick_SelectExtension.bind( this );
+		this.Handle_BreadCrumbSelection = this.OnClick_BreadCrumbSelection.bind( this );
 
 		// CONTENT PANEL OBJECTS
 		this.CurrentContextPanelCloseButton = ( <SvgIcon icon={SvgIcon.ShellIcons.ContextPanelClose} /> );
@@ -202,11 +217,14 @@ export default class App extends React.Component
 	};
 	OnClick_SelectExtension(extension, pe)
 	{	//	console.debug( "App.OnClick_SelectExtension", extension, pe);
-		//console.debug( "this.CurrentExtension", this.CurrentExtension );
+		//	console.debug( "this.CurrentExtension", this.CurrentExtension );
+		//	console.debug( "App.OnClick_SelectExtension::adding bread crumb navigation" );
+
 		pe.stopPropagation();
 		pe.nativeEvent.stopImmediatePropagation();
 
 		this.ResetExtensionSelectionState();
+
 		if ( extension === this.CurrentExtension )
 		{
 			this.CurrentExtension = AzureLinks[1];
@@ -219,6 +237,11 @@ export default class App extends React.Component
 			this.CurrentExtension.PropertyBag._selected = true;
 			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
 		}
+		return;
+	};
+	OnClick_BreadCrumbSelection()
+	{
+		console.debug( "App.OnClick_BreadCrumbHandler()" );
 		return;
 	};
 
@@ -238,6 +261,7 @@ export default class App extends React.Component
 	render()
 	{
 		//	<div style={{ color: 'red', fontWeight: 'bold' }}>this.state.ContextPanel: {this.state.ContextPanel.toString()}</div>
+		//	WORKS <this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
 		return (
 			<div className="App" onClick={this.OnClick_ResetAllMenus}>
 			<header>
@@ -278,10 +302,13 @@ export default class App extends React.Component
 					/>
 				</div>
 				<div className="extension-panel-default">
-					<div>BreadCrumbs</div>
-					<this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
+					<BreadCrumbControl
+						links={this.BreadCrumbs}
+						selectionClick={this.Handle_BreadCrumbSelection} />
+					<this.CurrentExtension {...this.CurrentExtension.PropertyBag}
+						breadcrumbs={this.BreadCrumbs} />
 				</div>
-					{this.state.ContextPanel &&
+				{this.state.ContextPanel &&
 						<div className="context-panel-default" onClick={this.OnClick_HandleEventCancelling}>
 						<div className="context-panel-header">
 							<div className="cp-current-title">{this.CurrentContextPanel.PropertyBag.Title}</div>

@@ -135,7 +135,11 @@ main > *
 	width:calc(100%);
 	order:2;
 	box-shadow: 0px 0px 10px 4px rgba(190,190,190,0.4);
-	overflow:auto;
+	overflow:hidden;
+	text-align:left;
+	display:flex;
+	align-content:flex-start;
+	flex-direction:column;
 }
 
 .context-panel-default

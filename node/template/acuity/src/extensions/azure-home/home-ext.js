@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿//	import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 //import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
@@ -17,18 +17,5 @@ export class HomePageExtension extends ExtBase
 		_breadcrumb_title: "Home",
 		_path: "home",
 		_icon: SvgIcon.Extensions.AzureHome,
-	};
-	render()
-	{
-		return (
-			<div className="debug">
-				<SvgIcon icon={this.SvgIcon} />
-				<div>ID: {this.ID}</div>
-				<div>ExtensionName: {this.ExtensionName}</div>
-				<div>Title: {this.Title}</div>
-				<div>SubTitle: {this.SubTitle}</div>
-				<div>BreadCrumbTitle: {this.BreadCrumbTitle}</div>
-			</div>
-		);
 	};
 };
