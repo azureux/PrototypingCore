@@ -27,24 +27,29 @@ class UserLogonControl extends React.Component
 				{this.props.visiblePanel === true &&
 					<div className="user-account-panel">
 
-					<div>
-						<div>{this.CurrentUser.companyName}</div>
-						<div>Sign out</div>
+					<div className="uap-company">
+						<div className="uap-company-name">{this.CurrentUser.companyName}</div>
+						<div className="uap-sign-in-out">Sign out</div>
 					</div>
 
-					<div>
-						<div>
+					<div className="uap-avatar">
+						<div className="uap-avatar-image">
 							<SvgIcon icon={this.CurrentUser.avatar} name={this.CurrentUser.name} />
 						</div>
-						<div>
-							<div>{this.CurrentUser.name}</div>
-							<div>{this.CurrentUser.email}</div>
-							<div>View account</div>
-							<div>Switch directories</div>
+						<div className="uap-avatar-text">
+							<div className="uap-user-name">{this.CurrentUser.name}</div>
+							<div className="uap-user-email">{this.CurrentUser.email}</div>
+							<div className="uap-user-links">View account</div>
+							<div className="uap-user-links">Switch directories</div>
 						</div>
 					</div>
 
-					<div>Sign in as a different user</div>
+					<div className="uap-swap-login">
+						<span>
+							<SvgIcon icon={SvgIcon.Avatars.DefaultUser} />
+						</span>
+						<span>Sign in as a different user</span>
+					</div>
 
 				</div>				
 				}

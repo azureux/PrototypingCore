@@ -37,7 +37,7 @@ export default class App extends React.Component
 		this.state = {
 			AllFlyoutsClosed: true,
 			DefaultFlyoutsClosed: true,
-			MeControl: false,
+			MeControl: true,
 			ContextPanel: false
 		};
 

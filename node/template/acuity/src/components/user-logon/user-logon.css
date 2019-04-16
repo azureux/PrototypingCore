@@ -66,3 +66,91 @@
 	cursor:pointer;
 	/*display:none;*/
 }
+
+.uap-company
+{
+	/*border: solid 1px red;*/
+	display:flex;
+}
+.uap-company-name
+{
+	/*border: solid 1px red;*/
+	flex: 1 0 auto;
+	padding:10px;
+	padding-left:15px;
+	text-align:left;
+}
+.uap-sign-in-out
+{
+	/*border: solid 1px red;*/
+	flex: 0 0 100px;
+	padding:10px;
+	padding-right:5px;
+}
+.uap-sign-in-out:hover
+{
+	background-color: rgba(41,41,41,0.1);
+	color:rgba(41,41,41,0.9);
+}
+
+.uap-avatar
+{
+	/*border: solid 1px red;*/
+	display:flex;
+	padding:10px;
+	padding-left:15px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.uap-avatar-image
+{
+	/*border: solid 1px red;*/
+	flex: 0 0 auto;
+}
+.uap-avatar-image > svg, .uap-avatar-image > img
+{
+	width:100px;
+	height:100px;
+	border-radius:50px;
+}
+.uap-avatar-text
+{
+	/*border: solid 1px red;*/
+	flex: 1 0 auto;
+	text-align:left;
+	margin-left:10px;
+}
+
+.uap-user-name
+{
+	font-family: 'az_SemiBold';
+	font-size: 18px;
+	text-align:left;
+}
+.uap-user-email
+{
+	margin-top:5px;
+	text-align:left;
+}
+.uap-user-links
+{
+	margin-top:5px;
+	text-align:left;
+	color: rgb(0, 120, 214);
+}
+
+.uap-swap-login
+{
+	font-family: 'az_Regular';
+	font-size:13px;
+	padding:15px;
+	text-align:left;
+	background-color: rgba(41,41,41,0.05);
+	color:rgba(41,41,41,0.8);
+	cursor:pointer;
+}
+.uap-swap-login:hover
+{
+	background-color: rgba(41,41,41,0.1);
+	color:rgba(41,41,41,0.9);
+}
