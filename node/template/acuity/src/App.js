@@ -28,8 +28,8 @@ export default class App extends React.Component
 			PrototypeText: "Protoype",
 			AppName: "Microsoft Azure Acuity",
 			Theme: "default-theme",
-			CurrentExtension: AzureLinks[2],
-			DefaultExtension: AzureLinks[2],
+			CurrentExtension: AzureLinks[1],
+			DefaultExtension: AzureLinks[1],
 			CurrentContextPanel: ToolBarContextPanels[0]
 		};
 
@@ -37,7 +37,7 @@ export default class App extends React.Component
 		this.state = {
 			AllFlyoutsClosed: true,
 			DefaultFlyoutsClosed: true,
-			MeControl: true,
+			MeControl: false,
 			ContextPanel: false
 		};
 
@@ -58,18 +58,9 @@ export default class App extends React.Component
 		this.CurrentLeftNavExtension = App.defaultProps.CurrentExtension;
 		this.CurrentExtension = App.defaultProps.CurrentExtension;
 		this.BreadCrumbs = [
-			App.defaultProps.CurrentExtension,
-			FaveLinks[0],
-			FaveLinks[1],
-			FaveLinks[2],
-			FaveLinks[3],
-			FaveLinks[4],
-			FaveLinks[5],
-			FaveLinks[6],
-			FaveLinks[7],
-			FaveLinks[8],
+			App.defaultProps.CurrentExtension
 		];
-		//	console.debug( "this.BreadCrumbs", this.BreadCrumbs );
+
 		this.Handle_SelectExtension = this.OnClick_SelectExtension.bind( this );
 		this.Handle_BreadCrumbSelection = this.OnClick_BreadCrumbSelection.bind( this );
 
@@ -225,16 +216,32 @@ export default class App extends React.Component
 
 		this.ResetExtensionSelectionState();
 
-		if ( extension === this.CurrentExtension )
+		if ( extension === AzureLinks[1] )
 		{
 			this.CurrentExtension = AzureLinks[1];
 			this.CurrentExtension.PropertyBag._selected = true;
+			this.BreadCrumbs = [this.CurrentExtension];
+			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
+		}
+		if ( extension === AzureLinks[2] )
+		{
+			this.CurrentExtension = AzureLinks[2];
+			this.CurrentExtension.PropertyBag._selected = true;
+			this.BreadCrumbs = [this.CurrentExtension];
+			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
+		}
+		else if ( extension === this.CurrentExtension )
+		{
+			this.CurrentExtension = App.defaultProps.DefaultExtension;
+			this.CurrentExtension.PropertyBag._selected = true;
+			this.BreadCrumbs = [this.CurrentExtension];
 			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
 		}
 		else
 		{
 			this.CurrentExtension = extension;
 			this.CurrentExtension.PropertyBag._selected = true;
+			this.BreadCrumbs = [App.defaultProps.CurrentExtension, this.CurrentExtension];
 			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
 		}
 		return;
@@ -245,7 +252,7 @@ export default class App extends React.Component
 		return;
 	};
 
-	// HACKY ADDED to handlee events the way we need to handle them
+	// HACKY ADDED to handle events the way we need to handle them
 	componentDidMount()
 	{
 		//	console.debug( "App.componentDidMount()" );
@@ -260,6 +267,7 @@ export default class App extends React.Component
 	}
 	render()
 	{
+		//	console.debug( "App.render()", this.BreadCrumbs.length );
 		//	<div style={{ color: 'red', fontWeight: 'bold' }}>this.state.ContextPanel: {this.state.ContextPanel.toString()}</div>
 		//	WORKS <this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
 		return (
@@ -305,11 +313,11 @@ export default class App extends React.Component
 					<BreadCrumbControl
 						links={this.BreadCrumbs}
 						selectionClick={this.Handle_BreadCrumbSelection} />
-					<this.CurrentExtension {...this.CurrentExtension.PropertyBag}
-						breadcrumbs={this.BreadCrumbs} />
+					<this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
 				</div>
-				{this.state.ContextPanel &&
-						<div className="context-panel-default" onClick={this.OnClick_HandleEventCancelling}>
+				{
+					this.state.ContextPanel &&
+					<div className="context-panel-default" onClick={this.OnClick_HandleEventCancelling}>
 						<div className="context-panel-header">
 							<div className="cp-current-title">{this.CurrentContextPanel.PropertyBag.Title}</div>
 							<div className="cp-close-btn" onClick={this.HandleContextPanelClose} >{this.CurrentContextPanelCloseButton}</div>
@@ -319,8 +327,6 @@ export default class App extends React.Component
 						</div>
 					</div>
 				}
-				{!this.state.ContextPanel}
-
 			</main>
 		</div> );
 	}

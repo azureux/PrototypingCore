@@ -11,7 +11,7 @@ export class AllServicesExtension extends ExtBase
 	};
 	static PropertyBag = {
 		_title : "All Azure Services",
-		_breadcrumb_title: "Services",
+		_breadcrumb_title: "All Services",
 		_icon: SvgIcon.Extensions.AllServices,
 		_path: Utils.FormatPathFromTitle( "All Azure Services" ),
 	};

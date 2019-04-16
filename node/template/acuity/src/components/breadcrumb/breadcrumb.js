@@ -13,7 +13,8 @@ export default class BreadCrumbControl extends React.Component
 		return;
 	};
 	render()
-	{	//	console.debug( "BreadCrumbControl.render()" );	
+	{	
+		//	console.debug( "BreadCrumbControl.render()", this.props.links.length );	
 		return (
 			<div className="breadcrumb-css">
 				{
