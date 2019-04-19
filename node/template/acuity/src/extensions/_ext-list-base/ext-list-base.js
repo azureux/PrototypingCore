@@ -1,7 +1,7 @@
 ﻿import React from 'react';
-import { Utilities as Utils } from "./../../js/utilities.js";
+//	import { Utilities as Utils } from "./../../js/utilities.js";
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
-import { ExtensionHeader as Header } from "../../components/extension-header/extension-header.js";
+import ExtensionHeader from "../../components/extension-header/extension-header.js";
 import { DataGridControl as DataGrid } from "../../components/data-grid/data-grid.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './ext-list-base.css';
@@ -54,26 +54,13 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 	};
 	render()
 	{
-		// may need other controls
-		const _header = React.createElement( Header, {
-			key: Utils.NewKey(),
-			Title: this.Title,
-			//	SvgIcon: SvgIcon.Icons.Default,
-			//	Application: this.Application,
-			extensionObject: this
-		} );
-
-		const _data_grid = React.createElement( DataGrid, {
-			key: Utils.NewKey(),
-			Application: this.Application,
-			Data: this.Data,
-			Columns: this.Columns,
-			//SortDirection: ExtBase.Utils().SortType().DEFAULT
-		} );
-
-		return React.createElement( "div", {
-			id: this.ID,
-			className: this.DefaultCssClass,
-		}, _header, _data_grid );
+		return (
+			<div className="ext-base">
+				<ExtensionHeader extBag={this.PropertyBag}></ExtensionHeader>
+				<div className="ext-base-content-area">
+					<DataGrid Data={this.Data} Columns={this.Columns}></DataGrid>
+				</div>
+			</div>
+		);
 	};
 };

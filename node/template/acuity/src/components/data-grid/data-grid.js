@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { ExtensionBase as ExtBase } from './../../extensions/_ext-base/ext-base.js';
+//import { ExtensionBase as ExtBase } from './../../extensions/_ext-base/ext-base.js';
 import { Utilities as Utils } from "./../../js/utilities.js";
 //	import { SVG as AzureSvgs } from "./../../js/svg-assets.js";
 //	import { ButtonControl as Btn } from "./../button/button.js";
@@ -126,8 +126,8 @@ export class DataGridControl extends React.Component
 		}
 		else
 		{
-			const _row_ext_name = React.createElement( "td", { key: ExtBase.Utils().NewKey(), className: "grid-cell" }, "No results found" );
-			const _row = React.createElement( "tr", { key: ExtBase.Utils().NewKey(), className: "grid-row" }, _row_ext_name );
+			const _row_ext_name = React.createElement( "td", { key: Utils().NewKey(), className: "grid-cell" }, "No results found" );
+			const _row = React.createElement( "tr", { key: Utils().NewKey(), className: "grid-row" }, _row_ext_name );
 
 			_formatted_data.push( _row );
 		}

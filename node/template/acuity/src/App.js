@@ -25,7 +25,7 @@ export default class App extends React.Component
 			Application: this,
 			ID: Utils.NewId( "cds-azure-proto-app" ),
 			PreviewText: "Preview",
-			PrototypeText: "Protoype",
+			PrototypeText: "Prototype",
 			AppName: "Microsoft Azure Acuity",
 			Theme: "default-theme",
 			CurrentExtension: AzureLinks[1],
@@ -64,7 +64,12 @@ export default class App extends React.Component
 		this.Handle_SelectExtension = this.OnClick_SelectExtension.bind( this );
 		this.Handle_BreadCrumbSelection = this.OnClick_BreadCrumbSelection.bind( this );
 
-		// CONTENT PANEL OBJECTS
+
+		// EXTENSION HEADER METHODS
+		this.HandleExtHeaderPin = this.OnClick_PinThisExtension.bind( this );
+		this.HandleExtClose = this.OnClick_CloseThisExtension.bind( this );
+
+		// CONTEXT PANEL OBJECTS
 		this.CurrentContextPanelCloseButton = ( <SvgIcon icon={SvgIcon.ShellIcons.ContextPanelClose} /> );
 		this.CurrentContextPanel = undefined;	//App.defaultProps.CurrentContextPanel;
 		this.HandleContextPanelToggle = this.OnClick_ToggleTopLevelContextBlade.bind( this );
@@ -73,8 +78,11 @@ export default class App extends React.Component
 		// ME CONTROL OBJECT
 		this.Handle_MeControlToggle = this.OnClick_ToggleMeControl.bind( this );
 
+		// FUNTIME
+		this.Handle_ProtoPreToggle = this.OnClick_PreProtoToggleMenus.bind( this ); 
+
 		// GENERAL event handler bindings
-		this.OnClick_ResetAllMenus = this.ResetAllMenus.bind(this);
+		this.OnClick_ResetAllMenus = this.ResetAllMenus.bind( this );
 
 		this.AppProcessRoutes();
 		return;
@@ -126,8 +134,7 @@ export default class App extends React.Component
 		return;
 	};
 	ResolveConfig()
-	{
-		console.debug( "resolve config overrides, including theme changes" );
+	{	console.debug( "resolve config overrides, including theme changes" );
 		return;
 	};
 	ResetAllMenus( pe )
@@ -144,10 +151,18 @@ export default class App extends React.Component
 		return;
 	};
 	OnClick_HandleEventCancelling( pe )
-	{
-		console.debug( "OnClick_HandleEventCancelling" );
+	{	//	console.debug( "OnClick_HandleEventCancelling" );
 		pe.stopPropagation();
 		pe.nativeEvent.stopImmediatePropagation();
+		return;
+	};
+
+	//	FUNTIME
+	//	RESETS CONFIG DEBUG STATE
+	//	WILL TRY TO USE THIS FOR FEATURE FLAG TYPE STUFF
+	OnClick_PreProtoToggleMenus( pe )
+	{	//	console.debug( "OnClick_PreProtoToggleMenus", this.props.config.Debug );
+		this.props.config.Debug = !this.props.config.Debug;
 		return;
 	};
 
@@ -252,6 +267,18 @@ export default class App extends React.Component
 		return;
 	};
 
+	// EXTENSION TOP SCOPE HANDLERS
+	OnClick_PinThisExtension( pe )
+	{
+		console.debug( "OnClick_PinThisExtension", pe );
+		return;
+	};
+	OnClick_CloseThisExtension( pe )
+	{
+		console.debug( "OnClick_CloseThisExtension", pe );
+		return;
+	};
+
 	// HACKY ADDED to handle events the way we need to handle them
 	componentDidMount()
 	{
@@ -273,7 +300,7 @@ export default class App extends React.Component
 		return (
 			<div className="App" onClick={this.OnClick_ResetAllMenus}>
 			<header>
-				<div className="brand-panel" onClick={this.OnClick_ToggleMenus}>
+				<div className="brand-panel" onClick={this.Handle_ProtoPreToggle}>
 					{this.props.config.Debug === true && <div className="prototype-panel">{App.defaultProps.PrototypeText}</div>}
 					{this.props.config.Debug === false && <div className="preview-panel">{App.defaultProps.PreviewText}</div>}
 					<div className="ms-az-brand">Microsoft Azure</div>
@@ -312,8 +339,8 @@ export default class App extends React.Component
 				<div className="extension-panel-default">
 					<BreadCrumbControl
 						links={this.BreadCrumbs}
-						selectionClick={this.Handle_BreadCrumbSelection} />
-					<this.CurrentExtension {...this.CurrentExtension.PropertyBag} />
+							selectionClick={this.Handle_BreadCrumbSelection} />
+						<this.CurrentExtension {...this.CurrentExtension.PropertyBag} handlePin={this.HandleExtHeaderPin} handleClose={this.HandleExtClose} />
 				</div>
 				{
 					this.state.ContextPanel &&
