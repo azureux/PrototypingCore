@@ -96,7 +96,7 @@ export default class App extends React.Component
 	//	2. Anything that comes after "_path[0]" is will just define the breadcrumbs & flow
 	AppProcessRoutes()
 	{
-		//	console.debug( "ProcessRoutes", Utils.ProcessRoutes() );
+		console.debug( "App.ProcessRoutes");
 		let _paths = Utils.ProcessRoutes();
 
 		if ( _paths[0] !== undefined )
@@ -131,6 +131,8 @@ export default class App extends React.Component
 		this.CurrentExtension.PropertyBag._selected = true;
 		//	console.debug( "this.CurrentExtension", this.CurrentExtension.name );
 		//	console.debug( "this.CurrentExtension.PropertyBag", this.CurrentExtension.PropertyBag._selected);
+
+		Utils.SetStorage( _paths );
 		return;
 	};
 	ResolveConfig()
@@ -150,8 +152,11 @@ export default class App extends React.Component
 
 		return;
 	};
+
+	// global event cancel
 	OnClick_HandleEventCancelling( pe )
-	{	//	console.debug( "OnClick_HandleEventCancelling" );
+	{	//	
+		console.debug( "OnClick_HandleEventCancelling" );
 		pe.stopPropagation();
 		pe.nativeEvent.stopImmediatePropagation();
 		return;
@@ -160,6 +165,7 @@ export default class App extends React.Component
 	//	FUNTIME
 	//	RESETS CONFIG DEBUG STATE
 	//	WILL TRY TO USE THIS FOR FEATURE FLAG TYPE STUFF
+	//	ALSO RESETS THE URL
 	OnClick_PreProtoToggleMenus( pe )
 	{	//	console.debug( "OnClick_PreProtoToggleMenus", this.props.config.Debug );
 		this.props.config.Debug = !this.props.config.Debug;
@@ -169,8 +175,7 @@ export default class App extends React.Component
 	// ME CONTROL EVENTS
 	OnClick_ToggleMeControl( pe )
 	{	//	console.debug( "App.OnClick_ToggleMeControl()" );
-		pe.stopPropagation();
-		pe.nativeEvent.stopImmediatePropagation();
+		this.OnClick_HandleEventCancelling( pe );
 
 		let _new_state = this.state.MeControl;
 		//	console.debug( "_new_state", _new_state );
@@ -182,8 +187,7 @@ export default class App extends React.Component
 	// TOP TOOLBAR ICON METHODS
 	OnClick_ToggleTopLevelContextBlade( newObj, pe )
 	{	//	console.debug( "OnClick_TestTopNavBar_ContextBlade" );
-		pe.stopPropagation();
-		pe.nativeEvent.stopImmediatePropagation();
+		this.OnClick_HandleEventCancelling( pe );
 
 		if ( newObj === this.CurrentContextPanel )
 		{
@@ -226,8 +230,9 @@ export default class App extends React.Component
 		//	console.debug( "this.CurrentExtension", this.CurrentExtension );
 		//	console.debug( "App.OnClick_SelectExtension::adding bread crumb navigation" );
 
-		pe.stopPropagation();
-		pe.nativeEvent.stopImmediatePropagation();
+		//pe.stopPropagation();
+		//pe.nativeEvent.stopImmediatePropagation();
+		this.OnClick_HandleEventCancelling( pe );
 
 		this.ResetExtensionSelectionState();
 
@@ -259,23 +264,25 @@ export default class App extends React.Component
 			this.BreadCrumbs = [App.defaultProps.CurrentExtension, this.CurrentExtension];
 			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
 		}
+
+		Utils.SetURI( this.BreadCrumbs );
 		return;
 	};
-	OnClick_BreadCrumbSelection()
-	{
-		console.debug( "App.OnClick_BreadCrumbHandler()" );
+	OnClick_BreadCrumbSelection( ext, pe)
+	{	console.debug( "App.OnClick_BreadCrumbHandler()" );
+		this.OnClick_HandleEventCancelling( pe );
 		return;
 	};
 
 	// EXTENSION TOP SCOPE HANDLERS
 	OnClick_PinThisExtension( pe )
-	{
-		console.debug( "OnClick_PinThisExtension", pe );
+	{	console.debug( "OnClick_PinThisExtension", pe );
+		this.OnClick_HandleEventCancelling( pe );
 		return;
 	};
 	OnClick_CloseThisExtension( pe )
-	{
-		console.debug( "OnClick_CloseThisExtension", pe );
+	{	console.debug( "OnClick_CloseThisExtension", pe );
+		this.OnClick_HandleEventCancelling( pe );
 		return;
 	};
 

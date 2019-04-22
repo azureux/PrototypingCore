@@ -648,6 +648,10 @@ class _Utilities
 
 	//	URI PARSING METHODS
 	//	http://localhost:55614/default.html#home|browse-rgs|contoso|overview
+	static AcuityStorageKeys = {
+		sessionKey: "acuity-paths",
+
+	};
 	static GetURI( extensions )
 	{	//	console.debug( "GetURI", extensions );
 		let _hashes = this.ParseUriHash( window.location.hash );
@@ -672,8 +676,24 @@ class _Utilities
 			return;
 		} );
 
-		//	console.debug( "GetURI::_new_extensions", _new_extensions );
+		console.debug( "GetURI::_new_extensions", _new_extensions );
 		return _new_extensions;
+	};
+	static SetStorage( extList )
+	{
+		console.debug( "Utils.SetStorage", extList, typeof ( window.sessionStorage ), window.sessionStorage );
+
+		let _temp_paths = extList.join( "," );
+		console.debug( "_temp_paths", _temp_paths );
+		window.sessionStorage.setItem( _Utilities.AcuityStorageKeys.sessionKey, _temp_paths );
+		console.debug( "window.sessionStorage.setItem( _Utilities.AcuityStorageKeys.sessionKey)",
+			window.sessionStorage.getItem( _Utilities.AcuityStorageKeys.sessionKey ) );
+		return;
+	};
+	static GetStorage( )
+	{
+		console.debug( "Utils.GetStorage" );
+		return window.sessionStorage.getItem( _Utilities.AcuityStorageKeys.sessionKey ) ;
 	};
 	static SetURI( extensions )
 	{	//	console.debug( "Util.SetURI");
@@ -683,55 +703,46 @@ class _Utilities
 		extensions.forEach( function ( v, i, a )
 		{
 			//	console.debug( i, v.name );
-			if ( i === 0 )
-			{
-				_new_hash.push( "#" + v.name );
-			}
-			else
-			{
-				_new_hash.push( v.name );
-
-			}
+			_new_hash.push( v.name );
 			return;
 		} );
 
-		let _hash = _new_hash.join( "|" );
+		let _hash = _new_hash.join( "/" );
 		window.location.hash = _hash;
-		//	console.debug( "window.location.hash NEW:", window.location.hash);
+		//	console.debug( "window.location.hash NEW:", window.location.hash );
+		window.location.replace( window.location.hash );
 		return;
 	};
-	static ParseUriHash( hash )
-	{	//	console.debug( "ParseURI", hash );
-		let _return_value = hash.split( "|" );
-		_return_value[0] = _return_value[0].toString().replace( "#", "" );
-		//	console.debug( _return_value );
-		return _return_value;
-	};
+	//static ParseUriHash( hash )
+	//{	//	
+	//	console.debug( "ParseURI", hash );
+	//	let _return_value = hash.split( "/" );
+	//	_return_value[0] = _return_value[0].toString().replace( "#", "" );
+	//	//	console.debug( _return_value );
+	//	return _return_value;
+	//};
 	static ProcessRoutes()
 	{
-		let _rv = "";
-		let _incoming_paths = window.location.pathname.split("/");
+		console.debug( "ProcessRoutes" );
+		let _clean_paths = window.location.hash.replace( "#", "" );
+		let _incoming_paths = _clean_paths.split( "/" );
 
 		// THE FIRST ONE IS ALWAYS AN EMPTY STRING
 		// CHECK IF THE LAST ONE IS A HTML PAGE OR OTHER GARBAGE
 		_incoming_paths = _incoming_paths.filter( function ( item )
 		{
-			let _rv = undefined;
+			let _return;
 			let _i = item.toLowerCase();
-			//	console.debug( "_i", _i );
-			if (
-				( _i.indexOf( "." ) === -1 || _i.indexOf( "html" ) === -1 ) &&
-				( _i !== "" )
-			)
+
+			if ( ( _i.indexOf( "." ) === -1 || _i.indexOf( "html" ) === -1 ) && ( _i !== "" ) )
 			{
-				_rv = _i;
+				_return = _i;
 			}
-			return _rv;
+			return _return;
 		} );
 
 		//	console.debug( "_incoming_paths", _incoming_paths );
-		_rv = _incoming_paths;
-		return _rv;
+		return _incoming_paths;
 	};
 
 

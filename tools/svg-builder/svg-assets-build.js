@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const svg_folder = "../../assets/svg";
 const _local_final_svg_file = "svg-assets.js";
 const final_svg_file = "../../standalone/template/js/svg-assets.js";
-const final_svg_node_file = "../../../PrototypingCore/node/template/acuity-node/src/js/svg-assets.js";
+const final_svg_node_file = "../../../PrototypingCore/node/template/acuity/src/js/svg-assets.js";
 const _ko_template_version_svg_file = "../../../General-Prototyping/azure-template/ko-fluent-template-1/js/svg-assets.js";
 
 //const img_folder = "../src/css/img";
