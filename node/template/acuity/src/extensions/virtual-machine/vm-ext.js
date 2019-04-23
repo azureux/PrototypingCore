@@ -1,4 +1,5 @@
-﻿import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+﻿// import React from 'react';
+import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 //import './vm-ext.css';
@@ -17,6 +18,7 @@ export class VirtualMachineExtension extends ExtBase
 		_breadcrumb_title: "Virtual machine 0123",
 		_icon: SvgIcon.Extensions.VirtualMachine,
 		_selected: "false",
-		_data: []
+		_hasHeader: true,
+		_hasBreadcrumb: false
 	};
 };

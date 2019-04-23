@@ -1,21 +1,9 @@
-﻿.AllServicesExtension
+﻿.all-services-list-ext
 {
-	border: solid 20px green;
-	background-color:white;
-	color:black;
-	display:block;
-	height:calc(100%);
-	width:calc(100%);
+	border: solid 1px purple;
 	padding:20px;
-	overflow:auto;
 }
-.test-title
+.all-services-list-ext > *
 {
-	margin-bottom:20px;
-	font-size:32px;
-}
-.test-icon
-{
-	width:100px;
-	height:100px;
+		text-align:left;
 }

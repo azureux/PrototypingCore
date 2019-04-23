@@ -22,6 +22,8 @@ export class ExtensionListBase extends ExtBase	//	React.Component
 			_title: "Extension List Base component",
 			_breadcrumb_title: "Extension List Base component",
 			_icon: SvgIcon.Icons.Default,
+			_hasHeader: true,
+			_hasBreadcrumb: true,
 			_columns: [
 				{ name: "Icon", key: "_icon", visible: true },
 				{ name: "Extension Name", key: "_extension", visible: true },

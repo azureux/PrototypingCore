@@ -292,14 +292,12 @@ export default class App extends React.Component
 
 	// HACKY ADDED to handle events the way we need to handle them
 	componentDidMount()
-	{
-		//	console.debug( "App.componentDidMount()" );
+	{	//	console.debug( "App.componentDidMount()" );
 		//	window.addEventListener( "resize", this.handleResizedScreen.bind( this ) );
 		return;
 	}
 	componentWillUnmount()
-	{
-		//	console.debug( "App.componentWillUnmount()" );
+	{	//	console.debug( "App.componentWillUnmount()" );
 		//	window.removeEventListener( "resize", this.handleResizedScreen.bind( this ) );
 		return;
 	}
@@ -347,11 +345,18 @@ export default class App extends React.Component
 						clickSelect={this.Handle_SelectExtension}
 					/>
 				</div>
-				<div className="extension-panel-default">
-					<BreadCrumbControl
-						links={this.BreadCrumbs}
-							selectionClick={this.Handle_BreadCrumbSelection} />
-						<this.CurrentExtension {...this.CurrentExtension.PropertyBag} handlePin={this.HandleExtHeaderPin} handleClose={this.HandleExtClose} />
+					<div className="extension-panel-default">
+						{
+							this.CurrentExtension.PropertyBag._hasBreadcrumb !== false && 
+							<BreadCrumbControl links={this.BreadCrumbs} selectionClick={this.Handle_BreadCrumbSelection} />
+						}
+					<this.CurrentExtension
+							{...this.CurrentExtension.PropertyBag}
+							{...this.CurrentExtension.ExtRender}
+						debug={this.props.config.Debug}
+						handlePin={this.HandleExtHeaderPin}
+						handleClose={this.HandleExtClose}>
+					</this.CurrentExtension>
 				</div>
 				{
 					this.state.ContextPanel &&

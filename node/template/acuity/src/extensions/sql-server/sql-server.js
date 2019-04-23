@@ -15,5 +15,7 @@ export class SqlServerExtension extends ExtBase
 		_breadcrumb_title: "SQL-SERVER-0123",
 		_icon: SvgIcon.Extensions.SqlServer,
 		_path: Utils.FormatPathFromTitle( "SQL-SERVER-0123" ),
+		_hasHeader: false,
+		_hasBreadcrumb: true
 	};
 };
