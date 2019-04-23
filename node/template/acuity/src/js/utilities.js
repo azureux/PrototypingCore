@@ -453,8 +453,7 @@ const _SortTypes = {
 // core utility class
 class _Utilities 
 {
-	//constructor()
-	//{};
+	//constructor() {};
 
 	// react related -  id & key methods
 	static NewId( strValue )
@@ -542,7 +541,7 @@ class _Utilities
 		return;
 	};
 
-	// react specific , to insert SVG & HTML
+	// REACT SPECIFIC , to insert SVG & HTML
 	static CreateSvgMarkup( svgIcon )
 	{	//	console.debug( "CreateSvgMarkup", svgIcon );
 		return { __html: svgIcon };
@@ -652,67 +651,67 @@ class _Utilities
 		sessionKey: "acuity-paths",
 
 	};
-	static GetURI( extensions )
-	{	//	console.debug( "GetURI", extensions );
-		let _hashes = this.ParseUriHash( window.location.hash );
-		//	console.debug( _hashes );
-		let _new_extensions = [];
-
-		if ( _hashes[0] === "" & _hashes.length === 1 )
-		{
-			return _new_extensions;
-		}
-
-		_hashes.forEach( function ( v, i, a )
-		{	//	console.debug( i, v );
-			extensions.forEach( function ( v2, i2, a2 )
-			{	//	console.debug( i2, v2.name );
-				if ( v === v2.name )
-				{
-					_new_extensions.push( v2 );
-				}
-				return;
-			} );
-			return;
-		} );
-
-		console.debug( "GetURI::_new_extensions", _new_extensions );
-		return _new_extensions;
-	};
 	static SetStorage( extList )
-	{
-		console.debug( "Utils.SetStorage", extList, typeof ( window.sessionStorage ), window.sessionStorage );
-
+	{	//	console.debug( "Utils.SetStorage", extList, window.sessionStorage 
 		let _temp_paths = extList.join( "," );
-		console.debug( "_temp_paths", _temp_paths );
+		//	console.debug( "_temp_paths", _temp_paths );
 		window.sessionStorage.setItem( _Utilities.AcuityStorageKeys.sessionKey, _temp_paths );
-		console.debug( "window.sessionStorage.setItem( _Utilities.AcuityStorageKeys.sessionKey)",
-			window.sessionStorage.getItem( _Utilities.AcuityStorageKeys.sessionKey ) );
+		//	console.debug( "window.sessionStorage.setItem( _Utilities.AcuityStorageKeys.sessionKey)", window.sessionStorage.getItem( _Utilities.AcuityStorageKeys.sessionKey ) );
 		return;
 	};
-	static GetStorage( )
+	static GetStorage()
 	{
-		console.debug( "Utils.GetStorage" );
-		return window.sessionStorage.getItem( _Utilities.AcuityStorageKeys.sessionKey ) ;
+		//console.debug( "Utils.GetStorage" );
+		return window.sessionStorage.getItem( _Utilities.AcuityStorageKeys.sessionKey );
 	};
 	static SetURI( extensions )
-	{	//	console.debug( "Util.SetURI");
+	{	//	
+		console.debug( "Util.SetURI" );
 		//	console.debug( "window.location.hash OLD:", window.location.hash);
 		let _new_hash = [];
 
 		extensions.forEach( function ( v, i, a )
-		{
-			//	console.debug( i, v.name );
-			_new_hash.push( v.name );
+		{	//	console.debug( i, v.PropertyBag._path );
+			_new_hash.push( v.PropertyBag._path );
 			return;
 		} );
+
+		_Utilities.SetStorage( _new_hash );
 
 		let _hash = _new_hash.join( "/" );
 		window.location.hash = _hash;
 		//	console.debug( "window.location.hash NEW:", window.location.hash );
 		window.location.replace( window.location.hash );
+
 		return;
 	};
+	//static GetURI( extensions )
+	//{	//	console.debug( "GetURI", extensions );
+	//	let _hashes = this.ParseUriHash( window.location.hash );
+	//	//	console.debug( _hashes );
+	//	let _new_extensions = [];
+
+	//	if ( _hashes[0] === "" & _hashes.length === 1 )
+	//	{
+	//		return _new_extensions;
+	//	}
+
+	//	_hashes.forEach( function ( v, i, a )
+	//	{	//	console.debug( i, v );
+	//		extensions.forEach( function ( v2, i2, a2 )
+	//		{	//	console.debug( i2, v2.name );
+	//			if ( v === v2.name )
+	//			{
+	//				_new_extensions.push( v2 );
+	//			}
+	//			return;
+	//		} );
+	//		return;
+	//	} );
+
+	//	console.debug( "GetURI::_new_extensions", _new_extensions );
+	//	return _new_extensions;
+	//};
 	//static ParseUriHash( hash )
 	//{	//	
 	//	console.debug( "ParseURI", hash );
@@ -722,8 +721,7 @@ class _Utilities
 	//	return _return_value;
 	//};
 	static ProcessRoutes()
-	{
-		console.debug( "ProcessRoutes" );
+	{	console.debug( "ProcessRoutes" );
 		let _clean_paths = window.location.hash.replace( "#", "" );
 		let _incoming_paths = _clean_paths.split( "/" );
 

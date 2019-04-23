@@ -1,6 +1,6 @@
 import React from 'react';
 import { Utilities as Utils } from './js/utilities.js';
-import { AzureLinks, FaveLinks, ToolBarContextPanels } from './extensions-list.js';
+import { AllExtensions, AzureLinks, FaveLinks, ToolBarContextPanels } from './extensions-list.js';
 import SearchBox from './components/search-box/search-box.js';
 import { MeControl } from './components/user-logon/user-logon.js';
 import LeftNav from './components/left-nav/left-nav.js';
@@ -55,10 +55,11 @@ export default class App extends React.Component
 	
 		// LEFT NAV OBJECTS
 		this.Extensions = [];
+		this.DefaultExtension = App.defaultProps.DefaultExtension;
 		this.CurrentLeftNavExtension = App.defaultProps.CurrentExtension;
 		this.CurrentExtension = App.defaultProps.CurrentExtension;
 		this.BreadCrumbs = [
-			App.defaultProps.CurrentExtension
+			this.DefaultExtension
 		];
 
 		this.Handle_SelectExtension = this.OnClick_SelectExtension.bind( this );
@@ -88,51 +89,54 @@ export default class App extends React.Component
 		return;
 	};
 
-	//	GENERAL APP SCOPE METHODS
-	//	1. Determine if the first path matches anything in the left nav.
-	//	Last one in wins.
-	//	Because the path array could be formed to include mutliple items in the left nav,
-	//	and we want this to mimic standard path behavior, we are only looking at "_paths[0]"
-	//	2. Anything that comes after "_path[0]" is will just define the breadcrumbs & flow
 	AppProcessRoutes()
-	{
+	{	//	1.	read incoming URI
+		//	2. parse into paths
+		//	3. attempt to resolve against extensions list before assigning to bread crumbs/navigation stack
+		//	4. assign last item to this.CurrentExtension, even if other lookup fails.
+		//	5. if all lookups fail, go back to default home page
 		console.debug( "App.ProcessRoutes");
 		let _paths = Utils.ProcessRoutes();
+		//	console.debug( "_paths", _paths );
+		let _found_ext = [];
 
-		if ( _paths[0] !== undefined )
-		{
-			let _found = undefined;
-			AzureLinks.forEach( function ( v, i, a )
-			{	//	console.debug( i, _paths[0], v.PropertyBag._path );
-				if ( _paths[0] === v.PropertyBag._path )
-				{
-					_found = v;
+		_paths.forEach( function ( v, i, a )
+		{	//	console.debug( i, v );
+			let _found = AllExtensions.filter( function ( item )
+			{	//	console.debug( "filter", item.PropertyBag._path, v );
+				let _rv = undefined;
+				if ( v === item.PropertyBag._path )
+				{	//	console.debug( "match" );
+					_rv = item;
 				}
-				return;
+				return _rv;
 			} );
 
-			FaveLinks.forEach( function ( v, i, a )
-			{	//	console.debug( i, v.Title(), v.Path(), v.Selected );
-				if ( _paths[0] === v.PropertyBag._path )
-				{
-					_found = v;
-				}
-				return;
-			} );
-
-			//	console.debug( "_found", _found.name, _found.PropertyBag );
-			//	console.debug( "this.CurrentExtension", this.CurrentExtension.name );
-			if ( _found !== undefined )
+			if ( _found.length > 0 )
 			{
-				this.CurrentExtension = _found;
+				_found_ext.push( _found[0] );
+			}
+			//	console.debug( "_found", _found );
+			return;
+		} );
+		//console.debug( "_found_ext", _found_ext );
+		//console.debug( "---" );
+
+		if ( _found_ext.length >= 1 )
+		{
+			if ( _found_ext.length > 1 )
+			{
+				this.BreadCrumbs = _found_ext;
+				this.CurrentExtension = _found_ext[_found_ext.length - 1];
+			}
+			else if ( _found_ext.length === 1 )
+			{
+				this.BreadCrumbs = [this.DefaultExtension, _found_ext[_found_ext.length - 1]];
+				this.CurrentExtension = _found_ext[_found_ext.length - 1];
 			}
 		}
 
-		this.CurrentExtension.PropertyBag._selected = true;
-		//	console.debug( "this.CurrentExtension", this.CurrentExtension.name );
-		//	console.debug( "this.CurrentExtension.PropertyBag", this.CurrentExtension.PropertyBag._selected);
-
-		Utils.SetStorage( _paths );
+		//	Utils.SetStorage( _paths );
 		return;
 	};
 	ResolveConfig()
@@ -268,13 +272,13 @@ export default class App extends React.Component
 		Utils.SetURI( this.BreadCrumbs );
 		return;
 	};
+
+	/* top bar header event handlers */
 	OnClick_BreadCrumbSelection( ext, pe)
 	{	console.debug( "App.OnClick_BreadCrumbHandler()" );
 		this.OnClick_HandleEventCancelling( pe );
 		return;
 	};
-
-	// EXTENSION TOP SCOPE HANDLERS
 	OnClick_PinThisExtension( pe )
 	{	console.debug( "OnClick_PinThisExtension", pe );
 		this.OnClick_HandleEventCancelling( pe );

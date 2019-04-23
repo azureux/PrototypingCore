@@ -12,7 +12,7 @@ export class VirtualMachineExtension extends ExtBase
 	};
 	static PropertyBag = {
 		_title: "Virtual Machine 0123",
-		_subtitle: "https://contoso.microsoft.com/ pre-production web server",
+		_subtitle: "https://contoso.microsoft.com - pre-production web server",
 		_path: Utils.FormatPathFromTitle( "virtual-machine-0123" ),
 		_breadcrumb_title: "Virtual machine 0123",
 		_icon: SvgIcon.Extensions.VirtualMachine,
