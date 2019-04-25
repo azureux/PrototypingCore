@@ -1,100 +1,77 @@
 ﻿import React from 'react';
-import { Utilities as Utils } from "./../../js/utilities.js";
+//	import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import ExtensionHeader from "./../../components/extension-header/extension-header.js";
 import './ext-base.css';
 
 export class ExtensionBase extends React.Component
 {	
+	static defaultProps = {
+		Title: "Extension Base Component",
+		Subtitle: "The javascript base class for \"ExtensionBase\" ",
+		Path: "/#",
+		BreadcrumbTitle: "ExtensionBase breadcrumb short title",
+		Icon: SvgIcon.Icons.Default,
+		IsSelected: false,
+		HasHeader: true,
+		HasBreadcrumb: true,
+		Columns: [],
+		Data: []
+	};
 	constructor( props )
 	{
 		//	console.debug( "ExtensionBase.props", props );
 		super( props );
 
+		this.Debug = ( this.props.debug || false );
 		this.state = { IsDirty: false };
 		this.ExtensionName = this.constructor.name;
-		this.PropertyBag = this.props;
-		this.Path = ( this.props._path || "/" );
-		this.Title = ( this.props._title || this.ExtensionName);
-		this.SubTitle = ( this.props._subtitle || "ExtensionBase Subtitle");
-		this.BreadCrumbTitle = ( this.props._breadcrumb_title || "ExtensionBase breadcrumb" );
-		this.SvgIcon = ( this.props._icon || SvgIcon.Icons.Default );
-		this.IsSelected = ( this.props._selected || false );
+		this.Path = ( this.props.Path || this.Path || ExtensionBase.defaultProps.Path );
+		this.Title = ( this.props.Title || this.Title || this.ExtensionName );
+		this.Subtitle = ( this.props.Subtitle || this.Subtitle || ExtensionBase.defaultProps.Subtitle );
+		this.BreadCrumbTitle = ( this.props.BreadcrumbTitle || this.BreadCrumbTitle || ExtensionBase.defaultProps.BreadcrumbTitle );
+		this.SvgIcon = ( this.props.Icon || this.Icon || ExtensionBase.defaultProps.Icon );
+		this.IsSelected = ( this.props.IsSelected || this.IsSelected || ExtensionBase.defaultProps.IsSelected );
+		this.HasHeader = ( this.props.HasHeader || this.HasHeader || ExtensionBase.defaultProps.HasHeader );
 		return;
 	};
-	static PropertyBag =
-	{
-		_title: "Extension Base Component",
-		_subtitle: "The javascript base class for \"ExtensionBase\" ",
-		_path: Utils.FormatPathFromTitle( "Extension Base Component" ),
-		_breadcrumb_title: "breadcrumb short title",
-		_icon: SvgIcon.Icons.Default,
-		_selected: "false",
-		_hasHeader: false,
-		_hasBreadcrumb: false,
-		_data : []
-	};
-	static Ext_Key() { return Utils.NewKey(); };
-	static Ext_Name() { return this.ExtensionName; };
-	static Ext_Title() { return this.PropertyBag._title; };
-	static Ext_SubTitle() { return this.PropertyBag._subtitle; };
-	static Ext_Path() { return this.PropertyBag._path; };	
-	static Ext_BreadCrumbTitle() { return this.PropertyBag._breadcrumb_title; };
-	static Ext_Icon() { return this.PropertyBag._icon; };
-	static Ext_Data() { return this.PropertyBag._data; };
-	static Ext_IsSelected() { return this.PropertyBag._selected; };
-	//componentWillMount()
-	//{
-	//	//	console.debug( "componentWillMount" );
-	//	return;
-	//};
-	//componentDidMount()
-	//{
-	//	//	console.debug( "componentDidMount" );
-	//	//	this.Init( ExtensionBase_PropertyBag );
-	//	//	this.Init();
-	//	//this.Utils.InjectControlCss( this.BaseCssId, this.BaseCssPath );
-	//	//this.Utils.InjectControlCss( this.CssFileID, this.CssFile );
-	//	return;
-	//};
-	//componentWillUnmount()
-	//{
-	//	//	console.debug( "componentWillUnmount--REMOVE CSS" );
-	//	//this.Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
-	//	return;
-	//};
 	ExtRender()
 	{
 		return (
-			<div>
-				<div>ExtensionBase.ExtRender(): {this.ExtensionName}</div>
-				<div>
+			<div className="ext-debug-panel">
+				<div className="debug-panel">
 					{
 						this.props.debug === true &&
-						<h1 className="debug-on">debug: prototype</h1>
+						<div className="debug-on">debug: prototype</div>
 					}
 					{
 						this.props.debug === false &&
-						<h1 className="debug-off">debug: preview</h1>
+						<div className="debug-off">debug: preview</div>
 					}
 				</div>
+				<div className="debug-extension-info">
+					<div>ExtensionBase.ExtRender(): {this.ExtensionName}</div>
+					<div>this.SvgIcon: {this.SvgIcon}</div>
+					<div>this.Path: {this.Path}</div>
+					<div>this.Title: {this.Title}</div>
+					<div>this.Subtitle: {this.Subtitle}</div>
+					<div>this.BreadCrumbTitle: {this.BreadCrumbTitle}</div>
+					<div>this.IsSelected: {this.IsSelected.toString()}</div>
+					<div>this.HasHeader: {this.HasHeader.toString()}</div>
+					</div>
 			</div>
 		);
 	};
 	render()
-	{	//	console.debug( "ExtBase.render.this.Selected", this.Selected );
-		//<SvgIcon icon={this.SvgIcon} />
-		//<div>ID: {this.ID}</div>
-		//<div>ExtensionName: {this.ExtensionName}</div>
-		//<div>Title: {this.Title}</div>
-		//<div>SubTitle: {this.SubTitle}</div>
-		//<div>BreadCrumbTitle: {this.BreadCrumbTitle}</div>
-		//<div>Selected: {this.IsSelected}</div>
+	{	//	console.debug( "ExtBase.render()");
 		return (
 			<div className="ext-base">
 				{
-					this.PropertyBag._hasHeader !== false && 
-					<ExtensionHeader extBag={this.PropertyBag} pinEvent={this.props.handlePin} closeEvent={this.props.handleClose}></ExtensionHeader>	
+					this.props.HasHeader !== false && 
+					<ExtensionHeader
+						extBag={this.props}
+						pinEvent={this.props.handlePin}
+						closeEvent={this.props.handleClose}></ExtensionHeader>	
 				}
 				<div className="ext-base-content-area">{this.ExtRender()}</div>	
 			</div>

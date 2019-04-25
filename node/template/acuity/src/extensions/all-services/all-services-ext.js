@@ -6,24 +6,28 @@ import './all-services-ext.css';
 
 export class AllServicesExtension extends ExtBase
 {
-	constructor( props )
-	{	//	console.debug( "AllServicesExtension.props", props );
-		super( props );
-		return;
+	static defaultProps = {
+		Title: "All Services",
+		Subtitle: "Services available on Azure",
+		Path: Utils.FormatPathFromTitle( "all services" ),
+		BreadcrumbTitle: "All services",
+		Icon: SvgIcon.Extensions.AllServices,
+		IsSelected: false,
+		HasHeader: true,
+		HasBreadcrumb: true,
+		Columns: [],
+		Data: []
 	};
-	static PropertyBag = {
-		_title : "All Azure Services",
-		_breadcrumb_title: "All Services",
-		_icon: SvgIcon.Extensions.AllServices,
-		_path: Utils.FormatPathFromTitle( "All Azure Services" ),
-		_hasHeader: false,
-		_hasBreadcrumb: true
-	};
+	//constructor( props )
+	//{
+	//	super( props );
+	//	return;
+	//};
 	ExtRender()
 	{
 		return (
 			<div className="all-services-list-ext">
-				<div>{AllServicesExtension.Ext_Title()}</div>
+				<div>{this.Title}</div>
 				{
 					this.props.debug === true &&
 					<h1 className="debug-on">debug: prototype</h1>

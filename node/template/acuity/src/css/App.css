@@ -152,6 +152,7 @@ main > *
 	order:3;
 	background-color:rgba(255,255,255,1);
 	box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+	z-index:1;
 }
 .context-panel-header
 {

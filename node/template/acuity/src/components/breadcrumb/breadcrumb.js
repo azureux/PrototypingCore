@@ -1,9 +1,6 @@
 ﻿import React from 'react';
 import './breadcrumb.css';
 import BreadCrumbButton from "./breadcrumb-button.js";
-//	import SvgIcon from "./../svg-icons/svg-icon.js";
-//	import { Utilities as Utils } from "./../../js/utilities.js";
-//	import { AllExtensionsList as Extensions } from "./../../extensions-list.js";
 
 export default class BreadCrumbControl extends React.Component
 {

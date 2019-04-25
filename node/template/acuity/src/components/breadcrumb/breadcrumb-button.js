@@ -48,13 +48,13 @@ export default class BreadCrumbButton extends Component
 				{
 					this.HasArrow() &&
 					<span className="bread-crumb-panel" onClick={this.HandleClick}>
-						<span className="bread-crumb-text">{this.props.extension.Ext_BreadCrumbTitle()}</span>
+						<span className="bread-crumb-text">{this.props.extension.defaultProps.BreadcrumbTitle}</span>
 					</span>
 				}
 				{
 					!this.HasArrow() &&
 					<span className="bread-crumb-panel">
-						<span className="bread-crumb-text-no-link">{this.props.extension.Ext_BreadCrumbTitle()}</span>
+						<span className="bread-crumb-text-no-link">{this.props.extension.defaultProps.BreadcrumbTitle}</span>
 					</span>
 				}
 				{

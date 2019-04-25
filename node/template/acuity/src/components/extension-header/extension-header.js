@@ -1,9 +1,6 @@
 ﻿import React from 'react';
 import './extension-header.css';
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
-//	import { Utilities as Utils } from "./../../js/utilities.js";
-//import { SVG as AzureSvgs } from "../../js/old-svg-assets.js";
-//import { ButtonControl as Btn } from "../../standard-controls/button/button.js";
 
 export default class ExtensionHeader extends React.Component
 {
@@ -16,24 +13,10 @@ export default class ExtensionHeader extends React.Component
 		this.PinIcon = SvgIcon.ShellIcons.Pin1;
 		this.CloseIcon = SvgIcon.ShellIcons.Close;
 
-		this.Title = ( props.extBag._title || "undefined" );
-		this.SubTitle = ( props.extBag._subtitle|| "Microsoft Corporation" );
-		this.SvgIcon = ( props.extBag._icon || SvgIcon.Icons.Default);
+		this.Title = ( props.extBag.Title || "undefined" );
+		this.SubTitle = ( props.extBag.Subtitle|| "Microsoft Corporation" );
+		this.SvgIcon = ( props.extBag.Icon || SvgIcon.Icons.Default);
 
-		return;
-	};
-	componentWillMount()
-	{	//	console.debug( "componentWillMount" );
-		return;
-	};
-	componentDidMount()
-	{	//	console.debug( "componentDidMount" );
-		//	Utils.InjectControlCss( this.CssFileID, this.CssFile );
-		return;
-	};
-	componentWillUnmount()
-	{	//	console.debug( "componentWillUnmount--REMOVE CSS" );
-		//	Utils.RemoveInjectedCss( this.CssFileID, this.CssFile );
 		return;
 	};
 	render()

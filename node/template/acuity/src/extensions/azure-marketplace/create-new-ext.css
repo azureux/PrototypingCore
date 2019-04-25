@@ -1,18 +1,13 @@
-﻿/*NOT NEEDED BUT OPTIONAL AND LIMITED*/	
-.CreateNewExtension
+﻿.az-mp-ext-render-panel
 {
-	border-right: solid 1px rgba(190,190,190,1);
-	background-color: rgba(252,252,252,1);
-	width: 500px !important;
-}
-
-.cmdBar
-{
-	border-bottom: solid 1px rgba(190,190,190,1);
+	text-align:left;
 	padding:20px;
-
 }
-.contentPanel
+.az-mp-ext-render-panel *
 {
-	padding:20px;
+	text-align:left;
+}
+.az-mp-ext-render-panel > ol, .az-mp-ext-render-panel > ul
+{
+	margin-left:30px;
 }

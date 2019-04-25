@@ -84,13 +84,13 @@ export default class LeftNav extends React.Component
 					this.NavLinks.map( ( item, index ) => (
 						<LeftNavButton
 							key={index}
-							selected={item.PropertyBag._selected}
-							path={item.Ext_Path()}
-							text={item.Ext_Title()}
+							selected={item.defaultProps.IsSelected}
+							path={item.defaultProps.Path}
+							text={item.defaultProps.Title}
 							css={LeftNavButton.Styles.LeftNav}
 							extension={item}
 							navClick={this.props.clickSelect}>
-						<SvgIcon icon={item.Ext_Icon()} />	
+							<SvgIcon icon={item.defaultProps.Icon} />	
 					</LeftNavButton>
 					) )
 				}
@@ -107,13 +107,13 @@ export default class LeftNav extends React.Component
 							this.FavLinks.map( ( item, index ) => (
 								<LeftNavButton
 									key={index}
-									selected={item.PropertyBag._selected}
-									path={item.Ext_Path()}
-									text={item.Ext_Title()}
+									selected={item.defaultProps.IsSelected}
+									path={item.defaultProps.Path}
+									text={item.defaultProps.Title}
 									css={LeftNavButton.Styles.LeftNav}
 									extension={item}
 									navClick={this.props.clickSelect}>
-									<SvgIcon icon={item.Ext_Icon()} />
+									<SvgIcon icon={item.defaultProps.Icon} />	
 								</LeftNavButton>
 							) )
 						}
@@ -126,13 +126,13 @@ export default class LeftNav extends React.Component
 							this.FavLinks.map( ( item, index ) => (
 								<LeftNavButton
 									key={index}
-									selected={item.PropertyBag._selected}
-									path={item.Ext_Path()}
-									text={item.Ext_Title()}
+									selected={item.defaultProps.IsSelected}
+									path={item.defaultProps.Path}
+									text={item.defaultProps.Title}
 									css={LeftNavButton.Styles.LeftNav}
 									extension={item}
 									navClick={this.props.clickSelect}>
-									<SvgIcon icon={item.Ext_Icon()} />
+									<SvgIcon icon={item.defaultProps.Icon} />	
 								</LeftNavButton>
 							) )
 						}

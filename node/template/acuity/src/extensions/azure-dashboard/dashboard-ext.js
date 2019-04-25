@@ -1,24 +1,29 @@
 ﻿import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
 import './dashboard-ext.css';
 import BackgroundImage from './azure-dash-page-01.png';
 
 export class DashboardExtension extends ExtBase 
 {
-	constructor( props )
-	{
-		super( props );
-		return;
+	static defaultProps = {
+		Title: "Azure Dashboard",
+		Subtitle: "https://contoso.microsoft.com - pre-production web server",
+		Path: Utils.FormatPathFromTitle( "dashboard" ),
+		BreadcrumbTitle: "Dashboard",
+		Icon: SvgIcon.Extensions.AzureDashboard,
+		IsSelected: false,
+		HasHeader: false,
+		HasBreadcrumb: true,
+		Columns: [],
+		Data: []
 	};
-	static PropertyBag = {
-		_title: "Azure Dashboard",
-		_breadcrumb_title: "Dashboard",
-		_path: "dashboard",
-		_icon: SvgIcon.Extensions.AzureDashboard,
-		_hasHeader: false,
-		_hasBreadcrumb: false
-	};
+	//constructor( props )
+	//{
+	//	super( props );
+	//	return;
+	//};
 	ExtRender()
 	{
 		return (
