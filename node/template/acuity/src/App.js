@@ -96,47 +96,47 @@ export default class App extends React.Component
 		//	4. assign last item to this.CurrentExtension, even if other lookup fails.
 		//	5. if all lookups fail, go back to default home page
 		console.debug( "App.ProcessRoutes - REFACTOR");
-		//let _paths = Utils.ProcessRoutes();
-		////	console.debug( "_paths", _paths );
-		//let _found_ext = [];
+		let _paths = Utils.ProcessRoutes();
+		//	console.debug( "_paths", _paths );
+		let _found_ext = [];
 
-		//_paths.forEach( function ( v, i, a )
-		//{	//	console.debug( i, v );
-		//	let _found = AllExtensions.filter( function ( item )
-		//	{	//	console.debug( "filter", item.PropertyBag._path, v );
-		//		let _rv = undefined;
-		//		if ( v === item.PropertyBag._path )
-		//		{	//	console.debug( "match" );
-		//			_rv = item;
-		//		}
-		//		return _rv;
-		//	} );
+		_paths.forEach( function ( v, i, a )
+		{	//	console.debug( i, v );
+			let _found = AllExtensions.filter( function ( item )
+			{	//	console.debug( "filter", item.PropertyBag._path, v );
+				let _rv = undefined;
+				if ( v === item.defaultProps.Path)
+				{	//	console.debug( "match" );
+					_rv = item;
+				}
+				return _rv;
+			} );
 
-		//	if ( _found.length > 0 )
-		//	{
-		//		_found_ext.push( _found[0] );
-		//	}
-		//	//	console.debug( "_found", _found );
-		//	return;
-		//} );
-		////console.debug( "_found_ext", _found_ext );
-		////console.debug( "---" );
+			if ( _found.length > 0 )
+			{
+				_found_ext.push( _found[0] );
+			}
+			//	console.debug( "_found", _found );
+			return;
+		} );
+		//console.debug( "_found_ext", _found_ext );
+		//console.debug( "---" );
 
-		//if ( _found_ext.length >= 1 )
-		//{
-		//	if ( _found_ext.length > 1 )
-		//	{
-		//		this.BreadCrumbs = _found_ext;
-		//		this.CurrentExtension = _found_ext[_found_ext.length - 1];
-		//	}
-		//	else if ( _found_ext.length === 1 )
-		//	{
-		//		this.BreadCrumbs = [this.DefaultExtension, _found_ext[_found_ext.length - 1]];
-		//		this.CurrentExtension = _found_ext[_found_ext.length - 1];
-		//	}
-		//}
+		if ( _found_ext.length >= 1 )
+		{
+			if ( _found_ext.length > 1 )
+			{
+				this.BreadCrumbs = _found_ext;
+				this.CurrentExtension = _found_ext[_found_ext.length - 1];
+			}
+			else if ( _found_ext.length === 1 )
+			{
+				this.BreadCrumbs = [this.DefaultExtension, _found_ext[_found_ext.length - 1]];
+				this.CurrentExtension = _found_ext[_found_ext.length - 1];
+			}
+		}
 
-		//	Utils.SetStorage( _paths );
+			Utils.SetStorage( _paths );
 		return;
 	};
 	//ResolveConfig()
@@ -269,7 +269,7 @@ export default class App extends React.Component
 			this.setState( { AllFlyoutsClosed: this.CurrentExtension.name } );
 		}
 
-		//Utils.SetURI( this.BreadCrumbs );
+		Utils.SetURI( this.BreadCrumbs );
 		return;
 	};
 

@@ -1,5 +1,5 @@
 ﻿// TOP LEVEL EXTENSIONS LIST
-import { CreateNewExtension } from './extensions/azure-marketplace/create-new-ext.js';
+import { CreateNewExtension } from './extensions/azure-marketplace/marketplace.js';
 import { DashboardExtension } from './extensions/azure-dashboard/dashboard-ext.js';
 import { HomePageExtension } from './extensions/azure-home/home-ext.js';
 import { AllServicesExtension } from './extensions/all-services/all-services-ext.js';

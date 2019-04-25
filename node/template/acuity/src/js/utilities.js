@@ -668,20 +668,20 @@ class _Utilities
 	{	//	
 		console.debug( "Util.SetURI- REFACTORS" );
 		//	console.debug( "window.location.hash OLD:", window.location.hash);
-		//let _new_hash = [];
+		let _new_hash = [];
 
-		//extensions.forEach( function ( v, i, a )
-		//{	//	console.debug( i, v.PropertyBag._path );
-		//	_new_hash.push( v.defaultProps.Path );
-		//	return;
-		//} );
+		extensions.forEach( function ( v, i, a )
+		{	//	console.debug( i, v.PropertyBag._path );
+			_new_hash.push( v.defaultProps.Path );
+			return;
+		} );
 
-		//_Utilities.SetStorage( _new_hash );
+		_Utilities.SetStorage( _new_hash );
 
-		//let _hash = _new_hash.join( "/" );
-		//window.location.hash = _hash;
-		////	console.debug( "window.location.hash NEW:", window.location.hash );
-		//window.location.replace( window.location.hash );
+		let _hash = _new_hash.join( "/" );
+		window.location.hash = _hash;
+		//	console.debug( "window.location.hash NEW:", window.location.hash );
+		window.location.replace( window.location.hash );
 
 		return;
 	};

@@ -10,7 +10,7 @@ export class AllResourceGroupsExtension extends ExtBase
 		Title: "All resource groups",
 		Subtitle: "Resource groups in your subscriptions",
 		Path: Utils.FormatPathFromTitle( "resource groups" ),
-		BreadcrumbTitle: "Resource grousp",
+		BreadcrumbTitle: "Resource groups",
 		Icon: SvgIcon.Icons.Default,
 		IsSelected: false,
 		HasHeader: true,

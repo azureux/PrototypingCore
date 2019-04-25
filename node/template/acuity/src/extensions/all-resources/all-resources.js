@@ -11,7 +11,7 @@ export class AllResourcesExtension extends ExtensionBase
 		Title: "All resources",
 		Subtitle: "Currently allocated resources in your directory",
 		Path: Utils.FormatPathFromTitle( "All your resources belong to us" ),
-		BreadcrumbTitle: "Virtual machine 0123",
+		BreadcrumbTitle: "Resources",
 		Icon: SvgIcon.Icons.Default,
 		IsSelected: false,
 		HasHeader: false,
