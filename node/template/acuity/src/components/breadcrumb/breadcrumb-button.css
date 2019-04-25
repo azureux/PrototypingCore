@@ -14,8 +14,8 @@
 	display:inline-block;
 	vertical-align:top;
 	order: 2;
-	padding-left:3px;
-	padding-right:3px;
+	/*padding-left:3px;
+	padding-right:3px;*/
 	margin-top:3px;
 }
 .bread-crumb-panel
