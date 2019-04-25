@@ -18,10 +18,6 @@ import { SqlServerExtension } from "./extensions/sql-server/sql-server.js";
 import { MonitoringExtension } from "./extensions/monitoring/monitor.js";
 import { AzureActiveDirectoryExtension } from './extensions/azure-active-directory/azure-active-directory.js';
 
-//	TBD - ADD OTHER EXTENSIONS FOR FULL LIST OF NON-LEFT NAV
-//	INCLUDING FAST - DNA, FABRIC / FLUENT, OTHERS
-
-
 // TOP LEVEL TOOL BAR CONTEXT PANELS
 import { DevConsolePanel } from './components/context-panels-toolbar/dev-console-panel.js';
 import { DirectorySwitcherPanel } from './components/context-panels-toolbar/dir-switch-panel.js';
@@ -30,6 +26,8 @@ import { PortalSettingsPanel } from './components/context-panels-toolbar/portal-
 import { HelpPanel } from './components/context-panels-toolbar/help-panel.js';
 import { FeedbackPanel } from './components/context-panels-toolbar/feedback-panel.js';
 
+//	TBD - ADD OTHER EXTENSIONS FOR FULL LIST OF NON-LEFT NAV
+//	INCLUDING FAST - DNA, FABRIC / FLUENT, OTHERS
 
 // IN RENDERING ORDER
 const _all_extensions = [

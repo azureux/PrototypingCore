@@ -5,17 +5,21 @@ import './sql-server.css';
 
 export class SqlServerExtension extends ExtBase
 {
+	static defaultProps = {
+		Title: "AzureDesignEng-SQL-0179",
+		Subtitle: "https://az-de-.com/ databse",
+		Path: Utils.FormatPathFromTitle( "AzureDesignEng-SQL-0179" ),
+		BreadcrumbTitle: "Virtual machine 0123",
+		Icon: SvgIcon.Extensions.SqlServer,
+		IsSelected: false,
+		HasHeader: true,
+		HasBreadcrumb: true,
+		Columns: [],
+		Data: []
+	};
 	constructor( props )
 	{
 		super( props );
 		return;
-	};
-	static PropertyBag = {
-		_title: "SQL-SERVER-0123",
-		_breadcrumb_title: "SQL-SERVER-0123",
-		_icon: SvgIcon.Extensions.SqlServer,
-		_path: Utils.FormatPathFromTitle( "SQL-SERVER-0123" ),
-		_hasHeader: false,
-		_hasBreadcrumb: true
 	};
 };

@@ -15,7 +15,7 @@ export class HomePageExtension extends ExtBase
 		Icon: SvgIcon.Extensions.AzureHome,
 		IsSelected: false,
 		HasHeader: false,
-		HasBreadcrumb: true,
+		HasBreadcrumb: false,
 		Columns: [],
 		Data: []
 	};

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿//	import React from 'react';
 import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
 import { Utilities as Utils } from "./../../js/utilities.js";
 import SvgIcon from "./../../components/svg-icons/svg-icon.js";
@@ -6,25 +6,29 @@ import './all-resource-groups.css';
 
 export class AllResourceGroupsExtension extends ExtBase
 {
-	constructor( props )
-	{
-		super( props );
-		return;
+	static defaultProps = {
+		Title: "All resource groups",
+		Subtitle: "Resource groups in your subscriptions",
+		Path: Utils.FormatPathFromTitle( "resource groups" ),
+		BreadcrumbTitle: "Resource grousp",
+		Icon: SvgIcon.Icons.Default,
+		IsSelected: false,
+		HasHeader: true,
+		HasBreadcrumb: true,
+		Columns: [],
+		Data: []
 	};
-	static PropertyBag = {
-		_title: "All resource groups",
-		_breadcrumb_title: "Resources Groups",
-		_icon: SvgIcon.Icons.Default,
-		_path: Utils.FormatPathFromTitle( "All resource groups" ),
-		_hasHeader: true,
-		_hasBreadcrumb: true
-	};
-	ExtRender()
-	{
-		return (
-			<div className="all-res-groups-ext">
-				<div>{AllResourceGroupsExtension.Ext_Title()}</div>
-			</div>
-		);
-	};
+	//constructor( props )
+	//{
+	//	super( props );
+	//	return;
+	//};
+	//ExtRender()
+	//{
+	//	return (
+	//		<div className="all-res-groups-ext">
+	//			<div>{this.Title}</div>
+	//		</div>
+	//	);
+	//};
 };

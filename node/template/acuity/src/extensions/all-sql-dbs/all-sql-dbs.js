@@ -6,17 +6,21 @@ import './all-sql-dbs.css';
 
 export class AllSqlDbsExtension extends ExtBase
 {
+	static defaultProps = {
+		Title: "All Microsoft SQL Server databases",
+		Subtitle: "Databases in your directory",
+		Path: Utils.FormatPathFromTitle( "all-ms-sql-dbs" ),
+		BreadcrumbTitle: "SQL Servers",
+		Icon: SvgIcon.Extensions.SqlServer,
+		IsSelected: false,
+		HasHeader: true,
+		HasBreadcrumb: true,
+		Columns: [],
+		Data: []
+	};
 	constructor( props )
 	{
 		super( props );
 		return;
-	};
-	static PropertyBag = {
-		_title :  "All SQL databases",
-		_breadcrumb_title: "SQL Databases",
-		_icon: SvgIcon.Icons.Default,
-		_path: Utils.FormatPathFromTitle( "All SQL Server Databases" ),
-		_hasHeader: true,
-		_hasBreadcrumb: true
 	};
 };

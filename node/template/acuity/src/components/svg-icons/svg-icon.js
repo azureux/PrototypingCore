@@ -214,7 +214,6 @@ export default class SvgIcon extends Component
 	};
 	render()
 	{
-		//	return this.Icon;
 		return ( this.Icon );
 	};
 }

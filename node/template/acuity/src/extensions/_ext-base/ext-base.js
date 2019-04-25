@@ -23,9 +23,10 @@ export class ExtensionBase extends React.Component
 		//	console.debug( "ExtensionBase.props", props );
 		super( props );
 
-		this.Debug = ( this.props.debug || false );
-		this.state = { IsDirty: false };
 		this.ExtensionName = this.constructor.name;
+		this.state = { IsDirty: false };
+
+		this.Debug = ( this.props.debug || false );
 		this.Path = ( this.props.Path || this.Path || ExtensionBase.defaultProps.Path );
 		this.Title = ( this.props.Title || this.Title || this.ExtensionName );
 		this.Subtitle = ( this.props.Subtitle || this.Subtitle || ExtensionBase.defaultProps.Subtitle );
