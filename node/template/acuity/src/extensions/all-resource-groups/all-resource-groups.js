@@ -12,12 +12,12 @@ export class AllResourceGroupsExtension extends ExtBase
 		Path: Utils.FormatPathFromTitle( "resource groups" ),
 		BreadcrumbTitle: "Resource groups",
 		Icon: SvgIcon.Icons.Default,
-		IsSelected: false,
-		HasHeader: true,
-		HasHeaderDocLink: false,
-		HasBreadcrumb: true,
-		Columns: [],
-		Data: []
+		//IsSelected: false,
+		//HasHeader: true,
+		//HasHeaderDocLink: false,
+		//HasBreadcrumb: true,
+		//Columns: [],
+		//Data: []
 	};
 	constructor( props )
 	{

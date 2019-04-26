@@ -67,8 +67,7 @@ export class ExtensionBase extends React.Component
 		);
 	};
 	render()
-	{	//	
-		console.debug( "ExtBase.render()", this.HasHeader, this.props.HasHeader);
+	{	//	console.debug( "ExtBase.render()", this.HasHeader, this.props.HasHeader);
 		return (
 			<div className="ext-base">
 				{

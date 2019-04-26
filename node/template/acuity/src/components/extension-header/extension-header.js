@@ -23,7 +23,8 @@ export default class ExtensionHeader extends React.Component
 		return;
 	};
 	render()
-	{	//	console.debug( "ExtensionHeader::render" );	//	, this.state, this.props );
+	{	//	
+		console.debug( "ExtensionHeader::render::this.props.extBag.HasHeaderDocLink", this.props.extBag.HasHeaderDocLink);
 		return (
 			<div className="ext-header">
 				<div className="ext-header-icon">
@@ -36,7 +37,7 @@ export default class ExtensionHeader extends React.Component
 
 				<div className="ext-header-action-panel">
 					{
-						this.props.extBag.HasHeaderDocLink === true || this.props.extBag.HasHeaderDocLink === undefined &&
+						(this.props.extBag.HasHeaderDocLink === true || this.props.extBag.HasHeaderDocLink === undefined) &&
 						<div className="ext-header-link" onClick={this.props.pinEvent}>
 							<a className="header-doc-link" href={this.DocLink} title={this.DocText}>{this.DocText}</a>
 							<SvgIcon icon={SvgIcon.ShellIcons.ExternalLink} />

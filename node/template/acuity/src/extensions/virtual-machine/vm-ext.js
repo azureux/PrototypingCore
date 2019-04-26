@@ -14,8 +14,8 @@ export class VirtualMachineExtension extends ExtBase
 		Icon: SvgIcon.Extensions.VirtualMachine,
 		IsSelected: false,
 		HasHeader: true,
-		HasHeaderDocLink: true,
-		HasBreadcrumb: true,
+		HasHeaderDocLink: false,
+		HasBreadcrumb: false,
 		Columns: [],
 		Data: []
 	};
