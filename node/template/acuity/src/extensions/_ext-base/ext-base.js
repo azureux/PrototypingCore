@@ -34,8 +34,8 @@ export class ExtensionBase extends React.Component
 		this.BreadCrumbTitle = ( this.props.BreadcrumbTitle || this.BreadCrumbTitle || ExtensionBase.defaultProps.BreadcrumbTitle );
 		this.SvgIcon = ( this.props.Icon || this.Icon || ExtensionBase.defaultProps.Icon );
 		this.IsSelected = ( this.props.IsSelected || this.IsSelected || ExtensionBase.defaultProps.IsSelected );
-		this.HasHeader = ( this.props.HasHeader || this.HasHeader || ExtensionBase.defaultProps.HasHeader );
-		this.HasHeaderDocLink = ( this.props.HasHeaderDocLink  || ExtensionBase.defaultProps.HasHeaderDocLink );
+		this.HasHeader = ( this.props.HasHeader || ExtensionBase.defaultProps.HasHeader );
+		this.HasHeaderDocLink = ( this.props.HasHeaderDocLink || ExtensionBase.defaultProps.HasHeaderDocLink );
 		return;
 	};
 	ExtRender()
@@ -68,7 +68,7 @@ export class ExtensionBase extends React.Component
 	};
 	render()
 	{	//	
-		console.debug( "ExtBase.render()", this.HasHeaderDocLink, this.props.HasHeaderDocLink);
+		console.debug( "ExtBase.render()", this.HasHeader, this.props.HasHeader);
 		return (
 			<div className="ext-base">
 				{

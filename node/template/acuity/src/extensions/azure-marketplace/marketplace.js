@@ -13,8 +13,8 @@ export class CreateNewExtension extends ExtensionBase
 		BreadcrumbTitle: "Marketplace",
 		Icon: SvgIcon.Extensions.CreateNew,
 		//	IsSelected: false,
-		//	HasHeader: true,
-		//	HasHeaderDocLink: false,
+		//HasHeader: true,
+		HasHeaderDocLink: true,
 		//	HasBreadcrumb: false,
 		//	Columns: [],
 		//	Data: []

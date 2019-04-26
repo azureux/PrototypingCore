@@ -36,7 +36,7 @@ export default class ExtensionHeader extends React.Component
 
 				<div className="ext-header-action-panel">
 					{
-						this.props.extBag.HasHeaderDocLink === true &&
+						this.props.extBag.HasHeaderDocLink === true || this.props.extBag.HasHeaderDocLink === undefined &&
 						<div className="ext-header-link" onClick={this.props.pinEvent}>
 							<a className="header-doc-link" href={this.DocLink} title={this.DocText}>{this.DocText}</a>
 							<SvgIcon icon={SvgIcon.ShellIcons.ExternalLink} />
