@@ -14,13 +14,14 @@ export class VirtualMachineExtension extends ExtBase
 		Icon: SvgIcon.Extensions.VirtualMachine,
 		IsSelected: false,
 		HasHeader: true,
+		HasHeaderDocLink: true,
 		HasBreadcrumb: true,
 		Columns: [],
 		Data: []
 	};
-	//constructor( props )
-	//{
-	//	super( props );
-	//	return;
-	//};
+	constructor( props )
+	{
+		super( props );
+		return;
+	};
 };

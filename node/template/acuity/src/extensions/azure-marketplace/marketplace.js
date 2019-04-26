@@ -1,10 +1,10 @@
 ﻿import React from 'react';
-import { ExtensionBase as ExtBase } from "../_ext-base/ext-base.js";
+import { ExtensionBase } from "../_ext-base/ext-base.js";
 import { Utilities as Utils } from "../../js/utilities.js";
 import SvgIcon from "../../components/svg-icons/svg-icon.js";
 import './marketplace.css';
 
-export class CreateNewExtension extends ExtBase
+export class CreateNewExtension extends ExtensionBase
 {
 	static defaultProps = {
 		Title: "Azure Marketplace",
@@ -12,11 +12,12 @@ export class CreateNewExtension extends ExtBase
 		Path: Utils.FormatPathFromTitle( "Extension Base Component" ),
 		BreadcrumbTitle: "Marketplace",
 		Icon: SvgIcon.Extensions.CreateNew,
-		IsSelected: false,
-		HasHeader: false,
-		HasBreadcrumb: true,
-		Columns: [],
-		Data: []
+		//	IsSelected: false,
+		//	HasHeader: true,
+		//	HasHeaderDocLink: false,
+		//	HasBreadcrumb: false,
+		//	Columns: [],
+		//	Data: []
 	};
 	constructor( props )
 	{	

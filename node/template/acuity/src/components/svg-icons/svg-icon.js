@@ -121,6 +121,14 @@ export default class SvgIcon extends Component
 			<svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
 				<path d="M6,18v2h9v11l1,1l1-1V20h9v-2c0-3-2.2-5.4-5-5.9V5.9c1.7-0.4,3-2,3-3.9V0H8v2c0,1.9,1.3,3.4,3,3.9v6.2 C8.2,12.6,6,15,6,18z M12,4c-1.1,0-2-0.9-2-2h12c0,1.1-0.9,2-2,2h-1v10h1c2.2,0,4,1.8,4,4H8c0-2.2,1.8-4,4-4h1V4H12z"/>
 			</svg>
+		),
+		ExternalLink: (
+			<svg viewBox="0 0 16 16" role="presentation" focusable="false" width="100%" height="100%">
+				<g>
+					<path d="M4.992 9.819l8.018-7.991v4.005H14V0H8.167v1h4.038L4.232 8.987l.76.833z"></path>
+					<path d="M12.993 13.03H1.01V1.028h4.823V0H0v14h14V8.167h-1.007v4.863z"></path>
+				</g>
+			</svg>	
 			),
 	};
 	static Extensions = {
@@ -199,6 +207,7 @@ export default class SvgIcon extends Component
 		)
 	};
 	static Misc = {};
+	static Commands = {};
 	static Avatars = {
 		DefaultUser: (
 			<svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">

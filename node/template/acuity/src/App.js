@@ -350,7 +350,8 @@ export default class App extends React.Component
 							this.CurrentExtension.defaultProps.HasBreadcrumb !== false && 
 							<BreadCrumbControl links={this.BreadCrumbs} selectionClick={this.Handle_BreadCrumbSelection} />
 						}
-						<this.CurrentExtension 
+						<this.CurrentExtension
+							{...this.CurrentExtension.defaultProps}
 						debug={this.props.config.Debug}
 						handlePin={this.HandleExtHeaderPin}
 						handleClose={this.HandleExtClose}>

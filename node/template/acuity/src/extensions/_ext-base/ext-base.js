@@ -14,6 +14,7 @@ export class ExtensionBase extends React.Component
 		Icon: SvgIcon.Icons.Default,
 		IsSelected: false,
 		HasHeader: true,
+		HasHeaderDocLink: true,
 		HasBreadcrumb: true,
 		Columns: [],
 		Data: []
@@ -34,6 +35,7 @@ export class ExtensionBase extends React.Component
 		this.SvgIcon = ( this.props.Icon || this.Icon || ExtensionBase.defaultProps.Icon );
 		this.IsSelected = ( this.props.IsSelected || this.IsSelected || ExtensionBase.defaultProps.IsSelected );
 		this.HasHeader = ( this.props.HasHeader || this.HasHeader || ExtensionBase.defaultProps.HasHeader );
+		this.HasHeaderDocLink = ( this.props.HasHeaderDocLink  || ExtensionBase.defaultProps.HasHeaderDocLink );
 		return;
 	};
 	ExtRender()
@@ -52,19 +54,21 @@ export class ExtensionBase extends React.Component
 				</div>
 				<div className="debug-extension-info">
 					<div>ExtensionBase.ExtRender(): {this.ExtensionName}</div>
-					<div>this.SvgIcon: {this.SvgIcon}</div>
+					<div>this.SvgIcon: <span className="debug-svg-icon">{this.SvgIcon}</span></div>
 					<div>this.Path: {this.Path}</div>
 					<div>this.Title: {this.Title}</div>
 					<div>this.Subtitle: {this.Subtitle}</div>
 					<div>this.BreadCrumbTitle: {this.BreadCrumbTitle}</div>
 					<div>this.IsSelected: {this.IsSelected.toString()}</div>
 					<div>this.HasHeader: {this.HasHeader.toString()}</div>
+					<div>this.HasHeaderDocLink: {this.HasHeaderDocLink.toString()}</div>
 					</div>
 			</div>
 		);
 	};
 	render()
-	{	//	console.debug( "ExtBase.render()");
+	{	//	
+		console.debug( "ExtBase.render()", this.HasHeaderDocLink, this.props.HasHeaderDocLink);
 		return (
 			<div className="ext-base">
 				{

@@ -1,4 +1,15 @@
 ﻿.all-res-list-ext
 {
-	border: solid 1px green;
+	/*border: solid 1px red;*/
+	height:100%;
+	width:100%;
+	overflow:hidden;
+}
+
+.all-res-content-panel
+{
+	/*border: solid 1px red;*/
+	overflow: auto;
+	height:100%;
+	width:100%;
 }

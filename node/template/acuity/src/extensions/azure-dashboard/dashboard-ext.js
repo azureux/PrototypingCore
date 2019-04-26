@@ -15,6 +15,7 @@ export class DashboardExtension extends ExtBase
 		Icon: SvgIcon.Extensions.AzureDashboard,
 		IsSelected: false,
 		HasHeader: false,
+		HasHeaderDocLink: false,
 		HasBreadcrumb: false,
 		Columns: [],
 		Data: []

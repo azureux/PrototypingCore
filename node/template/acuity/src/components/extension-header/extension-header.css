@@ -59,10 +59,46 @@
 .ext-header-action-panel
 {
 	/*border: solid 1px blue;*/
-	flex: 0 0 48px;
+	flex: 0 1 auto;
 	text-align:right;
 	vertical-align:top;
 	display:flex;
+}
+
+.ext-header-link
+{
+	/*border: solid 1px lime;*/
+	cursor:pointer;
+	display:flex;
+	flex: 1 1 auto;
+	margin-right:5px;
+	vertical-align:top;
+}
+.ext-header-link > svg
+{
+	/*border: solid 1px red;*/
+	flex: 0 0 16px;
+	margin-right:4px;
+	margin-top:8px;
+	height:10px;
+	width:10px;
+}
+.header-doc-link
+{
+	/*border: solid 1px red;*/
+	text-align:right;
+	flex: 1 1 auto;
+	font-size:13px;
+	color:rgba(1, 92, 218, 0.8);
+	text-decoration:none;
+	padding:6px;
+	padding-right:2px;
+	padding-top:3px;
+}
+.header-doc-link:hover
+{
+	color:rgba(1, 92, 218, 1);
+	text-decoration:underline;
 }
 
 .ext-header-pin
@@ -94,6 +130,7 @@
 	width:24px;
 	padding:3px;
 	cursor:pointer;
+	vertical-align:top;
 }
 .ext-header-close:hover
 {

@@ -15,15 +15,16 @@ export class HomePageExtension extends ExtBase
 		Icon: SvgIcon.Extensions.AzureHome,
 		IsSelected: false,
 		HasHeader: false,
+		HasHeaderDocLink: false,
 		HasBreadcrumb: false,
 		Columns: [],
 		Data: []
 	};
-	//constructor( props )
-	//{
-	//	super( props);
-	//	return;
-	//};
+	constructor( props )
+	{
+		super( props);
+		return;
+	};
 	ExtRender()
 	{
 		return (

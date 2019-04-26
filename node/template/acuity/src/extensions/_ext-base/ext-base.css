@@ -58,3 +58,14 @@
 {
 	text-align:left;
 }
+.debug-svg-icon
+{
+	/*border: solid 1px red;*/
+	display:inline-block;
+}
+.debug-svg-icon > svg
+{
+	/*border: solid 1px red;*/
+	height:24px;
+	vertical-align:middle;
+}

@@ -14,15 +14,16 @@ export class AllResourceGroupsExtension extends ExtBase
 		Icon: SvgIcon.Icons.Default,
 		IsSelected: false,
 		HasHeader: true,
+		HasHeaderDocLink: false,
 		HasBreadcrumb: true,
 		Columns: [],
 		Data: []
 	};
-	//constructor( props )
-	//{
-	//	super( props );
-	//	return;
-	//};
+	constructor( props )
+	{
+		super( props );
+		return;
+	};
 	//ExtRender()
 	//{
 	//	return (

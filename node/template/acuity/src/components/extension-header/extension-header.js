@@ -13,10 +13,13 @@ export default class ExtensionHeader extends React.Component
 		this.PinIcon = SvgIcon.ShellIcons.Pin1;
 		this.CloseIcon = SvgIcon.ShellIcons.Close;
 
-		this.Title = ( props.extBag.Title || "undefined" );
-		this.SubTitle = ( props.extBag.Subtitle|| "Microsoft Corporation" );
-		this.SvgIcon = ( props.extBag.Icon || SvgIcon.Icons.Default);
+		this.Title = ( this.props.extBag.Title || "undefined" );
+		this.SubTitle = ( this.props.extBag.Subtitle|| "Microsoft Corporation" );
+		this.SvgIcon = ( this.props.extBag.Icon || SvgIcon.Icons.Default );
 
+		this.DocText = ( this.props.docText || "Documentation" );
+		this.DocLink = ( this.props.docLink || "https://docs.microsoft.com/en-us/azure/" );
+		this.DocLinkIcon = SvgIcon.ShellIcons.ExternalLink;
 		return;
 	};
 	render()
@@ -30,7 +33,15 @@ export default class ExtensionHeader extends React.Component
 					<div className="eht-title">{this.Title}</div>
 					<div className="eht-subtitle">{this.SubTitle}</div>
 				</div>
+
 				<div className="ext-header-action-panel">
+					{
+						this.props.extBag.HasHeaderDocLink === true &&
+						<div className="ext-header-link" onClick={this.props.pinEvent}>
+							<a className="header-doc-link" href={this.DocLink} title={this.DocText}>{this.DocText}</a>
+							<SvgIcon icon={SvgIcon.ShellIcons.ExternalLink} />
+						</div>
+					}
 					<div className="ext-header-pin" onClick={this.props.pinEvent}>
 						<SvgIcon className="header-pin" icon={this.PinIcon} />
 					</div>
