@@ -17,30 +17,30 @@
 
 .ext-base-content-area
 {
-	/*border: solid 1px red;*/
+	border: solid 1px red;
 	background-color:rgba(255,255,255,1);
 	height:calc(100%);
 	width:calc(100%);
 	overflow:auto;
+	text-align:left;
 }
 
-
-/* REMOVE LATER */
-.ext-debug-panel
-{
-	border: solid 0.1px rgba(192,192,192,1);
-	padding:20px;
-	margin:20px;
-}
-
-.debug-panel
-{
-	font-size:200%;
-}
-.debug-panel > *
+.ext-debug-panel > *
 {
 	text-align:left;
 }
+.ext-debug-panel > ul, .ext-debug-panel > ol
+{
+	text-align:left;
+	margin-left:20px;
+}
+.ext-debug-panel > ul >  li, .ext-debug-panel > ol >li
+{
+	text-align:left;
+	margin-left:20px;
+}
+
+
 .debug-on
 {
 	color: green;
@@ -48,24 +48,4 @@
 .debug-off
 {
 	color: #ff6a00;
-}
-
-.debug-extension-info
-{
-	font-size:24px;
-}
-.debug-extension-info > * 
-{
-	text-align:left;
-}
-.debug-svg-icon
-{
-	/*border: solid 1px red;*/
-	display:inline-block;
-}
-.debug-svg-icon > svg
-{
-	/*border: solid 1px red;*/
-	height:24px;
-	vertical-align:middle;
 }
